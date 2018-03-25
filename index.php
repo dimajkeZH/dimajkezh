@@ -21,8 +21,6 @@ function shutdown()
 }
 register_shutdown_function('shutdown');
 
-
-
 session_start();
 
 $router = new Router;
