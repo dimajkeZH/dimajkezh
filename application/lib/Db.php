@@ -10,12 +10,7 @@ class Db {
 	
 	public function __construct() {
 		$config = require 'application/config/db.php';
-		try{
-			//$this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['name'], $config['user'], $config['password']);
-			$this->db = new PDO('mysql:host=localhost;dbname=flowerbb', 'root', '1234');
-		}catch(PDOException $e){
-			echo "Error: " . $e->getMessage();
-		}
+		$this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['name'], $config['user'], $config['password']);
 	}
 
 	public function query($sql, $params = []) {

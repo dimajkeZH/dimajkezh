@@ -29,15 +29,6 @@ class View {
 		exit;
 	}
 
-	public static function errorCode($code, $level = 0) {
-		http_response_code($code);
-		$path = 'application/views/errors/'.$code.'.php';
-		if (file_exists($path)) {
-			require $path;
-		}
-		exit;
-	}
-
 	public function message($status, $message) {
 		exit(json_encode(['status' => $status, 'message' => $message]));
 	}
@@ -46,4 +37,12 @@ class View {
 		exit(json_encode(['url' => $url]));
 	}
 
+	public static function errorCode($code, $level = 0) {
+		http_response_code($code);
+		$path = 'application/views/errors/'.$code.'.php';
+		if (file_exists($path)) {
+			require $path;
+		}
+		exit;
+	}
 }	

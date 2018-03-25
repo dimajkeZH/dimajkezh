@@ -11,6 +11,18 @@ spl_autoload_register(function($class) {
     }
 });
 
+function shutdown()
+{
+	$error = error_get_last();
+    if ($error['type'] === 1) { 
+        echo '<center>Страница 500.';
+        exit;    
+    }
+}
+register_shutdown_function('shutdown');
+
+
+
 session_start();
 
 $router = new Router;
