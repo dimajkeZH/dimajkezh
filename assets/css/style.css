@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Fira Sans', sans-serif; }
+
+.header_wrapper {
+  width: 100%;
+  background: #0d5899; }
+
+.header {
+  margin: 0px 18.75% 0px  18.75%;
+  height: 130px; }
+
+.header_nav {
+  text-decoration: none;
+  height: 130px; }
+
+.nav_item {
+  text-decoration: none;
+  color: #fff; }
+
+.logo {
+  display: inline-block;
+  margin-top: 45px;
+  margin-bottom: 40px; }
+
+.main_nav {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  float: right; }
+
+.nav {
+  display: block; }
+
+.main_nav a {
+  vertical-align: middle;
+  line-height: 130px;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 50px; }
+
+.footer_wrapper {
+  width: 100%;
+  background: #0d5899; }
+
+.footer {
+  margin: 0px 18.75% 0px  18.75%;
+  height: 120px;
+  color: #fff; }
+
+.footer p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.125; }
+
+.footer > p:nth-child(1) {
+  padding-top: 35px; }
+
+.main_mrapper {
+  width: 100%; }
+
+.services_head_right {
+  background-image: url(services_head.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: relative;
+  height: 800px;
+  width: 1000px;
+  float: right; }
