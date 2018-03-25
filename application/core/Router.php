@@ -30,6 +30,8 @@ class Router {
             $param = $arr[1];
         }elseif($count != 0){
             return false;
+        }else{
+            $param = 0;
         }
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
