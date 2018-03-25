@@ -29,7 +29,7 @@ class View {
 		exit;
 	}
 
-	public static function errorCode($code, $level) {
+	public static function errorCode($code, $level = 0) {
 		http_response_code($code);
 		$path = 'application/views/errors/'.$code.'.php';
 		if (file_exists($path)) {
