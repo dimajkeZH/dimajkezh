@@ -27,6 +27,10 @@ abstract class Controller {
 	}
 
 	public function checkAcl() {
+		$controller = $this->route['controller'];
+		debug($controller);
+		//if(){}
+		/*
 		$this->acl = require 'application/acl/'.$this->route['controller'].'.php';
 		if ($this->isAcl('all')) {
 			return true;
@@ -41,6 +45,7 @@ abstract class Controller {
 			return true;
 		}
 		return false;
+		*/
 	}
 
 	public function isAcl($key) {

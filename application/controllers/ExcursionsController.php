@@ -4,10 +4,10 @@ namespace application\controllers;
 
 use application\core\Controller;
 
-class MainController extends Controller {
+class ExcursionsController extends Controller {
 
 	public function indexAction() {
-		$this->view->render('Главная страница', $vars);
+		$this->view->render('Экскурсии');
 	}
 
 }

@@ -8,28 +8,33 @@ return [
 	],
 
 	'services' => [
-		'controller' => '',
-		'action' => '',
+		'controller' => 'services',
+		'action' => 'index',
 	],
 
 	'buses' => [
-		'controller' => '',
-		'action' => '',
+		'controller' => 'buses',
+		'action' => 'index',
 	],
 
 	'minivans' => [
-		'controller' => '',
-		'action' => '',
+		'controller' => 'minivans',
+		'action' => 'index',
 	],
 
 	'excursions' => [
-		'controller' => '',
-		'action' => '',
+		'controller' => 'excursions',
+		'action' => 'index',
 	],
 
 	'contacts' => [
-		'controller' => '',
-		'action' => '',
+		'controller' => 'contacts',
+		'action' => 'index',
+	],
+	
+	'admin' => [
+		'controller' => 'admin',
+		'action' => 'index',
 	],
 	
 ];
