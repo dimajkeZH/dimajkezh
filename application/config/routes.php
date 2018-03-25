@@ -7,14 +7,29 @@ return [
 		'action' => 'index',
 	],
 
-	'account/login' => [
-		'controller' => 'account',
-		'action' => 'login',
+	'services' => [
+		'controller' => '',
+		'action' => '',
 	],
 
-	'account/register' => [
-		'controller' => 'account',
-		'action' => 'register',
+	'buses' => [
+		'controller' => '',
+		'action' => '',
+	],
+
+	'minivans' => [
+		'controller' => '',
+		'action' => '',
+	],
+
+	'excursions' => [
+		'controller' => '',
+		'action' => '',
+	],
+
+	'contacts' => [
+		'controller' => '',
+		'action' => '',
 	],
 	
 ];
