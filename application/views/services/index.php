@@ -1,1 +1,2 @@
 Услуги
+<?php echo $param; ?>

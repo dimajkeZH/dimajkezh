@@ -8,7 +8,8 @@ abstract class Controller {
 
 	public $route;
 	public $view;
-	public $acl;
+	public $model;
+	//public $acl;
 
 	public function __construct($route) {
 		$this->route = $route;
@@ -28,6 +29,7 @@ abstract class Controller {
 		}
 	}
 
+/*
 	public function checkAcl() {
 		$this->acl = require 'application/acl/'.$this->route['controller'].'.php';
 		if ($this->isAcl('all')) {
@@ -48,5 +50,5 @@ abstract class Controller {
 	public function isAcl($key) {
 		return in_array($this->route['action'], $this->acl[$key]);
 	}
-
+*/
 }

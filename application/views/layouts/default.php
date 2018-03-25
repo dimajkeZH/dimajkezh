@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo $title; ?></title>
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 	<div class="header_wrapper">
@@ -11,7 +11,7 @@
 			<div class="header_nav">
 				<span class="logo">
 					<a href="/">
-						<img src="assets/img/logo.png" alt="">
+						<img src="/assets/img/logo.png" alt="">
 					</a>
 				</span>
 				<div class="main_nav">
