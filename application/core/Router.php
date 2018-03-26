@@ -27,7 +27,6 @@ class Router {
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
                 $this->params['param'] = $this->selectNumber($url);
-                debug($this->params);
                 return true;
             }
         }
@@ -35,7 +34,7 @@ class Router {
     }
 
     public function selectNumber($url){
-        $number = substr_count($url,'/',-1);
+        $number = substr($url,strripos($url,'/')+1);
         return $number;
     }
 

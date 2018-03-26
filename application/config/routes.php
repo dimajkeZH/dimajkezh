@@ -22,9 +22,9 @@ return [
 		'action' => 'index',
 	],
 
-		'buses/page' => [
+		'buses/page/[0-9]{1,}' => [
 			'controller' => 'buses',
-			'action' => 'index',
+			'action' => 'page',
 		],
 
 	'minivans' => [
@@ -32,9 +32,9 @@ return [
 		'action' => 'index',
 	],
 
-		'minivans/page' => [
+		'minivans/page/[0-9]{1,}' => [
 			'controller' => 'minivans',
-			'action' => 'index',
+			'action' => 'page',
 		],
 
 	'excursions' => [
@@ -42,9 +42,9 @@ return [
 		'action' => 'index',
 	],
 
-		'excursions/page' => [
+		'excursions/page/[0-9]{1,}' => [
 			'controller' => 'excursions',
-			'action' => 'index',
+			'action' => 'page',
 		],
 
 	'contacts' => [

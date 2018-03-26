@@ -7,7 +7,7 @@ use application\core\Controller;
 class AdminController extends Controller {
 
 	public function indexAction() {
-		$this->view->render('админка');
+		$this->view->renderIndex('админка', $this->model->getIndexContent());
 	}
 
 }

@@ -7,7 +7,7 @@ use application\core\Controller;
 class MinivansController extends Controller {
 
 	public function indexAction() {
-		$this->view->render('Микроавтобусы');
+		$this->view->renderIndex('Микроавтобусы', $this->model->getIndexContent());
 	}
 
 }
