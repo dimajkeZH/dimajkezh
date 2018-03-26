@@ -1,3 +1,0 @@
-function DisplayCurTable(ID){
-	$('.btn')
-}
