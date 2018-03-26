@@ -23,24 +23,20 @@ class Router {
 
     public function match() {
         $url = trim($_SERVER['REQUEST_URI'], '/');
-        $count = substr_count($url,'/');
-        if($count == 1){
-            $arr = explode('/',$url); 
-            $url = $arr[0];
-            $param = $arr[1];
-        }elseif($count != 0){
-            return false;
-        }else{
-            $param = 0;
-        }
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
-                $this->params['param'] = $param;
+                $this->params['param'] = $this->selectNumber($url);
+                debug($this->params);
                 return true;
             }
         }
         return false;
+    }
+
+    public function selectNumber($url){
+        $number = substr_count($url,'/',-1);
+        return $number;
     }
 
     public function run(){

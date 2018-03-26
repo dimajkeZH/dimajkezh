@@ -12,7 +12,7 @@ return [
 		'action' => 'index',
 	],
 
-		'services/page/[0-9]{1}' => [
+		'services/page/[0-9]{1,}' => [
 			'controller' => 'services',
 			'action' => 'page',
 		],

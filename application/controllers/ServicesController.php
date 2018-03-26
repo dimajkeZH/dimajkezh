@@ -7,7 +7,6 @@ use application\core\Controller;
 class ServicesController extends Controller {
 
 	public function indexAction() {
-		debug(0);
 		$this->view->renderIndex('Услуги', $this->model->getIndexContent());
 	}
 

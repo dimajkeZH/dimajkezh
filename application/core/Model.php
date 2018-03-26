@@ -12,7 +12,7 @@ abstract class Model {
 		$this->db = new Db;
 	}
 
-	public function getContent($param) {
+	public function getContent($param, $controller, $action) {
 		if($param == 0){
 			return 0;
 		}else{
@@ -25,7 +25,7 @@ abstract class Model {
 		
 	}
 
-	public function getTitle($param){
+	public function getTitle($param, $controller, $action){
 		//$result = $this->db->column('');
 	}
 }
