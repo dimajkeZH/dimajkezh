@@ -13,8 +13,10 @@ class View {
 		$this->path = $route['controller'].'/'.$route['action'];
 	}
 
-	public function render($title, $vars = []) {
+	public function renderIndex($title, $vars = []) {
 		extract($vars);
+		debug($vars);
+
 		$path = 'application/views/'.$this->path.'.php';
 		if (file_exists($path)) {
 			ob_start();
@@ -22,6 +24,11 @@ class View {
 			$content = ob_get_clean();
 			require 'application/views/layouts/'.$this->layout.'.php';
 		}
+	}
+
+	public function renderPage($title, $page) {
+		$content = $page;
+		require 'application/views/layouts/'.$this->layout.'.php';
 	}
 
 	public function redirect($url) {

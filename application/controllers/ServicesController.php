@@ -7,8 +7,16 @@ use application\core\Controller;
 class ServicesController extends Controller {
 
 	public function indexAction() {
-		$vars = $this->model->getData($this->route['param']);
-		$this->view->render('Услуги',$vars);
+		debug(0);
+		$this->view->renderIndex('Услуги', $this->model->getIndexContent());
+	}
+
+	public function pageAction() {
+		debug(1);
+		$this->view->renderPage(
+								$this->model->getTitle($this->route['param']),
+								$this->model->getContent($this->route['param'])
+								);
 	}
 
 }
