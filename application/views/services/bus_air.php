@@ -1,39 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-	<link rel="stylesheet" href="../../../assets/css/style.css">
-</head>
-<body>
-	<div class="header_wrapper">
-		<div class="header">
-			<div class="header_nav">
-				<span class="logo">
-					<a href="#">
-						<img src="../../../assets/img/logo.png" alt="">
-					</a>
-				</span>
-				<div class="main_nav">
-					<nav class="nav">
-						<a href="#" class="nav_item">Услуги</a>
-						<a href="#" class="nav_item">Автобусы</a>
-						<a href="#" class="nav_item">Микроавтобусы</a>
-						<a href="#" class="nav_item">Экскурсии</a>
-						<a href="#" class="nav_item">Контакты</a>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="main_wrapper">
+<div class="main_wrapper">
 		<div class="services_other_header">
 			<div class="services_other_title">
 				<p>Автобус в аэропорт</p>
 				<div class="services_other_line"></div>
 			</div>
 			<div class="bus_img">
-				<img src="../../../assets/img/services/bus_min.png" alt="">
+				<img src="/assets/img/services/bus_min.png" alt="">
 			</div>
 			<div class="services_lines">
 				<svg width="100%" height="88px">
@@ -43,7 +15,7 @@
 			<div class="services_other_items">
 				<div class="services_other_item">
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/dme.png" alt="">
+						<img src="/assets/img/services/dme.png" alt="">
 					</div>
 					<div class="services_other_item_text">
 						<p>Домодедово</p>
@@ -51,7 +23,7 @@
 				</div>
 				<div class="services_other_item">
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/svo.png" alt="">
+						<img src="/assets/img/services/svo.png" alt="">
 					</div>
 					<div class="services_other_item_text">
 						<p>Шерементьево</p>
@@ -59,7 +31,7 @@
 				</div>
 				<div class="services_other_item">
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/vko.png" alt="">
+						<img src="/assets/img/services/vko.png" alt="">
 					</div>
 					<div class="services_other_item_text">
 						<p>Внуково</p>
@@ -309,16 +281,3 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer_wrapper">
-		<div class="footer">
-			<p>© Copyright, 2015 ТК "ТриБас" - Все права защищены.
-			</p>
-			<p>
-			При использовании материалов с сайта ссылка на источник обязательна.
-			</p>
-		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="../../../assets/js/script.js"></script>
-</body>
-</html>
