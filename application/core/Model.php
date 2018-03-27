@@ -25,6 +25,35 @@ abstract class Model {
 			View::errorCode(404, 4);
 		}
 	}
+	public function caseLayout($name){
+
+	}
+
+	public function loadBlockHeaderOrder(){
+		//db
+		//extract
+		//require layout
+	}
+
+	public function loadBlockHeaderImages(){
+
+	}
+
+	public function loadBlockTable(){
+
+	}
+
+	public function loadBlockMultiTable(){
+
+	}
+
+	public function loadBlockText(){
+
+	}
+
+	public function loadBlockImages(){
+
+	}
 
 	public function getTitle($route){
 		//$result = $this->db->column('');
