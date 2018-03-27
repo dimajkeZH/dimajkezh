@@ -306,7 +306,10 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	font-size: 30px
 	font-weight: $semibold
 	text-align: center
-	line-height: 110px
+	position: relative
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
 	color: #fff
 .services_other_item_text 
 	background-image: $gradient
@@ -321,6 +324,8 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 .table_type_one, .table_type_two 
 	font-size: 0px
 	margin: 0px 18.75% 0px  18.75%
+.table_type_one 
+	margin-bottom: 80px
 .table_line 
 	width: 55px
 	height: 4px
@@ -328,18 +333,20 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	font-size: 0
 	margin-top: 25px
 	margin-bottom: 75px
-.table_title > p:nth-child(1)
+.table_info  .table_info_title
 	font-size: 40px
 	font-weight: $semibold
-.table_title > p:nth-child(3), .table_title > p:nth-child(5)
+.table_info  .table_info_title_type_two
 	font-size: 24px
 	font-weight: $medium
 	margin-bottom: 50px
-.table_title > p:nth-child(4)
+.table_info  .table_info_main_text
 	font-size: 24px
 	font-weight: $regular
 	margin-bottom: 90px
-
+.table_info 
+	font-size: 24px	
+	font-weight: $regular
 /*УСЛУГИ ТАБЫ*/
 .table_type_one_info_nav
 	height: 75px
@@ -371,8 +378,6 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	display: block
 /*УСЛУГИ ТАБЫ КОНЕЦ*/
 
-.table_type_one_info_table 
-	margin-bottom: 80px
 .table_type_one_info_table table, .table_type_two_info_table table 
 	font-size: 20px
 	border-collapse: collapse
@@ -394,7 +399,6 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	border-bottom: 5px solid $blue
 .table_type_two_info_table 
 	width: 100%
-	margin-bottom: 100px
 .table_type_two_info_table table td
 	width: 25%
 	padding-left: 5%
@@ -403,7 +407,9 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	font-weight: 	$medium
 .table_type_two_info_table table tr td:nth-child(1)
 	font-weight: 	$medium
-
+.table_type_two
+	margin-bottom: 100px
+	padding-top: 125px
 /*УСЛУГИ ТАБЛИЦЫ КОНЕЦ*/
 
 /*УСЛУГИ ДРУГОЕ КОНЕЦ*/

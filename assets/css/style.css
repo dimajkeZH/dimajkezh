@@ -375,7 +375,12 @@
   font-size: 30px;
   font-weight: 600;
   text-align: center;
-  line-height: 110px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   color: #fff; }
 
 .services_other_item_text {
@@ -395,6 +400,9 @@
   font-size: 0px;
   margin: 0px 18.75% 0px  18.75%; }
 
+.table_type_one {
+  margin-bottom: 80px; }
+
 .table_line {
   width: 55px;
   height: 4px;
@@ -403,19 +411,23 @@
   margin-top: 25px;
   margin-bottom: 75px; }
 
-.table_title > p:nth-child(1) {
+.table_info .table_info_title {
   font-size: 40px;
   font-weight: 600; }
 
-.table_title > p:nth-child(3), .table_title > p:nth-child(5) {
+.table_info .table_info_title_type_two {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 50px; }
 
-.table_title > p:nth-child(4) {
+.table_info .table_info_main_text {
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 90px; }
+
+.table_info {
+  font-size: 24px;
+  font-weight: 400; }
 
 /*УСЛУГИ ТАБЫ*/
 .table_type_one_info_nav {
@@ -464,9 +476,6 @@
   display: block; }
 
 /*УСЛУГИ ТАБЫ КОНЕЦ*/
-.table_type_one_info_table {
-  margin-bottom: 80px; }
-
 .table_type_one_info_table table, .table_type_two_info_table table {
   font-size: 20px;
   border-collapse: collapse;
@@ -494,8 +503,7 @@
   border-bottom: 5px solid #0d5899; }
 
 .table_type_two_info_table {
-  width: 100%;
-  margin-bottom: 100px; }
+  width: 100%; }
 
 .table_type_two_info_table table td {
   width: 25%;
@@ -507,6 +515,10 @@
 
 .table_type_two_info_table table tr td:nth-child(1) {
   font-weight: 500; }
+
+.table_type_two {
+  margin-bottom: 100px;
+  padding-top: 125px; }
 
 /*УСЛУГИ ТАБЛИЦЫ КОНЕЦ*/
 /*УСЛУГИ ДРУГОЕ КОНЕЦ*/
