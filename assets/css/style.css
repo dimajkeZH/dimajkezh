@@ -522,3 +522,157 @@
 
 /*УСЛУГИ ТАБЛИЦЫ КОНЕЦ*/
 /*УСЛУГИ ДРУГОЕ КОНЕЦ*/
+/*ЗАКАЗ АВТОБУСОВ НАЧАЛО*/
+.order_header {
+  background-image: url(../img/bus_order/order_header_bcg.png);
+  font-size: 0px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 70px;
+  padding-bottom: 150px;
+  max-height: 1000px; }
+
+.order_header_info_title {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 0.675; }
+
+.order_header_img_one, .order_header_img_two {
+  width: 50%;
+  display: inline-block;
+  position: relative;
+  height: 100%; }
+
+.order_header_img_one img, .order_header_img_two img {
+  width: 73%;
+  height: 100%; }
+
+.order_header_img_one img {
+  margin-right: 27%; }
+
+.order_header_img_two img {
+  margin-left: 27%; }
+
+.order_header_line {
+  width: 55px;
+  height: 4px;
+  background-color: #0d5899;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 0px;
+  margin-top: 20px; }
+
+.order_header_img_two_text, .order_header_img_one_text {
+  width: 34%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#0d5899), to(#148fcb));
+  background-image: -webkit-linear-gradient(left, #0d5899, #148fcb);
+  background-image: -o-linear-gradient(left, #0d5899, #148fcb);
+  background-image: linear-gradient(90deg, #0d5899, #148fcb);
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  height: 110px;
+  position: absolute; }
+
+.order_header_img_one_text {
+  top: 0px;
+  left: 6.7%; }
+
+.order_header_img_two_text {
+  bottom: -65px;
+  left: 39.6%; }
+
+.order_header_img_two_text p, .order_header_img_one_text p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 5px 15px 5px 15px; }
+
+/*ФОРМА НАЧАЛО*/
+.order_form {
+  width: 420px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 0px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  margin-top: 100px; }
+
+.order_form_title {
+  font-size: 29px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  height: 110px; }
+
+.order_form_title p {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%); }
+
+.order_form form {
+  margin-right: 32px;
+  margin-left: 32px; }
+
+.forma_group input, .forma_group select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 20px;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 5px 17px 0px 17px; }
+
+form .forma_group:last-of-type input {
+  margin-bottom: 0px; }
+
+.forma_group {
+  font-size: 0px; }
+
+.forma_group input:focus {
+  border-color: #0d5899; }
+
+.forma_group select option {
+  color: #999999; }
+
+.order_form input, .order_form textarea, .order_form select, .order_form button {
+  color: #999999; }
+
+.order_form input::-webkit-input-placeholder {
+  color: #999999; }
+
+.order_form input:-ms-input-placeholder {
+  color: #999999; }
+
+.order_form input::-ms-input-placeholder {
+  color: #999999; }
+
+.order_form input::placeholder {
+  color: #999999; }
+
+.order_form button {
+  height: 60px;
+  width: 310px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#0d5899), to(#148fcb));
+  background-image: -webkit-linear-gradient(left, #0d5899, #148fcb);
+  background-image: -o-linear-gradient(left, #0d5899, #148fcb);
+  background-image: linear-gradient(90deg, #0d5899, #148fcb);
+  border-width: 0px;
+  margin: 33px 23px; }
+
+.order_form button p {
+  font-size: 27px;
+  font-weight: 600;
+  color: #fff; }
