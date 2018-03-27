@@ -403,16 +403,16 @@
   margin-top: 25px;
   margin-bottom: 75px; }
 
-.table_title p:nth-child(1) {
+.table_title > p:nth-child(1) {
   font-size: 40px;
   font-weight: 600; }
 
-.table_title p:nth-child(3), .table_title p:nth-child(5) {
+.table_title > p:nth-child(3), .table_title > p:nth-child(5) {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 50px; }
 
-.table_title p:nth-child(4) {
+.table_title > p:nth-child(4) {
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 90px; }
