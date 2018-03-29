@@ -170,7 +170,7 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	margin-left: auto
 	font-size: 0
 	margin-top: 25px
-	margin-bottom: 100px
+	margin-bottom: 50px
 .contact_info_items
 	font-size: 0px
 .contact_info_item 
@@ -211,7 +211,7 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	width: 100%
 	position: relative
 	height: auto
-	margin-bottom: 50px
+	padding-top: 50px
 .vacancies_info_item img
 	width: 61%
 	position: relative	
@@ -223,8 +223,8 @@ $gradient: linear-gradient(90deg, $blue, $lightblue)
 	background-image: $gradient
 	color: #fff
 	padding: 60px 0 60px 0
-	top: 50%
-	transform: translate(0,-50%)
+	top: 20%
+	z-index: 1
 .vacancies_info .vacancies_info_item:nth-child(odd) div
 	right: 0
 .vacancies_info_text p 
@@ -542,26 +542,86 @@ form .forma_group:last-of-type input
 .images_text_items
 	height: auto
 	overflow: hidden
+	margin: 0px 14% 0px  9.63%
 .images_text_item
 	width: 100%
-	padding: 0px 25px 0px 130px
 	font-size: 0px
 	position: relative
-	margin-bottom: 200px
+	padding-bottom: 350px
 .images_text_item img 
-	width: 43%
+	width: 51.67%
 	position: relative
 .images_text_item_info
-	width: 57%
+	width: 65.18%
 	background-image: $gradient
 	color: #fff
 	padding: 75px 85px
 	position: absolute
 	text-align: justify
 	top: 130px
-	right: 270px
 .images_text_item_info_title
 	font-size: 28px
 	font-weight: $semibold
 .images_text_item_info_content 
 	font-size: 24px
+.images_text_item:nth-child(even) .images_text_item_img
+	left: 51.67%
+.images_text_item:nth-child(odd) div
+	right: 0px
+
+
+
+//* ЭКСКУРСИИ ГЛАВАНЯ*//
+.excursions_wrapper 
+	margin: 60px 18.75% 0px  18.75%
+	overflow: hidden
+	font-size: 0px
+.excursions_head 
+	padding-bottom: 50px
+	border-bottom: 4px solid $blue
+.excursions_head_title
+	font-size: 40px
+	font-weight: $semibold
+	text-align: center
+.excursions_head_line 
+	width: 55px
+	height: 4px
+	background-color: $blue
+	font-size: 0px
+	margin-right: auto
+	margin-left: auto
+	margin-bottom: 50px
+.excursions_head_text 
+	font-size: 24px
+	font-weight: $regular
+.excursions_items
+	margin-bottom: 60px	
+.excursions_item 
+	border-bottom: 4px solid $blue
+	padding: 40px 0px 40px 0px
+.excursions_item_title 
+	font-size: 32px	
+	font-weight: $semibold
+	margin-bottom: 40px	
+	text-align: center	
+.excursions_item_text 
+	font-size: 24px
+	font-weight: $regular
+	margin-bottom: 40px
+	text-align: center
+.excursions_item_detail 
+	width: 300px
+	height: 55px
+	background-image: $gradient
+	font-size: 24px
+	font-weight: $medium
+	margin-right: auto
+	margin-left: auto
+.excursions_item_detail a
+	text-decoration: none
+	color: #fff
+	width: 100%
+	height: 100%
+	display: block
+	line-height: 55px
+	text-align: center

@@ -28,4 +28,20 @@
 // это ваш селектор с инициализацией табов
 $('#tabs').tabs();
 
-$(".images_text_item").height($(".images_text_item_info").height()); 
+function ResizeWindow(){
+	var item_info = $(".vacancies_info_text").height(), 
+	item_img = $(".vacancies_info_item_img").height(); 
+	var max = Math.max(item_info,item_img); 
+	$(".vacancies_info_item").height(max); 
+	console.log("info_h" + item_info + " img_h: " + item_img + " max:" + max);
+}
+$(window).resize(ResizeWindow);
+
+function ResizeWindow_2(){
+	var item_info = $(".images_text_item_info").height(), 
+	item_img = $(".images_text_item_img").height(); 
+	var max = Math.max(item_info,item_img); 
+	$(".images_text_item").height(max); 
+	console.log("info_h" + item_info + " img_h: " + item_img + " max:" + max);
+}
+$(window).resize(ResizeWindow_2);
