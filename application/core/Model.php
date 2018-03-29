@@ -60,3 +60,31 @@ abstract class Model {
 		return $route['param'];
 	}
 }
+
+/*
+$content = "";
+foreach([1,2,3] as $path){
+	$vars = DB($path);
+	extract($vars);
+	$path .= '.php';
+	ob_start();
+	require $path;
+	$content .= ob_get_clean();
+}
+echo $content;
+
+function DB($number){
+	switch($number){
+		case 1:
+			$str = 'first';
+			break;
+		case 2:
+			$str = 'second';
+			break;
+		case 3:
+			$str = 'third';
+			break;
+	}
+	return [$str => $number.$number.$number];
+}
+*/
