@@ -1,4 +1,4 @@
-<div class="excursions_wrapper">
+	<div class="excursions_wrapper">
 		<div class="excursions_head">
 			<p class="excursions_head_title">Автобусные экскурсии</p>
 			<div class="excursions_head_line"></div>
