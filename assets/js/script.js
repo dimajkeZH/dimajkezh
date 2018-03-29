@@ -27,3 +27,5 @@
 })(jQuery);
 // это ваш селектор с инициализацией табов
 $('#tabs').tabs();
+
+$(".images_text_item").height($(".images_text_item_info").height()); 
