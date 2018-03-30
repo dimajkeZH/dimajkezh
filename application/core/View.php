@@ -48,6 +48,7 @@ class View {
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
+			$title = 'Страница не существует.';
 			require 'application/views/layouts/default.php';
 		}
 		exit;
