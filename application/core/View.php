@@ -24,10 +24,7 @@ class View {
 		}
 	}
 
-	public function renderPage($title, $page) {
-		ob_start();
-		require $page;
-		$content = ob_get_clean();
+	public function renderPage($title, $content) {
 		require 'application/views/layouts/'.$this->layout.'.php';
 	}
 

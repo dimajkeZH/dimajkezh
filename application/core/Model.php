@@ -14,21 +14,52 @@ abstract class Model {
 
 	public function getContent($route) {
 		if($route['controller'] AND $route['action'] AND $route['param']){
-			$tmpls = $this->db->row('');
+			$q = 'SELECT LT.ID, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+			$params = [
+				'COL_NUMBER' => $route['param'],
+				'CONTROLLER' => $route['controller'],
+				'ACTION' => $route['action']
+			];
+			$tmpls = $this->db->row($q, $params);
 			$content = '';
-			foreach($tmpls as $ID){
-				//$data = $this->db->row('');
-				//$content .= caseLayout($ID);
-			}
-			debug($content);
+			for($i = 0; $i < count($tmpls); $i++){
+				$vars = $this->caseVars($tmpls[$i]['ID']);
+				extract($vars);
+				ob_start();
+				require 'application/views/layouts/templates/'.$tmpls[$i]['PATH'].'.php';
+				$content .= ob_get_clean();
+			};
 			return $content;	
 		}else{
 			View::errorCode(404, 4);
 		}
 	}
-	public function caseLayout($name){
-		switch(){
-			case 
+	public function caseVars($ID){
+		
+		return [];
+
+		switch($ID){
+			case 1:
+				$this->loadBlockHeaderOrder();
+				break;
+			case 2:
+				$this->loadBlockHeaderImages();
+				break;
+			case 3:
+				$this->loadBlockTable();
+				break;
+			case 4:
+				$this->loadBlockMultiTable();
+				break;
+			case 5:
+				$this->loadBlockText();
+				break;
+			case 6:
+				$this->loadBlockImages();
+				break;
+			case 7:
+				$this->loadBlockLinks();
+				break;
 		}
 	}
 
@@ -59,9 +90,19 @@ abstract class Model {
 
 	}
 
+	public function loadBlockLinks(){
+
+	}
+
 	public function getTitle($route){
-		//$result = $this->db->column('');
-		return $route['param'];
+		$q = 'SELECT TITLE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = P.ID_LOCATION WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+		$params = [
+			'COL_NUMBER' => $route['param'],
+			'CONTROLLER' => $route['controller'],
+			'ACTION' => $route['action']
+		];
+		$title = $this->db->column($q, $params);
+		return $title;
 	}
 }
 

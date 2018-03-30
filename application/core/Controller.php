@@ -30,13 +30,10 @@ abstract class Controller {
 	}
 
 	public function pageAction() {
-		$this->view->renderPage('kek','application/views/services/bus_air.php');
-		/*
 		$this->view->renderPage(
 			$this->model->getTitle($this->route),
 			$this->model->getContent($this->route)
 		);
-		*/
 	}
 
 /*
