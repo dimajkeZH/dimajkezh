@@ -545,7 +545,7 @@ form .forma_group:last-of-type input
 	width: 100%
 	font-size: 0px
 	position: relative
-	padding-bottom: 200px
+	margin-bottom: 250px
 .images_text_item img 
 	width: 51.67%
 	position: relative
@@ -556,18 +556,19 @@ form .forma_group:last-of-type input
 	padding: 75px 85px
 	position: absolute
 	text-align: justify
-	top: 130px
+	top: 120px
 .images_text_item_info_title
-	font-size: 28px
 	font-weight: $semibold
+	font-size: 28px
 .images_text_item_info_content 
 	font-size: 24px
+ 	line-height: 1.125
 .images_text_item:nth-child(even) .images_text_item_img
 	left: 51.67%
-.images_text_item:nth-child(odd) div
+.images_text_item:nth-child(odd) .images_text_item_info
 	right: 0px
-
-
+.images_text_item_info_text
+	margin: 75px 80px
 
 //* ЭКСКУРСИИ ГЛAВНАЯ*//
 .excursions_wrapper 
@@ -680,3 +681,63 @@ form .forma_group:last-of-type input
 	padding: 40px 0px 40px 0px
 .buses_main_items
 	margin-bottom: 60px	
+
+
+
+.main_head
+	background-image: url(../img/main/bcg_main.png)
+	width: 100%
+	background-repeat: no-repeat
+	background-size: cover
+	font-size: 0px
+.main_order
+	width: 100%
+	position: relative
+.main_order img
+	width: 100%
+.main_order_form 
+	position: absolute
+	top: 8.695%
+	left: 50%
+	transform: translate(-50%, 0%)
+	width: 22%
+	background-color: rgba(0, 0, 0, .4)
+	font-size: 0px
+	display: inline-block
+.main_order_form form 
+	margin-right: 7.62%
+	margin-left: 7.62%
+.main_order_form input, .main_order_form textarea, .main_order_form select, .main_order_form button
+	color: $darkgrey	
+.main_order_form input::placeholder 
+	color: $darkgrey
+.main_order_form button
+	display: block
+	height: 60px
+	width: 87.08%
+	background-image: $gradient
+	border-width: 0px
+	margin: 33px auto
+.main_order_form button p
+	font-size: 27px
+	font-weight: $semibold
+	color: #fff
+.main_order_form_circle img
+	width: 100%
+.main_order_form_circle
+	width: 28.57%
+	position: absolute
+	top: -7.14%
+	left: -14.28%
+.main_head_title span:nth-child(1)
+	font-size: 40px
+	font-weight: $semibold
+.main_head_title span:nth-child(2)
+	font-size: 60px
+	font-weight: $semibold
+	color: $blue
+	margin-left: 80px
+.main_head_title
+	text-align: center
+	margin-top: 20px
+	margin-bottom: 10px
