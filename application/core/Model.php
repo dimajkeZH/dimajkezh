@@ -18,6 +18,7 @@ abstract class Model {
 			$content = '';
 			foreach($tmpls as $ID){
 				//$data = $this->db->row('');
+				//$content .= caseLayout($ID);
 			}
 			debug($content);
 			return $content;	
@@ -26,13 +27,16 @@ abstract class Model {
 		}
 	}
 	public function caseLayout($name){
-
+		switch(){
+			case 
+		}
 	}
 
 	public function loadBlockHeaderOrder(){
 		//db
 		//extract
 		//require layout
+		//return ob_get_clean();
 	}
 
 	public function loadBlockHeaderImages(){
