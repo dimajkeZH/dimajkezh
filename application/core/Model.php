@@ -21,6 +21,9 @@ abstract class Model {
 				'ACTION' => $route['action']
 			];
 			$tmpls = $this->db->row($q, $params);
+			if(!$tmpls){
+				View::errorCode(404);
+			}
 			$content = '';
 			for($i = 0; $i < count($tmpls); $i++){
 				$vars = $this->caseVars($tmpls[$i]['ID']);
@@ -31,7 +34,7 @@ abstract class Model {
 			};
 			return $content;	
 		}else{
-			View::errorCode(404, 4);
+			View::errorCode(404);
 		}
 	}
 	public function caseVars($ID){

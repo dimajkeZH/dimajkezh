@@ -47,13 +47,13 @@ class Router {
                     $controller = new $path($this->params);
                     $controller->$action();
                 } else {
-                    View::errorCode(404, 3);
+                    View::errorCode(404);
                 }
             } else {
-                View::errorCode(404, 2);
+                View::errorCode(404);
             }
         } else {
-            View::errorCode(404, 1);
+            View::errorCode(404);
         }
     }
 
