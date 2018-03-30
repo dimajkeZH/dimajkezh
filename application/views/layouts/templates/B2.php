@@ -1,4 +1,4 @@
-<div class="table_type_one">
+		<div class="table_type_one">
 			<div class="table_info">
 				<p 	class="table_info_title">Трансфер в аэропорт</p>
 				<div class="table_line"></div>
