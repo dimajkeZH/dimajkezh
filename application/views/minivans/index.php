@@ -10,27 +10,27 @@
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ микроавтобуса 7-8 мест</p>
 					<p class="buses_main_item_text"> Volkswagen Multivan 7-8 мест, Huynday Grand Starex 8 мест,	Mercedes Viano 7 мест.</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/minivans/page/1">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ микроавтобус 10 - 12 мест</p>
 					<p class="buses_main_item_text">  Hyundai Grand Starex 10-11 мест, Toyota HiAce 12 мест.</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/minivans/page/2">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ микроавтобуса 26 мест</p>
 					<p class="buses_main_item_text">  Bus Man Liberty 26 мест, Iveco Daily 26 мест.</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/minivans/page/3">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ микроавтобуса 18 - 20 мест</p>
 					<p class="buses_main_item_text">Микроавтобус Ford Transit 18-20 мест, микроавтобус Mercedes Sprinter 515 18-20 мест, микроавтобус  Меrcedes Sprinter VIP 20 местa.</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/minivans/page/4">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Минивэн 6 мест</p>
 					<p class="buses_main_item_text"> Минивэн 6 мест Dodge Caravan, Ford Galaxy. Минивэн 5-6 мест Mercedes Vito.</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/minivans/page/5">Подробнее</a></div>
 				</div>
 			</div>
 		</div>

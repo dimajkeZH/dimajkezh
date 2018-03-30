@@ -11,37 +11,37 @@
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 50 мест</p>
 					<p class="buses_main_item_text">Тарифы - автобус на 50 пассажирских мест. Автобусный парк: Higer KLQ 6129 Q, Yutong ZK 6121 H, Mercedes-Benz Tourismo 350, Golden Dragon ...</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/1">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 42-45 мест.</p>
 					<p class="buses_main_item_text">Тарифы - автобусы на 42-45 пассажирских мест.     автобус Yutong 38 ...</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/2">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 54 - 59 мест</p>
 					<p class="buses_main_item_text">Тарифы - автобусы на 54 и 59 пассажирских места. Автопарк: Man Regio B12, Scania Express, King ...</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/3">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 30,32 места</p>
 					<p class="buses_main_item_text">Тарифы - автобусы на 30-32 пассажирских места.     автобус Yutong 30 ...</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/4">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 28 мест</p>
 					<p class="buses_main_item_text">Тарифы - автобусы на 28 пассажирских мест.     автобус Hundai ...</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/5">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Заказ автобуса 74 места</p>
 					<p class="buses_main_item_text"> Тарифы - автобусы на 74 пассажирских места. Автобус Setra S 228 DT</p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/6">Подробнее</a></div>
 				</div>
 				<div class="buses_main_item">
 					<p class="buses_main_item_title">Каталог автобусов</p>
 					<p class="buses_main_item_text"></p>
-					<div class="buses_main_item_detail"><a href="">Подробнее</a></div>
+					<div class="buses_main_item_detail"><a href="/buses/page/7">Подробнее</a></div>
 				</div>
 			</div>
 		</div>

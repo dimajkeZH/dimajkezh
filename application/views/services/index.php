@@ -21,42 +21,42 @@
 						<p>Автобус в аэропорт</p>
 						<img src="/assets/img/services/air.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/1"><p>Подробнее</p></a>
 						</div>
 					</div>
 					<div class="services_list_item">
 						<p>Автобус на свадьбу</p>
 						<img src="/assets/img/services/wedding.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/2"><p>Подробнее</p></a>
 						</div>
 					</div>
 					<div class="services_list_item">
 						<p>Автобус межгород</p>
 						<img src="/assets/img/services/sities.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/3"><p>Подробнее</p></a>
 						</div>
 					</div>
 					<div class="services_list_item">
 						<p>Список документов для заказных автобусов</p>
 						<img src="/assets/img/services/docs.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/4"><p>Подробнее</p></a>
 						</div>
 					</div>
 					<div class="services_list_item">
 						<p>Срочный заказ автобуса</p>
 						<img src="/assets/img/services/fast.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/5"><p>Подробнее</p></a>
 						</div>
 					</div>
 					<div class="services_list_item">
 						<p>Поездка до границы Украины и обратно</p>
 						<img src="/assets/img/services/ukraine.png" alt="">
 						<div class="services_list_button">
-							<a href="#"><p>Подробнее</p></a>
+							<a href="/services/page/6"><p>Подробнее</p></a>
 						</div>
 					</div>
 				</div>
