@@ -1,4 +1,4 @@
-<div class="images_text">
+			<div class="images_text">
 				<div class="images_text_info">
 					<p class="images_text_title">Автобус Mercedes-Benz Tourismo 50 мест</p>
 					<div class="images_line"></div>
