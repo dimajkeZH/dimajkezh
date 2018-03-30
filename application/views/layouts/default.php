@@ -26,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="div"><?php echo $content; ?></div>
+	<?php echo $content; ?>
 	<div class="footer_wrapper">
 		<div class="footer">
 			<p>© Copyright, 2015 ТК "ТриБас" - Все права защищены.
