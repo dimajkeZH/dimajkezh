@@ -1,14 +1,15 @@
 			<div class="order_header">
-				<div class="order_header_info">
-					<p class="order_header_info_title"><?php if(isset($TITLE)) {echo $TITLE;} ?></p>
-					<div class="order_header_line"></div>
+				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+				<div class="order_header_info">	
+					<p class="order_header_info_title"><?php echo $CONTENT['TITLE']; ?></p><div class="order_header_line"></div>
 				</div>
+				<?php endif; ?>
 				<div class="order_header_img_one">
-					<?php if(isset($LEFT_IMAGE)&&($LEFT_IMAGE != '')): ?>
-					<img src=<?php echo '"'.$LEFT_IMAGE.'"'; ?> alt="">
+					<?php if(isset($CONTENT['LEFT_IMAGE'])&&($CONTENT['LEFT_IMAGE'] != '')): ?>
+					<img src=<?php echo '"'.$CONTENT['LEFT_IMAGE'].'"'; ?> alt="">
 					<?php endif; ?>
-					<?php if(isset($LEFT_IMAGE_SIGN)&&($LEFT_IMAGE_SIGN != '')): ?>
-					<div class="order_header_img_one_text"><p><?php echo $LEFT_IMAGE_SIGN; ?></p></div>
+					<?php if(isset($CONTENT['LEFT_IMAGE_SIGN'])&&($CONTENT['LEFT_IMAGE_SIGN'] != '')): ?>
+					<div class="order_header_img_one_text"><p><?php echo $CONTENT['LEFT_IMAGE_SIGN']; ?></p></div>
 					<?php endif; ?>
 				</div>
 				<div class="order_form">
@@ -42,11 +43,11 @@
 					</form>
 				</div>
 				<div class="order_header_img_two">
-					<?php if(isset($RIGHT_IMAGE)&&($RIGHT_IMAGE != '')): ?>
-					<img src=<?php echo '"'.$RIGHT_IMAGE.'"'; ?> alt="">
+					<?php if(isset($$CONTENT['RIGHT_IMAGE'])&&($$CONTENT['RIGHT_IMAGE']!='')): ?>
+					<img src=<?php echo '"'.$$CONTENT['RIGHT_IMAGE'].'"'; ?> alt="">
 					<?php endif; ?>
-					<?php if(isset($RIGHT_IMAGE_SIGN)&&($RIGHT_IMAGE_SIGN != '')): ?>
-					<div class="order_header_img_two_text"><p><?php echo $RIGHT_IMAGE_SIGN; ?></p></div>
+					<?php if(isset($$CONTENT['RIGHT_IMAGE_SIGN'])&&($$CONTENT['RIGHT_IMAGE_SIGN']!='')): ?>
+					<div class="order_header_img_two_text"><p><?php echo $$CONTENT['RIGHT_IMAGE_SIGN']; ?></p></div>
 					<?php endif; ?>
 				</div>
 			</div>

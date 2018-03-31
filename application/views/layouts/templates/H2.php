@@ -1,8 +1,10 @@
-<div class="services_other_header">
+		<div class="services_other_header">
+			<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE'])): ?>
 			<div class="services_other_title">
-				<p><?php if(isset($TITLE)){echo $TITLE;} ?></p>
+				<p><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="services_other_line"></div>
 			</div>
+			<?php endif; ?>
 			<div class="bus_img">
 				<img src="../../../assets/img/services/bus_min.png" alt="">
 			</div>
@@ -13,38 +15,38 @@
 			</div>
 			<div class="services_other_items">
 				<div class="services_other_item">
-					<?php if(isset($LEFT_IMAGE)): ?>
+					<?php if(isset($CONTENT['LEFT_IMAGE'])AND($CONTENT['LEFT_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"'.$LEFT_IMAGE.'"'; ?> alt="">
+						<img src=<?php echo '"'.$CONTENT['LEFT_IMAGE'].'"'; ?> alt="">
 					</div>
 					<?php endif; ?>
-					<?php if(isset($LEFT_IMAGE_SIGN)): ?>
+					<?php if(isset($CONTENT['LEFT_IMAGE_SIGN'])AND($CONTENT['LEFT_IMAGE_SIGN'])): ?>
 					<div class="services_other_item_text">
-						<p><?php echo $LEFT_IMAGE_SIGN; ?></p>
+						<p><?php echo $CONTENT['LEFT_IMAGE_SIGN']; ?></p>
 					</div>
 					<?php endif; ?>
 				</div>
 				<div class="services_other_item">
-					<?php if(isset($MIDDLE_IMAGE)): ?>
+					<?php if(isset($CONTENT['MIDDLE_IMAGE'])AND($CONTENT['MIDDLE_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"'.$MIDDLE_IMAGE.'"'; ?> alt="">
+						<img src=<?php echo '"'.$CONTENT['MIDDLE_IMAGE'].'"'; ?> alt="">
 					</div>
 					<?php endif; ?>
-					<?php if(isset($MIDDLE_IMAGE_SIGN)): ?>
+					<?php if(isset($CONTENT['MIDDLE_IMAGE_SIGN'])AND($CONTENT['MIDDLE_IMAGE_SIGN'])): ?>
 					<div class="services_other_item_text">
-						<p><?php echo $MIDDLE_IMAGE_SIGN; ?></p>
+						<p><?php echo $CONTENT['MIDDLE_IMAGE_SIGN']; ?></p>
 					</div>
 					<?php endif; ?>
 				</div>
 				<div class="services_other_item">
-					<?php if(isset($RIGHT_IMAGE)): ?>
+					<?php if(isset($CONTENT['RIGHT_IMAGE'])AND($CONTENT['RIGHT_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"'.$RIGHT_IMAGE.'"'; ?> alt="">
+						<img src=<?php echo '"'.$CONTENT['RIGHT_IMAGE'].'"'; ?> alt="">
 					</div>
 					<?php endif; ?>
-					<?php if(isset($RIGHT_IMAGE_SIGN)): ?>
+					<?php if(isset($CONTENT['RIGHT_IMAGE_SIGN'])AND($CONTENT['RIGHT_IMAGE_SIGN'])): ?>
 					<div class="services_other_item_text">
-						<p><?php echo $RIGHT_IMAGE_SIGN; ?></p>
+						<p><?php echo $CONTENT['RIGHT_IMAGE_SIGN']; ?></p>
 					</div>
 					<?php endif; ?>
 				</div>

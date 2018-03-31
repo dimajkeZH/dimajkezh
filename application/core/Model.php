@@ -27,8 +27,9 @@ abstract class Model {
 			$content = '';
 			for($i = 0; $i < count($tmpls); $i++){
 				$vars = $this->caseVars($tmpls[$i]['TMPL_NUMBER'], $tmpls[$i]['ID']);
-				for($j = 0; $j < count($vars); $j++){
-					extract($vars[$j]);
+				extract($vars);
+				if(isset($CONTENT[0])){
+					$CONTENT = $CONTENT[0];
 				}
 				ob_start();
 				require 'application/views/layouts/templates/'.$tmpls[$i]['PATH'].'.php';
@@ -45,15 +46,17 @@ abstract class Model {
 
 		switch($TMPL){
 			case 1:
-				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 			case 2:
-				return $this->db->row('SELECT * FROM BLOCK_HEADER_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 			case 3:
-				return [];
-				$this->loadBlockTable();
-				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_TABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['DATA'] = $this->db->row('SELECT * FROM DATA_TABLE WHERE ID_TABLE = :ID', ['ID' => $return['CONTENT'][0]['ID']]);
+				return $return;
 				break;
 			case 4:
 				return [];

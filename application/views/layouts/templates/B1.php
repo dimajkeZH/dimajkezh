@@ -1,77 +1,34 @@
 		<div class="table_type_two">
 			<div class="table_info">
-				<p class="table_info_title">Минивэны в Аэропорт</p>
+				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+				<p class="table_info_title"><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="table_line"></div>
-				<p class="table_info_title_type_two">Информация о багаже.</p>
-				<p class="table_info_main_text">Если клиенты летят без багажа, не лишним будет предупредить об этом диспетчера. Этой информацией наши сотрудники будут руководствоваться при расчете времени подачи автобуса. В случае наличия багажа, важно уточнить его объем, для выбора класса авто. Автобус на 30 мест способны разместить в багажном отделении не более 20 больших чемоданов а микроавтобусы на 18-20 мест вообще не имеют отдельного отсека для чемоданов. То же самое касается и минивэнов. </p>
+				<?php endif; ?>
+				<?php if(isset($CONTENT['SUBTITLE'])AND($CONTENT['SUBTITLE']!='')): ?>
+				<p class="table_info_title_type_two"><?php echo $CONTENT['SUBTITLE']; ?></p>
+				<?php endif; ?>
+				<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
+				<p class="table_info_main_text"><?php echo $CONTENT['DESCR']; ?></p>
+				<?php endif; ?>
 			</div>
 			<div class="table_type_two_info">
+				<?php if(isset($DATA)AND(count($DATA)>0)): ?>
 				<div class="table_type_two_info_table">
 					<table>
-						<tr>
-							<td>Поездка в аэропорт цены указаны в рублях</td>
-							<td>Шереметьево <br>
-							6/8/10-11мест</td>
-							<td>Домодедово <br>
-							6/8/10-11мест</td>
-							<td>Внуково <br>
-							6/8/10-11мест</td>
-						</tr>
-						<tr>
-							<td>Центр</td>
-							<td>1350/1700/2200</td>
-							<td>1400/1800/2300</td>
-							<td>1300/1600/2100</td>
-						</tr>
-						<tr>
-							<td>Север</td>
-							<td>1300/1600/2100</td>
-							<td>1500/2000/2500</td>
-							<td>1400/1800/2300</td>
-						</tr>
-						<tr>
-							<td>Северо-Запад</td>
-							<td>1300/1600/2100</td>
-							<td>1500/2000/2500</td>
-							<td>1350/1900/2400</td>
-						</tr>
-						<tr>
-							<td>Северо-Восток</td>
-							<td>1300/1600/2100</td>
-							<td>1500/2000/2500</td>
-							<td>1400/1800/2300</td>
-						</tr>
-						<tr>
-							<td>Запад</td>
-							<td>1350/1700/2200</td>
-							<td>1450/1900/2400</td>
-							<td>1300/1600/2100</td>
-						</tr>
-						<tr>
-							<td>Восток</td>
-							<td>1400/1800/2300</td>
-							<td>1400/1800/2300</td>
-							<td>1400/1800/2300</td>
-						</tr>
-						<tr>
-							<td>Юг</td>
-							<td>1450/1900/2400</td>
-							<td>1400/1800/2300</td>
-							<td>1300/1600/2100</td>
-						</tr>
-						<tr>
-							<td>Юго-запад</td>
-							<td>1400/1800/2300</td>
-							<td>1350/1900/2400</td>
-							<td>1300/1600/2100</td>
-						</tr>
-						<tr>
-							<td>Юго-восток</td>
-							<td>1450/1900/2400</td>
-							<td>1400/1800/2300</td>
-							<td>1350/1700/2200</td>
-						</tr>
+						<?php
+						foreach($DATA as $key => $val){
+							$NEWDATA[$val['ROW']][$val['COL']] = $val['VAL'];
+						}
+						for($i = 1; $i <= count($NEWDATA); $i++){
+							echo '<tr>';
+							for($j = 1; $j <= count($NEWDATA[$i]); $j++){
+								echo '<td>'.$NEWDATA[$i][$j].'</td>';
+							}
+							echo '</tr>';
+						}
+						?>
 					</table>
 				</div>
+				<?php endif; ?>
 			</div>
 		</div>
