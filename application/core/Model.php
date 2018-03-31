@@ -41,9 +41,8 @@ abstract class Model {
 		}
 	}
 	public function caseVars($TMPL, $ID){
-		
-		//return [];
-
+		$return['CONTENT'] = [];
+		$return['DATA'] = [];
 		switch($TMPL){
 			case 1:
 				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
