@@ -20,7 +20,7 @@ class Db {
 				$stmt->bindValue(':'.$key, $val);
 			}
 		}
-		$stmt->execute();
+		$stmt->execute(); 
 		return $stmt;
 	}
 

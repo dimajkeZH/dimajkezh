@@ -1,6 +1,6 @@
 <div class="services_other_header">
 			<div class="services_other_title">
-				<p>Автобус в аэропорт</p>
+				<p><?php if(isset($TITLE)){echo $TITLE;} ?></p>
 				<div class="services_other_line"></div>
 			</div>
 			<div class="bus_img">
@@ -13,28 +13,40 @@
 			</div>
 			<div class="services_other_items">
 				<div class="services_other_item">
+					<?php if(isset($LEFT_IMAGE)): ?>
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/dme.png" alt="">
+						<img src=<?php echo '"'.$LEFT_IMAGE.'"'; ?> alt="">
 					</div>
+					<?php endif; ?>
+					<?php if(isset($LEFT_IMAGE_SIGN)): ?>
 					<div class="services_other_item_text">
-						<p>Домодедово</p>
+						<p><?php echo $LEFT_IMAGE_SIGN; ?></p>
 					</div>
+					<?php endif; ?>
 				</div>
 				<div class="services_other_item">
+					<?php if(isset($MIDDLE_IMAGE)): ?>
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/svo.png" alt="">
+						<img src=<?php echo '"'.$MIDDLE_IMAGE.'"'; ?> alt="">
 					</div>
+					<?php endif; ?>
+					<?php if(isset($MIDDLE_IMAGE_SIGN)): ?>
 					<div class="services_other_item_text">
-						<p>Шерементьево</p>
+						<p><?php echo $MIDDLE_IMAGE_SIGN; ?></p>
 					</div>
+					<?php endif; ?>
 				</div>
 				<div class="services_other_item">
+					<?php if(isset($RIGHT_IMAGE)): ?>
 					<div class="services_other_item_img">
-						<img src="../../../assets/img/services/vko.png" alt="">
+						<img src=<?php echo '"'.$RIGHT_IMAGE.'"'; ?> alt="">
 					</div>
+					<?php endif; ?>
+					<?php if(isset($RIGHT_IMAGE_SIGN)): ?>
 					<div class="services_other_item_text">
-						<p>Внуково</p>
+						<p><?php echo $RIGHT_IMAGE_SIGN; ?></p>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

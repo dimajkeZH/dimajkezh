@@ -1,13 +1,15 @@
-<div class="order_header">
+			<div class="order_header">
 				<div class="order_header_info">
-					<p class="order_header_info_title">Заказ автобуса 50 мест</p>
+					<p class="order_header_info_title"><?php if(isset($TITLE)) {echo $TITLE;} ?></p>
 					<div class="order_header_line"></div>
 				</div>
 				<div class="order_header_img_one">
-					<img src="../../../assets/img/bus_order/mers-benz-tourismo350.png" alt="">
-					<div class="order_header_img_one_text">
-						<p>Mercedes-Benz Tourismo 350</p>
-					</div>
+					<?php if(isset($LEFT_IMAGE)&&($LEFT_IMAGE != '')): ?>
+					<img src=<?php echo '"'.$LEFT_IMAGE.'"'; ?> alt="">
+					<?php endif; ?>
+					<?php if(isset($LEFT_IMAGE_SIGN)&&($LEFT_IMAGE_SIGN != '')): ?>
+					<div class="order_header_img_one_text"><p><?php echo $LEFT_IMAGE_SIGN; ?></p></div>
+					<?php endif; ?>
 				</div>
 				<div class="order_form">
 					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
@@ -40,9 +42,11 @@
 					</form>
 				</div>
 				<div class="order_header_img_two">
-					<img src="../../../assets/img/bus_order/king-long-6129.png" alt="">
-					<div class="order_header_img_two_text">
-						<p>King Long 6129</p>
-					</div>
+					<?php if(isset($RIGHT_IMAGE)&&($RIGHT_IMAGE != '')): ?>
+					<img src=<?php echo '"'.$RIGHT_IMAGE.'"'; ?> alt="">
+					<?php endif; ?>
+					<?php if(isset($RIGHT_IMAGE_SIGN)&&($RIGHT_IMAGE_SIGN != '')): ?>
+					<div class="order_header_img_two_text"><p><?php echo $RIGHT_IMAGE_SIGN; ?></p></div>
+					<?php endif; ?>
 				</div>
 			</div>

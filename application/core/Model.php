@@ -14,7 +14,7 @@ abstract class Model {
 
 	public function getContent($route) {
 		if($route['controller'] AND $route['action'] AND $route['param']){
-			$q = 'SELECT LT.ID, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$params = [
 				'COL_NUMBER' => $route['param'],
 				'CONTROLLER' => $route['controller'],
@@ -26,8 +26,10 @@ abstract class Model {
 			}
 			$content = '';
 			for($i = 0; $i < count($tmpls); $i++){
-				$vars = $this->caseVars($tmpls[$i]['ID']);
-				extract($vars);
+				$vars = $this->caseVars($tmpls[$i]['TMPL_NUMBER'], $tmpls[$i]['ID']);
+				for($j = 0; $j < count($vars); $j++){
+					extract($vars[$j]);
+				}
 				ob_start();
 				require 'application/views/layouts/templates/'.$tmpls[$i]['PATH'].'.php';
 				$content .= ob_get_clean();
@@ -37,64 +39,40 @@ abstract class Model {
 			View::errorCode(404);
 		}
 	}
-	public function caseVars($ID){
+	public function caseVars($TMPL, $ID){
 		
-		return [];
+		//return [];
 
-		switch($ID){
+		switch($TMPL){
 			case 1:
-				$this->loadBlockHeaderOrder();
+				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 2:
-				$this->loadBlockHeaderImages();
+				return $this->db->row('SELECT * FROM BLOCK_HEADER_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 3:
+				return [];
 				$this->loadBlockTable();
+				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 4:
+				return [];
 				$this->loadBlockMultiTable();
+				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 5:
-				$this->loadBlockText();
+				return $this->db->row('SELECT * FROM BLOCK_TEXT WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 6:
+				return [];
 				$this->loadBlockImages();
+				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				break;
 			case 7:
-				$this->loadBlockLinks();
+				//return $this->db->row('SELECT * FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return [];
 				break;
 		}
-	}
-
-	public function loadBlockHeaderOrder(){
-		//db
-		//extract
-		//require layout
-		//return ob_get_clean();
-	}
-
-	public function loadBlockHeaderImages(){
-
-	}
-
-	public function loadBlockTable(){
-
-	}
-
-	public function loadBlockMultiTable(){
-
-	}
-
-	public function loadBlockText(){
-
-	}
-
-	public function loadBlockImages(){
-
-	}
-
-	public function loadBlockLinks(){
-
 	}
 
 	public function getTitle($route){
@@ -108,31 +86,3 @@ abstract class Model {
 		return $title;
 	}
 }
-
-/*
-$content = "";
-foreach([1,2,3] as $path){
-	$vars = DB($path);
-	extract($vars);
-	$path .= '.php';
-	ob_start();
-	require $path;
-	$content .= ob_get_clean();
-}
-echo $content;
-
-function DB($number){
-	switch($number){
-		case 1:
-			$str = 'first';
-			break;
-		case 2:
-			$str = 'second';
-			break;
-		case 3:
-			$str = 'third';
-			break;
-	}
-	return [$str => $number.$number.$number];
-}
-*/
