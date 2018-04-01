@@ -1,10 +1,15 @@
 	<div class="main_wrapper">
 		<div class="buses_main">
 			<div class="buses_main_head">
-				<p class="buses_main_head_title">Аренда и заказ автобуса в Москве</p>
+				<?php if(isset($TITLE)AND($TITLE[0]!="")): ?>
+				<p class="buses_main_head_title"><?php echo $TITLE[0]; ?></p>
 				<div class="buses_main_head_line"></div>
-				<p class="buses_main_head_text">Такую услугу, как заказ автобуса в Москве, компания «ТриБас-М» предлагает своим клиентам уже более трех лет. В нашем парке достаточно машин разной вместимости. Мы располагаем автобусами Hyndai Counti, Hyundai Universe, Higer, Yutong, Mercedes-Benz, Golden Dragon,  вместимость которых составляет, соответственно от 28 до 63 мест. </p>
-				<p class="buses_main_head_text">Следует заметить, что автобусы, которые мы предлагаем по действительно демократичным расценкам, проходят своевременно сервисное обслуживание и находятся в отличном техническом состоянии. Подача к месту посадки пассажиров происходит оперативно, так как наши опытные водители, отлично ориентирующиеся в столице и ее окрестностях. Необходимо также отметить, что для заказчиков у нас предусмотрена система скидок, делающая наше предложение еще более привлекательным. Компания «ТриБас-М» всегда поддерживает свои автобусы в превосходном техническом состоянии.</p>
+				<?php endif; ?>
+				<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
+				<?php foreach($DESCR as $key=>$val): ?>
+				<p class="buses_main_head_text"><?php echo $val; ?></p>
+				<?php endforeach; ?>
+				<?php endif; ?>
 				<p class="buses_main_head_title_two">Информация по тарифам на страницах сайта</p>
 			</div>
 			<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>

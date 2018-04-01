@@ -3,13 +3,22 @@
 			<div class="services_head">
 				<div class="services_head_info">
 					<img src="/assets/img/services/services_head.png" alt="">
+					<?php if((isset($TITLE)AND($TITLE[0]!=''))OR((isset($DESCR))AND(count($DESCR)>0))): ?>
 					<div class="services_head_text">
-						<p>Услуги</p>
-						<p>Выберите любую услугу из перечня и сделайте заказ автобуса в нашей компании. Наши опытные диспетчера и профессиональные водители будут рады ждут ваших заказов в любое время суток. Компания "ТриБас-М" предоставляет надежный парк автобусов. Круглосуточная работа диспетчерской, обеспечивает высокое качество нашего сервиса, оказания услуг по перевозке пассажиров в городе Москве и Московской области.</p>
+						<?php if(isset($TITLE)): ?>
+						<p><?php echo $TITLE[0]?></p>
+						<?php endif; ?>
+						<?php if(isset($TITLE)): ?>
+							<?php foreach($DESCR as $key => $val): ?>
+							<p><?php echo $val; ?></p>
+							<?php endforeach; ?>
+						<?php endif; ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
+		<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>
 		<div class="services_list_wrapper">
 			<div class="services_list">
 				<div class="services_list_title">
@@ -17,49 +26,17 @@
 					 <div class="services_line"></div>
 				</div>
 				<div class="services_list_items">
+					<?php for($i = 0; $i< count($PAGELIST); $i++): ?>
 					<div class="services_list_item">
-						<p>Автобус в аэропорт</p>
-						<img src="/assets/img/services/air.png" alt="">
+						<p><?php echo $PAGELIST[$i]['TITLE']; ?></p>
+						<img src=<?php echo '"/assets/img/services/'.$PAGELIST[$i]['IMAGE'].'"'; ?> alt="">
 						<div class="services_list_button">
-							<a href="/services/page/1"><p>Подробнее</p></a>
+							<a href=<?php echo '"'.$PAGELIST[$i]['LINK'].'"'; ?>><p>Подробнее</p></a>
 						</div>
 					</div>
-					<div class="services_list_item">
-						<p>Автобус на свадьбу</p>
-						<img src="/assets/img/services/wedding.png" alt="">
-						<div class="services_list_button">
-							<a href="/services/page/2"><p>Подробнее</p></a>
-						</div>
-					</div>
-					<div class="services_list_item">
-						<p>Автобус межгород</p>
-						<img src="/assets/img/services/sities.png" alt="">
-						<div class="services_list_button">
-							<a href="/services/page/3"><p>Подробнее</p></a>
-						</div>
-					</div>
-					<div class="services_list_item">
-						<p>Список документов для заказных автобусов</p>
-						<img src="/assets/img/services/docs.png" alt="">
-						<div class="services_list_button">
-							<a href="/services/page/4"><p>Подробнее</p></a>
-						</div>
-					</div>
-					<div class="services_list_item">
-						<p>Срочный заказ автобуса</p>
-						<img src="/assets/img/services/fast.png" alt="">
-						<div class="services_list_button">
-							<a href="/services/page/5"><p>Подробнее</p></a>
-						</div>
-					</div>
-					<div class="services_list_item">
-						<p>Поездка до границы Украины и обратно</p>
-						<img src="/assets/img/services/ukraine.png" alt="">
-						<div class="services_list_button">
-							<a href="/services/page/6"><p>Подробнее</p></a>
-						</div>
-					</div>
+					<?php endfor; ?>
 				</div>
 			</div>
 		</div>
+		<?php endif; ?>
 	</div>

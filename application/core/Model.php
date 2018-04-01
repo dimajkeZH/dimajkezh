@@ -34,7 +34,7 @@ abstract class Model {
 				ob_start();
 				require 'application/views/layouts/templates/'.$tmpls[$i]['PATH'].'.php';
 				$content .= ob_get_clean();
-			};
+			}
 			return $content;	
 		}else{
 			View::errorCode(404);
