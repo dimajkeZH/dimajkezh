@@ -25,30 +25,49 @@ a {
   text-decoration: none;
   height: 130px; }
 
+.logo {
+  display: inline-block;
+  width: 23.33%;
+  height: 130px; }
+
+.logo img {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.main_nav {
+  float: right;
+  width: 76.67%;
+  font-size: 0px;
+  height: 130px; }
+
+.nav {
+  position: relative;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%); }
+
 .nav_item {
+  color: #fff;
+  display: inline-block;
+  margin-left: 5.43%; }
+
+.nav_item a {
+  font-weight: 500;
+  font-size: 20px;
+  display: block;
   text-decoration: none;
   color: #fff; }
 
-.logo {
-  display: inline-block;
-  margin-top: 45px;
-  margin-bottom: 40px; }
-
-.main_nav {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  float: right; }
-
-.nav {
-  display: block; }
-
-.main_nav a {
-  vertical-align: middle;
-  line-height: 130px;
-  font-weight: 500;
-  font-size: 20px;
-  margin-left: 50px; }
+.subnav {
+  display: none;
+  font-size: 20px; }
 
 .footer_wrapper {
   width: 100%;
@@ -247,13 +266,14 @@ a {
 
 .vacancies_info {
   margin: 0px 16% 0px 16%;
-  font-size: 0; }
+  font-size: 0;
+  padding-top: 50px; }
 
 .vacancies_info_item {
   width: 100%;
   position: relative;
   height: auto;
-  padding-top: 50px; }
+  margin-bottom: 50px; }
 
 .vacancies_info_item img {
   width: 61%;

@@ -43,17 +43,19 @@
 				</div>
 				<div class="vacancies_info">
 					<div class="vacancies_info_item">
-						<img src="/assets/img/contacts/drive.png""" alt="">
+						<img class="vacancies_info_item_img" src="../../../assets/img/contacts/drive.png""" alt="">
 						<div class="vacancies_info_text">
 							<p>Водители</p>
-							<p>приглашаем профессиональных водителей с категорией D для работы на автобусах от 20 до 74 мест. График работы сменный, командировки, гражданство РФ.</p>
+							<p>приглашаем профессиональных водителей с категорией D для работы на автобусах от 20 до 74 мест. График работы сменный, командировки, гражданство РФ.
+							</p>
 						</div>
 					</div>
 					<div class="vacancies_info_item">
-						<img src="/assets/img/contacts/translate.png" alt="">
+						<img class="vacancies_info_item_img" src="../../../assets/img/contacts/translate.png" alt="">
 						<div class="vacancies_info_text">
 							<p>Экскурсоводы</p>
-							<p>проведение обзорных экскурсии по Москве, архитектура, исторические места. Знание языков поощряется.</p>
+							<p>проведение обзорных экскурсии по Москве, архитектура, исторические места. Знание языков поощряется.
+							</p>
 						</div>
 					</div>
 				</div>
