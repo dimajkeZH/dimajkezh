@@ -252,7 +252,7 @@
 				</div>
 			</div>
 			<div class="main_news_detail">
-				<a href=""><p>Все новости</p>
+				<a href=""><p>Все новости</p></a>
 			</div>
 		</div>
 	</div>
