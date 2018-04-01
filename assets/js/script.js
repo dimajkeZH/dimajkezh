@@ -49,11 +49,15 @@ $(function() {
 
 
 $(document).ready(function(){
-  $('.main_courusel').slick({
+  $('.main_courusel_items').slick({
   centerMode: true,
-  centerPadding: '60px',
   slidesToShow: 3,
-  infinite: true,
+  initialSlide: 2,
+  variableWidth: true,
+  speed: 500,
+  prevArrow: $('.back'),
+  nextArrow: $('.next'),
+  infinite: false,
   responsive: [
     {
       breakpoint: 768,
