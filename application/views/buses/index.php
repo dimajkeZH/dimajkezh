@@ -1,14 +1,12 @@
 	<div class="main_wrapper">
 		<div class="buses_main">
 			<div class="buses_main_head">
-				<?php if(isset($TITLE)AND($TITLE[0]!="")): ?>
 				<p class="buses_main_head_title"><?php echo $TITLE[0]; ?></p>
 				<div class="buses_main_head_line"></div>
-				<?php endif; ?>
 				<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
-				<?php foreach($DESCR as $key=>$val): ?>
-				<p class="buses_main_head_text"><?php echo $val; ?></p>
-				<?php endforeach; ?>
+					<?php foreach($DESCR as $key=>$val): ?>
+					<p class="buses_main_head_text"><?php echo $val; ?></p>
+					<?php endforeach; ?>
 				<?php endif; ?>
 				<p class="buses_main_head_title_two">Информация по тарифам на страницах сайта</p>
 			</div>

@@ -1,8 +1,12 @@
 	<div class="excursions_wrapper">
 		<div class="excursions_head">
-			<p class="excursions_head_title">Автобусные экскурсии</p>
+			<p class="excursions_head_title"><?php echo $TITLE[0]; ?></p>
 			<div class="excursions_head_line"></div>
-			<p class="excursions_head_text"></p>
+			<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
+				<?php foreach($DESCR as $key=>$val): ?>
+				<p class="buses_main_head_text"><?php echo $val; ?></p>
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</div>
 		<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>
 		<div class="excursions_items">

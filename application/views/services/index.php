@@ -5,10 +5,8 @@
 					<img src="/assets/img/services/services_head.png" alt="">
 					<?php if((isset($TITLE)AND($TITLE[0]!=''))OR((isset($DESCR))AND(count($DESCR)>0))): ?>
 					<div class="services_head_text">
-						<?php if(isset($TITLE)): ?>
 						<p><?php echo $TITLE[0]?></p>
-						<?php endif; ?>
-						<?php if(isset($TITLE)): ?>
+						<?php if(isset($DESCR)): ?>
 							<?php foreach($DESCR as $key => $val): ?>
 							<p><?php echo $val; ?></p>
 							<?php endforeach; ?>
