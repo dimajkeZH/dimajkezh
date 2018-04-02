@@ -1433,3 +1433,34 @@ form .forma_group:last-of-type input {
 
 .catalog_item_link a:hover {
   color: #148fcb; }
+
+.text_wrapper {
+  font-size: 0;
+  margin: 90px 18.75% 0px  18.75%; }
+
+.text_title {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600; }
+
+.text {
+  margin-top: 70px;
+  margin-bottom: 90px; }
+  .text h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 20px 0px; }
+  .text ul {
+    margin: 20px 30px; }
+  .text li {
+    list-style-type: none;
+    font-size: 22px;
+    font-weight: 400; }
+  .text p {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 20px 0px; }
+  .text h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 0px; }
