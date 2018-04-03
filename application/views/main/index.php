@@ -14,7 +14,7 @@
 						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name=""></div>
 						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name=""></div>
 						<div class="forma_group">
-							<select name="" id="" >
+							<select name="" id="user_choice" >
 								<option value="0">---Выбор транспорта---</option>
 								<option value="1">6 Мест</option>
 								<option value="2">7 Мест</option>
@@ -33,7 +33,7 @@
 							</select></div>
 						<div class="forma_group"><input type="text" placeholder="Предложите цену" name=""></div>
 						<div class="forma_group"><input type="text" placeholder="Комментарий" name=""></div>
-						<button type="submit"><p>Заказать</p></button>
+						<button onclick="return order()"><p>Заказать</p></button>
 					</form>
 					<div class="main_order_form_circle">
 						<img src="/assets/img/main/group_comp.png" alt="">
@@ -54,116 +54,58 @@
 			<div class="main_line"></div>
 			<div class="main_cervices_wrapper">
 				<div class="main_cervices_items">
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s1.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Поездки по согласованному маршруту и по фиксированной стоимости</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s2.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Подача за МКАД до 10 км бесплатно</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s3.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Обслуживание свадеб и банкетов</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s4.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Организация экскурсий и туристических поездок</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s5.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Воспользовавшись нашим сервисом, вы можете найти ближайший автобус по доступной цене</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s6.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Встреча в аэропорту с отслеживанием авиарейса</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s7.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Обеспечение пассажирским транспортом корпоративных мероприятий от 500 человек</p>
-					</div>
-				</div>
-				<div class="main_cervices_item">
-					<img src="/assets/img/main/s8.png" alt="" class="main_cervices_item_img">
-					<div class="main_cervices_item_text">
-						<p>Оптимизация маршрутов с предоставлением скидки</p>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="main_courusel_wrapper">
-			<div class="main_courusel">
-				<div class="main_courusel_items">
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/18-20_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>18-20 Мест</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s1.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Поездки по согласованному маршруту и по фиксированной стоимости</p>
 						</div>
 					</div>
-					</div>
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/28_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>28 Мест</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s2.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Подача за МКАД до 10 км бесплатно</p>
 						</div>
 					</div>
-					</div>
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/31_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>31 Место</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s3.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Обслуживание свадеб и банкетов</p>
 						</div>
 					</div>
-					</div>
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/48_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>48 Мест</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s4.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Организация экскурсий и туристических поездок</p>
 						</div>
 					</div>
-					</div>
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/50_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>50 Мест</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s5.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Воспользовавшись нашим сервисом, вы можете найти ближайший автобус по доступной цене</p>
 						</div>
 					</div>
-					</div>
-					<div class="main_courusel_item">
-					<div class="main_courusel_item_img">
-						<img src="/assets/img/main/54_mest.png" alt="">
-						<div class="main_courusel_item_text">
-							<p>54 Места</p>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s6.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Встреча в аэропорту с отслеживанием авиарейса</p>
 						</div>
 					</div>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s7.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Обеспечение пассажирским транспортом корпоративных мероприятий от 500 человек</p>
+						</div>
+					</div>
+					<div class="main_cervices_item">
+						<img src="/assets/img/main/s8.png" alt="" class="main_cervices_item_img">
+						<div class="main_cervices_item_text">
+							<p>Оптимизация маршрутов с предоставлением скидки</p>
+						</div>
 					</div>
 				</div>
-				<div class="next"><img src="/assets/img/main/next.png" alt=""></div>
-				<div class="back"><img src="/assets/img/main/back.png" alt=""></div>
-			</div>	
-			<div class="main_courusel_prises">
-			<a href=""><p>Тарифы</p></a>
 			</div>
 		</div>
+		<?php include $_SERVER['DOCUMENT_ROOT'].'/application/views/layouts/cache/slick.html'; ?>
 		<div class="main_tips">
 			<div class="main_tips_head">
 				<p class="main_tips_head_title">Как заказать автобус?</p>
