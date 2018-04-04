@@ -1,8 +1,8 @@
 	<div class="main_wrapper">
 		<div class="main_head">
+			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<div class="main_head_title">
 				<span>Заказ автобуса с водителем в Москве</span>
-				<span>8 495 798 90 08</span>
 			</div>
 			<div class="main_order">
 				<img src="/assets/img/main/bcg_main2.png" alt="">

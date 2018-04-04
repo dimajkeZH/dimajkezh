@@ -140,7 +140,8 @@ a {
   overflow: hidden; }
 
 .services_head_wrapper {
-  width: 100%; }
+  width: 100%;
+  position: relative; }
 
 .services_head {
   padding: 50px 125px;
@@ -397,11 +398,12 @@ a {
 /*УСЛУГИ ДРУГОЕ*/
 /*УСЛУГИ ХЕДЕР*/
 .services_other_header {
-  margin: 0px 18.75% 0px  18.75%;
-  font-size: 0px; }
+  padding: 0px 18.75% 0px  18.75%;
+  font-size: 0px;
+  position: relative; }
 
 .services_other_title {
-  margin-top: 70px; }
+  padding-top: 70px; }
 
 .services_other_title p {
   text-align: center;
@@ -741,7 +743,8 @@ form .forma_group:last-of-type input {
 .order_form button p {
   font-size: 27px;
   font-weight: 600;
-  color: #fff; }
+  color: #fff;
+  cursor: pointer; }
 
 .images_text_info {
   margin: 0px 18.75% 80px  18.75%; }
@@ -802,9 +805,10 @@ form .forma_group:last-of-type input {
   margin: 75px 80px; }
 
 .excursions_wrapper {
-  margin: 100px 18.75% 0px  18.75%;
+  padding: 100px 18.75% 0px  18.75%;
   overflow: hidden;
-  font-size: 0px; }
+  font-size: 0px;
+  position: relative; }
 
 .excursions_head {
   padding-bottom: 50px;
@@ -869,7 +873,8 @@ form .forma_group:last-of-type input {
   text-align: center; }
 
 .buses_main {
-  margin: 100px 18.75% 0px  18.75%; }
+  padding: 100px 18.75% 0px  18.75%;
+  position: relative; }
 
 .buses_main_head {
   padding-bottom: 50px;
@@ -946,7 +951,8 @@ form .forma_group:last-of-type input {
   background-size: cover;
   font-size: 0px;
   padding-top: 20px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  position: relative; }
 
 .main_order {
   width: 100%;
@@ -1476,3 +1482,29 @@ form .forma_group:last-of-type input {
     font-size: 24px;
     font-weight: 500;
     margin: 20px 0px; }
+
+.phone_number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 50px;
+  margin-right: 25px; }
+
+.phone_number p {
+  font-size: 50px;
+  color: #0d5899;
+  font-weight: 600; }
+
+.services_head_wrapper .phone_number {
+  top: 0;
+  left: 0;
+  margin-left: 25px; }
+
+.buses_main .phone_number, .excursions_wrapper .phone_number {
+  margin-top: 90px; }
+
+.main_head .phone_number {
+  margin-top: 10px; }
+
+.main_head .phone_number > p {
+  font-size: 60px; }

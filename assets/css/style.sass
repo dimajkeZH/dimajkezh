@@ -115,6 +115,8 @@ a
 	overflow: hidden
 .services_head_wrapper
 	width: 100%
+	position: relative
+
 .services_head 
 	padding: 50px 125px
 	width: 100%
@@ -321,10 +323,11 @@ a
 /*УСЛУГИ ДРУГОЕ*/
 /*УСЛУГИ ХЕДЕР*/
 .services_other_header 
-	margin: 0px 18.75% 0px  18.75%
+	padding: 0px 18.75% 0px  18.75%
 	font-size: 0px
+	position: relative
 .services_other_title 
-	margin-top: 70px
+	padding-top: 70px
 .services_other_title p 
 	text-align: center
 	font-size: 40px
@@ -572,11 +575,12 @@ form .forma_group:last-of-type input
 	background-image: $gradient
 	border-width: 0px
 	margin: 33px auto
+
 .order_form button p
 	font-size: 27px
 	font-weight: $semibold
 	color: #fff
-
+	cursor: pointer
 .images_text_info
 	margin: 0px 18.75% 80px  18.75%
 .images_text_title
@@ -623,9 +627,10 @@ form .forma_group:last-of-type input
 
 //* ЭКСКУРСИИ ГЛAВНАЯ*//
 .excursions_wrapper 
-	margin: 100px 18.75% 0px  18.75%
+	padding: 100px 18.75% 0px  18.75%
 	overflow: hidden
 	font-size: 0px
+	position: relative	
 .excursions_head 
 	padding-bottom: 50px
 	border-bottom: 4px solid $blue
@@ -677,7 +682,8 @@ form .forma_group:last-of-type input
 	text-align: center
 
 .buses_main
-	margin: 100px 18.75% 0px  18.75%
+	padding: 100px 18.75% 0px  18.75%
+	position: relative
 .buses_main_head
 	padding-bottom: 50px
 	border-bottom: 4px solid $blue
@@ -741,8 +747,9 @@ form .forma_group:last-of-type input
 	background-repeat: no-repeat
 	background-size: cover
 	font-size: 0px
-	padding-top: 20px;
+	padding-top: 20px
 	padding-bottom: 40px
+	position: relative
 .main_order
 	width: 100%
 	position: relative
@@ -1149,3 +1156,24 @@ form .forma_group:last-of-type input
 		font-size: 24px
 		font-weight: $medium
 		margin: 20px 0px
+
+.phone_number
+	position: absolute
+	top: 0
+	right: 0
+	margin-top: 50px
+	margin-right: 25px
+.phone_number p
+	font-size: 50px
+	color: $blue
+	font-weight: $semibold
+.services_head_wrapper .phone_number
+	top: 0
+	left: 0
+	margin-left: 25px	
+.buses_main .phone_number, .excursions_wrapper .phone_number
+	margin-top: 90px
+.main_head .phone_number
+	margin-top: 10px
+.main_head .phone_number>p
+	font-size: 60px

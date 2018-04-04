@@ -1,5 +1,6 @@
 	<div class="main_wrapper">
 		<div class="buses_main">
+			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<div class="buses_main_head">
 				<p class="buses_main_head_title"><?php echo $TITLE[0]; ?></p>
 				<div class="buses_main_head_line"></div>

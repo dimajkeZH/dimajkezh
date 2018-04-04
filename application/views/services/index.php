@@ -1,5 +1,6 @@
 	<div class="main_wrapper">
 		<div class="services_head_wrapper">
+			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<div class="services_head">
 				<div class="services_head_info">
 					<img src="/assets/img/services/services_head.png" alt="">

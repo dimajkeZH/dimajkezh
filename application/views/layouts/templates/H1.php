@@ -1,4 +1,5 @@
 			<div class="order_header">
+				<div class="phone_number"><p>8 495 798 90 08</p></div>
 				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
 				<div class="order_header_info">	
 					<p class="order_header_info_title"><?php echo $CONTENT['TITLE']; ?></p><div class="order_header_line"></div>
