@@ -383,15 +383,63 @@ a {
   margin-right: auto;
   margin-left: auto;
   font-size: 0;
-  margin-top: 30px; }
+  margin-top: 30px;
+  margin-bottom: 70px; }
 
 .partner_info {
-  margin: 0px 20% 0px 20%;
-  padding-bottom: 650px; }
+  margin: 0px 20% 0px 20%; }
 
 .partner_info p {
   font-size: 30px;
   font-weight: 500;
+  text-align: center; }
+
+.post_message {
+  position: relative;
+  margin: 0px 18.75% 0px  18.75%; }
+
+.post_message_form input {
+  height: 50px; }
+
+.post_message_form input, .post_message_form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 20px;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 5px 17px 0px 17px;
+  border: 2px solid #999999; }
+
+.post_message_form input:focus, .post_message_form textarea:focus {
+  border-color: #0d5899; }
+
+.post_message_form input, .post_message_form textarea {
+  color: #999999; }
+
+.post_message_form button {
+  display: block;
+  height: 60px;
+  width: 25%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#0d5899), to(#148fcb));
+  background-image: -webkit-linear-gradient(left, #0d5899, #148fcb);
+  background-image: -o-linear-gradient(left, #0d5899, #148fcb);
+  background-image: linear-gradient(90deg, #0d5899, #148fcb);
+  border-width: 0px;
+  margin: 33px auto 0px auto;
+  cursor: pointer; }
+
+.post_message_form button p {
+  font-size: 27px;
+  font-weight: 600;
+  color: #fff; }
+
+.post_message_title {
+  padding-top: 70px; }
+
+.post_message_title p {
+  font-size: 34px;
+  font-weight: 600;
   text-align: center; }
 
 /*КОНТАКТЫ КОНЕЦ*/
@@ -738,13 +786,13 @@ form .forma_group:last-of-type input {
   background-image: -o-linear-gradient(left, #0d5899, #148fcb);
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   border-width: 0px;
-  margin: 33px auto; }
+  margin: 33px auto;
+  cursor: pointer; }
 
 .order_form button p {
   font-size: 27px;
   font-weight: 600;
-  color: #fff;
-  cursor: pointer; }
+  color: #fff; }
 
 .images_text_info {
   margin: 0px 18.75% 80px  18.75%; }
