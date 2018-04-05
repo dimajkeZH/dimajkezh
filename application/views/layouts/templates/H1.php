@@ -44,11 +44,11 @@
 					</form>
 				</div>
 				<div class="order_header_img_two">
-					<?php if(isset($$CONTENT['RIGHT_IMAGE'])&&($$CONTENT['RIGHT_IMAGE']!='')): ?>
-					<img src=<?php echo '"'.$$CONTENT['RIGHT_IMAGE'].'"'; ?> alt="">
+					<?php if(isset($CONTENT['RIGHT_IMAGE'])AND($CONTENT['RIGHT_IMAGE']!='')): ?>
+					<img src=<?php echo '"'.$CONTENT['RIGHT_IMAGE'].'"'; ?> alt="">
 					<?php endif; ?>
-					<?php if(isset($$CONTENT['RIGHT_IMAGE_SIGN'])&&($$CONTENT['RIGHT_IMAGE_SIGN']!='')): ?>
-					<div class="order_header_img_two_text"><p><?php echo $$CONTENT['RIGHT_IMAGE_SIGN']; ?></p></div>
+					<?php if(isset($CONTENT['RIGHT_IMAGE_SIGN'])AND($CONTENT['RIGHT_IMAGE_SIGN']!='')): ?>
+					<div class="order_header_img_two_text"><p><?php echo $CONTENT['RIGHT_IMAGE_SIGN']; ?></p></div>
 					<?php endif; ?>
 				</div>
 			</div>

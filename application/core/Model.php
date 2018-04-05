@@ -59,20 +59,22 @@ abstract class Model {
 				break;
 			case 4:
 				return [];
-				$this->loadBlockMultiTable();
-				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				//return $this->db->row('SELECT * FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 			case 5:
-				return $this->db->row('SELECT * FROM BLOCK_TEXT WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_TEXT WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 			case 6:
 				return [];
-				$this->loadBlockImages();
-				return $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				//return $this->db->row('SELECT * FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 			case 7:
-				//return $this->db->row('SELECT * FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				return [];
+				//$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				return $return;
 				break;
 		}
 	}
