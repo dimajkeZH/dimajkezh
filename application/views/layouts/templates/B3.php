@@ -1,4 +1,3 @@
-		123
 		<div class="text_wrapper">
 			<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
 			<p class="text_title"><?php  echo $CONTENT['TITLE']; ?></p>

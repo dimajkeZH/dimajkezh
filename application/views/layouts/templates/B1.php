@@ -19,10 +19,10 @@
 						foreach($DATA as $key => $val){
 							$NEWDATA[$val['ROW']][$val['COL']] = $val['VAL'];
 						}
-						for($i = 1; $i <= count($NEWDATA); $i++){
+						for($x = 1; $x <= count($NEWDATA); $x++){
 							echo '<tr>';
-							for($j = 1; $j <= count($NEWDATA[$i]); $j++){
-								echo '<td>'.$NEWDATA[$i][$j].'</td>';
+							for($y = 1; $y <= count($NEWDATA[$x]); $y++){
+								echo '<td>'.$NEWDATA[$x][$y].'</td>';
 							}
 							echo '</tr>';
 						}
