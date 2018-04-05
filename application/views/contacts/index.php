@@ -66,6 +66,27 @@
 				<div class="partner_info">
 					<p><?php echo $PARTNERSHIP_DESCR; ?></p>
 				</div>
+				<div class="post_message">
+					<div class="post_message_title">
+						<p>Здесь мы ждем ваших предложений.</p>
+						<div class="partner_line"></div>
+					</div>
+					<div class="post_message_form">
+						<form action="" method="post">
+							<div class="message_form_group">
+								<input name="name" type="text" placeholder="Ваша Фамилия и Имя">
+							</div>
+							<div class="message_form_group">
+								<input name="email" type="text" placeholder="Ваш E-Mail">
+							</div>
+							<div class="message_form_group">
+								<textarea name="message" rows= "10" cols= "45" placeholder="Ваше сообщение"></textarea>
+							</div>
+							<div class="g-recaptcha" data-sitekey="6Le3Q1EUAAAAAJyoaeFGrVJ-Uk2U3wXHS-yp_REF"></div>
+							<button type="submit"><p>Отправить</p></button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>

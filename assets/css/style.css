@@ -396,7 +396,8 @@ a {
 
 .post_message {
   position: relative;
-  margin: 0px 18.75% 0px  18.75%; }
+  margin: 0px 18.75% 0px  18.75%;
+  padding-bottom: 30px; }
 
 .post_message_form input {
   height: 50px; }
@@ -426,7 +427,7 @@ a {
   background-image: -o-linear-gradient(left, #0d5899, #148fcb);
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   border-width: 0px;
-  margin: 33px auto 0px auto;
+  margin: 30px auto 0px auto;
   cursor: pointer; }
 
 .post_message_form button p {
@@ -441,6 +442,11 @@ a {
   font-size: 34px;
   font-weight: 600;
   text-align: center; }
+
+.g-recaptcha {
+  margin: 15px auto;
+  width: 305px;
+  height: 100px; }
 
 /*КОНТАКТЫ КОНЕЦ*/
 /*УСЛУГИ ДРУГОЕ*/
