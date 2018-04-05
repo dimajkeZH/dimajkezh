@@ -119,3 +119,18 @@ function order(){
 	AJAX('application/core/ajax/order.php',data);
 	return false;
 }
+
+
+
+$(document).ready(function(){
+    //Скрыть PopUp при загрузке страницы    
+    PopUpHide();
+});
+//Функция отображения PopUp
+function PopUpShow(){
+    $(".popup_window").show();
+}
+//Функция скрытия PopUp
+function PopUpHide(){
+    $(".popup_window").hide();
+}
