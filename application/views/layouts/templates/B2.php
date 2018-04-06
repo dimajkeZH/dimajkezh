@@ -1,163 +1,51 @@
 		<div class="table_type_one">
 			<div class="table_info">
-				<p 	class="table_info_title">Трансфер в аэропорт</p>
+				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+				<p 	class="table_info_title"><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="table_line"></div>
-				<p class="table_info_title_type_two">При выборе марки автобуса цена поездки может быть изменена. Предусмотрены скидки</p>
-				<p class="table_info_main_text">Круглосуточная подача автобусов и минивэнов в аэропорт для встречи и проводов.  Встреча в аэропорту по номеру рейса с отслеживанием задержки самолета. Дополнительная услуга встреча в аэропорту водителем с табличкой. Поездка в аэропорт обычно оплачивается по фиксированному тарифу. Автобус может забрать всю группу в одном месте или заехать в несколько указанных точек в пределах МКАД. Если требуется подача автобуса на несколько адресов, необходимо об этом сообщить диспетчеру. Возможно диспетчер изменит сумму фиксированного тарифа.</p>
-				<p class="table_info_title_type_two">Поездка в аэропорт цены указаны в рублях</p>
+				<?php endif; ?>
+				<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
+				<p class="table_info_main_text"><?php echo $CONTENT['DESCR']; ?></p>
+				<?php endif; ?>
+				<?php if(isset($CONTENT['SUBTITLE'])AND($CONTENT['SUBTITLE']!='')): ?>
+				<p class="table_info_title_type_two"><?php echo $CONTENT['SUBTITLE']; ?></p>
+				<?php endif; ?>
 			</div>
 			<div class="table_type_one_info" id="tabs">
+				<?php if(count($DATA_NAV)>0): ?>
 				<div class="table_type_one_info_nav">
 					<ul>
-						<li><p>Шерементьево</p></li>
-						<li><p>Внуково</p></li>
-						<li><p>Домодедово</p></li>
-						<li><p>Встреча в аэропорту Шереметьево</p></li>
-						<li><p>Встреча в аэропорту Внуково</p></li>
-						<li><p>Встреча в аэропорту Домодедово</p></li>
+						<?php foreach($DATA_NAV as $key => $val): ?>
+						<li><p><?php echo $val['SUBTITLE']; ?></p></li>
+						<?php endforeach; ?>
 					</ul>
 				</div>
+				<?php endif; ?>
+				<?php
+				if(count($DATA_TABLE)>0):
+				foreach($DATA_TABLE as $key => $val){
+					$NEWDATA[$val['ID_MULTITABLE_CONTENT']][$val['ROW']][$val['COL']] = $val['VAL'];
+				}
+				?>
 				<div class="table_type_one_info_content">
 					<ul>
-						<li><div class="table_type_one_info_table">
-							<table>
-								<tbody>
-									<tr class="table_type_one_count">
-										<td>18-20 мест</td>
-										<td>28 мест</td>
-										<td>30-32 места</td>
-										<td>42 мест</td>
-										<td>45-50-54 мест</td>
-										<td>60-74 мест</td>
-									</tr>
-									<tr class="table_type_one_price">
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						</li>
-						<li><div class="table_type_one_info_table">
-							<table>
-									<tbody>
-										<tr class="table_type_one_count">
-											<td>18-20 мест</td>
-											<td>28 мест</td>
-											<td>30-32 места</td>
-											<td>42 мест</td>
-											<td>45-50-54 мест</td>
-											<td>60-74 мест</td>
-										</tr>
-										<tr class="table_type_one_price">
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-										</tr>
-									</tbody>
-							</table>
-						</div>
-						</li>
-						<li><div class="table_type_one_info_table">
-							<table>
-									<tbody>
-										<tr class="table_type_one_count">
-											<td colspan="2">18-20 мест</td>
-											<td colspan="2">28 мест</td>
-											<td>30-32 места</td>
-											<td>42 мест</td>
-											<td>45-50-54 мест</td>
-											<td>60-74 мест</td>
-										</tr>
-										<tr class="table_type_one_price">
-											<td colspan="2">Ford Trancit - 4000</td>
-											<td colspan="2">Hyundai Country - 5600</td>
-											<td>7200-7800</td>
-											<td>7800-8400</td>
-											<td>8400-9600</td>
-											<td>9600-10800</td>
-										</tr>
-									</tbody>
-							</table>
-						</div>
-						</li>
-						<li><div class="table_type_one_info_table">
-							<table>
-									<tbody>
-										<tr class="table_type_one_count">
-											<td>18-20 мест</td>
-											<td>28 мест</td>
-											<td>30-32 места</td>
-											<td>42 мест</td>
-											<td>45-50-54 мест</td>
-											<td>60-74 мест</td>
-										</tr>
-										<tr class="table_type_one_price">
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-										</tr>
-									</tbody>
-							</table>
-						</div>
-						</li>
-						<li><div class="table_type_one_info_table">
-							<table>
-									<tbody>
-										<tr class="table_type_one_count">
-											<td>18-20 мест</td>
-											<td>28 мест</td>
-											<td>30-32 места</td>
-											<td>42 мест</td>
-											<td>45-50-54 мест</td>
-											<td>60-74 мест</td>
-										</tr>
-										<tr class="table_type_one_price">
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-										</tr>
-									</tbody>
-							</table>
-						</div>
-						</li>
-						<li><div class="table_type_one_info_table">
-							<table>
-									<tbody>
-										<tr class="table_type_one_count">
-											<td>18-20 мест</td>
-											<td>28 мест</td>
-											<td>30-32 места</td>
-											<td>42 мест</td>
-											<td>45-50-54 мест</td>
-											<td>60-74 мест</td>
-										</tr>
-										<tr class="table_type_one_price">
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-											<td>&nbsp;</td>
-										</tr>
-									</tbody>
-							</table>
-						</div>
-						</li>
+						<?php foreach($NEWDATA as $keytable => $valtable): ?>
+						<li><div class="table_type_one_info_table"><table><tbody>
+							<?php foreach($valtable as $row => $colvalue): ?>
+								<?php if($row == 1): ?>
+								<tr class="table_type_one_count">
+								<?php else: ?>
+								<tr class="table_type_one_price">
+								<?php endif;?>
+									<?php foreach($colvalue as $col => $val): ?>
+									<td><?php echo $val; ?></td>
+									<?php endforeach;?>
+								</tr>
+							<?php endforeach;?>
+						</tbody></table></div></li>
+						<?php endforeach; ?>
 					</ul>
 				</div>
+				<?php endif; ?>
 			</div>
 		</div>

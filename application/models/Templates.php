@@ -35,8 +35,8 @@ class Templates extends Model {
 		}
 	}
 	public function caseVars($TMPL, $ID){
-		$return['CONTENT'] = [];
-		$return['DATA'] = [];
+		//$return['CONTENT'] = [];
+		//$return['DATA'] = [];
 		switch($TMPL){
 			case 1:
 				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
@@ -52,9 +52,9 @@ class Templates extends Model {
 				return $return;
 				break;
 			case 4:
-				return [];
-				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
-				$return['DATA'] = $this->db->row('SELECT * FROM BLOCK_MULTITABLE_CONTENT WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT ID, TITLE, DESCR, SUBTITLE FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['DATA_NAV'] = $this->db->row('SELECT ID, SUBTITLE FROM BLOCK_MULTITABLE_CONTENT WHERE ID_MULTITABLE = :ID ORDER BY SERIAL_NUMBER ASC', ['ID' => $return['CONTENT'][0]['ID']]);
+				$return['DATA_TABLE'] = $this->db->row('SELECT DM.ID_MULTITABLE_CONTENT, DM.ROW, DM.COL, DM.VAL FROM DATA_MULTITABLE as DM INNER JOIN BLOCK_MULTITABLE_CONTENT as BMC ON BMC.ID = DM.ID_MULTITABLE_CONTENT WHERE BMC.ID_MULTITABLE = :ID', ['ID' => $return['CONTENT'][0]['ID']]);
 				return $return;
 				break;
 			case 5:
@@ -62,8 +62,8 @@ class Templates extends Model {
 				return $return;
 				break;
 			case 6:
-				return [];
-				//return $this->db->row('SELECT * FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT ID, TITLE, DESCR FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['DATA'] = $this->db->row('SELECT IMAGE_LINK, SUBTITLE, IMAGE_SIGN FROM BLOCK_IMAGE_CONTENT WHERE ID_IMAGE = :ID ORDER BY SERIAL_NUMBER ASC', ['ID' => $return['CONTENT'][0]['ID']]);
 				return $return;
 				break;
 			case 7:

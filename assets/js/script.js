@@ -39,8 +39,8 @@ function ResizeWindow(){
 	$(".vacancies_info_item").height(max); 
 	/*console.log("info_h" + item_info + " img_h: " + item_img + " max:" + max);*/
 	/* RESIZE images_text */
-	var item_info = $(".images_text_item_info").outerHeight(),
-		/*item_info = item_info.outerHeight() + item_info.parent().outerHeight() / 5,*/
+	var item_info = $(".images_text_item_info"),
+		item_info = item_info.outerHeight() + item_info.parent().outerHeight() / 5,
 		item_img = $(".images_text_item_img").outerHeight(); 
 	var max = Math.max(item_info,item_img); 
 	$(".images_text_item").height(max); 
@@ -125,7 +125,7 @@ function order(wnd){
 		//'captcha':encodeURIComponent(grecaptcha.getResponse())
 	}
 	console.log(data);
-	AJAX('application/core/ajax/order.php', data, 'PopUpHide');
+	AJAX('/application/core/ajax/order.php', data, 'PopUpHide');
 	return false;
 }
 
@@ -140,7 +140,7 @@ function feedback(){
 		'message':encodeURIComponent(message),
 		'captcha':encodeURIComponent(grecaptcha.getResponse())
 	}
-	AJAX('application/core/ajax/feedback.php', data);
+	AJAX('/application/core/ajax/feedback.php', data);
 	return false;
 }
 

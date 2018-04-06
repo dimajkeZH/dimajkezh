@@ -1,16 +1,37 @@
 			<div class="images_text">
 				<div class="images_text_info">
-					<p class="images_text_title">Автобус Mercedes-Benz Tourismo 50 мест</p>
+					<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+					<p class="images_text_title"><?php echo $CONTENT['TITLE']; ?></p>
 					<div class="images_line"></div>
+					<?php endif; ?>
+					<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
+					<p class=""><?php echo $CONTENT['DESCR']; ?></p>
+					<?php endif; ?>
 				</div>
+				<?php if(count($DATA)>0): ?>
 				<div class="images_text_items">
+					<?php
+					for($x = 0; $x < count($DATA); $x++): 
+						$sign = (isset($DATA[$x]['IMAGE_SIGN'])AND($DATA[$x]['IMAGE_SIGN']!=''));
+						$subtitle = (isset($DATA[$x]['SUBTITLE'])AND($DATA[$x]['SUBTITLE']!=''));
+						$link = (isset($DATA[$x]['IMAGE_LINK'])AND($DATA[$x]['IMAGE_LINK']!=''));
+					?>
 					<div class="images_text_item">
-						<img class="images_text_item_img"  src="../../../assets/img/bus_order/mb-tour-bottom.png" alt="">
+						<?php if($link): ?>
+						<img class="images_text_item_img"  src="/assets/img/block_images/<?php echo $DATA[$x]['IMAGE_LINK']; ?>.png" alt="">
+						<?php endif; ?>
+						<?php if($sign OR $subtitle): ?>
 						<div class="images_text_item_info">
-							<p class="images_text_item_info_title"></p>
-							<p class="images_text_item_info_content">Mercedes-Benz O 350 Tourismo, идеально подходит для туристических и междугородних поездок. Это одна из самых популярных и надежных моделей автобусов в России и Европе. Двигатель более экономичен и имеет большую мощность в сравнении с его предшественниками. Ресурс двигателя более 1 000 000 км.  Механическая коробка передач GO-190  полностью синхронизирована и обеспечивает плавность хода и высокую динамику разгона. Кузов обладает высокой степенью жесткости при изгибе и кручении, за счет установленных по периметру кузова шпангоутов из объемного профиля, что увеличивает прочность боковых стенок и обеспечивает как эффективную защиту пассажиров при боковых столкновениях, так и целиком устойчивость автобуса на дороге.  Необходимо заметить, что кузов обработан по технологии катафореза для защиты от коррозии металла. Передняя подвеска независимая и обеспечивает комфортное движение по трассе. В базовой комплектации Mercedes-Benz  350 Tourismo установлены самые современные системы активной безопасности такие как: ABS, ASR, EBS, BA.
-							</p>
+							<?php if($subtitle): ?>
+							<p class="images_text_item_info_title"><?php echo $DATA[$x]['SUBTITLE']; ?></p>
+							<?php endif; ?>
+							<?php if($sign): ?>
+							<p class="images_text_item_info_content"><?php echo $DATA[$x]['IMAGE_SIGN']; ?></p>
+							<?php endif; ?>
 						</div>
+						<?php endif; ?>
 					</div>
-				</div>		
+					<?php endfor; ?>
+				</div>
+				<?php endif; ?>		
 			</div>
