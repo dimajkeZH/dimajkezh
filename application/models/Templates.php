@@ -53,7 +53,8 @@ class Templates extends Model {
 				break;
 			case 4:
 				return [];
-				//return $this->db->row('SELECT * FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['DATA'] = $this->db->row('SELECT * FROM BLOCK_MULTITABLE_CONTENT WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				return $return;
 				break;
 			case 5:

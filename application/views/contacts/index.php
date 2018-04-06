@@ -84,7 +84,7 @@
 								<textarea name="message" rows= "10" cols= "45" placeholder="Ваше сообщение"></textarea>
 							</div>
 							<div class="g-recaptcha" data-sitekey="6Le3Q1EUAAAAAJyoaeFGrVJ-Uk2U3wXHS-yp_REF"></div>
-							<button type="submit"><p>Отправить</p></button>
+							<button onclick="return feedback()"><p>Отправить</p></button>
 						</form>
 					</div>
 				</div>
