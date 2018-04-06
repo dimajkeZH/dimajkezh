@@ -1,4 +1,40 @@
 	<div class="main_wrapper">
+		<div class="popup">
+			<a href="javascript:PopUpShow()"><div class="popup_button"><p> ЗаказON-LINE</p></div></a>
+			<div class="popup_window">
+				<div class="popup_order_form">
+					<a href="javascript:PopUpHide()"><div class="form_close">&#9421;</div></a>
+					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
+					<form action="" method="POST">
+						<div class="forma_group"><input type="text" placeholder="Дата и время подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name=""></div>
+						<div class="forma_group">
+							<select name="" id="" >
+								<option value="0">---Выбор транспорта---</option>
+								<option value="1">6 Мест</option>
+								<option value="2">7 Мест</option>
+								<option value="3">8 Мест</option>
+								<option value="4">9 Мест</option>
+								<option value="5">10 Мест</option>
+								<option value="6">11 Мест</option>
+								<option value="7">18 Мест</option>
+								<option value="8">20 Мест</option>
+								<option value="9">24 Места</option>
+								<option value="10">28 Мест</option>
+								<option value="11">31 Место</option>
+								<option value="12">42 Мест</option>
+								<option value="13">50 Мест</option>
+								<option value="14">55 Мест</option>
+							</select></div>
+						<div class="forma_group"><input type="text" placeholder="Предложите цену" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Комментарий" name=""></div>
+						<button type="submit"><p>Заказать</p></button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div class="main_head">
 			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<div class="main_head_title">

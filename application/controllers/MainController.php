@@ -6,8 +6,35 @@ use application\core\Controller;
 
 class MainController extends Controller {
 
-	public function indexAction() {
-		$this->view->renderIndex('Главная страница', $this->model->getIndexContent($this->route));
+	public function mainAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
 	}
 
+	public function servicesAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function busesAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function minivansAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function excursionsAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function contactsAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function newsAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
+
+	public function busAction() {
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+	}
 }

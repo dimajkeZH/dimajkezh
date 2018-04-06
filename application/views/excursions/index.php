@@ -1,12 +1,12 @@
 	<div class="excursions_wrapper">
 		<div class="phone_number"><p>8 495 798 90 08</p></div>
 		<div class="excursions_head">
-			<p class="excursions_head_title"><?php echo $TITLE[0]; ?></p>
-			<div class="excursions_head_line"></div>
-			<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
-				<?php foreach($DESCR as $key=>$val): ?>
-				<p class="buses_main_head_text"><?php echo $val; ?></p>
-				<?php endforeach; ?>
+			<?php if(isset($TITLE)AND($TITLE!='')): ?>
+				<p class="excursions_head_title"><?php echo $TITLE; ?></p>
+				<div class="excursions_head_line"></div>
+			<?php endif; ?>
+			<?php if(isset($DESCR)AND($DESCR!='')): ?>
+				<p class="buses_main_head_text"><?php echo $DESCR; ?></p>
 			<?php endif; ?>
 		</div>
 		<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>

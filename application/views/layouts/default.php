@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><?php echo $title; ?></title>
+	<meta name="Description" content="<?php echo $HTML_DESCR; ?>">
+	<meta name="Keywords" content="<?php echo $HTML_KEYWORDS; ?>">
+	<title><?php echo $TITLE; ?></title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick-theme.css">
@@ -32,5 +34,6 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="/assets/js/slick/slick.min.js"></script>
 	<script src="/assets/js/script.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

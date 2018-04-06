@@ -10,13 +10,14 @@ class View {
 
 	public function __construct($route) {
 		$this->route = $route;
-		$this->path = $route['controller'].'/'.$route['action'];
+		$this->path = $route['action'].'/index';
 	}
 
-	public function renderIndex($title, $vars = []) {
+	public function renderIndex($header, $vars = []) {
+		extract($header);
 		extract($vars);
 		$path = 'application/views/'.$this->path.'.php';
-		if (file_exists($path)) {
+		if(file_exists($path)) {
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
@@ -24,7 +25,8 @@ class View {
 		}
 	}
 
-	public function renderPage($title, $content) {
+	public function renderPage($header, $content) {
+		extract($header);
 		require 'application/views/layouts/'.$this->layout.'.php';
 	}
 

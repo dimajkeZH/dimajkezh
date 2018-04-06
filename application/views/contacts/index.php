@@ -66,6 +66,7 @@
 				<div class="partner_info">
 					<p><?php echo $PARTNERSHIP_DESCR; ?></p>
 				</div>
+		<?php endif; ?>
 				<div class="post_message">
 					<div class="post_message_title">
 						<p>Здесь мы ждем ваших предложений.</p>
@@ -89,5 +90,4 @@
 				</div>
 			</div>
 		</div>
-		<?php endif; ?>
 	</div>

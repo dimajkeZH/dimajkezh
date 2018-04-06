@@ -29,13 +29,6 @@ abstract class Controller {
 		}
 	}
 
-	public function pageAction() {
-		$this->view->renderPage(
-			$this->model->getTitle($this->route),
-			$this->model->getContent($this->route)
-		);
-	}
-
 /*
 	public function checkAcl() {
 		$this->acl = require 'application/acl/'.$this->route['controller'].'.php';

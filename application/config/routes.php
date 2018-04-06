@@ -4,52 +4,57 @@ return [
 
 	'' => [
 		'controller' => 'main',
-		'action' => 'index',
+		'action' => 'main',
 	],
 
 	'services' => [
-		'controller' => 'services',
-		'action' => 'index',
+		'controller' => 'main',
+		'action' => 'services',
 	],
 
 		'services/page/[0-9]{1,}' => [
-			'controller' => 'services',
-			'action' => 'page',
+			'controller' => 'templates',
+			'action' => 'services',
 		],
 
 	'buses' => [
-		'controller' => 'buses',
-		'action' => 'index',
+		'controller' => 'main',
+		'action' => 'buses',
 	],
 
 		'buses/page/[0-9]{1,}' => [
-			'controller' => 'buses',
-			'action' => 'page',
+			'controller' => 'templates',
+			'action' => 'buses',
 		],
 
 	'minivans' => [
-		'controller' => 'minivans',
-		'action' => 'index',
+		'controller' => 'main',
+		'action' => 'minivans',
 	],
 
 		'minivans/page/[0-9]{1,}' => [
-			'controller' => 'minivans',
-			'action' => 'page',
+			'controller' => 'templates',
+			'action' => 'minivans',
 		],
 
 	'excursions' => [
-		'controller' => 'excursions',
-		'action' => 'index',
+		'controller' => 'main',
+		'action' => 'excursions',
 	],
 
 		'excursions/page/[0-9]{1,}' => [
-			'controller' => 'excursions',
-			'action' => 'page',
+			'controller' => 'templates',
+			'action' => 'excursions',
 		],
 
 	'contacts' => [
-		'controller' => 'contacts',
-		'action' => 'index',
+		'controller' => 'main',
+		'action' => 'contacts',
+	],
+
+	'news' => [
+		'controller' => 'main',
+		'action' => 'news',
 	],
 	
 

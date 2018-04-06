@@ -4,13 +4,11 @@
 			<div class="services_head">
 				<div class="services_head_info">
 					<img src="/assets/img/services/services_head.png" alt="">
-					<?php if((isset($TITLE)AND($TITLE[0]!=''))OR((isset($DESCR))AND(count($DESCR)>0))): ?>
+					<?php if((isset($TITLE)AND($TITLE!=''))OR((isset($DESCR))AND($DESCR!=''))): ?>
 					<div class="services_head_text">
-						<p><?php echo $TITLE[0]?></p>
+						<p><?php echo $TITLE?></p>
 						<?php if(isset($DESCR)): ?>
-							<?php foreach($DESCR as $key => $val): ?>
-							<p><?php echo $val; ?></p>
-							<?php endforeach; ?>
+							<p><?php echo $DESCR; ?></p>
 						<?php endif; ?>
 					</div>
 					<?php endif; ?>

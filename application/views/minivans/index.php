@@ -2,12 +2,12 @@
 		<div class="buses_main">
 			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<div class="buses_main_head">
-				<p class="buses_main_head_title"><?php echo $TITLE[0]; ?></p>
+				<?php if(isset($TITLE)AND($TITLE!='')): ?>
+				<p class="buses_main_head_title"><?php echo $TITLE; ?></p>
 				<div class="buses_main_head_line"></div>
-				<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
-					<?php foreach($DESCR as $key=>$val): ?>
-					<p class="buses_main_head_text"><?php echo $val; ?></p>
-					<?php endforeach; ?>
+				<?php endif; ?>
+				<?php if(isset($DESCR)AND($DESCR!='')): ?>
+					<p class="buses_main_head_text"><?php echo $DESCR; ?></p>
 				<?php endif; ?>
 				<p class="buses_main_head_title_two">Информация по тарифам на страницах сайта</p>
 			</div>
