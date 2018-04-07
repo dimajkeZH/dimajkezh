@@ -1,5 +1,4 @@
 	<div class="excursions_wrapper">
-		<div class="phone_number"><p>8 495 798 90 08</p></div>
 		<div class="excursions_head">
 			<?php if(isset($TITLE)AND($TITLE!='')): ?>
 				<p class="excursions_head_title"><?php echo $TITLE; ?></p>

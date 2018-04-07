@@ -1,5 +1,4 @@
 		<div class="services_other_header">
-			<div class="phone_number"><p>8 495 798 90 08</p></div>
 			<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE'])): ?>
 			<div class="services_other_title">
 				<p><?php echo $CONTENT['TITLE']; ?></p>
