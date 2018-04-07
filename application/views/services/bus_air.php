@@ -1,4 +1,4 @@
-<div class="main_wrapper">
+
 		<div class="services_other_header">
 			<div class="services_other_title">
 				<p>Автобус в аэропорт</p>
@@ -280,4 +280,3 @@
 				</div>
 			</div>
 		</div>
-	</div>

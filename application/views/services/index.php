@@ -1,5 +1,4 @@
-	<div class="main_wrapper">
-		<div class="services_head_wrapper">
+<div class="services_head_wrapper">
 			<div class="services_head">
 				<div class="services_head_info">
 					<img src="/assets/img/services/services_head.png" alt="">
@@ -35,4 +34,3 @@
 			</div>
 		</div>
 		<?php endif; ?>
-	</div>

@@ -1,5 +1,4 @@
-	<div class="main_wrapper">
-		<div class="buses_main">
+<div class="buses_main">
 			<div class="buses_main_head">
 				<?php if(isset($TITLE)AND($TITLE!='')): ?>
 					<p class="buses_main_head_title"><?php echo $TITLE; ?></p>
@@ -24,4 +23,3 @@
 			</div>
 			<?php endif; ?>
 		</div>
-	</div>

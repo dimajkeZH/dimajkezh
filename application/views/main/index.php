@@ -1,4 +1,3 @@
-	<div class="main_wrapper">
 		<div class="main_head">
 			<div class="main_head_title">
 				<span>Заказ автобуса с водителем в Москве</span>
@@ -197,4 +196,3 @@
 				<a href=""><p>Все новости</p></a>
 			</div>
 		</div>
-	</div>

@@ -1,5 +1,4 @@
-	<div class="main_wrapper">
-		<div class="contact_header">
+<div class="contact_header">
 			<div class="contact_info">
 				<div class="contact_info_title">
 					<p><?php echo $CONTACT_TITLE; ?></p>
@@ -90,4 +89,3 @@
 				</div>
 			</div>
 		</div>
-	</div>
