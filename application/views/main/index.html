@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class="header_wrapper">
+		<div class="phone_number"><p>8 495 798 90 08</p></div>
 		<div class="header">
 			<div class="header_nav">
 				<span class="logo">
@@ -108,19 +109,18 @@
 		<div class="main_head">
 			<div class="main_head_title">
 				<span>Заказ автобуса с водителем в Москве</span>
-				<span>8 495 798 90 08</span>
 			</div>
 			<div class="main_order">
 				<img src="/assets/img/main/bcg_main2.png" alt="">
 				<div class="main_order_form">
 					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
-					<form action="" method="POST">
-						<div class="forma_group"><input type="text" placeholder="Дата и время подачи" name=""></div>
-						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name=""></div>
-						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name=""></div>
-						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name=""></div>
+					<form>
+						<div class="forma_group"><input type="text" placeholder="Дата и время подачи" name="to_date"></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name="addr_from"></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name="addr_to"></div>
+						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name="email_phone"></div>
 						<div class="forma_group">
-							<select name="" id="" >
+							<select name="user_choice">
 								<option value="0">---Выбор транспорта---</option>
 								<option value="1">6 Мест</option>
 								<option value="2">7 Мест</option>
@@ -136,10 +136,11 @@
 								<option value="12">42 Мест</option>
 								<option value="13">50 Мест</option>
 								<option value="14">55 Мест</option>
-							</select></div>
-						<div class="forma_group"><input type="text" placeholder="Предложите цену" name=""></div>
-						<div class="forma_group"><input type="text" placeholder="Комментарий" name=""></div>
-						<button type="submit"><p>Заказать</p></button>
+							</select>
+						</div>
+						<div class="forma_group"><input type="text" placeholder="Предложите цену" name="cost"></div>
+						<div class="forma_group"><input type="text" placeholder="Комментарий" name="message"></div>
+						<button onclick="return order('main_order')"><p>Заказать</p></button>
 					</form>
 					<div class="main_order_form_circle">
 						<img src="/assets/img/main/group_comp.png" alt="">
@@ -147,6 +148,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="main_about">
 			<p class="main_about_title">"ТриБас-М" обладает большим парком туристических автобусов и микроавтобусов от 6 до 63 мест</p>
 			<div class="main_line"></div>

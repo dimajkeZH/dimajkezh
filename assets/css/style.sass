@@ -23,9 +23,13 @@ a
 .header_wrapper 
 	width: 100%
 	background: $blue
+	position: fixed
+	z-index: 200	
 .header 
 	margin: 0px 18.75% 0px  18.75%
 	height: 130px
+	top: 0
+	left: 0
 .header_nav 
 	height: 130px
 	font-size: 0px
@@ -113,6 +117,7 @@ a
 .main_wrapper 
 	width: 100%
 	overflow: hidden
+	padding-top: 130px
 .services_head_wrapper
 	width: 100%
 	position: relative
@@ -1201,25 +1206,13 @@ form .forma_group:last-of-type input
 
 .phone_number
 	position: absolute
-	top: 0
-	right: 0
-	margin-top: 50px
-	margin-right: 25px
+	margin-left: 40px
+	top: 130px
+	margin-top: 20px	
 .phone_number p
 	font-size: 50px
 	color: $blue
 	font-weight: $semibold
-.services_head_wrapper .phone_number
-	top: 0
-	left: 0
-	margin-left: 25px	
-.buses_main .phone_number, .excursions_wrapper .phone_number
-	margin-top: 90px
-.main_head .phone_number
-	margin-top: 10px
-.main_head .phone_number>p
-	font-size: 60px
-
 .popup
 	
 .popup_button

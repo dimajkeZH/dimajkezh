@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div class="header_wrapper">
+		<div class="phone_number"><p>8 495 798 90 08</p></div>
 		<div class="header">
 			<div class="header_nav">
 				<span class="logo">
