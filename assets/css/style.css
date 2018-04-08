@@ -1742,3 +1742,59 @@ form .forma_group:last-of-type input {
 
 .news_pagination .active {
   background-color: #0d5899; }
+
+.moscow_head {
+  width: 100%;
+  background-image: url(../img/main/bcg_main.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 375px;
+  padding-bottom: 375px; }
+
+.moscow_head_title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600; }
+
+.moscow_info_items {
+  font-size: 0px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#0d5899), to(#148fcb));
+  background-image: -webkit-linear-gradient(left, #0d5899, #148fcb);
+  background-image: -o-linear-gradient(left, #0d5899, #148fcb);
+  background-image: linear-gradient(90deg, #0d5899, #148fcb);
+  padding: 120px 18.75% 120px 18.75%;
+  display: inline-block; }
+
+.moscow_info_item_img, .moscow_info_item_text {
+  display: inline-block; }
+
+.moscow_info_item_img {
+  width: 20%;
+  text-align: center; }
+
+.moscow_info_item_text {
+  width: 80%;
+  color: #fff; }
+
+.moscow_info_item_title {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px; }
+
+.moscow_info_item_content {
+  font-size: 24px;
+  font-weight: 400; }
+
+.moscow_info_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  margin-bottom: 100px; }
+
+.moscow_info_item:last-of-type {
+  margin-bottom: 0; }
