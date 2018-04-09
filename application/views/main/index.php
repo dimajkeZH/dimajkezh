@@ -168,7 +168,7 @@
 			<div class="main_line"></div>
 			<div class="main_news_items">
 				<div class="main_news_item">
-					<img src="/assets/img/main/n1.png" alt="">
+					<img src="/assets/img/news/n1.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">23.08.2016</p>
 						<p class="main_news_item_title">Правила перевозки групп детей</p>
@@ -176,7 +176,7 @@
 					</div>
 				</div>
 				<div class="main_news_item">
-					<img src="/assets/img/main/n2.png" alt="">
+					<img src="/assets/img/news/n2.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">14.07.2016</p>
 						<p class="main_news_item_title">Схема маршрута</p>
@@ -184,7 +184,7 @@
 					</div>
 				</div>
 				<div class="main_news_item">
-					<img src="/assets/img/main/n3.png" alt="">
+					<img src="/assets/img/news/n3.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">11.06.2016</p>
 						<p class="main_news_item_title">Список пассажиров автобуса</p>
