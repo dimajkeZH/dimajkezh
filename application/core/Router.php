@@ -35,7 +35,11 @@ class Router {
 
     public function selectNumber($url){
         $number = substr($url,strripos($url,'/')+1);
-        return $number;
+        if(is_numeric($number)){
+            return $number;
+        }else{
+            return '0';
+        }
     }
 
     public function run(){

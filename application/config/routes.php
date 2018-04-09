@@ -56,6 +56,11 @@ return [
 		'controller' => 'main',
 		'action' => 'news',
 	],
+
+	'news/[0-9]{1,}' => [
+		'controller' => 'main',
+		'action' => 'news',
+	],
 	
 
 

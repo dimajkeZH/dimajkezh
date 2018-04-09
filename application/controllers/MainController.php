@@ -27,11 +27,11 @@ class MainController extends Controller {
 	}
 
 	public function contactsAction() {
-		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getVacancies($this->route));
 	}
 
 	public function newsAction() {
-		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getContent($this->route));
+		$this->view->renderIndex($this->model->getTitle($this->route), $this->model->getNews($this->route));
 	}
 
 	public function busAction() {

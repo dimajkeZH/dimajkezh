@@ -1,51 +1,42 @@
-<div class="news_wrapper">
+		<div class="news_wrapper">
 			<div class="news_head">
-				<p class="news_head_title">Новости</p>
+				<p class="news_head_title"><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="main_line"></div>
-				<p class="news_head_text">Здесь вы можете найти самые актуальные новости, а так же другую важную информацию</p>
+				<p class="news_head_text"><?php echo $CONTENT['DESCR']; ?></p>
 			</div>
-			<div class="news_pagination">
-				<ul>
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-				</ul>
-			</div>
-			<div class="news_items">
-				<div class="news_item">
-					<img src="/assets/img/main/n1.png" alt="">
-					<div class="news_item_info">
-						<p class="news_item_date">23.08.2016</p>
-						<p class="news_item_title">Правила перевозки групп детей</p>
-						<p class="news_item_content">В ночное время суток (с 23:00 до 6:00) пассажирские перевозки групп детей допускаются лишь к железнодорожным вокзалам и аэропортам а так же в обратном направлении. В случае задержки в пути по причине поломки или пробок на дорогах разрешается перевозка детей до конечного пункта или пункта ночлега. Длинна маршрута после 23:00 не должно быть более 100 километров. При организованной междугородней перевозке длящейся более 3 часов необходимо сопровождения детей медицинским работником.</p>
+			<?php
+				$PAGINATION_CONTENT = '<div class="news_pagination"><ul>';
+				foreach($PAGINATION as $key => $val){
+					if($val == $PAGE){
+						$PAGINATION_CONTENT .= "<li class='active'><p>$val</p></li>";
+					}else{
+						$PAGINATION_CONTENT .= "<li><p>$val</p></li>";
+					}
+				}
+				$PAGINATION_CONTENT .= '</ul></div>';
+			?>
+			<?php if(count($NEWSLIST)>0): ?>
+				<?php echo $PAGINATION_CONTENT; ?>
+				<div class="news_items">
+					<?php foreach($NEWSLIST as $key => $val): ?>
+					<div class="news_item">
+						<?php if((isset($val['IMAGE']))AND($val['IMAGE']!='')): ?>
+						<img src="/assets/img/news/<?php echo $val['IMAGE']; ?>.png" alt="">
+						<?php endif; ?>
+						<div class="news_item_info">
+							<?php if((isset($val['DATE_ADD']))AND($val['DATE_ADD']!='')): ?>
+							<p class="news_item_date"><?php echo date_format(date_create($val['DATE_ADD']), 'd.m.Y'); ?></p>
+							<?php endif; ?>
+							<?php if((isset($val['TITLE']))AND($val['TITLE']!='')): ?>
+							<p class="news_item_title"><?php echo $val['TITLE']; ?></p>
+							<?php endif; ?>
+							<?php if((isset($val['TEXT']))AND($val['TEXT']!='')): ?>
+							<p class="news_item_content"><?php echo $val['TEXT']; ?></p>
+							<?php endif; ?>
+						</div>
 					</div>
+					<?php endforeach; ?>
 				</div>
-				<div class="news_item">
-					<img src="/assets/img/main/n2.png" alt="">
-					<div class="news_item_info">
-						<p class="news_item_date">14.07.2016</p>
-						<p class="news_item_title">Схема маршрута</p>
-						<p class="news_item_content">По правилам транспортировки пассажиров водитель должен иметь схему маршрута проезда с указанием мест остановок. Заказчик может подготовит схему сам, проложив маршрут в Яндекс картах и распечатать затем его на бумажном носителе. На схеме маршрута должна стоять дата и подпись руководителя группы. Отсутствие схемы маршрута влечет наложение штрафа на перевозчика и задержки транспорта.</p>
-					</div>
-				</div>
-				<div class="news_item">
-					<img src="/assets/img/main/n3.png" alt="">
-					<div class="news_item_info">
-						<p class="news_item_date">11.06.2016</p>
-						<p class="news_item_title">Список пассажиров автобуса</p>
-						<p class="news_item_content">Заказчик обязан составить поименный список пассажиров, желательно с номерами телефонов для предоставления его водителю автобуса. Список пассажиров составляется в трех экземплярах. В случае проверки автобуса транспортной инспекцией, водитель обязан предоставить список пассажиров. Отсутствие списка влечет наложение внушительного штрафа на владельца транспорта.</p>
-					</div>
-				</div>
-			<div class="news_pagination">
-				<ul>
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>4</li>
-					<li>5</li>
-				</ul>
-			</div>
-			</div>
+				<?php echo $PAGINATION_CONTENT; ?>
+			<?php endif; ?>
 		</div>

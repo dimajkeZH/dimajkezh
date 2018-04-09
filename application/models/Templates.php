@@ -16,7 +16,7 @@ class Templates extends Model {
 			];
 			$tmpls = $this->db->row($q, $params);
 			if(!$tmpls){
-				debug(404); //View::errorCode(404);
+				\application\core\View::errorCode(404);
 			}
 			$content = '';
 			for($i = 0; $i < count($tmpls); $i++){
@@ -31,7 +31,7 @@ class Templates extends Model {
 			}
 			return $content;
 		}else{
-			debug(404); //View::errorCode(404);
+			\application\core\View::errorCode(404);
 		}
 	}
 	public function caseVars($TMPL, $ID){
