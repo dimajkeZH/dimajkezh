@@ -1,11 +1,11 @@
 <div class="buses_main">
 			<div class="buses_main_head">
-				<?php if(isset($TITLE)AND($TITLE!='')): ?>
-					<p class="buses_main_head_title"><?php echo $TITLE; ?></p>
+				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+					<p class="buses_main_head_title"><?php echo $CONTENT['TITLE']; ?></p>
 					<div class="buses_main_head_line"></div>
 				<?php endif; ?>
-				<?php if(isset($DESCR)AND(count($DESCR)>0)): ?>
-					<?php foreach($DESCR as $key=>$val): ?>
+				<?php if(isset($CONTENT['DESCR'])AND(count($CONTENT['DESCR'])>0)): ?>
+					<?php foreach($CONTENT['DESCR'] as $key=>$val): ?>
 					<p class="buses_main_head_text"><?php echo $val; ?></p>
 					<?php endforeach; ?>
 				<?php endif; ?>

@@ -2,11 +2,11 @@
 			<div class="services_head">
 				<div class="services_head_info">
 					<img src="/assets/img/services/services_head.png" alt="">
-					<?php if((isset($TITLE)AND($TITLE!=''))OR((isset($DESCR))AND($DESCR!=''))): ?>
+					<?php if((isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!=''))OR((isset($CONTENT['DESCR']))AND($CONTENT['DESCR']!=''))): ?>
 					<div class="services_head_text">
-						<p><?php echo $TITLE?></p>
-						<?php if(isset($DESCR)): ?>
-							<p><?php echo $DESCR; ?></p>
+						<p><?php echo $CONTENT['TITLE']?></p>
+						<?php if(isset($CONTENT['DESCR'])): ?>
+							<p><?php echo $CONTENT['DESCR']; ?></p>
 						<?php endif; ?>
 					</div>
 					<?php endif; ?>

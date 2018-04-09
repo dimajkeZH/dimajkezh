@@ -1,11 +1,11 @@
 <div class="buses_main">
 			<div class="buses_main_head">
-				<?php if(isset($TITLE)AND($TITLE!='')): ?>
-				<p class="buses_main_head_title"><?php echo $TITLE; ?></p>
+				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+				<p class="buses_main_head_title"><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="buses_main_head_line"></div>
 				<?php endif; ?>
-				<?php if(isset($DESCR)AND($DESCR!='')): ?>
-					<p class="buses_main_head_text"><?php echo $DESCR; ?></p>
+				<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
+					<p class="buses_main_head_text"><?php echo $CONTENT['DESCR']; ?></p>
 				<?php endif; ?>
 				<p class="buses_main_head_title_two">Информация по тарифам на страницах сайта</p>
 			</div>

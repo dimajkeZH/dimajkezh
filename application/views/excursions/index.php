@@ -1,11 +1,11 @@
 	<div class="excursions_wrapper">
 		<div class="excursions_head">
-			<?php if(isset($TITLE)AND($TITLE!='')): ?>
-				<p class="excursions_head_title"><?php echo $TITLE; ?></p>
+			<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
+				<p class="excursions_head_title"><?php echo $CONTENT['TITLE']; ?></p>
 				<div class="excursions_head_line"></div>
 			<?php endif; ?>
-			<?php if(isset($DESCR)AND($DESCR!='')): ?>
-				<p class="buses_main_head_text"><?php echo $DESCR; ?></p>
+			<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
+				<p class="buses_main_head_text"><?php echo $CONTENT['DESCR']; ?></p>
 			<?php endif; ?>
 		</div>
 		<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>
