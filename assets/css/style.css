@@ -74,9 +74,14 @@ a {
   color: #fff;
   display: block;
   padding: 10px 3.5%;
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out; }
+  border-radius: 0px;
+  -webkit-transition: background-color .3s ease-in-out, border-radius .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: background-color .3s ease-in-out, border-radius .3s ease-in-out; }
+
+.nav_item a {
+  width: 100%;
+  height: 100%; }
 
 .nav_item:hover .subnav {
   display: block;
@@ -120,9 +125,10 @@ a {
   width: 100%;
   height: 100%;
   display: block;
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out; }
+  border-radius: 0px;
+  -webkit-transition: background-color .3s ease-in-out, border-radius .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: background-color .3s ease-in-out, border-radius .3s ease-in-out; }
 
 .subnav a:hover {
   background-color: #0d5899;
@@ -485,11 +491,21 @@ a {
   padding: 5px 17px 0px 17px;
   border: 2px solid #999999; }
 
-.post_message_form input:focus, .post_message_form textarea:focus {
-  border-color: #0d5899; }
+.post_message_form input, .post_message_form textarea, .post_message_form select {
+  color: #999999;
+  -webkit-transition: left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out, left .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, left .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  outline: 0px;
+  position: relative;
+  left: 0; }
 
-.post_message_form input, .post_message_form textarea {
-  color: #999999; }
+.post_message_form input:focus, .post_message_form textarea:focus, .post_message_form select:focus {
+  -webkit-box-shadow: 0px 0px 7px 3px #0d5899;
+  box-shadow: 0px 0px 7px 3px #0d5899;
+  left: -3px; }
 
 .post_message_form button {
   display: block;
@@ -992,7 +1008,21 @@ form .forma_group:last-of-type input {
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   font-size: 24px;
   font-weight: 500;
-  margin-left: auto; }
+  margin-left: auto;
+  top: 0;
+  position: relative;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.excursions_item_detail:hover {
+  top: -5px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px; }
 
 .excursions_item_detail a {
   text-decoration: none;
@@ -1045,7 +1075,21 @@ form .forma_group:last-of-type input {
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   font-size: 24px;
   font-weight: 500;
-  margin-left: auto; }
+  margin-left: auto;
+  position: relative;
+  top: 0px;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.buses_main_item_detail:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px;
+  top: -5px; }
 
 .buses_main_item_detail a {
   text-decoration: none;
@@ -1108,19 +1152,24 @@ form .forma_group:last-of-type input {
   margin-right: 7.62%;
   margin-left: 7.62%; }
 
-.main_order_form input, .main_order_form textarea, .main_order_form select, .main_order_form button {
-  color: #999999; }
+.forma_group input, .forma_group textarea, .forma_group select, .forma_group button {
+  color: #999999;
+  -webkit-transition: left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out, left .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, left .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, left .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  border: 0px;
+  outline: 0px;
+  position: relative;
+  left: 0; }
 
-.main_order_form input::-webkit-input-placeholder {
-  color: #999999; }
+.forma_group input:focus, .forma_group textarea:focus, .forma_group select:focus {
+  -webkit-box-shadow: 0px 0px 7px 3px #0d5899;
+  box-shadow: 0px 0px 7px 3px #0d5899;
+  left: -3px; }
 
-.main_order_form input:-ms-input-placeholder {
-  color: #999999; }
-
-.main_order_form input::-ms-input-placeholder {
-  color: #999999; }
-
-.main_order_form input::placeholder {
+.main_order_form input:placeholder {
   color: #999999; }
 
 .main_order_form button {
@@ -1133,7 +1182,21 @@ form .forma_group:last-of-type input {
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   border-width: 0px;
   margin: 33px auto;
-  cursor: pointer; }
+  cursor: pointer;
+  top: 0;
+  position: relative;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.main_order_form button:hover {
+  top: -5px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px; }
 
 .main_order_form button p {
   font-size: 27px;
@@ -1295,13 +1358,23 @@ form .forma_group:last-of-type input {
   top: 50%;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%); }
+  transform: translate(0, -50%);
+  cursor: pointer;
+  -webkit-transition: left .3s ease-in-out, right .3s ease-in-out;
+  -o-transition: left .3s ease-in-out, right .3s ease-in-out;
+  transition: left .3s ease-in-out, right .3s ease-in-out; }
 
 .back {
   left: calc(50% - 362px); }
 
+.back:hover {
+  left: calc(50% - 370px); }
+
 .next {
   right: calc(50% - 362px); }
+
+.next:hover {
+  right: calc(50% - 370px); }
 
 .main_courusel_prises {
   display: block;
@@ -1311,7 +1384,21 @@ form .forma_group:last-of-type input {
   background-image: linear-gradient(180deg, #0d5899, #148fcb);
   width: 370px;
   height: 70px;
-  margin: 75px auto 100px auto; }
+  margin: 75px auto 100px auto;
+  position: relative;
+  top: 0px;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.main_courusel_prises:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px;
+  top: -5px; }
 
 .main_courusel_prises p {
   font-size: 34px;
@@ -1512,7 +1599,21 @@ form .forma_group:last-of-type input {
   background-image: -o-linear-gradient(left, #0d5899, #148fcb);
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  position: relative;
+  top: 0px;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.main_news_detail:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px;
+  top: -5px; }
 
 .main_news_detail p {
   font-size: 30px;
@@ -1643,7 +1744,19 @@ form .forma_group:last-of-type input {
   -webkit-transform-origin: left top 0;
   -ms-transform-origin: left top 0;
   transform-origin: left top 0;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 0px;
+  -webkit-transition: height .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: height .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: height .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: height .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: height .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.popup_button:hover {
+  height: 80px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px; }
 
 .popup_button p {
   font-weight: 600;
@@ -1711,7 +1824,19 @@ form .forma_group:last-of-type input {
   background-image: linear-gradient(90deg, #0d5899, #148fcb);
   border-width: 0px;
   margin: 33px auto;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  -webkit-transition: top .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: top .3s ease-in-out, box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+.popup_order_form button:hover {
+  top: -5px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c; }
 
 .popup_order_form button p {
   font-size: 27px;
@@ -2038,3 +2163,19 @@ form .forma_group:last-of-type input {
     font-weight: 400;
     text-indent: 40px;
     margin-bottom: 40px; }
+
+button {
+  top: 0;
+  position: relative;
+  border-radius: 0px;
+  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -o-transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out;
+  transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
+
+button:hover {
+  top: -5px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px; }

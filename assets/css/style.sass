@@ -64,7 +64,11 @@ a
 	color: #fff
 	display: block
 	padding: 10px 3.5%
-	transition: background-color .3s ease-in-out
+	border-radius: 0px
+	transition: background-color .3s ease-in-out, border-radius .3s ease-in-out
+.nav_item a
+	width: 100%
+	height: 100%
 .nav_item:hover .subnav
 	display: block	
 	opacity: 1
@@ -94,7 +98,8 @@ a
 	width: 100%
 	height: 100%
 	display: block
-	transition: background-color .3s ease-in-out
+	border-radius: 0px
+	transition: background-color .3s ease-in-out, border-radius .3s ease-in-out
 .subnav a:hover
 	background-color: $blue
 	border-radius: 5px
@@ -384,10 +389,15 @@ a
 	border-radius: 5px
 	padding: 5px 17px 0px 17px
 	border: 2px solid $darkgrey
-.post_message_form input:focus, .post_message_form textarea:focus
-	border-color: $blue
-.post_message_form input, .post_message_form textarea
+.post_message_form input, .post_message_form textarea, .post_message_form select
 	color: $darkgrey
+	transition: box-shadow .3s ease-in-out, left .3s ease-in-out
+	outline: 0px
+	position: relative
+	left: 0
+.post_message_form input:focus, .post_message_form textarea:focus, .post_message_form select:focus,
+	box-shadow: 0px 0px 7px 3px $blue
+	left: -3px
 .post_message_form button
 	display: block
 	height: 60px
@@ -767,6 +777,14 @@ form .forma_group:last-of-type input
 	font-size: 24px
 	font-weight: $medium
 	margin-left: auto
+	top: 0
+	position: relative
+	border-radius: 0px
+	transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out
+.excursions_item_detail:hover
+	top: -5px
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px
 .excursions_item_detail a
 	text-decoration: none
 	color: #fff
@@ -810,6 +828,14 @@ form .forma_group:last-of-type input
 	font-size: 24px
 	font-weight: $medium
 	margin-left: auto
+	position: relative
+	top: 0px
+	border-radius: 0px
+	transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out
+.buses_main_item_detail:hover
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px	
+	top: -5px
 .buses_main_item_detail a
 	text-decoration: none
 	color: #fff
@@ -862,9 +888,18 @@ form .forma_group:last-of-type input
 .main_order_form form 
 	margin-right: 7.62%
 	margin-left: 7.62%
-.main_order_form input, .main_order_form textarea, .main_order_form select, .main_order_form button
-	color: $darkgrey	
-.main_order_form input::placeholder 
+.forma_group input, .forma_group textarea, .forma_group select, .forma_group button
+	color: $darkgrey
+	transition: box-shadow .3s ease-in-out, left .3s ease-in-out
+	border: 0px
+	outline: 0px
+	position: relative
+	left: 0
+.forma_group input:focus, .forma_group textarea:focus, .forma_group select:focus,
+	box-shadow: 0px 0px 7px 3px $blue
+	left: -3px
+
+.main_order_form input:placeholder 
 	color: $darkgrey
 .main_order_form button
 	display: block
@@ -874,6 +909,14 @@ form .forma_group:last-of-type input
 	border-width: 0px
 	margin: 33px auto
 	cursor: pointer
+	top: 0
+	position: relative
+	border-radius: 0px
+	transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out
+.main_order_form button:hover
+	top: -5px
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px
 .main_order_form button p
 	font-size: 27px
 	font-weight: $semibold
@@ -996,17 +1039,30 @@ form .forma_group:last-of-type input
 	position: absolute
 	top: 50%
 	transform: translate(0, -50%)
+	cursor: pointer
+	transition: left .3s ease-in-out, right .3s ease-in-out
 .back 
 	left: calc(50% - 362px)
+.back:hover
+	left: calc(50% - 370px)
 .next
 	right: calc(50% - 362px)
-
+.next:hover
+	right: calc(50% - 370px)
 .main_courusel_prises
 	display: block
 	background-image: $gradient_two
 	width: 370px
 	height: 70px
 	margin: 75px auto 100px auto
+	position: relative
+	top: 0px
+	border-radius: 0px
+	transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out
+.main_courusel_prises:hover
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px	
+	top: -5px
 .main_courusel_prises p
 	font-size: 34px
 	font-weight: $semibold
@@ -1015,7 +1071,6 @@ form .forma_group:last-of-type input
 	line-height: 70px
 .main_courusel_wrapper 
 	margin-top: 200px
-
 .main_tips
 	font-size: 0
 .main_tips_head 
@@ -1164,6 +1219,14 @@ form .forma_group:last-of-type input
 	background-image: $gradient
 	margin-right: auto
 	margin-left: auto
+	position: relative
+	top: 0px
+	border-radius: 0px
+	transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out
+.main_news_detail:hover
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px	
+	top: -5px
 .main_news_detail p
 	font-size: 30px
 	font-weight: $semibold
@@ -1263,8 +1326,6 @@ form .forma_group:last-of-type input
 	font-size: 50px
 	color: $blue
 	font-weight: $semibold
-.popup
-	
 .popup_button
 	position: fixed
 	top: 700px
@@ -1275,6 +1336,12 @@ form .forma_group:last-of-type input
 	transform: rotate(270deg)
 	transform-origin: left top 0
 	cursor: pointer
+	border-radius: 0px
+	transition: height .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out
+.popup_button:hover
+	height: 80px	
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px
 .popup_button p
 	font-weight: $semibold
 	color: #fff
@@ -1319,6 +1386,12 @@ form .forma_group:last-of-type input
 	border-width: 0px
 	margin: 33px auto
 	cursor: pointer
+	position: relative
+	top: 0
+	transition: top .3s ease-in-out, box-shadow .3s ease-in-out
+.popup_order_form button:hover
+	top: -5px
+	box-shadow: 0px 0px 10px 5px $orange;
 .popup_order_form button p
 	font-size: 27px
 	font-weight: $semibold
@@ -1555,3 +1628,12 @@ form .forma_group:last-of-type input
 		font-weight: $regular
 		text-indent: 40px
 		margin-bottom: 40px
+button
+	top: 0
+	position: relative
+	border-radius: 0px
+	transition: top .3s ease-in-out, box-shadow .3s ease-in-out, border-radius .3s ease-in-out
+button:hover
+	top: -5px
+	box-shadow: 0px 0px 10px 5px $orange
+	border-radius: 10px
