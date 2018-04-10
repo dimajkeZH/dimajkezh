@@ -79,7 +79,8 @@ a {
   transition: background-color .3s ease-in-out; }
 
 .nav_item:hover .subnav {
-  display: block; }
+  display: block;
+  opacity: 1; }
 
 .nav_item:hover {
   background-color: #148fcb;
@@ -96,7 +97,22 @@ a {
   border-radius: 5px;
   margin-left: -3.5%;
   padding: 15px 15px 15px 15px;
-  font-weight: 500; }
+  font-weight: 500;
+  opacity: 0;
+  -webkit-animation: subnav_opacity .3s ease-in-out;
+  animation: subnav_opacity .3s ease-in-out; }
+
+@-webkit-keyframes subnav_opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes subnav_opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 .subnav a {
   padding: 15px 15px 15px 15px;
