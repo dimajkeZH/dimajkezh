@@ -144,7 +144,7 @@ function feedback(){
 	return false;
 }
 
-//Функция отображения PopUp
+//Функция отображения PopUp кнопки
 function PopUpShow(){
     $(".popup_window").show();
 }
@@ -153,13 +153,15 @@ function PopUpHide(){
     $(".popup_window").hide();
 }
 
+//Функция отображения PopUp Карты
+function PopUpMapShow(){
+    $(".popup_map").show();
 
-
-
-
-
-
-
+}
+//Функция скрытия PopUp
+function PopUpMapHide(){
+    $(".popup_map").hide();
+}
 
 /* набор функций исполняющийся при ИЗМЕНЕНИИ МАСШТАБА окна */
 $(window).resize(function(){
@@ -169,6 +171,7 @@ $(window).resize(function(){
 /* набор функций исполняющийся СРАЗУ после загрузки сайта */
 $(function(){
 	PopUpHide();
+	PopUpMapHide();
 	updateLINKslick();
 	ResizeWindow();
 	$('.next.slick-arrow').on('click',updateLINKslick);

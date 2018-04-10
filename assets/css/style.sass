@@ -4,6 +4,7 @@ $lightblue: #148fcb
 $black: #1a1a1a
 $gray: #f3f6fa
 $darkgrey: #999999
+$orange: #ff860c
 $regular: 400
 $medium: 500
 $semibold: 600
@@ -232,6 +233,13 @@ a
 	width: 33.33%
 	display: inline-block
 	vertical-align: top
+	border-radius: 25px
+	transition: background-color .3s ease-in-out
+.contact_info_item:hover
+	background-color: rgba( 0,0,0, .2)
+	color: $lightblue
+.contact_info_item:hover a
+	color: $lightblue
 .contact_info_item_svg
 	margin-bottom: 30px	
 .contact_info_item_svg svg
@@ -246,7 +254,38 @@ a
 	display: block
 	margin-right: auto
 	margin-left: auto
-
+.contact_info_item a
+	text-decoration: none
+	color: #000
+	transition: color .3s ease-in-out
+.popup_map 
+	position: fixed
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	z-index: 20
+	background-color: rgba(0, 0, 0, .4)
+	display: none
+.map
+	width: 60%
+	height: 60%
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	box-shadow: 0px 0px 100px 20px $blue;
+.map_close
+	font-size: 50px
+	line-height: 1
+	position: absolute
+	top: -30px
+	right: -30px
+	color: $blue
+	z-index: 12
+	font-weight: $semibold
+	cursor: pointer
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
 //* ВАКАНСИИ НАЧАЛО.*//
 .vacancies_wrapper
 	background-color: $gray
@@ -1210,7 +1249,7 @@ form .forma_group:last-of-type input
 	top: 130px
 	right: 0px
 	margin-top: 20px
-	background-color: rgba(255, 255, 255, .5)
+	text-shadow: 0px 0px 7px rgba(255, 255, 255, 1);
 .phone_number p
 	font-size: 50px
 	color: $blue
@@ -1235,16 +1274,15 @@ form .forma_group:last-of-type input
 	position: relative
 	transform: translate(0, -50%)
 	top: 50%
-
-
 .popup_window
 	width: 100%
 	position: fixed
-	background-color: rgba(243, 246,250, 0.5)
-	height: 100vh
-	z-index: 10
+	background-color: rgba(255, 255,255, .8)
+	height: 100%
+	z-index: 201
 	overflow: hidden
 	top: 0
+	display: none
 .popup_order_form 
 	position: absolute
 	top: 8.695%
@@ -1252,10 +1290,11 @@ form .forma_group:last-of-type input
 	top: 50%
 	transform: translate(-50%, -50%)
 	width: 35%
-	background-color: rgba(0, 0, 0, .4)
+	background-color: rgba(0, 0, 0, .45)
 	font-size: 0px
 	display: inline-block
 	z-index: 11
+	box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, .45);
 .popup_order_form form 
 	margin-right: 7.62%
 	margin-left: 7.62%
@@ -1275,7 +1314,6 @@ form .forma_group:last-of-type input
 	font-size: 27px
 	font-weight: $semibold
 	color: #fff
-
 .form_close
 	font-size: 50px
 	line-height: 1
@@ -1286,10 +1324,10 @@ form .forma_group:last-of-type input
 	z-index: 12
 	font-weight: $semibold
 	cursor: pointer
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
 .news_wrapper
 	font-size: 0
 	margin: 70px 18.75% 0px  18.75%	
-
 .news_head_title
 	font-size: 40px	
 	text-align: center
@@ -1309,7 +1347,6 @@ form .forma_group:last-of-type input
 .news_item img
 	width: 33%
 	margin-bottom: 30px
-
 .news_item_date 
 	font-size: 18px
 	font-weight: $regular
@@ -1360,7 +1397,6 @@ form .forma_group:last-of-type input
 	font-weight: $semibold
 .news_pagination .active 
 	background-color: $blue
-
 .moscow_head
 	width: 100%
 	background-image: url(../img/main/bcg_main.png)
@@ -1452,8 +1488,6 @@ form .forma_group:last-of-type input
 	text-align: center
 	font-size: 40px
 	font-weight: $semibold
-
-
 .moscow_prices_items
 	font-size: 0
 	padding: 120px 0px 80px 0px

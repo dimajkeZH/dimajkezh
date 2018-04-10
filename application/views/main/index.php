@@ -149,17 +149,20 @@
 				</svg>
 			</div>
 			<div class="main_contacts_items">
-				<div class="main_contacts_item">
+				<div class="main_contacts_item"><a href="/contacts/#contact">
 					<div class="main_contacts_item_img"><img src="/assets/img/main/c1.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Вызов по телефону компании у диспетчера</p></div>
+				</a>
 				</div>
-				<div class="main_contacts_item">
+				<div class="main_contacts_item"><a href="javascript:PopUpShow()">
 					<div class="main_contacts_item_img"><img src="/assets/img/main/c2.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Заказ посредством онлайн заявки на сайте</p></div>
+				</a>
 				</div>
-				<div class="main_contacts_item">
+				<div class="main_contacts_item"><a href="/contacts/#partner ">
 					<div class="main_contacts_item_img"><img src="/assets/img/main/c3.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Бронирование автобуса по электронной почте</p></div>
+				</a>
 				</div>
 			</div>
 		</div>

@@ -285,7 +285,18 @@ a {
 .contact_info_item {
   width: 33.33%;
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: top;
+  border-radius: 25px;
+  -webkit-transition: background-color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out; }
+
+.contact_info_item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #148fcb; }
+
+.contact_info_item:hover a {
+  color: #148fcb; }
 
 .contact_info_item_svg {
   margin-bottom: 30px; }
@@ -304,6 +315,47 @@ a {
   display: block;
   margin-right: auto;
   margin-left: auto; }
+
+.contact_info_item a {
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
+  transition: color .3s ease-in-out; }
+
+.popup_map {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none; }
+
+.map {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0px 0px 100px 20px #0d5899;
+  box-shadow: 0px 0px 100px 20px #0d5899; }
+
+.map_close {
+  font-size: 50px;
+  line-height: 1;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  color: #0d5899;
+  z-index: 12;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0px 0px 5px white; }
 
 .vacancies_wrapper {
   background-color: #f3f6fa;
@@ -1548,7 +1600,7 @@ form .forma_group:last-of-type input {
   top: 130px;
   right: 0px;
   margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.5); }
+  text-shadow: 0px 0px 7px white; }
 
 .phone_number p {
   font-size: 50px;
@@ -1587,11 +1639,12 @@ form .forma_group:last-of-type input {
 .popup_window {
   width: 100%;
   position: fixed;
-  background-color: rgba(243, 246, 250, 0.5);
-  height: 100vh;
-  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100%;
+  z-index: 201;
   overflow: hidden;
-  top: 0; }
+  top: 0;
+  display: none; }
 
 .popup_order_form {
   position: absolute;
@@ -1602,10 +1655,12 @@ form .forma_group:last-of-type input {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 35%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
   font-size: 0px;
   display: inline-block;
-  z-index: 11; }
+  z-index: 11;
+  -webkit-box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.45); }
 
 .popup_order_form form {
   margin-right: 7.62%;
@@ -1652,7 +1707,8 @@ form .forma_group:last-of-type input {
   color: #0d5899;
   z-index: 12;
   font-weight: 600;
-  cursor: pointer; }
+  cursor: pointer;
+  text-shadow: 0px 0px 5px white; }
 
 .news_wrapper {
   font-size: 0;
