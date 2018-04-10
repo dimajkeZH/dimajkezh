@@ -864,6 +864,10 @@ form .forma_group:last-of-type input {
   font-size: 40px;
   font-weight: 600; }
 
+.images_text_info_content {
+  font-size: 24px;
+  font-weight: 400; }
+
 .images_line {
   width: 55px;
   height: 4px;

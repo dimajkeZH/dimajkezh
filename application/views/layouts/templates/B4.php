@@ -5,7 +5,7 @@
 					<div class="images_line"></div>
 					<?php endif; ?>
 					<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
-					<p class=""><?php echo $CONTENT['DESCR']; ?></p>
+					<p class="images_text_info_content"><?php echo $CONTENT['DESCR']; ?></p>
 					<?php endif; ?>
 				</div>
 				<?php if(count($DATA)>0): ?>
