@@ -11,10 +11,11 @@ class View {
 	public function __construct($route) {
 		$this->route = $route;
 		$this->path = $route['action'].'/index';
+		$this->admpath = $route['controller'].'/'.$route['action'];
 	}
 
-	public function renderIndex($header, $vars = []) {
-		extract($header);
+	public function renderIndex($headers, $vars = []) {
+		extract($headers);
 		extract($vars);
 		$path = 'application/views/'.$this->path.'.php';
 		if(file_exists($path)) {
@@ -25,9 +26,20 @@ class View {
 		}
 	}
 
-	public function renderPage($header, $content) {
-		extract($header);
+	public function renderPage($headers, $content) {
+		extract($headers);
 		require 'application/views/layouts/'.$this->layout.'.php';
+	}
+
+	public function renderAdmin($title, $vars = []) {
+		extract($vars);
+		$path = 'application/views/'.$this->admpath.'.php';
+		if(file_exists($path)) {
+			ob_start();
+			require $path;
+			$content = ob_get_clean();
+			require 'application/views/layouts/'.$this->layout.'.php';
+		}
 	}
 
 	public function redirect($url) {

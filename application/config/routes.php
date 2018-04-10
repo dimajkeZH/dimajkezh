@@ -66,7 +66,27 @@ return [
 
 	'admin' => [
 		'controller' => 'admin',
-		'action' => 'index',
+		'action' => 'main',
 	],
+
+	'admin/auth' => [
+		'controller' => 'admin',
+		'action' => 'auth',
+	],
+
+	'admin/login' => [
+		'controller' => 'admin',
+		'action' => 'login',
+	],
+
+	'admin/logout' => [
+		'controller' => 'admin',
+		'action' => 'logout',
+	],
+
+	'admin/page/[1-9]{1,}' => [
+		'controller' => 'admin',
+		'action' => 'page',
+	]
 	
 ];
