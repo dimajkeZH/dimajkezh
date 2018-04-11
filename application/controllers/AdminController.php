@@ -13,6 +13,7 @@ class AdminController extends Controller {
 	}
 
 	public function authAction(){
+		//debug([$_SESSION, $_COOKIE]);
 		$this->view->layout = 'admin';
 		$this->view->renderAdmin($this->model->title);
 	}

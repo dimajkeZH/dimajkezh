@@ -1,5 +1,5 @@
 <?php if(isset($_SESSION['err'])AND($_SESSION['err']!='')): ?>
-	<p><?php echo $_SESSION['err']; ?></p>
+<p><?php echo $_SESSION['err']; ?></p>
 <?php endif; ?>
 <form action="login" method="POST">
 	<input type="name" name="name" placeholder="логин">
