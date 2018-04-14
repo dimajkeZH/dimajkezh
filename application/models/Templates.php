@@ -6,35 +6,27 @@ use application\core\Model;
 
 class Templates extends Model {
 
+	protected $tmpls = [];
+
 	public function getContent($route) {
-		if($route['controller'] AND $route['action'] AND $route['param']){
-			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
-			$params = [
-				'COL_NUMBER' => $route['param'],
-				'CONTROLLER' => $route['controller'],
-				'ACTION' => $route['action']
-			];
-			$tmpls = $this->db->row($q, $params);
-			if(!$tmpls){
-				\application\core\View::errorCode(404);
-			}
-			$content = '';
-			for($i = 0; $i < count($tmpls); $i++){
-				$vars = $this->caseVars($tmpls[$i]['TMPL_NUMBER'], $tmpls[$i]['ID']);
+			$content = [];
+			for($i = 0; $i < count($this->tmpls); $i++){
+				$vars = $this->caseVars($this->tmpls[$i]['TMPL_NUMBER'], $this->tmpls[$i]['ID']);
+				array_push($content, $vars);
+				/*
 				extract($vars);
 				if(isset($CONTENT[0])){
 					$CONTENT = $CONTENT[0];
 				}
 				ob_start();
-				require 'application/views/layouts/templates/'.$tmpls[$i]['PATH'].'.php';
+				require 'application/views/layouts/templates/'.$this->tmpls[$i]['PATH'].'.php';
 				$content .= ob_get_clean();
+				*/
 			}
 			return $content;
-		}else{
-			\application\core\View::errorCode(404);
-		}
 	}
-	public function caseVars($TMPL, $ID){
+
+	private function caseVars($TMPL, $ID){
 		//$return['CONTENT'] = [];
 		//$return['DATA'] = [];
 		switch($TMPL){
@@ -71,6 +63,32 @@ class Templates extends Model {
 				//$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
 				return $return;
 				break;
+		}
+	}
+
+	public function getViews($route){
+		$return = [];
+		foreach($this->tmpls as $tmpl){
+			array_push($return, 'layouts/templates/'.$tmpl['PATH']);
+		}
+		return $return;
+	}
+
+	public function setTmpls($route){
+		if($route['controller'] AND $route['action'] AND $route['param']){
+			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+			$params = [
+				'COL_NUMBER' => $route['param'],
+				'CONTROLLER' => $route['controller'],
+				'ACTION' => $route['action']
+			];
+			$tmpls = $this->db->row($q, $params);
+			if(!$tmpls){
+				\application\core\View::errorCode(404);
+			}
+			$this->tmpls = $tmpls;
+		}else{
+			\application\core\View::errorCode(404);
 		}
 	}
 

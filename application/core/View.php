@@ -14,27 +14,32 @@ class View {
 		$this->admpath = $route['controller'].'/'.$route['action'];
 	}
 
-	public function renderIndex($headers, $vars = []) {
-		extract($headers);
-		extract($vars);
-		$path = 'application/views/'.$this->path.'.php';
-		if(file_exists($path)) {
-			ob_start();
-			require $path;
-			$content = ob_get_clean();
-			require 'application/views/layouts/'.$this->layout.'.php';
+	public function render($headers, $vars = [], $views = []) {
+		if(count($views) == 0){
+			$views = [$this->path];
 		}
-	}
-
-	public function renderPage($headers, $content) {
+		$content = '';
+		$len = max(count($views), count($vars));
+		for($i = 0; $i < $len; $i++){
+			$path = 'application/views/'.$views[$i].'.php';
+			if(file_exists($path)){
+				extract($vars[$i]);
+				if(isset($CONTENT[0])){
+					$CONTENT = $CONTENT[0];
+				}
+				ob_start();
+				require $path;
+				$content .= ob_get_clean();
+			}
+		}
 		extract($headers);
 		require 'application/views/layouts/'.$this->layout.'.php';
 	}
 
 	public function renderAdmin($title, $vars = []) {
-		extract($vars);
 		$path = 'application/views/'.$this->admpath.'.php';
 		if(file_exists($path)) {
+			extract($vars);
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
