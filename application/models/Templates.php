@@ -7,28 +7,40 @@ use application\core\Model;
 class Templates extends Model {
 
 	protected $tmpls = [];
+	public $pg_type;
 
 	public function getContent($route) {
 			$content = [];
-			for($i = 0; $i < count($this->tmpls); $i++){
-				$vars = $this->caseVars($this->tmpls[$i]['TMPL_NUMBER'], $this->tmpls[$i]['ID']);
-				array_push($content, $vars);
-				/*
-				extract($vars);
-				if(isset($CONTENT[0])){
-					$CONTENT = $CONTENT[0];
+			if($this->pg_type == '1'){
+				$content = $this->getVars($this->tmpls[0]['TMPL_NUMBER'], $this->tmpls[0]['ID']);
+			}elseif($this->pg_type == '2'){
+				for($i = 0; $i < count($this->tmpls); $i++){
+					$vars = $this->caseVars($this->tmpls[$i]['TMPL_NUMBER'], $this->tmpls[$i]['ID']);
+					array_push($content, $vars);
 				}
-				ob_start();
-				require 'application/views/layouts/templates/'.$this->tmpls[$i]['PATH'].'.php';
-				$content .= ob_get_clean();
-				*/
 			}
 			return $content;
 	}
 
+	private function getVars($TMPL, $ID){
+		$return['CONTENT'] = [];
+		$result = $this->db->row('SELECT * FROM PAGE_FULL_CONTENT WHERE ID_FULL_PAGE = :ID', ['ID' => $ID]);
+		foreach($result as $key => $val){
+			if(!isset($return['CONTENT'][$val['VAR']])){
+				$return['CONTENT'][$val['VAR']] = [];
+			}
+			array_push($return['CONTENT'][$val['VAR']], $val['VAL']);
+		}
+		unset($result);
+		foreach($return['CONTENT'] as $key => $val){
+			if(count($return['CONTENT'][$key]) == 1){
+				$return['CONTENT'][$key] = $return['CONTENT'][$key][0];
+			}
+		}
+		return $return;
+	}
+
 	private function caseVars($TMPL, $ID){
-		//$return['CONTENT'] = [];
-		//$return['DATA'] = [];
 		switch($TMPL){
 			case 1:
 				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
@@ -67,26 +79,45 @@ class Templates extends Model {
 	}
 
 	public function getViews($route){
-		$return = [];
-		foreach($this->tmpls as $tmpl){
-			array_push($return, 'layouts/templates/'.$tmpl['PATH']);
+		if($this->pg_type == 1){
+			return $route['action'].'/'.$this->tmpls[0]['PATH'];
+		}elseif($this->pg_type == 2){
+			$return = [];
+			foreach($this->tmpls as $tmpl){
+				array_push($return, 'layouts/templates/'.$tmpl['PATH']);
+			}
+			return $return;
 		}
-		return $return;
 	}
 
-	public function setTmpls($route){
+	public function setConf($route){
 		if($route['controller'] AND $route['action'] AND $route['param']){
-			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM PAGE_TEMPLATES AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$params = [
 				'COL_NUMBER' => $route['param'],
 				'CONTROLLER' => $route['controller'],
 				'ACTION' => $route['action']
 			];
+
+			$q = 'SELECT ID_TYPE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+			$type = $this->db->row($q, $params);
+			if(!$type){
+				\application\core\View::errorCode(404);
+			}
+			$this->pg_type = $type[0]['ID_TYPE'];
+
+			$table = '';
+			if($this->pg_type == '1'){
+				$table = 'PAGE_FULL';
+			}elseif($this->pg_type == '2'){
+				$table = 'PAGE_TEMPLATES';
+			}
+			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM '.$table.' AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$tmpls = $this->db->row($q, $params);
 			if(!$tmpls){
 				\application\core\View::errorCode(404);
 			}
 			$this->tmpls = $tmpls;
+
 		}else{
 			\application\core\View::errorCode(404);
 		}

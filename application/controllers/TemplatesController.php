@@ -7,8 +7,8 @@ use application\core\Controller;
 class TemplatesController extends Controller {
 
 	private function render(){
-		$this->model->setTmpls($this->route);
-		$this->view->render($this->model->getTitle($this->route), $this->model->getContent($this->route), $this->model->getViews($this->route));
+		$this->model->setConf($this->route);
+		$this->view->render($this->model->pg_type, $this->model->getTitle($this->route), $this->model->getContent($this->route), $this->model->getViews($this->route));
 	}
 
 	public function pageAction() {

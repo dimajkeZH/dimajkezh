@@ -7,7 +7,7 @@ use application\core\Model;
 class Main extends Model {
 
 	public function getTitle($route){
-		$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM INDEX_PAGES AS IP INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = IP.ID_LOCATION WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
+		$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS AS PG INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = PG.ID_LOCATION WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
 		$params = [
 			'CONTROLLER' => $route['controller'],
 			'ACTION' => $route['action']
@@ -34,7 +34,7 @@ class Main extends Model {
 		}
 		$countNews = 5;
 		$limA = ($route['param'] - 1) * $countNews;
-		$allcountNews = $this->db->column('SELECT COUNT(ID) FROM NEWS;');
+		$allcountNews = $this->db->column('SELECT COUNT(ID) FROM DATA_NEWS;');
 		$allcountPage = intdiv($allcountNews, $countNews);
 		if($allcountNews % $countNews > 0){
 			$allcountPage++;
@@ -44,9 +44,8 @@ class Main extends Model {
 		}
 		$result['PAGINATION'] = $this->pagination($route['param'], $allcountPage);
 		$result['PAGE'] = $route['param'];
-		$result['NEWSLIST'] = $this->db->row('SELECT * FROM NEWS ORDER BY DATE_ADD DESC, TIME_ADD DESC LIMIT '.$limA.','.$countNews.';');
+		$result['NEWSLIST'] = $this->db->row('SELECT * FROM DATA_NEWS ORDER BY DATE_ADD DESC, TIME_ADD DESC LIMIT '.$limA.','.$countNews.';');
 		$result['CONTENT'] = $this->content($route);
-		//debug($result);
 		return $result;
 	}
 
@@ -59,7 +58,7 @@ class Main extends Model {
 	}
 
 	private function content($route){
-		$q = 'SELECT IPC.VAR, IPC.VAL FROM INDEX_PAGE_CONTENT as IPC INNER JOIN (INDEX_PAGES as IP INNER JOIN LIB_LOCATIONS as LL ON LL.ID = IP.ID_LOCATION) ON IP.ID = IPC.ID_INDEX_PAGE WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
+		$q = 'SELECT PGC.VAR, PGC.VAL FROM PAGE_GROUPS_CONTENT as PGC INNER JOIN (PAGE_GROUPS as PG INNER JOIN LIB_LOCATIONS as LL ON LL.ID = PG.ID_LOCATION) ON PG.ID = PGC.ID_GROUP WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
 		$params = ['CONTROLLER' => $route['controller'], 'ACTION' => $route['action']];
 		$result = $this->db->row($q, $params);
 		if(count($result) == 0){
@@ -81,7 +80,7 @@ class Main extends Model {
 	}
 
 	private function vacancieslist($route){
-		return $this->db->row('SELECT TITLE, IMAGE, DESCR  FROM VACANCIES_LIST');
+		return $this->db->row('SELECT TITLE, IMAGE, DESCR  FROM DATA_VACANCIES');
 	}
 
 	private function pagination($cur, $all){

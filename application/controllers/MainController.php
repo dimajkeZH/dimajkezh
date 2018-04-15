@@ -7,7 +7,7 @@ use application\core\Controller;
 class MainController extends Controller {
 
 	private function render($content){
-		$this->view->render($this->model->getTitle($this->route), [$content]);
+		$this->view->render(1, $this->model->getTitle($this->route), $content);
 	}
 
 	public function mainAction() {
