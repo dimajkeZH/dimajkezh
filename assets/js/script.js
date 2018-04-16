@@ -37,14 +37,14 @@ function ResizeWindow(){
 		item_img = $(".vacancies_info_item_img").outerHeight();
 	var max = Math.max(item_info, item_img); 
 	$(".vacancies_info_item").height(max);
-	console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max);
+	/* console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max); */
 	/* RESIZE images_text */
 	var item_info = $(".images_text_item_info"),
 		item_info = item_info.outerHeight() + item_info.parent().outerHeight() / 5,
 		item_img = $(".images_text_item_img").outerHeight(); 
 	var max = Math.max(item_info,item_img); 
 	$(".images_text_item").height(max); 
-	//console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max);
+	/* console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max); */
 }
 
 /* слик для главной страницы */
