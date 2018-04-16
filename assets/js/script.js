@@ -35,16 +35,16 @@ function ResizeWindow(){
 	var item_info = $(".vacancies_info_text"),
 		item_info = item_info.outerHeight() + item_info.parent().outerHeight() / 5,
 		item_img = $(".vacancies_info_item_img").outerHeight();
-	var max = Math.max(item_info,item_img); 
-	$(".vacancies_info_item").height(max); 
-	/*console.log("info_h" + item_info + " img_h: " + item_img + " max:" + max);*/
+	var max = Math.max(item_info, item_img); 
+	$(".vacancies_info_item").height(max);
+	console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max);
 	/* RESIZE images_text */
 	var item_info = $(".images_text_item_info"),
 		item_info = item_info.outerHeight() + item_info.parent().outerHeight() / 5,
 		item_img = $(".images_text_item_img").outerHeight(); 
 	var max = Math.max(item_info,item_img); 
 	$(".images_text_item").height(max); 
-	/*console.log("info_h" + item_info + " img_h: " + item_img + " max:" + max);*/
+	//console.log("info_h: " + item_info + "; img_h: " + item_img + "; max:" + max);
 }
 
 /* слик для главной страницы */
@@ -168,12 +168,15 @@ $(window).resize(function(){
 	ResizeWindow();
 });
 
-/* набор функций исполняющийся СРАЗУ после загрузки сайта */
+/* набор функций исполняющийся СРАЗУ после загрузки DOM */
 $(function(){
 	PopUpHide();
 	PopUpMapHide();
 	updateLINKslick();
-	ResizeWindow();
 	$('.next.slick-arrow').on('click',updateLINKslick);
 	$('.back.slick-arrow').on('click',updateLINKslick);
 });
+/* набор функций исполняющийся СРАЗУ после загрузки всего сайта (вместе с картинками) */
+window.onload = function(){
+	ResizeWindow();
+};
