@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick-theme.css">
-	<link rel="shortcut icon" href="/favicon.png" type="image/png">
+	<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
 </head>
 <body>
 	<div class="header_wrapper">
