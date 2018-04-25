@@ -1,7 +1,7 @@
 #ServerSignature Off
 AddDefaultCharset UTF-8
 
-<ifModule mod_php.c>
+<ifModule mod_php.c>	
   php_value	upload_max_filesize	32M
   php_value	post_max_size		16M
   php_value	default_charset utf-8
@@ -17,19 +17,21 @@ AddDefaultCharset UTF-8
 	mod_gzip_item_exclude mime		^image\.*
 	mod_gzip_item_exclude rspheader	^Content-Encoding:.*gzip.*
 </IfModule>
-<ifModule mod_deflate.c>
-	SetOutputFilter DEFLATE
-	AddOutputFilterByType DEFLATE text/html
-	AddOutputFilterByType DEFLATE text/plain 
-	AddOutputFilterByType DEFLATE image/svg+xml
-	AddOutputFilterByType DEFLATE text/xml 
-	AddOutputFilterByType DEFLATE application/xml 
-	AddOutputFilterByType DEFLATE application/xhtml+xml 
-	AddOutputFilterByType DEFLATE text/css 
-	AddOutputFilterByType DEFLATE text/javascript 
-	AddOutputFilterByType DEFLATE application/javascript 
-	AddOutputFilterByType DEFLATE application/x-javascript
-</ifModule>
+<IfModule !mod_gzip.c>
+	<ifModule mod_deflate.c>
+		SetOutputFilter DEFLATE
+		AddOutputFilterByType DEFLATE text/html
+		AddOutputFilterByType DEFLATE text/plain 
+		AddOutputFilterByType DEFLATE image/svg+xml
+		AddOutputFilterByType DEFLATE text/xml 
+		AddOutputFilterByType DEFLATE application/xml 
+		AddOutputFilterByType DEFLATE application/xhtml+xml 
+		AddOutputFilterByType DEFLATE text/css 
+		AddOutputFilterByType DEFLATE text/javascript 
+		AddOutputFilterByType DEFLATE application/javascript 
+		AddOutputFilterByType DEFLATE application/x-javascript
+	</ifModule>
+</IfModule>
 
 <ifModule mod_headers.c>
 	#кэшировать html и htm файлы на один день
@@ -49,26 +51,28 @@ AddDefaultCharset UTF-8
 		Header unset Cache-Control
 	</FilesMatch>
 </IfModule>
-<ifModule mod_expires.c>
-	ExpiresActive On
-	#по умолчанию кеш в 5 секунд
-	ExpiresDefault "access plus 5 seconds"
-	#кэшировать флэш и изображения на месяц
-	ExpiresByType image/x-icon "access plus 2592000 seconds"
-	ExpiresByType image/jpg "access plus 2592000 seconds"
-	ExpiresByType image/jpeg "access plus 2592000 seconds"
-	ExpiresByType image/png "access plus 2592000 seconds"
-	ExpiresByType image/gif "access plus 2592000 seconds"
-	ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
-	#кэшировать css, javascript и текстовые файлы на одну неделю
-	ExpiresByType text/css "access plus 604800 seconds"
-	ExpiresByType text/javascript "access plus 604800 seconds"
-	ExpiresByType application/javascript "access plus 604800 seconds"
-	ExpiresByType application/x-javascript "access plus 604800 seconds"
-	#кэшировать html и htm файлы на один день
-	ExpiresByType text/html "access plus 43200 seconds"
-	#кэшировать xml файлы на десять минут
-	ExpiresByType application/xhtml+xml "access plus 600 seconds"
+<ifModule !mod_headers.c>
+	<ifModule mod_expires.c>
+		ExpiresActive On
+		#по умолчанию кеш в 5 секунд
+		ExpiresDefault "access plus 5 seconds"
+		#кэшировать флэш и изображения на месяц
+		ExpiresByType image/x-icon "access plus 2592000 seconds"
+		ExpiresByType image/jpg "access plus 2592000 seconds"
+		ExpiresByType image/jpeg "access plus 2592000 seconds"
+		ExpiresByType image/png "access plus 2592000 seconds"
+		ExpiresByType image/gif "access plus 2592000 seconds"
+		ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+		#кэшировать css, javascript и текстовые файлы на одну неделю
+		ExpiresByType text/css "access plus 604800 seconds"
+		ExpiresByType text/javascript "access plus 604800 seconds"
+		ExpiresByType application/javascript "access plus 604800 seconds"
+		ExpiresByType application/x-javascript "access plus 604800 seconds"
+		#кэшировать html и htm файлы на один день
+		ExpiresByType text/html "access plus 43200 seconds"
+		#кэшировать xml файлы на десять минут
+		ExpiresByType application/xhtml+xml "access plus 600 seconds"
+	</ifModule>
 </ifModule>
 
 # Bad Rquest
