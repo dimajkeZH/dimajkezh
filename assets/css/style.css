@@ -261,7 +261,18 @@ a {
   height: 60px;
   margin-left: 10%;
   margin-right: 10%;
-  margin: 35px 10% 110px 10%; }
+  position: relative;
+  top: 0px;
+  margin: 35px 10% 110px 10%;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
+
+.services_list_button:hover {
+  top: -5px;
+  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
+  box-shadow: 0px 0px 10px 5px #ff860c;
+  border-radius: 10px; }
 
 .services_list_button a {
   text-decoration: none; }
@@ -1042,17 +1053,31 @@ form .forma_group:last-of-type input {
   text-align: center; }
 
 .buses_main {
-  padding: 100px 18.75% 0px  18.75%;
   position: relative; }
 
 .buses_main_head {
-  padding-bottom: 50px;
-  border-bottom: 4px solid #0d5899; }
+  padding-bottom: 125px;
+  background-image: url(../img/buses/bus_head_bcg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 275px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start; }
 
 .buses_main_head_title {
   text-align: center;
   font-size: 40px;
-  font-weight: 600; }
+  font-weight: 600;
+  width: 40%;
+  margin-top: 100px; }
 
 .buses_main_head_line {
   width: 55px;
@@ -1064,68 +1089,10 @@ form .forma_group:last-of-type input {
   margin-bottom: 50px;
   margin-top: 25px; }
 
-.buses_main_head_text {
-  font-size: 26px;
-  font-weight: 400;
-  margin-bottom: 40px;
-  text-align: justify; }
-
-.buses_main_head_title_two {
-  font-size: 24px;
-  font-weight: 500; }
-
-.buses_main_item_detail {
-  width: 300px;
-  height: 55px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#0d5899), to(#148fcb));
-  background-image: -webkit-linear-gradient(left, #0d5899, #148fcb);
-  background-image: -o-linear-gradient(left, #0d5899, #148fcb);
-  background-image: linear-gradient(90deg, #0d5899, #148fcb);
-  font-size: 24px;
-  font-weight: 500;
-  margin-left: auto;
-  position: relative;
-  top: 0px;
-  border-radius: 0px;
-  -webkit-transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
-  transition: top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
-  -o-transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
-  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out;
-  transition: box-shadow .3s ease-in-out, top .3s ease-in-out, border-radius .3s ease-in-out, -webkit-box-shadow .3s ease-in-out; }
-
-.buses_main_item_detail:hover {
-  -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
-  box-shadow: 0px 0px 10px 5px #ff860c;
-  border-radius: 10px;
-  top: -5px; }
-
-.buses_main_item_detail a {
-  text-decoration: none;
-  color: #fff;
-  width: 100%;
-  height: 100%;
-  display: block;
-  line-height: 55px;
-  text-align: center; }
-
-.buses_main_item_title {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  text-align: center; }
-
-.buses_main_item_text {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 40px;
-  text-align: justify; }
-
-.buses_main_item {
-  border-bottom: 4px solid #0d5899;
-  padding: 40px 0px 40px 0px; }
-
-.buses_main_items {
-  margin-bottom: 60px; }
+.buses_main_head_img {
+  width: 30%; }
+  .buses_main_head_img img {
+    width: 100%; }
 
 .main_head {
   background-image: url(../img/main/bcg_main.png);
@@ -1695,10 +1662,12 @@ form .forma_group:last-of-type input {
 .text_wrapper {
   font-size: 0;
   margin: 90px 18.75% 0px  18.75%; }
+  .text_wrapper .main_line {
+    margin-right: 0;
+    margin-left: 0; }
 
 .text_title {
   font-size: 40px;
-  text-align: center;
   font-weight: 600; }
 
 .text {
@@ -1718,10 +1687,18 @@ form .forma_group:last-of-type input {
     font-size: 24px;
     font-weight: 400;
     margin: 20px 0px; }
+    .text p span {
+      color: #0d5899;
+      font-weight: 600; }
   .text h2 {
     font-size: 24px;
     font-weight: 500;
     margin: 20px 0px; }
+  .text ol li {
+    font-size: 28px;
+    font-weight: 600; }
+    .text ol li span {
+      color: #0d5899; }
 
 .phone_number {
   position: absolute;
@@ -1730,6 +1707,7 @@ form .forma_group:last-of-type input {
   right: 0px;
   margin-top: 20px;
   text-shadow: 0px 0px 7px white;
+  background: #fff;
   padding: 0px 15px;
   border-radius: 25px; }
 
