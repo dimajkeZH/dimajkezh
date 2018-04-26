@@ -677,7 +677,15 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-transition: all .4s;
+  -o-transition: all .4s;
+  transition: all .4s;
+  background-color: #fff; }
+
+.table_type_one_info_nav li:hover {
+  background-color: #148fcb;
+  color: #fff; }
 
 .table_type_one_info_content {
   font-size: 50px;
@@ -1721,7 +1729,9 @@ form .forma_group:last-of-type input {
   top: 130px;
   right: 0px;
   margin-top: 20px;
-  text-shadow: 0px 0px 7px white; }
+  text-shadow: 0px 0px 7px white;
+  padding: 0px 15px;
+  border-radius: 25px; }
 
 .phone_number p {
   font-size: 50px;
@@ -2179,3 +2189,41 @@ button:hover {
   -webkit-box-shadow: 0px 0px 10px 5px #ff860c;
   box-shadow: 0px 0px 10px 5px #ff860c;
   border-radius: 10px; }
+
+.bus_description {
+  padding: 70px 18.75% 70px 18.75%;
+  font-size: 0px; }
+  .bus_description .bus_title {
+    font-size: 34px;
+    font-weight: 600;
+    text-align: center; }
+  .bus_description .bus_items {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: top;
+    -ms-flex-align: top;
+    align-items: top;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 50px; }
+  .bus_description .bus_item {
+    padding: 0px 15px; }
+    .bus_description .bus_item img {
+      max-height: 350px;
+      max-width: 100%; }
+    .bus_description .bus_item .item_text_title {
+      font-size: 30px;
+      font-weight: 600;
+      color: #0d5899; }
+    .bus_description .bus_item li {
+      font-size: 24px;
+      font-weight: 400;
+      color: #000;
+      list-style-type: none;
+      display: block;
+      width: 100%; }

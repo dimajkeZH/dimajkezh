@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/js/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/js/slick/slick-theme.css">
+</head>
+<body>
+	<div class="header_wrapper">
+		<div class="phone_number"><p>8 495 798 90 08</p></div>
+		<div class="header">
+			<div class="header_nav">
+				<span class="logo">
+					<a href="/">
+						<img src="/assets/img/logo.png" alt="">
+					</a>
+				</span>
+				<div class="main_nav">
+					<nav class="nav">
+						<div class="nav_item">
+							<a href="/services" >Услуги</a>
+							<div class="subnav">
+								<a href="#">Автобус на свадьбу</a>
+								<a href="#">Автобус в аэропорт</a>
+								<a href="#">Автобус межгород</a>
+								<a href="#">Срочный заказ автобуса</a>
+								<a href="#">Поездка до границы Украины и обратно</a>
+								<a href="#">Список документов для заказных автобусов</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/buses" class="">Автобусы</a>
+							<div class="subnav">
+								<a href="#">Заказ автобуса 28 мест</a>
+								<a href="#">Заказ автобуса 30,32 места</a>
+								<a href="#">Заказ автобуса 42-45 мест</a>
+								<a href="#">Заказ автобуса 50 мест</a>
+								<a href="#">Заказ автобуса 54-59 мест</a>
+								<a href="#">Заказ автобуса 74 места</a>
+								<a href="#">Каталог автобусов</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/minivans" class="">Микроавтобусы</a>
+							<div class="subnav">
+								<a href="#">Заказ микроавтобуса 7-8 мест</a>
+								<a href="#">Заказ микроавтобуса 10-12 мест</a>
+								<a href="#">Заказ микроавтобуса 18-20 мест</a>
+								<a href="#">Заказ микроавтобуса 26 мест</a>
+								<a href="#">Минивэн 6 мест</a>
+							</div>
+						</div>
+						<div class="nav_item">	
+							<a href="/excursions" class="">Экскурсии</a>
+							<div class="subnav">
+								<a href="#">Обзорные экскурсии по Москве</a>
+								<a href="#">Индивидуальная экскурсия по ночной Москве</a>
+								<a href="#">Автотур в Санкт-Петербург, Великий Новгород, Тверь</a>
+								<a href="#">Автобусный тур по "Золотому кольцу России"</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/contacts" class="">Контакты</a>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main_wrapper">
+		<div class="popup">
+			<a href="javascript:PopUpShow()"><div class="popup_button"><p> ЗаказON-LINE</p></div></a>
+			<div class="popup_window">
+				<div class="popup_order_form">
+					<a href="javascript:PopUpHide()"><div class="form_close">&#9421;</div></a>
+					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
+					<form action="" method="POST">
+						<div class="forma_group"><input type="text" placeholder="Дата и время подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name=""></div>
+						<div class="forma_group">
+							<select name="" id="" >
+								<option value="0">---Выбор транспорта---</option>
+								<option value="1">6 Мест</option>
+								<option value="2">7 Мест</option>
+								<option value="3">8 Мест</option>
+								<option value="4">9 Мест</option>
+								<option value="5">10 Мест</option>
+								<option value="6">11 Мест</option>
+								<option value="7">18 Мест</option>
+								<option value="8">20 Мест</option>
+								<option value="9">24 Места</option>
+								<option value="10">28 Мест</option>
+								<option value="11">31 Место</option>
+								<option value="12">42 Мест</option>
+								<option value="13">50 Мест</option>
+								<option value="14">55 Мест</option>
+							</select></div>
+						<div class="forma_group"><input type="text" placeholder="Предложите цену" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Комментарий" name=""></div>
+						<button type="submit"><p>Заказать</p></button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="bus_description">
+			<p class="bus_title">Автобус Mercedes-Benz Tourismo 350</p>
+			<div class="main_line"></div>
+			<div class="bus_items">
+				<div class="bus_item item_img"><img src="/assets/img/buses/catalog/mb-tour-out.png" alt=""></div>
+				<div class="bus_item item_img"><img src="/assets/img/buses/catalog/mb-tour-in.png" alt=""></div>
+				<div class="bus_item item_text">
+					<p class="item_text_title">Туристический автобус</p>
+					<div class="item_text_info">
+						<ul>
+							<li>Год выпуска 2004</li>
+							<li>Количество мест 50+1</li>
+							<li>Кондиционер</li>
+							<li>TV,DVD,USB</li>
+							<li>Двигатель — OM 457hLA (354 л.с.)</li>
+							<li>Евро 2/3</li>
+							<li>КПП GO 190, 6 ступ</li>
+							<li><span>Системы безопасности: ABS, ASR, EBS, BA</span></li>
+							<li>Спутниковый мониторинг ГЛОНАСС</li>
+							<li>Багажное отделение 9.6 м3</li>
+							<li>Размеры: 11980x2500x3647 мм</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="bus_content"></div>
+		</div>
+		<div class="text_wrapper">
+			<div class="text">
+				<p>Mercedes-Benz O 350 (2004-07) Tourismo просто создан для того, что бы наматывать тысячи километров по длинным магистрялям и автобанам.  Это надежная и популярная машина в Европе и России, оснащенная большим количеством систем безопасности и контроля движения таких как: ABS, ASR, EBS, BA, DBL, ESP. Особый контроль поперечной динамики. Кузов усилен и достаточно жеский при изгибе и кручении, он усилен толстым профелем по бортам и тем самым защищает пассажиров от бокового удара. Сцепление полностью синхронизировано.</p>
+				<p>
+				Повышенный комфорт в салоне обеспечивается за счет плавности хода и переднего моста с независимой подвеской. Не лишним будет отметить новые сиденья и качества материала, широкие входы обеспечивают удобную посадку пассажиров. Базовая комплектация  Mercedes-Benz TOURISMO M (O 350 RHD) : двигатель — OM 457hLA (354 л.с.) Евро 4/5; КПП — GO 190, 6 ступ, гидродинамический ретардер VR 115E Voith, сидение гида, сидение водителя Grammer MSG 90.6 PG на пневматической подвеске, ABS, ASR, EBS, BA, DBL, ESP, кондиционер, CD, иммобилайзер, большое багажные отделения 9,6 куб.м
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer_wrapper">
+		<div class="footer">
+			<p>© Copyright, 2015 ТК "ТриБас" - Все права защищены.
+			</p>
+			<p>
+			При использовании материалов с сайта ссылка на источник обязательна.
+			</p>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/slick/slick.min.js"></script>
+	<script src="../../../assets/js/script.js"></script>
+</body>
+</html>
