@@ -1,46 +1,140 @@
 $gray: #e5e5e5
-$red: #cb3131
 $blue: #b5eae0
-* 
+*
 	box-sizing: border-box
 	padding: 0
 	margin: 0
+	font-family: sans-serif
 .wrapper 
 	position: relative
 	width: 100%
 	overflow: hidden
-	height: 100vh
 .header,.main_wrapper,.footer
-	margin: 0px 15% 0px 15%
+	margin: 0px 2%
 .header
-	height: 75px
+	height: 100px
 	margin-top: 7.5px
-.logo_wrapper
-	height: 100%
-	text-align: center
-	border-right: 2px solid $red
-	border-top: 2px solid $red
-	border-left: 2px solid $red
-.logo 
-	width: 150px
-	height: 100%
-	margin-right: auto
-	margin: 0px auto 7.5px auto
-.logo img 
-	height: 60px
-	float: left
-	margin-top: 7.5px
-	margin-bottom: 7.5px
-.logo p 
-	text-align: center
-	display: block
-	padding-top: 20px
-	padding-bottom: 20px
-	font-size: 18px
-.logo p span 
-	font-size: 14px
+	border-right: 2px solid $gray
+	border-top: 2px solid $gray
+	border-left: 2px solid $gray
+	padding: 0px 5px
+	font-size: 0
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.header_nav
+		width: 50%
+		display: inline-block
+		font-size: 14px
+		.header_nav_list, .header_nav_content
+			height: 40px
+			margin: 5px 0px
+			border: 1px solid $gray
+			width: 100%
+		.header_nav_list
+			ul
+				width: 100%
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				justify-content: space-around
+				align-items: center
+				height: 100%
+				.header_nav_list_item
+					display: inline-block
+					list-style-type: none
+					height: 100%
+					padding: 0px 10px
+					transition: .3s
+					a
+						vertical-align: middle
+						display: inline-block
+						color: #000
+						text-decoration: none
+						line-height: 40px
+				.header_nav_list_item:hover
+					background-color: $blue
+				.header_nav_list_item.active
+					background-color: $blue
+		.header_nav_content
+			ul
+				.header_nav_content_item
+					display: none
+					ul
+						width: 100%
+						display: -webkit-flex
+						display: -moz-flex
+						display: -ms-flex
+						display: -o-flex
+						display: flex
+						justify-content: space-around
+						align-items: center
+						height: 100%
+					li
+						display: inline-block
+						list-style-type: none
+						height: 100%
+						padding: 0px 10px
+						transition: .3s
+						a
+							vertical-align: middle
+							display: inline-block
+							color: #000
+							text-decoration: none
+							line-height: 40px
+					li:hover
+						background-color: $blue
+				.header_nav_content_item.active
+					display: block
+	.header_settings
+		width: 50%
+		height: 100%
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		> div, > p, > a
+			display: inline-block
+		.logo 
+			height: 100%
+			margin-right: auto
+			margin: 0px 0px 7.5px 0px
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			justify-content: flex-start
+			align-items: center
+			img
+				height: 50%
+				display: inline-block
+			.logo_text
+				display: inline-block
+				p
+					font-size: 16px
+					span
+						font-size: 12px
+		.name
+			font-size: 16px
+			padding: 15px
+		> a
+			padding: 15px
+			font-size: 16px
+			text-decoration: none
+			color: #000
+
 .main
-	border: 2px solid $red
+	border: 2px solid $gray
 	width: 100%
 	position: relative
 	height: 80vh
@@ -61,7 +155,7 @@ $blue: #b5eae0
 	margin: 16px auto
 	border-radius: 5px
 .mCSB_scrollTools .mCSB_draggerContainer .mCSB_dragger .mCSB_dragger_bar
-	background-color: $red
+	background-color: $blue
 .mCSB_scrollTools .mCSB_draggerContainer .mCSB_draggerRail 
 	background-color: $gray
 #mCSB_2_container 
@@ -74,7 +168,7 @@ $blue: #b5eae0
 	max-width: 100%
 	margin-left: 150px
 .footer
-	border-left: 2px solid $red
-	border-right: 2px solid $red
-	border-bottom: 2px solid $red
+	border-left: 2px solid $gray
+	border-right: 2px solid $gray
+	border-bottom: 2px solid $gray
 	height: 50px

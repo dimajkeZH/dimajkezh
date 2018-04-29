@@ -9,13 +9,85 @@
 <body>
 	<div class="wrapper">
 		<div class="header">
-			<div class="logo_wrapper">
+			<div class="header_nav" id="tabs">
+				<div class="header_nav_list">
+					<ul>
+						<li class="header_nav_list_item"><a href="#">Navigation</a></li>
+						<li class="header_nav_list_item"><a href="#">Navigation</a></li>
+						<li class="header_nav_list_item"><a href="#">Navigation</a></li>
+						<li class="header_nav_list_item"><a href="#">Navigation</a></li>
+						<li class="header_nav_list_item"><a href="#">Navigation</a></li>
+					</ul>
+				</div>
+				<div class="header_nav_content">
+					<ul>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a href="#">Content1</a></li>
+								<li><a href="#">Content1</a></li>
+								<li><a href="#">Content1</a></li>
+								<li><a href="#">Content1</a></li>
+								<li><a href="#">Content1</a></li>
+							</ul>
+						</li>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a href="#">Content2</a></li>
+								<li><a href="#">Content2</a></li>
+								<li><a href="#">Content2</a></li>
+								<li><a href="#">Content2</a></li>
+								<li><a href="#">Content2</a></li>
+							</ul>
+						</li>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a href="#">Content3</a></li>
+								<li><a href="#">Content3</a></li>
+								<li><a href="#">Content3</a></li>
+								<li><a href="#">Content3</a></li>
+								<li><a href="#">Content3</a></li>
+							</ul>
+						</li>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a href="#">Content4</a></li>
+								<li><a href="#">Content4</a></li>
+								<li><a href="#">Content4</a></li>
+								<li><a href="#">Content4</a></li>
+								<li><a href="#">Content4</a></li>
+							</ul>
+						</li>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a href="#">Content5</a></li>
+								<li><a href="#">Content5</a></li>
+								<li><a href="#">Content5</a></li>
+								<li><a href="#">Content5</a></li>
+								<li><a href="#">Content5</a></li>
+							</ul>
+						</li>
+					</ul>	
+				</div>
+			</div>
+			<div class="header_settings">
+				<div class="logo">
+					<img src="images/logo.png" alt="">
+					<div class="logo_text">
+						<p>prostoCRM</p>
+						<p><span>Version 0.1</span></p>
+					</div>
+				</div>
+				<p class="name">Admin </p>
+				<a href="admin/settings" class="settings">Настройки</a>
+				<a href="admin/logaut" class="logaut">Выход</a><a href=""></a>
+			</div>
+			<!-- <div class="logo_wrapper">
 				<div class="logo">
 					<img src="images/logo.png" alt="">
 					<p>prostoCRM
 					<span>Version 0.1</span></p>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="main_wrapper">
 			<div class="main">
@@ -44,22 +116,6 @@
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
-	<script>
-		(function($){
-        $(window).on("load",function(){
-            $(".main_content").mCustomScrollbar();
-        });
-    })(jQuery);
-		 (function($){
-        $(window).on("load",function(){
-            $(".main_nav").mCustomScrollbar();
-        });
-    })(jQuery);
-    function bodyAnimateScroll(top) {
-			$('html, body').stop().animate({
-				scrollTop: top
-			}, 400)
-		}
-	</script>
+	<script src="js/script.js"></script>
 </body>
 </html>

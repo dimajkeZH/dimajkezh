@@ -2,52 +2,170 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-family: sans-serif; }
 
 .wrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  height: 100vh; }
+  overflow: hidden; }
 
 .header, .main_wrapper, .footer {
-  margin: 0px 15% 0px 15%; }
+  margin: 0px 2%; }
 
 .header {
-  height: 75px;
-  margin-top: 7.5px; }
-
-.logo_wrapper {
-  height: 100%;
-  text-align: center;
-  border-right: 2px solid #cb3131;
-  border-top: 2px solid #cb3131;
-  border-left: 2px solid #cb3131; }
-
-.logo {
-  width: 150px;
-  height: 100%;
-  margin-right: auto;
-  margin: 0px auto 7.5px auto; }
-
-.logo img {
-  height: 60px;
-  float: left;
+  height: 100px;
   margin-top: 7.5px;
-  margin-bottom: 7.5px; }
-
-.logo p {
-  text-align: center;
-  display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 18px; }
-
-.logo p span {
-  font-size: 14px; }
+  border-right: 2px solid #e5e5e5;
+  border-top: 2px solid #e5e5e5;
+  border-left: 2px solid #e5e5e5;
+  padding: 0px 5px;
+  font-size: 0;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .header .header_nav {
+    width: 50%;
+    display: inline-block;
+    font-size: 14px; }
+    .header .header_nav .header_nav_list, .header .header_nav .header_nav_content {
+      height: 40px;
+      margin: 5px 0px;
+      border: 1px solid #e5e5e5;
+      width: 100%; }
+    .header .header_nav .header_nav_list ul {
+      width: 100%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 100%; }
+      .header .header_nav .header_nav_list ul .header_nav_list_item {
+        display: inline-block;
+        list-style-type: none;
+        height: 100%;
+        padding: 0px 10px;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s; }
+        .header .header_nav .header_nav_list ul .header_nav_list_item a {
+          vertical-align: middle;
+          display: inline-block;
+          color: #000;
+          text-decoration: none;
+          line-height: 40px; }
+      .header .header_nav .header_nav_list ul .header_nav_list_item:hover {
+        background-color: #b5eae0; }
+      .header .header_nav .header_nav_list ul .header_nav_list_item.active {
+        background-color: #b5eae0; }
+    .header .header_nav .header_nav_content ul .header_nav_content_item {
+      display: none; }
+      .header .header_nav .header_nav_content ul .header_nav_content_item ul {
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%; }
+      .header .header_nav .header_nav_content ul .header_nav_content_item li {
+        display: inline-block;
+        list-style-type: none;
+        height: 100%;
+        padding: 0px 10px;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s; }
+        .header .header_nav .header_nav_content ul .header_nav_content_item li a {
+          vertical-align: middle;
+          display: inline-block;
+          color: #000;
+          text-decoration: none;
+          line-height: 40px; }
+      .header .header_nav .header_nav_content ul .header_nav_content_item li:hover {
+        background-color: #b5eae0; }
+    .header .header_nav .header_nav_content ul .header_nav_content_item.active {
+      display: block; }
+  .header .header_settings {
+    width: 50%;
+    height: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .header .header_settings > div, .header .header_settings > p, .header .header_settings > a {
+      display: inline-block; }
+    .header .header_settings .logo {
+      height: 100%;
+      margin-right: auto;
+      margin: 0px 0px 7.5px 0px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .header .header_settings .logo img {
+        height: 50%;
+        display: inline-block; }
+      .header .header_settings .logo .logo_text {
+        display: inline-block; }
+        .header .header_settings .logo .logo_text p {
+          font-size: 16px; }
+          .header .header_settings .logo .logo_text p span {
+            font-size: 12px; }
+    .header .header_settings .name {
+      font-size: 16px;
+      padding: 15px; }
+    .header .header_settings > a {
+      padding: 15px;
+      font-size: 16px;
+      text-decoration: none;
+      color: #000; }
 
 .main {
-  border: 2px solid #cb3131;
+  border: 2px solid #e5e5e5;
   width: 100%;
   position: relative;
   height: 80vh; }
@@ -71,7 +189,7 @@
   border-radius: 5px; }
 
 .mCSB_scrollTools .mCSB_draggerContainer .mCSB_dragger .mCSB_dragger_bar {
-  background-color: #cb3131; }
+  background-color: #b5eae0; }
 
 .mCSB_scrollTools .mCSB_draggerContainer .mCSB_draggerRail {
   background-color: #e5e5e5; }
@@ -88,7 +206,7 @@
   margin-left: 150px; }
 
 .footer {
-  border-left: 2px solid #cb3131;
-  border-right: 2px solid #cb3131;
-  border-bottom: 2px solid #cb3131;
+  border-left: 2px solid #e5e5e5;
+  border-right: 2px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
   height: 50px; }
