@@ -187,6 +187,10 @@ $blue: #007bff
 	position: relative
 	height: 100%
 	width: calc(100% - 250px)
+	.case_groups, .add_case, .site_content, .site_configs
+		position: relative
+		overflow: hidden
+		height: 100%
 	.main_content_head
 		border-bottom: 2px solid $gray
 		display: -webkit-flex
@@ -198,6 +202,12 @@ $blue: #007bff
 		height: 50px
 		align-items: center	
 		padding: 0px 20px
+		position: absolute
+		width: 100%
+		top: 0
+		left: 0
+		background-color: #fff
+		z-index: 5	
 		.main_content_head_title
 			font-size: 20px	
 		.buttons
@@ -208,8 +218,21 @@ $blue: #007bff
 				padding: 5px 10px
 				background-color: $lightgray
 				cursor: pointer
+				transition: 0.3s
+				outline: none
+			button:hover
+				background-color: $blue	
 	.main_content_info
+		height: 100%
+		padding-top: 50px	
 		form
+			width: 100%	
+			padding-bottom: 30px	
+			border-bottom: 2px solid $lightblue
+			.form_title
+				font-size: 18px
+				text-align: center	
+				margin: 20px	
 			.forma_group:nth-child(even)
 				background-color: $lightgray
 			.forma_group
@@ -221,8 +244,9 @@ $blue: #007bff
 				justify-content: space-between	
 				align-items: center	
 				padding: 10px 20px
-				p
-					font-size: 16px	
+				>p
+					font-size: 16px
+					width: 20%	
 				.forma_group_item
 					width: 	80%
 					display: -webkit-flex
@@ -247,6 +271,8 @@ $blue: #007bff
 					select:focus, input:focus
 						border: 2px solid $lightblue
 						box-shadow: 0px 0px 5px 1px $lightblue;
+					input[type=file]
+						border: 0px
 					p
 						font-size: 14px	
 						margin-top: 7px	
@@ -279,6 +305,22 @@ $blue: #007bff
 								border-top: 20px solid $gray;
 								p
 									transform: translate(-50%, -150%)	
+					&.checkbox
+						flex-wrap: nowrap
+						input
+							width: 20%	
+					button
+						border: 1px solid $blue
+						border-radius: 5px
+						padding: 5px 10px
+						background-color: $lightgray
+						cursor: pointer
+						transition: 0.3s
+						outline: none
+					button:hover
+						background-color: $blue	
+
+
 .footer
 	border-left: 2px solid $gray
 	border-right: 2px solid $gray

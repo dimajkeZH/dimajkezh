@@ -31,7 +31,7 @@ $('#tabs').tabs();
 
 (function($){
         $(window).on("load",function(){
-            $(".main_content").mCustomScrollbar();
+            $(".main_content_info").mCustomScrollbar();
         });
     })(jQuery);
 		 (function($){
