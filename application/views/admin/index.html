@@ -81,32 +81,72 @@
 				<a href="admin/settings" class="settings">Настройки</a>
 				<a href="admin/logaut" class="logaut">Выход</a><a href=""></a>
 			</div>
-			<!-- <div class="logo_wrapper">
-				<div class="logo">
-					<img src="images/logo.png" alt="">
-					<p>prostoCRM
-					<span>Version 0.1</span></p>
-				</div>
-			</div> -->
 		</div>
 		<div class="main_wrapper">
 			<div class="main">
 				<div class="main_nav">
-					<nav class="nav">
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-						<a href="#" class="nav_item"></a>
-					</nav>
+					<ul class="main_nav_list" id="main_nav_list">
+						<a class="main_nav_list_title" href="#">Раздел</a>
+						<li class="main_nav_list_item"><a href="">Подраздел 1</a></li>
+						<li class="main_nav_list_item"><a href="">Подраздел 2</a></li>
+						<li class="main_nav_list_item"><a href="">Подраздел 3</a></li>
+					</ul>
+					<ul class="main_nav_list" id="main_nav_list">
+						<a class="main_nav_list_title" href="#">Раздел 2</a>
+						<li class="main_nav_list_item"><a href="">Подраздел 1</a></li>
+						<li class="main_nav_list_item"> <a href="">Подраздел 2</a></li>
+						<li class="main_nav_list_item"><a href="">Подраздел 3</a></li>
+					</ul>
+					<ul class="main_nav_list" id="main_nav_list">
+						<a class="main_nav_list_title" href="#">Раздел 3</a>
+						<li class="main_nav_list_item"><a href="">Подраздел 1</a></li>
+						<li class="main_nav_list_item"><a href="">Подраздел 2</a></li>
+						<li class="main_nav_list_item"><a href="">Подраздел 3</a></li>
+					</ul>
 				</div>
 				<div class="main_content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam aliquid mollitia enim eaque ipsam quam praesentium nesciunt asperiores sit temporibus voluptatibus ipsa iure commodi qui deserunt dolores officiis, dolor, sunt quibusdam expedita aspernatur earum nostrum. Animi maiores atque corporis incidunt eaque vitae aperiam dignissimos explicabo alias quaerat earum quas fugiat inventore repudiandae libero eius ducimus veritatis illo est provident tenetur, odit dicta. Iusto saepe commodi dolorem iste, impedit! Cupiditate ipsam velit blanditiis quod modi quas ducimus temporibus odit eos, quaerat id deserunt vitae voluptatibus, perspiciatis sed dolorum perferendis error nihil nisi molestiae voluptas, earum, fugit esse eius. Distinctio vel, eveniet!</p>
+					<div class="case_groups">
+						<div class="main_content_head">
+							<p class="main_content_head_title">Case Groups</p>
+							<div class="buttons">
+								<button class="save">Save</button>
+								<button class="remove">Remove</button>
+							</div>
+						</div>
+						<div class="main_content_info">
+							<form action="	">
+								<div class="forma_group">
+									<p>Тип</p>
+									<div class="forma_group_item select">
+										<select name="type">
+											<option value="1">Значение 1</option>
+											<option value="2">Значение 2</option>
+											<option value="3">Значение 3</option>
+										</select>
+										<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
+									</div>
+								</div>
+								<div class="forma_group">
+									<p>Название</p>
+									<div class="forma_group_item text">
+										<input type="text" name="name">
+										<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
+									</div>
+								</div>
+								<div class="forma_group">
+									<p>Номер по порядку</p>
+									<div class="forma_group_item text_btn">
+										<input type="text" name="serial_number">
+										<div class="text_btns">
+											<div class="btn_next"><p>+</p></div>
+											<div class="btn_prev"><p>-</p></div>
+										</div>
+										<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

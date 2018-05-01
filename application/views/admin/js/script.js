@@ -39,3 +39,22 @@ $('#tabs').tabs();
             $(".main_nav").mCustomScrollbar();
         });
     })(jQuery);
+
+$('.main_nav_list_title').on('click', function () {
+	var content = $(this).next()
+	var parent = $(this).parent()
+	if (parent.hasClass('active')) {
+		parent.removeClass('active')
+		content.stop().slideUp(400)
+	} 
+    else {
+		$('.main_nav_list.active')
+		.removeClass('active')
+		.find('.main_nav_list_item')
+		.stop()
+		.slideUp(400)
+		parent.addClass('active')
+		content.stop().slideDown(400)
+	}
+
+});
