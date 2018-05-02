@@ -56,5 +56,71 @@ $('.main_nav_list_title').on('click', function () {
 		parent.addClass('active')
 		content.stop().slideDown(400)
 	}
-
 });
+
+/* VARS */
+var typeMessage = Object.freeze({
+	good : 1,
+	common : 2,
+	bad : 3,
+});
+var classMessageBox = 'popup__message',
+	classMessage = 'message',
+	classMessageGood = 'good',
+	classMessageCommon = 'common',
+	classMessageBad = 'bad',
+	messageGoodTimeout = 2800,
+	messageBadTimeout = 3500,
+	messageCommonTimeout = 3100;
+	messageHide = 600;
+/* VARS END */
+
+/* FUNCTIONS */
+function showMessage(type, message){
+	var curClassMessage;
+	switch(type){
+		case typeMessage.good:
+			curClassMessage = classMessageGood;
+			curTimeout = messageGoodTimeout;
+			break;
+		case typeMessage.bad:
+			curClassMessage = classMessageBad;
+			curTimeout = messageBadTimeout;
+			break;
+		case typeMessage.common:
+			curClassMessage = classMessageCommon;
+			curTimeout = messageCommonTimeout;
+			break;
+	}
+	var MessageBox = document.createElement("div");
+	MessageBox.classList.add(classMessage);
+	MessageBox.classList.add(curClassMessage);
+	MessageBox.innerHTML = '<span>'+message+'</span>';
+	$('.'+classMessageBox).prepend(MessageBox);
+	removeMessage(MessageBox, curTimeout);
+}
+
+function removeMessage(msgBox, timeout){
+	setTimeout(function(){
+		$('.'+classMessageBox+'>div').filter(function(){
+			return $(this).css("opacity") == 1;
+		}).last().hide(messageHide, function(){
+			msgBox.remove();
+		});
+	}, timeout);
+}
+
+function Go(uri){
+	//window.location = '/admin/'+uri;
+	//console.log(window.location);
+}
+/* FUNCTIONS END */
+
+/* EVENTS */
+
+/* EVENTS END */
+
+/* SIMPLE CODE */
+	//showMessage(typeMessage.good, 'test message');
+	Go('kek');
+/* SIMPLE CODE END */

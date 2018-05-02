@@ -24,22 +24,41 @@ class Router {
     public function match() {
         $url = trim($_SERVER['REQUEST_URI'], '/');
         foreach ($this->routes as $route => $params) {
+            //echo $route.'<br>'.$url.'<br>'.preg_match($route, $url, $matches).'<br><br>';
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
-                $this->params['param'] = $this->selectNumber($url);
+                $pos = stripos($route, '[');
+                if($pos){
+                    $match_type = '#^'.substr($route, $pos);
+                    if(preg_match($match_type, 'aA1')){
+                        $this->params['param'] = $this->selectParam($url, self::MULTI_PARAM);
+                    }elseif(preg_match($match_type, 1)){
+                        $this->params['param'] = $this->selectParam($url, self::NUMERIC_PARAM);
+                    }elseif(preg_match($match_type, 'aA')){
+                        $this->params['param'] = $this->selectParam($url, self::STRING_PARAM);
+                    }
+                }
+                //debug($this->params);
                 return true;
             }
         }
         return false;
     }
 
-    public function selectNumber($url){
-        $number = substr($url,strripos($url,'/')+1);
-        if(is_numeric($number)){
-            return $number;
-        }else{
-            return '0';
+    public function selectParam($url, $type){
+        $param = substr($url,strripos($url,'/')+1);
+        switch($type){
+            case self::MULTI_PARAM:
+                //
+                break;
+            case self::STRING_PARAM:
+                //
+                break;
+            case self::NUMERIC_PARAM:
+                if(!is_numeric($param)){ $param = '0'; }
+                break;
         }
+        return $param;
     }
 
     public function run(){

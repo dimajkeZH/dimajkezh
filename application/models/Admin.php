@@ -7,7 +7,8 @@ use application\core\View;
 
 class Admin extends Model {
 
-	public $title = 'CRM';
+	public $title = 'perfectCMS';
+	public $ver = '0.0.1';
 
 	protected $lifetime_hash = 1800;
 
@@ -39,97 +40,109 @@ class Admin extends Model {
 
 	//IS AUTH
 	public function isAuth(){
-		if($_SESSION['admintype'] && $_COOKIE['admintype'] && $_SESSION['hash'] && $_COOKIE['hash']){
-			if(($_SESSION['admintype'] === $_COOKIE['admintype'])
-				&&(!empty($_SESSION['hash']))
-				&&(!empty($_COOKIE['hash']))){
+		if(isset($_SESSION['admintype']) && isset($_COOKIE['admintype']) && isset($_SESSION['hash']) && isset($_COOKIE['hash'])){
+			if(($_SESSION['admintype'] === $_COOKIE['admintype'])&&(!empty($_SESSION['hash']))&&(!empty($_COOKIE['hash']))){
 				$q = 'SELECT COUNT(*) FROM ADMIN_SESSIONS WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C) AND (DT_DESTROY > NOW())';
 				$params = [
 					'HASH_S' => $_SESSION['hash'],
 					'HASH_C' => $_COOKIE['hash']
 				];
-				//debug([$q, $params, $_SESSION, $_COOKIE]);
 				$result = $this->db->column($q, $params);
-				//debug($result);
-				if($result != 1){
-					$this->sessionDestroy();
-					View::redirect('/admin/auth');
+				if($result == 1){
+					return true;
 				}
-			}else{
-				$this->sessionDestroy();
-				View::redirect('/admin/auth');
 			}
-		}else{
-			$this->sessionDestroy();
-			View::redirect('/admin/auth');
 		}
+		$this->sessionDestroy();
+		return false;
 	}
 
 	//LOGIN
 	public function logIn(){
 		if(isset($_POST)){
-			if(isset($_POST['name'])AND($_POST['name']!='')){
-				$name = $_POST['name'];
-			}else{
-				$_SESSION['err'] = 'bad name value';
-				View::redirect('/admin/auth');
-			}
-			if(isset($_POST['pass'])AND($_POST['pass']!='')){
-				$pass = $_POST['pass'];
-			}else{
-				$_SESSION['err'] = 'bad pass value';
-				View::redirect('/admin/auth');
-			}
-			if(($name=='admin')AND($pass=='1235')){
-				unset($_SESSION['err']);
+			if(isset($_POST['name']) && ($_POST['name']!='') && isset($_POST['pass']) && ($_POST['pass']!='')){
+				//debug([$_POST['pass'], $this->clear($_POST['pass'])]);
+				$name = $this->clear($_POST['name']);
+				$pass = $this->shaPSWD($this->clear($_POST['pass']));
+				$pass1 ='$2y$10$2zEARs61ZP8haAeqoumKX.cqDWzHXy8dvt1nszgljVn8tWXALOuZq';
+				
+				if(($name=='kekus')&&(password_verify($pass, $pass1))){
+					unset($_SESSION['err']);
 
-				$this->loger_session = $this->loger_action = false;
+					$this->loger_session = $this->loger_action = false;
 
-				$admintype = 'admin';
-				$_SESSION['username'] = 'simple_admin';
+					$admintype = 'admin';
+					$_SESSION['username'] = 'kekus';
 
-				$_SESSION['admintype'] = $admintype;
-				setcookie('admintype', $admintype, time()+$this->lifetime_hash);
+					$_SESSION['admintype'] = $admintype;
+					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
 
-				$this->sessionCreate(0);
-				//debug('secret profile');
-				View::redirect('/admin');
-			}
-			$ID = $this->verifyPSWD($name, $pass);
-			if(!is_null($ID)){
-				unset($_SESSION['err']);
+					$this->sessionCreate(0);
+					return true;
+				}
 
-				$admintype = 'admin';
-				$_SESSION['username'] = 'headadmin';
+				$ID = $this->verifyPSWD($name, $pass);
+				if(!is_null($ID)){
+					unset($_SESSION['err']);
 
-				$_SESSION['admintype'] = $admintype;
-				setcookie('admintype', $admintype, time()+$this->lifetime_hash);
+					$admintype = 'admin';
+					$_SESSION['username'] = 'headadmin';
 
-				$this->sessionCreate($ID);
-				//debug('profile');
-				View::redirect('/admin');
-			}
-			$_SESSION['err'] = 'name/pass not found';
-			View::redirect('/admin/auth');
-		}else{
-			View::redirect('/admin');
+					$_SESSION['admintype'] = $admintype;
+					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
+
+					$this->sessionCreate($ID);
+					return true;
+				}
+
+				$_SESSION['err'] = 'name/pass not found';	
+			}else{ $_SESSION['err'] = 'bad fields value'; }
+			return false;
 		}
+		return false;
 	}
 
 	//LOGOUT
 	public function logOut(){
 		$this->sessionDestroy();
-		View::redirect('/admin/auth');
+	}
+
+	//GET HEADERS
+	public function getHeaders(){
+		$result['title'] = $this->title;
+		$result['ver'] = $this->ver;
+		$result['SITETREE'] = $this->getSiteTree();
+		return $result;
+	}
+
+	//GET CONTENT
+	public function getContent(){
+		return [];
+	}
+
+
+
+	//get siteTree
+	private function getSiteTree(){
+		$q = 'SELECT ID, TITLE as NAME, "pagegr" as "URI" FROM PAGE_GROUPS';
+		$return = $this->db->row($q);
+		foreach($return as $key => $val){
+			$q = 'SELECT ID, TITLE as NAME, "pages" as "URI" FROM PAGES WHERE ID_GROUP = '.$val['ID'].' ORDER BY LOC_NUMBER;';
+			$return[$key]['SUBMENU'] = $this->db->row($q);
+		}
+		return $return;
 	}
 
 	//session destroy
 	private function sessionDestroy(){
-		$q = 'UPDATE ADMIN_SESSIONS SET DT_DESTROY = NOW() WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C)';
-		$params = [
-			'HASH_S' => $_SESSION['hash'],
-			'HASH_C' => $_COOKIE['hash']
-		];
-		$this->db->column($q, $params);
+		if(isset($_SESSION['hash']) && isset($_COOKIE['hash'])){
+			$q = 'UPDATE ADMIN_SESSIONS SET DT_DESTROY = NOW() WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C)';
+			$params = [
+				'HASH_S' => $_SESSION['hash'],
+				'HASH_C' => $_COOKIE['hash']
+			];
+			$this->db->column($q, $params);
+		}
 		$this->db->column('DELETE FROM ADMIN_SESSIONS WHERE ID_ADMIN = 0');
 		unset($_SESSION['hash']);
 		session_destroy();
@@ -187,7 +200,7 @@ class Admin extends Model {
 		if(is_null($db)){
 			return NULL;
 		}
-		if(password_verify($this->shaPSWD($pass), $db['PASS'])){
+		if(password_verify($pass, $db['PASS'])){
 			return $db['ID'];
 		}
 	}
@@ -218,6 +231,12 @@ class Admin extends Model {
 	//get CURRENT TIME with shift on some seconds
 	private function now($sec = 0){
 		return date_modify(date_create(), "+$sec sec")->format('Y-m-d H:i:s');
+	}
+
+	private function clear($str){
+		$str = trim($str);
+	    $str = strip_tags($str);
+		return $str;
 	}
 
 }

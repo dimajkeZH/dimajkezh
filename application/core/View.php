@@ -8,6 +8,8 @@ class View {
 	public $route;
 	public $layout = 'default';
 
+	const VIEW_DIR = 'application/views/';
+
 	public function __construct($route) {
 		$this->route = $route;
 		$this->path = $route['action'].'/index';
@@ -28,22 +30,29 @@ class View {
 				break;
 		}
 		extract($headers);
-		require 'application/views/layouts/'.$this->layout.'.php';
+		$layout = self::VIEW_DIR."layouts/$this->layout.php";
+		if(file_exists($layout)){
+			require $layout;
+		}
 	}
 
-	public function renderAdmin($title, $vars = []){
-		$path = 'application/views/'.$this->admpath.'.php';
+	public function renderAdmin($headers, $vars = []){
+		$path = self::VIEW_DIR."$this->admpath.php";
 		if(file_exists($path)) {
 			extract($vars);
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
-			require 'application/views/layouts/'.$this->layout.'.php';
+			$layout = self::VIEW_DIR."layouts/$this->layout.php";
+			if(file_exists($layout)){
+				extract($headers);
+				require $layout;
+			}
 		}
 	}
 
 	private function fullRender($vars, $views){
-		$path = 'application/views/'.$views.'.php';
+		$path = self::VIEW_DIR."$views.php";
 		if(file_exists($path)) {
 			extract($vars);
 			if(isset($CONTENT[0])){
@@ -70,13 +79,13 @@ class View {
 
 	public static function errorCode($code){
 		http_response_code($code);
-		$path = 'application/views/errors/'.$code.'.php';
+		$path = self::VIEW_DIR."errors/$code.php";
 		if (file_exists($path)) {
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
 			$title = 'Страница не существует.';
-			require 'application/views/layouts/default.php';
+			require self::VIEW_DIR.'layouts/default.php';
 		}
 		exit;
 	}
