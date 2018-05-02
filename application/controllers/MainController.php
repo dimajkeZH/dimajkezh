@@ -39,6 +39,6 @@ class MainController extends Controller {
 	}
 
 	public function busAction() {
-		$this->render($this->model->getContent($this->route));
+		$this->render($this->model->getBus($this->route));
 	}
 }

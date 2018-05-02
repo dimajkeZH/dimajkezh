@@ -6,30 +6,40 @@ use application\core\Controller;
 
 class TemplatesController extends Controller {
 
-	private function render(){
+	private function settings(){
 		$this->model->setConf($this->route);
-		$this->view->render($this->model->pg_type, $this->model->getTitle($this->route), $this->model->getContent($this->route), $this->model->getViews($this->route));
+	}
+
+	private function render($content = []){
+		$this->view->render($this->model->pg_type, $this->model->getTitle($this->route), $content, $this->model->getViews($this->route));
 	}
 
 	public function pageAction() {
-		$this->render();
+		$this->settings();
+		$this->render($this->model->getContent($this->route));
 	}
 	public function servicesAction() {
-		$this->render();
+		$this->settings();
+		$this->render($this->model->getContent($this->route));
 	}
 	public function busesAction() {
-		$this->render();	
+		$this->settings();
+		$this->render($this->model->getContent($this->route));	
 	}
 	public function minivansAction() {
-		$this->render();	
+		$this->settings();
+		$this->render($this->model->getContent($this->route));	
 	}
 	public function excursionsAction() {
-		$this->render();	
+		$this->settings();
+		$this->render($this->model->getContent($this->route));	
 	}
 	public function contactsAction() {
-		$this->render();	
+		$this->settings();
+		$this->render($this->model->getContent($this->route));	
 	}
 	public function newsAction() {
-		$this->render();	
+		$this->settings();
+		$this->render($this->model->getContent($this->route));	
 	}
 }

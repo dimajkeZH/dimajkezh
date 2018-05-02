@@ -93,6 +93,7 @@ function AJAX(url, data = {}, callback = ''){
 		type: "POST",
 		data: data,
 		success: function(str){
+			console.log(str);
 			str = JSON.parse(str);
 			if((str.status)&&(callback!='')){
 				window[callback]();
@@ -125,7 +126,7 @@ function order(wnd){
 		//'captcha':encodeURIComponent(grecaptcha.getResponse())
 	}
 	console.log(data);
-	AJAX('/application/core/ajax/order.php', data, 'PopUpHide');
+	AJAX('/ajax/order', data, 'PopUpHide');
 	return false;
 }
 
@@ -140,7 +141,7 @@ function feedback(){
 		'message':encodeURIComponent(message),
 		'captcha':encodeURIComponent(grecaptcha.getResponse())
 	}
-	AJAX('/application/core/ajax/feedback.php', data);
+	AJAX('/ajax/feedback', data);
 	return false;
 }
 

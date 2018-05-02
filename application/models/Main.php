@@ -13,7 +13,7 @@ class Main extends Model {
 			'ACTION' => $route['action']
 		];
 		$title = $this->db->row($q, $params);
-		return $title[0];
+		return (count($title) > 0) ? $title[0] : [];
 	}
 
 	public function getContent($route){
@@ -47,6 +47,13 @@ class Main extends Model {
 		$result['NEWSLIST'] = $this->db->row('SELECT * FROM DATA_NEWS ORDER BY DATE_ADD DESC, TIME_ADD DESC LIMIT '.$limA.','.$countNews.';');
 		$result['CONTENT'] = $this->content($route);
 		return $result;
+	}
+
+	public function getBus($router){
+		$q = 'SELECT * FROM DATA_BUSES WHERE ID = :ID';
+		$params = ['ID' => $router['param']];
+		$return['CONTENT'] = $this->db->row($q, $params);
+		return $return;
 	}
 
 	private function pagelist($route){

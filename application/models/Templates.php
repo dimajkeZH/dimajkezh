@@ -10,16 +10,16 @@ class Templates extends Model {
 	public $pg_type;
 
 	public function getContent($route) {
-			$content = [];
-			if($this->pg_type == '1'){
-				$content = $this->getVars($this->tmpls[0]['TMPL_NUMBER'], $this->tmpls[0]['ID']);
-			}elseif($this->pg_type == '2'){
-				for($i = 0; $i < count($this->tmpls); $i++){
-					$vars = $this->caseVars($this->tmpls[$i]['TMPL_NUMBER'], $this->tmpls[$i]['ID']);
-					array_push($content, $vars);
-				}
+		$content = [];
+		if($this->pg_type == '1'){
+			$content = $this->getVars($this->tmpls[0]['TMPL_NUMBER'], $this->tmpls[0]['ID']);
+		}elseif($this->pg_type == '2'){
+			for($i = 0; $i < count($this->tmpls); $i++){
+				$vars = $this->caseVars($this->tmpls[$i]['TMPL_NUMBER'], $this->tmpls[$i]['ID']);
+				array_push($content, $vars);
 			}
-			return $content;
+		}
+		return $content;
 	}
 
 	private function getVars($TMPL, $ID){
@@ -71,8 +71,12 @@ class Templates extends Model {
 				return $return;
 				break;
 			case 7:
-				return [];
-				//$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$q = 'SELECT ID, TITLE, IMAGE FROM DATA_BUSES_COUNTRIES ORDER BY SERIAL_NUMBER';
+				$return['CONTENT'] = $this->db->row($q);
+				foreach($return['CONTENT'] as $key => $val){
+					$q = 'SELECT * FROM DATA_BUSES WHERE ID_COUNTRY = '.$val['ID'].' ORDER BY SERIAL_NUMBER';
+					$return['CONTENT'][$key]['LIST'] = $this->db->row($q);
+				}
 				return $return;
 				break;
 		}

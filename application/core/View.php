@@ -55,7 +55,7 @@ class View {
 		$path = self::VIEW_DIR."$views.php";
 		if(file_exists($path)) {
 			extract($vars);
-			if(isset($CONTENT[0])){
+			if(isset($CONTENT[0])AND(count($CONTENT) == 1)){
 				$CONTENT = $CONTENT[0];
 			}
 			ob_start();

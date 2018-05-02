@@ -9,6 +9,10 @@ class Router {
     protected $routes = [];
     protected $params = [];
 
+    const MULTI_PARAM = 0;
+    const STRING_PARAM = 1;
+    const NUMERIC_PARAM = 2;
+    
     public function __construct() {
         $arr = require 'application/config/routes.php';
         foreach ($arr as $key => $val) {

@@ -3,3 +3,23 @@
 [2018-04-06 20:17:14 (MSK)] 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
 [2018-04-06 20:17:25 (MSK)] 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
 [2018-04-10 12:52:27 (UTC)] 127.0.0.1|Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+[2018-05-02 17:13:43 (MSK)] 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
+[2018-05-02 17:13:49 (MSK)] 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
+[2018-05-02 17:40:42 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 235253
+[2018-05-02 17:40:43 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 235253
+[2018-05-02 17:40:44 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 235253
+[2018-05-02 17:40:46 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 235253
+[2018-05-02 17:41:59 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 235253
+[2018-05-02 17:45:29 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:45:30 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:45:31 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:48:35 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:48:36 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:48:44 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:49:39 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:49:40 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:51:39 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:53:31 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 17:54:36 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 634634
+[2018-05-02 18:01:12 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 6767967
+[2018-05-02 18:09:25 (MSK)] bad | 127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36 | 

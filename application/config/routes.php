@@ -7,6 +7,16 @@ return [
 		'action' => 'main',
 	],
 
+	'ajax/order' => [
+		'controller' => 'MainAjax',
+		'action' => 'order',
+	],
+
+	'ajax/feedback' => [
+		'controller' => 'MainAjax',
+		'action' => 'feedback',
+	],
+
 	'services' => [
 		'controller' => 'main',
 		'action' => 'services',
@@ -26,6 +36,11 @@ return [
 			'controller' => 'templates',
 			'action' => 'buses',
 		],
+
+	'bus/[0-9]{1,}' => [
+		'controller' => 'main',
+		'action' => 'bus',
+	],
 
 	'minivans' => [
 		'controller' => 'main',
