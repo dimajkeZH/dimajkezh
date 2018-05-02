@@ -5,6 +5,7 @@
 				<div class="services_other_line"></div>
 			</div>
 			<?php endif; ?>
+			<?php if(!empty($CONTENT['LEFT_IMAGE']) || !empty($CONTENT['RIGHT_IMAGE']) || !empty($CONTENT['MIDDLE_IMAGE'])): ?>
 			<div class="bus_img">
 				<img src="../../../assets/img/services/bus_min.png" alt="">
 			</div>
@@ -51,4 +52,5 @@
 					<?php endif; ?>
 				</div>
 			</div>
+			<?php endif; ?>
 		</div>
