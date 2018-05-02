@@ -68,7 +68,7 @@
 					<ul class="main_nav_list" id="main_nav_list"><a class="main_nav_list_title" href="/admin/site/<?php echo $val['URI']; ?>/">Добавить..</a></ul>
 				</div>
 				<div class="main_content">
-				<?php echo $content; ?>
+				<?php include echo $content; ?>
 				</div>
 			</div>
 		</div>
