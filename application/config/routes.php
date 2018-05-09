@@ -3,105 +3,191 @@
 return [
 
 	'' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'main',
 	],
 
-	'ajax/order' => [
-		'controller' => 'MainAjax',
-		'action' => 'order',
-	],
 
-	'ajax/feedback' => [
-		'controller' => 'MainAjax',
-		'action' => 'feedback',
-	],
 
 	'services' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'services',
 	],
 
 		'services/page/[0-9]{1,}' => [
-			'controller' => 'templates',
+			'controller' => 'TemplatesUser',
 			'action' => 'services',
 		],
 
 	'buses' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'buses',
 	],
 
 		'buses/page/[0-9]{1,}' => [
-			'controller' => 'templates',
+			'controller' => 'TemplatesUser',
 			'action' => 'buses',
 		],
 
 	'bus/[0-9]{1,}' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'bus',
 	],
 
 	'minivans' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'minivans',
 	],
 
 		'minivans/page/[0-9]{1,}' => [
-			'controller' => 'templates',
+			'controller' => 'TemplatesUser',
 			'action' => 'minivans',
 		],
 
 	'excursions' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'excursions',
 	],
 
 		'excursions/page/[0-9]{1,}' => [
-			'controller' => 'templates',
+			'controller' => 'TemplatesUser',
 			'action' => 'excursions',
 		],
 
 	'contacts' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'contacts',
 	],
 
-	'news' => [
-		'controller' => 'main',
-		'action' => 'news',
-	],
-
 	'news/[0-9]{1,}' => [
-		'controller' => 'main',
+		'controller' => 'MainUser',
 		'action' => 'news',
 	],
 	
 
 
+
+	'ajax/order' => [
+		'controller' => 'AjaxUser',
+		'action' => 'order',
+	],
+
+	'ajax/feedback' => [
+		'controller' => 'AjaxUser',
+		'action' => 'feedback',
+	],
+
+
+
+
 	'admin' => [
-		'controller' => 'admin',
+		'controller' => 'MainAdmin',
 		'action' => 'main',
 	],
 
+	'admin/main' => [
+		'controller' => 'MainAdmin',
+		'action' => 'index',
+	],
+
 	'admin/auth' => [
-		'controller' => 'admin',
+		'controller' => 'MainAdmin',
 		'action' => 'auth',
 	],
 
 	'admin/login' => [
-		'controller' => 'admin',
+		'controller' => 'MainAdmin',
 		'action' => 'login',
 	],
 
 	'admin/logout' => [
-		'controller' => 'admin',
+		'controller' => 'MainAdmin',
 		'action' => 'logout',
 	],
 
-	'admin/page/[1-9]{1,}' => [
-		'controller' => 'admin',
-		'action' => 'page',
-	]
+
+
+	/* ADMIN DATA */
+	'admin/tree' => [
+		'controller' => 'MainAdmin',
+		'action' => 'getSiteTree',
+	],
+	/* ADMIN DATA END */
+
+	/* ADMIN INNER PAGES */
+	//show settings cms
+	'admin/config' => [
+		'controller' => 'MainAdmin',
+		'action' => 'config',
+	],
+	//show general content
+	'admin/site/content' => [
+		'controller' => 'MainAdmin',
+		'action' => 'siteContent',
+	],
+	//show general settings
+	'admin/site/settings' => [
+		'controller' => 'MainAdmin',
+		'action' => 'siteSettings',
+	],
+
+	//main pages (show add[0]/show change[1+])
+	'admin/site/pagegr' => [
+		'controller' => 'MainAdmin',
+		'action' => 'sitePageGroups',
+	],
+	'admin/site/pagegr/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'sitePageGroups',
+	],
+	//child pages (show add[0]/show change[1+])
+	'admin/site/pages' => [
+		'controller' => 'MainAdmin',
+		'action' => 'sitePageGroups',
+	],
+	'admin/site/pages/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'sitePageGroups',
+	],
+	/* ADMIN INNER PAGES END */
+
+	/* ADMIN AJAX */
+	//save config cms
+	'admin/save/config' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'saveConfig',
+	],
+	//save general content
+	'admin/save/content' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'saveContent',
+	],
+	//save general settings
+	'admin/save/settings' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'saveSettings',
+	],
+	//main pages (do change[1+]/do add[0])
+	'admin/save/pagegr' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'savePagegr',
+	],
+	//child pages (do change[1+]/do add[0])
+	'admin/save/pages' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'savePages',
+	],
+	//main pages (do delete[1+])
+	'admin/delete/pagegr' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'delPagegr',
+	],
+	//child pages (do delete[1+])
+	'admin/delete/pages' => [
+		'controller' => 'AjaxAdmin',
+		'action' => 'delPages',
+	],
+	/* ADMIN AJAX END */
+
 	
 ];

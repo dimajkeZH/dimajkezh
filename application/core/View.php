@@ -17,6 +17,7 @@ class View {
 	}
 
 	public function render($type, $headers, $vars = [], $views = []){
+		//debug([$type, $headers, $vars, $views]);
 		if(count($views) == 0){
 			$views = $this->path;
 		}
@@ -34,6 +35,7 @@ class View {
 		if(file_exists($layout)){
 			require $layout;
 		}
+		exit;
 	}
 
 	public function renderAdmin($headers, $vars = []){

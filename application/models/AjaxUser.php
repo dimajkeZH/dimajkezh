@@ -2,12 +2,9 @@
 
 namespace application\models;
 
-ini_set('display_errors',0);
-error_reporting(0);
+use application\models\User;
 
-use application\models\Ajax;
-
-class MainAjax extends Ajax {
+class AjaxUser extends User {
 
 	public function __construct(){
 		parent::__construct();

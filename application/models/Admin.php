@@ -3,12 +3,13 @@
 namespace application\models;
 
 use application\core\Model;
-use application\core\View;
 
-class Admin extends Model {
+abstract class Admin extends Model {
 
+
+	/* CLASS VARIABLES */
 	public $title = 'perfectCMS';
-	public $ver = '0.0.1';
+	public $ver = '0.0.3';
 
 	protected $lifetime_hash = 1800;
 
@@ -31,12 +32,15 @@ class Admin extends Model {
 		6 => true, //login
 		7 => true, //logout
 	];
+	/* CLASS VARIABLES END */
 
-	/*
-	public function __construct(){
-		parent::__construct();
-	}
-	*/
+	/* BOOLEAN PUBLIC FUNCTIONS */
+
+	/* BOOLEAN PUBLIC FUNCTIONS END */
+
+
+
+
 
 	//IS AUTH
 	public function isAuth(){
@@ -57,68 +61,15 @@ class Admin extends Model {
 		return false;
 	}
 
-	//LOGIN
-	public function logIn(){
-		if(isset($_POST)){
-			if(isset($_POST['name']) && ($_POST['name']!='') && isset($_POST['pass']) && ($_POST['pass']!='')){
-				//debug([$_POST['pass'], $this->clear($_POST['pass'])]);
-				$name = $this->clear($_POST['name']);
-				$pass = $this->shaPSWD($this->clear($_POST['pass']));
-				$pass1 ='$2y$10$2zEARs61ZP8haAeqoumKX.cqDWzHXy8dvt1nszgljVn8tWXALOuZq';
-				
-				if(($name=='kekus')&&(password_verify($pass, $pass1))){
-					unset($_SESSION['err']);
 
-					$this->loger_session = $this->loger_action = false;
 
-					$admintype = 'admin';
-					$_SESSION['username'] = 'kekus';
 
-					$_SESSION['admintype'] = $admintype;
-					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
+	/* GET PRIVATE FUNCTIONS */
 
-					$this->sessionCreate(0);
-					return true;
-				}
+	/* GET PRIVATE FUNCTIONS END */
 
-				$ID = $this->verifyPSWD($name, $pass);
-				if(!is_null($ID)){
-					unset($_SESSION['err']);
 
-					$admintype = 'admin';
-					$_SESSION['username'] = 'headadmin';
 
-					$_SESSION['admintype'] = $admintype;
-					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
-
-					$this->sessionCreate($ID);
-					return true;
-				}
-
-				$_SESSION['err'] = 'name/pass not found';	
-			}else{ $_SESSION['err'] = 'bad fields value'; }
-			return false;
-		}
-		return false;
-	}
-
-	//LOGOUT
-	public function logOut(){
-		$this->sessionDestroy();
-	}
-
-	//GET HEADERS
-	public function getHeaders(){
-		$result['title'] = $this->title;
-		$result['ver'] = $this->ver;
-		$result['SITETREE'] = $this->getSiteTree();
-		return $result;
-	}
-
-	//GET CONTENT
-	public function getContent(){
-		return [];
-	}
 
 
 
@@ -132,6 +83,77 @@ class Admin extends Model {
 		}
 		return $return;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//get siteTree
+	private function getSiteTree(){
+		$q = 'SELECT ID, NAME, "pagegr" as "URI" FROM PAGE_GROUPS';
+		$returnPage = $this->db->row($q);
+		//debug($returnPage);
+		foreach($returnPage as $key => $val){
+			$q = 'SELECT ID, NAME, "pages" as "URI" FROM PAGES WHERE ID_GROUP = '.$val['ID'];
+			$returnPage[$key]['SUBMENU'] = $this->db->row($q);
+		}
+		//debug($returnPage);
+		$q = 'SELECT ID, NAME, "casegr" as "URI" FROM CASE_GROUPS';
+		$returnCase = $this->db->row($q);
+		//debug($returnCase);
+		foreach($returnCase as $key => $val){
+			$q = 'SELECT CL.ID, CM.TITLE as NAME, "cases" as "URI" FROM CASE_LIST as CL INNER JOIN CASE_MENU as CM ON CM.ID_CASE = CL.ID WHERE CL.ID_GROUP = '.$val['ID'].' ORDER BY CL.SERIAL_NUMBER';
+			$returnCase[$key]['SUBMENU'] = $this->db->row($q);
+		}
+		//debug($returnCase);
+		$return = array_merge($returnPage, $returnCase);
+		//debug($return);
+		return $return; 
+	}
+
+	public function getSiteTreeHTML(){
+		$SITETREE = $this->getSiteTree();
+		$return = '';
+
+		if(isset($SITETREE)AND(count($SITETREE)>0)){
+			foreach($SITETREE as $key => $val){
+				$return .= "<ul class='main_nav_list' id='main_nav_list'><a class='main_nav_list_title Go' href='/admin/site/$val[URI]/$val[ID]'><b>$val[NAME]</b></a>";
+				if(isset($val['SUBMENU'])AND(count($val['SUBMENU'])>0)){
+					foreach($val['SUBMENU'] as $subkey => $subval){
+						$return .= "<li class='main_nav_list_item'><a class='Go' href='/admin/site/$subval[URI]/$subval[ID]'>$subval[NAME]</a></li>";
+					}
+				}
+				if($val['URI'] == 'casegr'){
+					$return .=  "<li class='main_nav_list_item'><a class='Go' href='/admin/site/cases/?group=$val[ID]'>Добавить..</a></li>";
+				}
+				$return .=  '</ul>';
+			}
+		}
+		$return .=  '<ul class="main_nav_list" id="main_nav_list"><a class="main_nav_list_title Go" href="/admin/site/casegr/">Добавить..</a></ul>';
+		return $return;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//session destroy
 	private function sessionDestroy(){
@@ -233,10 +255,34 @@ class Admin extends Model {
 		return date_modify(date_create(), "+$sec sec")->format('Y-m-d H:i:s');
 	}
 
-	private function clear($str){
-		$str = trim($str);
-	    $str = strip_tags($str);
-		return $str;
+
+
+
+	public function message($status, $message){
+		exit(json_encode(['status' => $status, 'message' => $message]));
 	}
 
+	public function clear($str) {
+	    $str = trim($str);
+	    $str = strip_tags($str);
+	    return $str;
+	}
+
+	public function clearHTML($str) {
+	    $str = trim($str);
+	    $str = stripslashes($str);
+	    $str = htmlspecialchars($str);
+	    return $str;
+	}
+
+
+
+
+
+	public function isAjax(){
+		if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+			return true;
+		}
+		return false;
+	}
 }

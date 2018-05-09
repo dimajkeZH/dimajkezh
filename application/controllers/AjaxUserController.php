@@ -2,9 +2,9 @@
 
 namespace application\controllers;
 
-use application\controllers\AjaxController;
+use application\controllers\UserController;
 
-class MainAjaxController extends AjaxController {
+class AjaxUserController extends UserController {
 
 	public function feedbackAction() {
 		if(isset($_POST)){

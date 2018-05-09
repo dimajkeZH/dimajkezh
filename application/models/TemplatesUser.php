@@ -2,9 +2,9 @@
 
 namespace application\models;
 
-use application\core\Model;
+use application\models\User;
 
-class Templates extends Model {
+class TemplatesUser extends User {
 
 	protected $tmpls = [];
 	public $pg_type;
@@ -95,7 +95,7 @@ class Templates extends Model {
 	}
 
 	public function setConf($route){
-		if($route['controller'] AND $route['action'] AND $route['param']){
+		if($route['controller'] && $route['action'] && $route['param']){
 			$params = [
 				'COL_NUMBER' => $route['param'],
 				'CONTROLLER' => $route['controller'],
@@ -104,27 +104,24 @@ class Templates extends Model {
 
 			$q = 'SELECT ID_TYPE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$type = $this->db->row($q, $params);
-			if(!$type){
-				\application\core\View::errorCode(404);
-			}
-			$this->pg_type = $type[0]['ID_TYPE'];
+			if($type){
+				$this->pg_type = $type[0]['ID_TYPE'];
 
-			$table = '';
-			if($this->pg_type == '1'){
-				$table = 'PAGE_FULL';
-			}elseif($this->pg_type == '2'){
-				$table = 'PAGE_TEMPLATES';
+				$table = '';
+				if($this->pg_type == '1'){
+					$table = 'PAGE_FULL';
+				}elseif($this->pg_type == '2'){
+					$table = 'PAGE_TEMPLATES';
+				}
+				$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM '.$table.' AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+				$tmpls = $this->db->row($q, $params);
+				if($tmpls){
+					$this->tmpls = $tmpls;
+					return true;
+				}
 			}
-			$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM '.$table.' AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
-			$tmpls = $this->db->row($q, $params);
-			if(!$tmpls){
-				\application\core\View::errorCode(404);
-			}
-			$this->tmpls = $tmpls;
-
-		}else{
-			\application\core\View::errorCode(404);
 		}
+		return false;
 	}
 
 	public function getTitle($route){

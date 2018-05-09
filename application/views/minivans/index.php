@@ -1,23 +1,19 @@
-<div class="buses_main">
+		<div class="buses_main">
 			<div class="buses_main_head">
-				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
-				<p class="buses_main_head_title"><?php echo $CONTENT['TITLE']; ?></p>
-				<div class="buses_main_head_line"></div>
-				<?php endif; ?>
-				<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
-					<p class="buses_main_head_text"><?php echo $CONTENT['DESCR']; ?></p>
-				<?php endif; ?>
-				<p class="buses_main_head_title_two">Информация по тарифам на страницах сайта</p>
+				<div class="buses_main_head_img bus_one"><img src="/assets/img/buses/bus_head_one.png" alt=""></div>
+				<div class="buses_main_head_title"><p><?php echo $CONTENT['TITLE']; ?></p>
+				<div class="buses_main_head_line"></div></div>
+				<div class="buses_main_head_img bus_two"><img src="/assets/img/buses/bus_head_two.png" alt=""></div>
 			</div>
-			<?php if(isset($PAGELIST)AND(count($PAGELIST)>0)): ?>
-			<div class="buses_main_items">
-				<?php for($i = 0; $i < count($PAGELIST); $i++): ?>
-				<div class="buses_main_item">
-					<p class="buses_main_item_title"><?php echo $PAGELIST[$i]['TITLE']; ?></p>
-					<p class="buses_main_item_text"><?php echo $PAGELIST[$i]['DESCR']; ?></p>
-					<div class="buses_main_item_detail"><a href=<?php echo '"'.$PAGELIST[$i]['LINK'].'"'; ?>>Подробнее</a></div>
-				</div>
-				<?php endfor; ?>
+		</div>
+		<div class="text_wrapper">
+			<p class="text_title">Заказ автобусов - тарификация</p>
+			<div class="main_line"></div>
+			<div class="text">
+				<?php if(isset($CONTENT['DESCR'])AND(count($CONTENT['DESCR'])>0)): ?>
+					<?php foreach($CONTENT['DESCR'] as $key=>$val): ?>
+					<p><?php echo $val; ?></p>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
-			<?php endif; ?>
 		</div>

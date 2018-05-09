@@ -4,6 +4,8 @@ namespace application\controllers;
 
 use application\core\Controller;
 
-class AjaxController extends Controller {
+abstract class UserController extends Controller {
+
+
 
 }
