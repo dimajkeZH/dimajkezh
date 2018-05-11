@@ -6,7 +6,7 @@
 				<?php endif; ?>
 				<div class="order_header_img_one">
 					<?php if(isset($CONTENT['LEFT_IMAGE'])&&($CONTENT['LEFT_IMAGE'] != '')): ?>
-					<img src=<?php echo '"'.$CONTENT['LEFT_IMAGE'].'"'; ?> alt="">
+					<img src=<?php echo '"/assets/img/buses/header_page/'.$CONTENT['LEFT_IMAGE'].'.png"'; ?> alt="">
 					<?php endif; ?>
 					<?php if(isset($CONTENT['LEFT_IMAGE_SIGN'])&&($CONTENT['LEFT_IMAGE_SIGN'] != '')): ?>
 					<div class="order_header_img_one_text"><p><?php echo $CONTENT['LEFT_IMAGE_SIGN']; ?></p></div>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="order_header_img_two">
 					<?php if(isset($CONTENT['RIGHT_IMAGE'])AND($CONTENT['RIGHT_IMAGE']!='')): ?>
-					<img src=<?php echo '"'.$CONTENT['RIGHT_IMAGE'].'"'; ?> alt="">
+					<img src=<?php echo '"/assets/img/buses/header_page/'.$CONTENT['RIGHT_IMAGE'].'.png"'; ?> alt="">
 					<?php endif; ?>
 					<?php if(isset($CONTENT['RIGHT_IMAGE_SIGN'])AND($CONTENT['RIGHT_IMAGE_SIGN']!='')): ?>
 					<div class="order_header_img_two_text"><p><?php echo $CONTENT['RIGHT_IMAGE_SIGN']; ?></p></div>

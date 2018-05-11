@@ -7,7 +7,8 @@ use application\models\Admin;
 class AjaxAdmin extends Admin {
 
 	public function updCron(){
-		CronAdminController::updCron();
+		CronAdmin::updMenu();
+		CronAdmin::updSlicks();
 	}
 
 

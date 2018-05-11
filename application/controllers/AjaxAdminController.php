@@ -3,7 +3,7 @@
 namespace application\controllers;
 
 use application\controllers\AdminController;
-use application\controllers\CronAdminController;
+use application\models\CronAdmin;
 
 class AjaxAdminController extends AdminController {
 
