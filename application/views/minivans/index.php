@@ -17,3 +17,6 @@
 				<?php endif; ?>
 			</div>
 		</div>
+		<!-- SLICK -->
+		<?php include $_SERVER['DOCUMENT_ROOT'].'/application/views/layouts/cache/slickMinivans.html'; ?>
+		<!-- SLICK END -->

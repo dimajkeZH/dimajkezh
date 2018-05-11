@@ -104,7 +104,9 @@
 				</div>
 			</div>
 		</div>
-		<?php include $_SERVER['DOCUMENT_ROOT'].'/application/views/layouts/cache/slick.html'; ?>
+		<!-- SLICK -->
+		<?php include $_SERVER['DOCUMENT_ROOT'].'/application/views/layouts/cache/slickFull.html'; ?>
+		<!-- SLICK END -->
 		<div class="main_tips">
 			<div class="main_tips_head">
 				<p class="main_tips_head_title">Как заказать автобус?</p>
