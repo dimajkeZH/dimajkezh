@@ -7,7 +7,7 @@ use application\core\Model;
 abstract class User extends Model {
 
 
-	private function pagination($cur, $all){
+	public function pagination($cur, $all){
 		$n = 2;
 		$return = [];
 		if($all <= (2*$n + 2)){

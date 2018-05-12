@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/application/views/admin/css/style.css">
-	<link rel="stylesheet" href="/application/views/admin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" href="/application/views/mainadmin/css/style.css">
+	<link rel="stylesheet" href="/application/views/mainadmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
 	<title><?php echo isset($title) ? $title : 'NoNe title'; ?></title>
-	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/des/admin/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/mainadmin/img/favicon.png">
 </head>
 <body>
 	<div class="popup__message"></div>
@@ -45,14 +45,14 @@
 			</div>
 			<div class="header_settings">
 				<div class="logo">
-					<img src="/application/views/admin/img/logo.png" alt="">
+					<img src="/application/views/mainadmin/img/logo.png" alt="">
 					<div class="logo_text">
 						<p><?php echo isset($title) ? $title : 'NoNe cms name'; ?> <span><?php echo isset($ver) ? $ver : 'NoNe version'; ?></span></p>
 					</div>
 				</div>
 				<p class="name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'NoNe name admin'; ?></p>
 				<a href="/admin/settings" class="settings">Настройки</a>
-				<a href="/admin/logout" class="logaut">Выход</a><a href=""></a>
+				<a href="/admin/logout" class="logaut">Выход</a>
 			</div>
 		</div>
 		<div class="main_wrapper">
@@ -84,8 +84,8 @@
 		<div class="footer">
 		</div>
 	</div>
-	<script src="/application/views/admin/js/jquery.min.js"></script>
-	<script src="/application/views/admin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
-	<script src="/application/views/admin/js/script.js"></script>
+	<script src="/application/views/mainadmin/js/jquery.min.js"></script>
+	<script src="/application/views/mainadmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
+	<script src="/application/views/mainadmin/js/script.js"></script>
 </body>
 </html>

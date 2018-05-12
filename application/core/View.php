@@ -40,6 +40,7 @@ class View {
 
 	public function renderAdmin($headers, $vars = []){
 		$path = self::VIEW_DIR."$this->admpath.php";
+		//debug([$path, file_exists($path)]);
 		if(file_exists($path)) {
 			extract($vars);
 			ob_start();

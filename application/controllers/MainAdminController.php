@@ -132,14 +132,17 @@ class MainAdminController extends AdminController {
 
 
 
+	private function settings($layout = 'admin'){
+		$this->view->layout = $layout;
+	}
 
+	private function render($content = []){
+		$this->view->renderAdmin($this->model->getHeaders(), $content);
+	}
 
-
-
-
-
-
-
-	
+	private function ajax($content = []){
+		$out = $this->view->outputAjax($this->model->getHeaders(), $content);
+		$this->model->message(true, $out);
+	}
 
 }
