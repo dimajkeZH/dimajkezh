@@ -73,45 +73,47 @@
         background-color: #344047; }
       .header .header_nav .header_nav_list ul .header_nav_list_item.active {
         background-color: #344047; }
-    .header .header_nav .header_nav_content ul .header_nav_content_item {
-      display: none;
-      -webkit-transition: .3s;
-      -o-transition: .3s;
-      transition: .3s; }
-      .header .header_nav .header_nav_content ul .header_nav_content_item ul {
-        width: 100%;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        height: 100%; }
-      .header .header_nav .header_nav_content ul .header_nav_content_item li {
-        display: inline-block;
-        list-style-type: none;
-        height: 100%;
-        padding: 0px 10px;
+    .header .header_nav .header_nav_content {
+      background-color: #3d4a54; }
+      .header .header_nav .header_nav_content ul .header_nav_content_item {
+        display: none;
         -webkit-transition: .3s;
         -o-transition: .3s;
         transition: .3s; }
-        .header .header_nav .header_nav_content ul .header_nav_content_item li a {
-          vertical-align: middle;
+        .header .header_nav .header_nav_content ul .header_nav_content_item ul {
+          width: 100%;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-pack: distribute;
+          justify-content: space-around;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          height: 100%; }
+        .header .header_nav .header_nav_content ul .header_nav_content_item li {
           display: inline-block;
-          text-decoration: none;
-          line-height: 40px;
-          color: #fff; }
-      .header .header_nav .header_nav_content ul .header_nav_content_item li:hover {
+          list-style-type: none;
+          height: 100%;
+          padding: 0px 10px;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s; }
+          .header .header_nav .header_nav_content ul .header_nav_content_item li a {
+            vertical-align: middle;
+            display: inline-block;
+            text-decoration: none;
+            line-height: 40px;
+            color: #fff; }
+        .header .header_nav .header_nav_content ul .header_nav_content_item li:hover {
+          background-color: #344047; }
+      .header .header_nav .header_nav_content ul .header_nav_content_item.active {
+        display: block;
         background-color: #344047; }
-    .header .header_nav .header_nav_content ul .header_nav_content_item.active {
-      display: block;
-      background-color: #344047; }
   .header .header_settings {
     width: 50%;
     height: 100%;
@@ -151,7 +153,12 @@
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      margin-right: 40px; }
+      margin-right: 40px;
+      font-size: 16px;
+      padding: 5px 15px;
+      background-color: rgba(255, 255, 255, 0.15);
+      margin-right: 20px;
+      border-radius: 5px; }
       .header .header_settings .logo img {
         height: 50%;
         display: inline-block; }
@@ -162,12 +169,6 @@
           font-size: 16px; }
           .header .header_settings .logo .logo_text p span {
             font-size: 12px; }
-    .header .header_settings .name {
-      font-size: 16px;
-      padding: 5px 15px;
-      background-color: rgba(255, 255, 255, 0.15);
-      margin-right: 20px;
-      border-radius: 5px; }
     .header .header_settings > a {
       padding: 5px 15px;
       font-size: 16px;
@@ -205,9 +206,10 @@
     color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
     margin: 5px	0px;
-    margin-right: 15px;
     display: inline-block;
     font-weight: bold; }
+  .main_nav .main_nav_list .main_nav_list_title {
+    width: 90%; }
   .main_nav .main_nav_list .main_nav_list_title:hover {
     color: #000; }
   .main_nav .main_nav_list .main_nav_list_add {
