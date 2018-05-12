@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/des/admin/img/favicon.png">
 </head>
 <body>
+	<div class="popup__message"></div>
 	<div class="wrapper">
 		<div class="header">
 			<div class="header_nav" id="tabs">

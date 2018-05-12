@@ -128,6 +128,7 @@ function Ajax(uri, data = {}, callback = ''){
 		},
 		error: function(){
 			console.log('something was wrong. Refresh page!');
+			HideLoader();
 		}
 	});
 }
