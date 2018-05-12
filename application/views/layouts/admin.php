@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="/application/views/admin/css/style.css">
 	<link rel="stylesheet" href="/application/views/admin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
 	<title><?php echo isset($title) ? $title : 'NoNe title'; ?></title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/des/admin/img/favicon.png">
 </head>
 <body>
 	<div class="wrapper">
@@ -45,8 +46,7 @@
 				<div class="logo">
 					<img src="/application/views/admin/img/logo.png" alt="">
 					<div class="logo_text">
-						<p><?php echo isset($title) ? $title : 'NoNe cms name'; ?></p>
-						<p><span><?php echo isset($ver) ? $ver : 'NoNe version'; ?></span></p>
+						<p><?php echo isset($title) ? $title : 'NoNe cms name'; ?> <span><?php echo isset($ver) ? $ver : 'NoNe version'; ?></span></p>
 					</div>
 				</div>
 				<p class="name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'NoNe name admin'; ?></p>
@@ -57,18 +57,26 @@
 		<div class="main_wrapper">
 			<div class="main">
 				<div class="main_nav">
-					<?php if(isset($SITETREE)AND(count($SITETREE)>0)): foreach($SITETREE as $key => $val): ?>
-					<ul class="main_nav_list" id="main_nav_list"><a class="main_nav_list_title" href="/admin/site/<?php echo $val['URI']; ?>/<?php echo $val['ID']; ?>"><b><?php echo $val['NAME']; ?></b></a>
-						<?php if(isset($val['SUBMENU'])AND(count($val['SUBMENU'])>0)): foreach($val['SUBMENU'] as $subkey => $subval): ?>
-							<li class="main_nav_list_item"><a href="/admin/site/<?php echo $subval['URI']; ?>/<?php echo $subval['ID']; ?>"><?php echo $subval['NAME']; ?></a></li>
-							<?php endforeach; endif; ?>
-						<li class="main_nav_list_item"><a href="/admin/site/<?php echo $subval['URI']; ?>/?group=<?php echo $val['ID']; ?>">Добавить..</a></li>
-					</ul>
-					<?php endforeach; endif;?>
-					<ul class="main_nav_list" id="main_nav_list"><a class="main_nav_list_title" href="/admin/site/<?php echo $val['URI']; ?>/">Добавить..</a></ul>
+					<?php echo $TREE; ?>
 				</div>
-				<div class="main_content">
-				<?php include echo $content; ?>
+				<div class="content_box">
+					<div class="loader_box hide">
+					  <div class="loader">
+					  	<div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div><!--
+					    --><div class="element_box"><div class="element"></div></div>
+					  </div>
+					</div>
+					<div class="main_content">
+						<?php echo $content; ?>
+					</div>
 				</div>
 			</div>
 		</div>

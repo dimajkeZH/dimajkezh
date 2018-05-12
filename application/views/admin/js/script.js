@@ -28,17 +28,24 @@
 })(jQuery);
 /* инициализация табов */
 $('#tabs').tabs();
+//скролл
+function custormScrollContent(){
+	$(".main_content_info").mCustomScrollbar();
+}
+function custormScrollTree(){
+	$(".main_nav").mCustomScrollbar();
+}
+(function($){
+    $(window).on("load",function(){
+       	custormScrollContent();
+    });
+})(jQuery);
 
 (function($){
-        $(window).on("load",function(){
-            $(".main_content_info").mCustomScrollbar();
-        });
-    })(jQuery);
-		 (function($){
-        $(window).on("load",function(){
-            $(".main_nav").mCustomScrollbar();
-        });
-    })(jQuery);
+	$(window).on("load",function(){
+		custormScrollTree();
+	});
+})(jQuery);
 
 $('.main_nav_list_title').on('click', function () {
 	var content = $(this).next()
@@ -67,17 +74,83 @@ var typeMessage = Object.freeze({
 var classMessageBox = 'popup__message',
 	classMessage = 'message',
 	classMessageGood = 'good',
-	classMessageCommon = 'common',
 	classMessageBad = 'bad',
+	classMessageCommon = 'common',
 	messageGoodTimeout = 2800,
 	messageBadTimeout = 3500,
 	messageCommonTimeout = 3100;
 	messageHide = 600;
+var classContentBox = 'main_content',
+	classSiteTree = 'main_nav',
+	classLoaderPage = 'loader_box',
+	loaderPageHide = 5; /* 3 - 12 */
 /* VARS END */
 
 /* FUNCTIONS */
-function showMessage(type, message){
-	var curClassMessage;
+function GetContent(uri, Class, data = {}){
+	$.ajax({
+		url: uri,
+		type: 'POST',
+		data: data,
+		success: function(data){
+			try{
+				data = JSON.parse(data.trim());
+				$(Class).html(data.message);
+			}catch{
+				console.log('Error of script. Refresh page!');
+			}finally{
+				
+			}
+		},
+		error: function(){
+			console.log('something was wrong. Refresh page!');
+		}
+	});
+}
+
+function Ajax(uri, data = {}, callback = ''){
+	$.ajax({
+		url: uri,
+		type: 'POST',
+		data: data,
+		cache: false,
+        contentType: false,
+        processData: false,
+		success: function(data){
+			try{
+				data = JSON.parse(data.trim());
+				window[callback](data.message, data.status);
+			}catch{
+				console.log('Error of script. Refresh page!');
+			}finally{
+				HideLoader();
+			}
+		},
+		error: function(){
+			console.log('something was wrong. Refresh page!');
+		}
+	});
+}
+
+function loadPage(content){
+	$('.'+classContentBox).html(content);
+	custormScrollContent();
+}
+
+function updTree(){
+	GetContent('/admin/tree', '.'+classSiteTree);
+	custormScrollTree();
+}
+
+function showMessage(message, status = null){
+	var curClassMessage, type;
+	if(status){
+		type = typeMessage.good;
+	}else if(!status){
+		type = typeMessage.bad;
+	}else if(status == null){
+		type = typeMessage.common;
+	}
 	switch(type){
 		case typeMessage.good:
 			curClassMessage = classMessageGood;
@@ -111,16 +184,104 @@ function removeMessage(msgBox, timeout){
 }
 
 function Go(uri){
-	//window.location = '/admin/'+uri;
-	//console.log(window.location);
+	ShowLoader();
+	Ajax(uri, {}, 'loadPage');
+}
+
+function Change(uri){
+	ShowLoader();
+	uri = '/admin/'+uri;
+	var dataForms = $('form#data');
+	var data = new FormData();
+	var tempForms;
+	console.clear();
+	$.each( dataForms, function( key, form){
+		tempForms = new FormData(form);
+		for (var pair of tempForms.entries()) {
+			data.append(pair[0], pair[1]);
+		}
+	});
+	Ajax(uri, data, 'showMessage');
+	updTree();
+}
+
+function Delete(uri){
+	ShowLoader();
+	uri = '/admin/'+uri;
+	var data = new FormData();
+	var dataInput = $('form#data :input[name = "ID"]');
+	data.append(dataInput[0].name, dataInput[0].value);
+	if(window.confirm('Действительно хотите удалить эту запись?')){
+		Ajax(uri, data, 'showMessage');
+	}
+	updTree();
+}
+
+function plus(This){
+	$(This).parent().parent().find("input").each(function(){
+		if(this.value > 0){
+			this.value++;
+		}else{
+			this.value = 1;
+		}
+	});
+}
+
+function minus(This){
+	$(This).parent().parent().find("input").each(function(){
+		if(this.value > 1){
+			this.value--;
+		}
+	});
+}
+
+function ShowLoader(){
+	var loader = $('.'+classLoaderPage)[0];
+	loader.style.opacity = 1;
+	loader.classList.remove('hide');
+}
+function HideLoader(){
+	var loader = $('.'+classLoaderPage)[0];
+	setTimeout(function tickHideLoader(){
+		loader.style.opacity -= 0.01;
+		if(loader.style.opacity == 0){
+			loader.classList.add('hide');
+		}else{
+			setTimeout(tickHideLoader,loaderPageHide);
+		}
+	}, loaderPageHide);
 }
 /* FUNCTIONS END */
 
 /* EVENTS */
-
+	//redirect
+	window.onload = function() {
+		function handlerAnchors() {
+			var state = {
+				url: this.getAttribute( "href", 2 )
+			}
+			// заносим ссылку в историю
+			history.pushState( state, state.title, state.url );
+			//подгрузка данных
+			Go(state.url);
+			// не даем выполнить действие по умолчанию
+			return false;
+		}
+		//Все ссылки для редиректа
+		var anchors = document.getElementsByClassName('Go');
+		// вешаем события на все ссылки в нашем документе
+		for( var i = 0; i < anchors.length; i++ ) {
+			anchors[ i ].onclick = handlerAnchors;
+		}
+		// вешаем событие на popstate которое срабатывает при нажатии back/forward в браузере
+		window.onpopstate = function( e ) {
+			// просто сообщение
+			//console.log('Вы вернулись на страницу '+ history.location+' URI:'+JSON.stringify( history.state ));
+			Go(history.state.url);
+		}
+	}
 /* EVENTS END */
 
 /* SIMPLE CODE */
 	//showMessage(typeMessage.good, 'test message');
-	Go('kek');
 /* SIMPLE CODE END */
