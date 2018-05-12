@@ -198,6 +198,6 @@
 				</div>
 			</div>
 			<div class="main_news_detail">
-				<a href="/news"><p>Все новости</p></a>
+				<a href="/news/1"><p>Все новости</p></a>
 			</div>
 		</div>
