@@ -2,8 +2,8 @@
 	<div class="main_content_head">
 		<p class="main_content_head_title">pages</p>
 		<div class="buttons">
-			<button class="save">Save</button>
-			<button class="remove">Remove</button>
+			<button class="save"><?php echo ((isset($CONTENT['ID'])&&($CONTENT['ID'] > 0)) ? 'Save' : 'Add'); ?></button>
+			<?php if(isset($CONTENT['ID'])&&($CONTENT['ID'] > 0)): ?><button class="remove">Remove</button><?php endif; ?>
 		</div>
 	</div>
 	<div class="main_content_info">

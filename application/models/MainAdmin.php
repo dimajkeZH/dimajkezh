@@ -75,36 +75,59 @@ class MainAdmin extends Admin {
 
 
 	public function configContent(){
-		$return = [];
-
+		$q = '';
+		$return['CONTENT'] = $this->db->row($q);
+		//debug($return);
 		return $return;
 	}
 
 
 	public function siteContent(){
-		$return = [];
-
+		$q = '';
+		$return['CONTENT'] = $this->db->row($q);
+		//debug($return);
 		return $return;
 	}
 
 
 	public function siteSettingsContent(){
-		$return = [];
-
+		$q = '';
+		$return['CONTENT'] = $this->db->row($q);
+		//debug($return);
 		return $return;
 	}
 
 
 	public function sitePageGroupsContent($route){
-		$return = [];
-
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$q = '';
+			$params = [
+				'ID' => $route['param']
+			];
+			$return['CONTENT'] = $this->db->row($q, $params);
+			$return['CONTENT']['ID'] = $route['param'];
+		}else{
+			$return['CONTENT'] = [];
+			$return['CONTENT']['ID'] = '0';
+		}
+		//debug($return);
 		return $return;
 	}
 
 
 	public function sitePagesContent($route){
-		$return = [];
-
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$q = '';
+			$params = [
+				'ID' => $route['param']
+			];
+			$return['CONTENT'] = $this->db->row($q, $params);
+			$return['CONTENT']['ID'] = $route['param'];
+		}else{
+			$return['CONTENT'] = [];
+			$return['CONTENT']['ID'] = '0';
+		}
+		//debug($return);
 		return $return;
 	}
 
