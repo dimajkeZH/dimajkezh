@@ -87,7 +87,7 @@ return [
 
 	'admin/main' => [
 		'controller' => 'MainAdmin',
-		'action' => 'index',
+		'action' => 'main',
 	],
 
 	'admin/auth' => [
@@ -143,11 +143,11 @@ return [
 	//child pages (show add[0]/show change[1+])
 	'admin/site/pages' => [
 		'controller' => 'MainAdmin',
-		'action' => 'sitePageGroups',
+		'action' => 'sitePages',
 	],
 	'admin/site/pages/[0-9]{1,}' => [
 		'controller' => 'MainAdmin',
-		'action' => 'sitePageGroups',
+		'action' => 'sitePages',
 	],
 	/* ADMIN INNER PAGES END */
 

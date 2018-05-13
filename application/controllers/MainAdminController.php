@@ -17,13 +17,13 @@ class MainAdminController extends AdminController {
 			$this->settings('adminEmpty');
 			$this->render();
 		}else{
-			$this->view->redirect('/admin');
+			$this->view->redirect('/admin/main');
 		}
 	}
 
 	public function loginAction(){	
 		if($this->model->logIn()){
-			$this->view->redirect('/admin');
+			$this->view->redirect('/admin/main');
 		}else{
 			$this->view->redirect('/admin/auth');
 		}
@@ -38,39 +38,26 @@ class MainAdminController extends AdminController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-		public function settingsAction(){	
+	public function configAction(){	
 		$this->isAuth();
 		$this->settings();
-		$content = $this->model->settingsContent($this->route);
+		$content = $this->model->configContent();
 		if($this->model->isAjax()){
 			$this->ajax($content);
 		}else{
 			$this->render($content);
 		}
-		//$this->model->message(true, 'settingsAction');
 	}
 
 	public function siteContentAction(){	
 		$this->isAuth();
 		$this->settings();
-		$content = $this->model->siteContent($this->route);
-		//debug($content);
+		$content = $this->model->siteContent();
 		if($this->model->isAjax()){
 			$this->ajax($content);
 		}else{
 			$this->render($content);
 		}
-		//$this->model->message(true, 'siteAction');
 	}
 
 	public function siteSettingsAction(){	
@@ -82,7 +69,6 @@ class MainAdminController extends AdminController {
 		}else{
 			$this->render($content);
 		}
-		//$this->model->message(true, 'siteSettingsAction');
 	}
 
 	public function sitePageGroupsAction(){	
@@ -94,39 +80,22 @@ class MainAdminController extends AdminController {
 		}else{
 			$this->render($content);
 		}
-		//$this->model->message(true, 'sitePageGroupsAction');
 	}
 
-	public function siteCaseGroupsAction(){	
+	public function sitePagesAction(){	
 		$this->isAuth();
 		$this->settings();
-		$content = $this->model->siteCaseGroupsContent($this->route);
+		$content = $this->model->sitePagesContent($this->route);
 		if($this->model->isAjax()){
 			$this->ajax($content);
 		}else{
 			$this->render($content);
 		}
-		//$this->model->message(true, 'siteCaseGroupsAction');
-	}
-
-	public function siteCasesAction(){	
-		$this->isAuth();
-		$this->settings();
-		$content = $this->model->siteCasesContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
-		}else{
-			$this->render($content);
-		}
-		//$this->model->message(true, 'siteCasesAction');
 	}
 
 	public function getSiteTreeAction(){
 		$this->model->message(true, $this->model->getSiteTreeHTML());
 	}
-
-
-
 
 
 

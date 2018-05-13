@@ -75,6 +75,18 @@ class View {
 		return $content;
 	}
 
+	public function outputAjax($headers = [], $vars = []){
+		$content = '';
+		$path = self::VIEW_DIR."/$this->admpath.php";
+		if(file_exists($path)) {
+			extract($vars);
+			ob_start();
+			require $path;
+			$content = ob_get_clean();
+		}
+		return $content;
+	}
+
 	public function redirect($url) {
 		header('location: '.$url);
 		exit;

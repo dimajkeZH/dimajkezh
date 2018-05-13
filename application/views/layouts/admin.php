@@ -14,19 +14,18 @@
 			<div class="header_nav" id="tabs">
 				<div class="header_nav_list">
 					<ul>
-						<li class="header_nav_list_item"><a href="#">Главная</a></li>
-						<li class="header_nav_list_item"><a href="/site/settings">Настройки</a></li>
-						<li class="header_nav_list_item"><a href="#">Отчёты</a></li>
+						<li class="header_nav_list_item"><a>Главная</a></li>
+						<li class="header_nav_list_item"><a href="/admin/site/settings">Настройки</a></li>
+						<li class="header_nav_list_item"><a>Отчёты</a></li>
 					</ul>
 				</div>
 				<div class="header_nav_content">
 					<ul>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a href="/site">Сайт</a></li>
-								<li><a href="/site/pagegr">Страницы</a></li>
-								<li><a href="/site/casegr">Группы кейсов</a></li>
-								<li><a href="/site/cases">Кейсы</a></li>
+								<li><a href="/admin/site/content">Сайт</a></li>
+								<li><a href="/admin/site/pagegr">Группы страниц</a></li>
+								<li><a href="/admin/site/pages">Страницы</a></li>
 							</ul>
 						</li>
 						<li class="header_nav_content_item">
@@ -51,7 +50,7 @@
 					</div>
 				</div>
 				<p class="name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'NoNe name admin'; ?></p>
-				<a href="/admin/settings" class="settings">Настройки</a>
+				<a href="/admin/config" class="settings">Настройки</a>
 				<a href="/admin/logout" class="logaut">Выход</a>
 			</div>
 		</div>

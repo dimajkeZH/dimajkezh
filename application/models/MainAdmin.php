@@ -72,100 +72,42 @@ class MainAdmin extends Admin {
 
 
 
-	/* PRIVATE FUNCTIONS */
-	//session destroy
-	private function sessionDestroy(){
-		if(isset($_SESSION['hash']) && isset($_COOKIE['hash'])){
-			$q = 'UPDATE ADMIN_SESSIONS SET DT_DESTROY = NOW() WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C)';
-			$params = [
-				'HASH_S' => $_SESSION['hash'],
-				'HASH_C' => $_COOKIE['hash']
-			];
-			$this->db->column($q, $params);
-		}
-		$this->db->column('DELETE FROM ADMIN_SESSIONS WHERE ID_ADMIN = 0');
-		unset($_SESSION['hash']);
-		session_destroy();
-		setcookie('hash', "", time()-3600);
-	}
 
-	//create new record in the db
-	private function sessionCreate($id_admin){
-		if($this->dif_hash){
-			$hash_s = $this->generateStr(128);
-			$hash_c = $this->generateStr(128);
-			$_SESSION['hash'] = $hash_s;
-			setcookie('hash', $hash_c, time()+$this->lifetime_hash);
-		}else{
-			$hash_s = $hash_c = $this->generateStr(128);
-			$_SESSION['hash'] = $hash_s;
-			setcookie('hash', $hash_c, time()+$this->lifetime_hash);
-		}
-		$create =  $this->now();
-		$destroy = $this->now($this->lifetime_hash);		
-		$q = 'INSERT INTO ADMIN_SESSIONS (ID_ADMIN, HASH_S, HASH_C, IP, BROWSER, DT_CREATE, DT_DESTROY) VALUES (:ID_ADMIN, :HASH_S, :HASH_C, :IP, :BROWSER, :DT_CREATE, :DT_DESTROY)';
-		$params = [
-			'ID_ADMIN' => $id_admin,
-			'HASH_S' => $hash_s,
-			'HASH_C' => $hash_c,
-			'IP' => $_SERVER['REMOTE_ADDR'],
-			'BROWSER' => $_SERVER['HTTP_USER_AGENT'],
-			'DT_CREATE' => $create,
-			'DT_DESTROY' => $destroy
-		];
-		$this->db->column($q, $params);
-	}
 
-	//string generation the specified length
-	private function generateStr($length){
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	    $str = '';
-	    for ($i = 0; $i < $length; $i++) {
-	        $str .= $characters[rand(0, strlen($characters)-1)];
-	    }
-	    return $str;
-	}
+	public function configContent(){
+		$return = [];
 
-	//hashPSWD to bcrypt
-	private function hashPSWD($str){
-		return password_hash(
-			$this->shaPSWD($str),
-			PASSWORD_BCRYPT, 
-			["cost" => $this->pswd_cost]
-		);
-	}
-
-	//verify PASS, get ID
-	private function verifyPSWD($name, $pass){
-		$db = $this->matchLogin($name);
-		if(is_null($db)){
-			return NULL;
-		}
-		if(password_verify($pass, $db['PASS'])){
-			return $db['ID'];
-		}
-	}
-
-	//get ID, PASS
-	private function matchLogin($name){
-		$q = 'SELECT ID, PASS FROM ADMIN_ACCOUNTS WHERE (NAME = :NAME) ORDER BY ID LIMIT 1';
-		$params = [
-			'NAME' => $name
-		];
-		$result = $this->db->row($q, $params);
-		if(count($result) == 1){
-			return $result[0];
-		}
-		return NULL;
-	}
-
-	//sha PSWD for BCRYPT
-	private function shaPSWD($str){
-		return base64_encode(hash_hmac($this->sha, $str, $this->sha_key, true));
+		return $return;
 	}
 
 
-	/* PRIVATE FUNCTIONS END */
+	public function siteContent(){
+		$return = [];
+
+		return $return;
+	}
+
+
+	public function siteSettingsContent(){
+		$return = [];
+
+		return $return;
+	}
+
+
+	public function sitePageGroupsContent($route){
+		$return = [];
+
+		return $return;
+	}
+
+
+	public function sitePagesContent($route){
+		$return = [];
+
+		return $return;
+	}
+
 
 
 }
