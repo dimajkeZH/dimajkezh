@@ -65,7 +65,7 @@ abstract class Admin extends Model {
 
 		if(isset($SITETREE)AND(count($SITETREE)>0)){
 			foreach($SITETREE as $key => $val){
-				$return .= "<ul class='main_nav_list' id='main_nav_list'><a class='main_nav_list_add Go'  href='/admin/site/$val[URI]/$val[ID]'>C</a><a class='main_nav_list_title'><b>$val[NAME]".((count($val['SUBMENU']) > 0) ? ('('.count($val['SUBMENU']).')') : '')."</b></a>";
+				$return .= "<ul class='main_nav_list' id='main_nav_list'><a class='main_nav_list_add Go'  href='/admin/site/$val[URI]/$val[ID]'>C</a><a class='main_nav_list_title'><b>$val[NAME]".((count($val['SUBMENU']) > 0) ? (' ('.count($val['SUBMENU']).')') : '')."</b></a>";
 				if(isset($val['SUBMENU'])AND(count($val['SUBMENU'])>0)){
 					foreach($val['SUBMENU'] as $subkey => $subval){
 						$return .= "<li class='main_nav_list_item'><a class='Go' href='/admin/site/$subval[URI]/$subval[ID]'>$subval[NAME]</a></li>";

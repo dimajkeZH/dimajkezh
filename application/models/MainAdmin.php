@@ -104,10 +104,10 @@ class MainAdmin extends Admin {
 			$params = [
 				'ID' => $route['param']
 			];
-			$return['CONTENT'] = $this->db->row($q, $params);
+			$return['FORMS'] = $this->db->row($q, $params);
 			$return['CONTENT']['ID'] = $route['param'];
 		}else{
-			$return['CONTENT'] = [];
+			$return['FORMS'] = [];
 			$return['CONTENT']['ID'] = '0';
 		}
 		//debug($return);
@@ -121,10 +121,10 @@ class MainAdmin extends Admin {
 			$params = [
 				'ID' => $route['param']
 			];
-			$return['CONTENT'] = $this->db->row($q, $params);
+			$return['FORMS'] = $this->db->row($q, $params);
 			$return['CONTENT']['ID'] = $route['param'];
 		}else{
-			$return['CONTENT'] = [];
+			$return['FORMS'] = [];
 			$return['CONTENT']['ID'] = '0';
 		}
 		//debug($return);

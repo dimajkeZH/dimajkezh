@@ -7,6 +7,6 @@
 		</div>
 	</div>
 	<div class="main_content_info">
-
+	<?php echo $FORMS; ?>
 	</div>
 </div>

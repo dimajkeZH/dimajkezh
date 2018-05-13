@@ -6,6 +6,6 @@
 		</div>
 	</div>
 	<div class="main_content_info">
-
+	
 	</div>
 </div>
