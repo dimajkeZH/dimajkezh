@@ -75,7 +75,6 @@ abstract class Admin extends Model {
 				$return .= '</ul>';			  
 			}
 		}
-		$return .=  '<ul class="main_nav_list" id="main_nav_list"><a class="main_nav_list_title Go" href="/admin/site/casegr/">Добавить..</a></ul>';
 		return $return;
 	}
 	/* GET PUBLIC FUNCTIONS END */
@@ -85,7 +84,7 @@ abstract class Admin extends Model {
 	/* GET PRIVATE FUNCTIONS */
 	//get site tree array
 	private function getSiteTree(){
-		$q = 'SELECT ID, TITLE as NAME, "pagegr" as "URI" FROM PAGE_GROUPS';
+		$q = 'SELECT ID, HTML_TITLE as NAME, "pagegr" as "URI" FROM PAGE_GROUPS';
 		$return = $this->db->row($q);
 		foreach($return as $key => $val){
 			$q = 'SELECT ID, TITLE as NAME, "pages" as "URI" FROM PAGES WHERE ID_GROUP = '.$val['ID'].' ORDER BY LOC_NUMBER;';

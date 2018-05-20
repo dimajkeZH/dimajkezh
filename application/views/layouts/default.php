@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="Description" content="<?php echo $HTML_DESCR; ?>">
 	<meta name="Keywords" content="<?php echo $HTML_KEYWORDS; ?>">
-	<title><?php echo isset($TITLE) ? 'ТриБас-М: '.$TITLE : 'ТриБас-М'; ?></title>
+	<title><?php echo isset($HTML_TITLE) ? 'ТриБас-М: '.$HTML_TITLE : 'ТриБас-М'; ?></title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick-theme.css">

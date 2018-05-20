@@ -15,7 +15,8 @@
 				<div class="header_nav_list">
 					<ul>
 						<li class="header_nav_list_item"><a>Главная</a></li>
-						<li class="header_nav_list_item"><a href="/admin/site/settings">Настройки</a></li>
+						<li class="header_nav_list_item"><a>Каталоги</a></li>
+						<li class="header_nav_list_item"><a class="Go" href="/admin/site/settings">Настройки</a></li>
 						<li class="header_nav_list_item"><a>Отчёты</a></li>
 					</ul>
 				</div>
@@ -23,20 +24,29 @@
 					<ul>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a href="/admin/site/content">Сайт</a></li>
-								<li><a href="/admin/site/pagegr">Группы страниц</a></li>
-								<li><a href="/admin/site/pages">Страницы</a></li>
+								<li><a class="Go" href="/admin/site/content">Сайт</a></li>
+								<li><a class="Go" href="/admin/site/pages">Страницы</a></li>
 							</ul>
 						</li>
 						<li class="header_nav_content_item">
+							<ul>
+								<li><a class="Go" href="/admin/catalog/cities">Города автобусов</a></li>
+								<li><a class="Go" href="/admin/catalog/buses">Автобусы</a></li>
+								<li><a class="Go" href="/admin/catalog/news">Новости</a></li>
+								<li><a class="Go" href="/admin/catalog/vacancies">Вакансии</a></li>
+							</ul>
 						</li>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a href="#">Content3</a></li>
-								<li><a href="#">Content3</a></li>
-								<li><a href="#">Content3</a></li>
-								<li><a href="#">Content3</a></li>
-								<li><a href="#">Content3</a></li>
+							</ul>
+						</li>
+						<li class="header_nav_content_item">
+							<ul>
+								<li><a class="Go" href="#">Content3</a></li>
+								<li><a class="Go" href="#">Content3</a></li>
+								<li><a class="Go" href="#">Content3</a></li>
+								<li><a class="Go" href="#">Content3</a></li>
+								<li><a class="Go" href="#">Content3</a></li>
 							</ul>
 						</li>
 					</ul>	
@@ -50,7 +60,7 @@
 					</div>
 				</div>
 				<p class="name"><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'NoNe name admin'; ?></p>
-				<a href="/admin/config" class="settings">Настройки</a>
+				<a class="Go" href="/admin/config" class="settings">Настройки</a>
 				<a href="/admin/logout" class="logaut">Выход</a>
 			</div>
 		</div>

@@ -100,15 +100,23 @@ class MainAdmin extends Admin {
 
 	public function sitePageGroupsContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = '';
+			$q = 'SELECT HTML_TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS WHERE (ID = :ID)';
 			$params = [
 				'ID' => $route['param']
 			];
-			$return['FORMS'] = $this->db->row($q, $params);
-			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['ALL'] = $this->db->row($q, $params)[0];
+			$q = 'SELECT * FROM PAGE_GROUPS_CONTENT WHERE (ID_GROUP = :ID)';
+			$result = $this->db->row($q, $params);
+			//debug($result);
+			foreach($result as $key => $val){
+				if(!isset($return['CONTENT']['PAGE'][$val['VAR']])){
+					$return['CONTENT']['PAGE'][$val['VAR']] = [];
+				}
+				array_push($return['CONTENT']['PAGE'][$val['VAR']], $val['VAL']);
+			}
 		}else{
-			$return['FORMS'] = [];
-			$return['CONTENT']['ID'] = '0';
+			$return['CONTENT']['ALL']['ID'] = '0';
+			$return['CONTENT']['PAGE'] = [];
 		}
 		//debug($return);
 		return $return;
@@ -117,20 +125,105 @@ class MainAdmin extends Admin {
 
 	public function sitePagesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = '';
+			$q = 'SELECT ID_TYPE, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
 			$params = [
 				'ID' => $route['param']
 			];
-			$return['FORMS'] = $this->db->row($q, $params);
-			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['ALL'] = $this->db->row($q, $params)[0];
+			$return['CONTENT']['PAGE'] = $this->typePage($return['CONTENT']['ALL']['ID_TYPE'], $route);	
 		}else{
-			$return['FORMS'] = [];
-			$return['CONTENT']['ID'] = '0';
+			$return['CONTENT']['ALL']['ID'] = '0';
+			$return['CONTENT']['PAGE'] = '';
 		}
-		//debug($return);
+		debug($return);
 		return $return;
 	}
 
 
+
+	private function typePage($type, $route){
+		$return = '';
+		$params = [
+			'ID' => $route['param']
+		];
+		if($type == 1){
+			$q = 'SELECT PFC.* FROM PAGE_FULL_CONTENT as PFC INNER JOIN PAGE_FULL as PF ON PFC.ID_FULL_PAGE = PF.ID WHERE PF.ID_PAGE = :ID';
+			$subresult = $this->db->row($q, $params);
+			foreach($subresult as $key => $val){
+				$result[$val['VAR']] = $val['VAL'];
+			}
+			$q = 'SELECT LT.PATH FROM LIB_TEMPLATES as LT INNER JOIN PAGE_FULL as PF ON LT.ID = PF.ID_TEMPLATE WHERE ID_PAGE = :ID';
+			$path = $this->db->row($q, $params)[0]['PATH'];
+			ob_start();
+			extract($result);
+			require $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
+			$return = ob_get_clean();
+		}elseif($type == 2){
+			$q = 'SELECT ID, ID_TEMPLATE FROM PAGE_TEMPLATES WHERE ID_PAGE = :ID';
+			$subresult = $this->db->row($q, $params);
+			foreach($subresult as $key => $val){
+				$return .= $this->getBlockContent($val['ID'], $val['ID_TEMPLATE']);
+			}
+		}
+		return $return;
+	}
+
+	private function getBlockContent($ID, $ID_TEMPLATE){
+		$return = '';
+		switch($ID_TEMPLATE){
+			case 1:
+				$table_content = 'BLOCK_HEADER_ORDER';
+				$table_data = '';
+				$path = 'H1';
+				break;
+			case 2:
+				$table_content = 'BLOCK_HEADER_IMAGES';
+				$table_data = '';
+				$path = 'H2';
+				break;
+			case 3:
+				$table_content = ''; //'BLOCK_TABLE';
+				$table_data = ''; //'DATA_TABLE';
+				$path = 'B1';
+				break;
+			case 4:
+				$table_content = 'BLOCK_MULTITABLE';
+				$table_data = 'BLOCK_MULTITABLE_CONTENT';
+				$path = 'B2';
+				break;
+			case 5:
+				$table_content = 'BLOCK_TEXT';
+				$table_data = '';
+				$path = 'B3';
+				break;
+			case 6:
+				$table_content = 'BLOCK_IMAGES';
+				$table_data = 'BLOCK_IMAGE_CONTENT';
+				$path = 'B4';
+				break;
+			case 7:
+				$table_content = ''; //'BLOCK_LINKS';
+				$table_data = '';
+				$path = 'B5';
+				break;
+		}
+		if($table_content != ''){
+			$q = 'SELECT * FROM '.$table_content.' WHERE ID_PAGE_TEMPLATE = :ID';
+			$params = [
+				'ID' => $ID
+			];
+			$result = $this->db->row($q, $params)[0];
+			extract($result);
+			$tmpl = $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
+			ob_start();
+			require $tmpl;
+			$return = ob_get_clean();
+		}
+		return $return;
+	}
+
+	private function caseField(){
+
+	}
 
 }

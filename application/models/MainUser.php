@@ -78,6 +78,9 @@ class MainUser extends User {
 			return NULL;
 		}
 		foreach($result as $key => $val){
+			if(preg_match('#^DESCR[0-9]{0,}$#', $val['VAR'])){
+				$val['VAR'] = 'DESCR';
+			}
 			if(!isset($return[$val['VAR']])){
 				$return[$val['VAR']] = [];
 			}
