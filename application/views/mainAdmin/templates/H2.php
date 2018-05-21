@@ -1,10 +1,10 @@
 								<form>
-									<p class="form_title"><?php echo $path; ?></p>
+									<p class="form_title">Заголовок с картинками</p>
 									<input type="text" name="ID" value="<?php echo $ID; ?>" style="display:none;">
 									<div class="forma_group">
 										<p>Заголовок</p>
 										<div class="forma_group_item text">
-											<input type="text" name="TITLE" value="<?php echo $TITLE; ?>">
+											<input type="text" name="TITLE" value='<?php echo $TITLE; ?>'>
 											<p class="forma_group_item_description"></p>
 										</div>
 									</div>

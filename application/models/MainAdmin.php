@@ -105,15 +105,22 @@ class MainAdmin extends Admin {
 				'ID' => $route['param']
 			];
 			$return['CONTENT']['ALL'] = $this->db->row($q, $params)[0];
-			$q = 'SELECT * FROM PAGE_GROUPS_CONTENT WHERE (ID_GROUP = :ID)';
+			$q = 'SELECT VAR, VAL, CMS_TITLE, CMS_DESCR, CMS_TYPE FROM PAGE_GROUPS_CONTENT WHERE (ID_GROUP = :ID)';
 			$result = $this->db->row($q, $params);
+			$return['CONTENT']['PAGE'] = '';
+			foreach($result as $key => $val){
+				$return['CONTENT']['PAGE'] .= $this->htmlcaseField($val['CMS_TYPE'], $val['VAL'], $val['VAR'], $val['CMS_TITLE'], $val['CMS_DESCR']);
+			}
+			//debug($return['CONTENT']['PAGE']);
 			//debug($result);
+			/*
 			foreach($result as $key => $val){
 				if(!isset($return['CONTENT']['PAGE'][$val['VAR']])){
 					$return['CONTENT']['PAGE'][$val['VAR']] = [];
 				}
 				array_push($return['CONTENT']['PAGE'][$val['VAR']], $val['VAL']);
 			}
+			*/
 		}else{
 			$return['CONTENT']['ALL']['ID'] = '0';
 			$return['CONTENT']['PAGE'] = [];
@@ -125,7 +132,7 @@ class MainAdmin extends Admin {
 
 	public function sitePagesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = 'SELECT ID_TYPE, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
+			$q = 'SELECT ID, ID_TYPE, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
 			$params = [
 				'ID' => $route['param']
 			];
@@ -135,7 +142,7 @@ class MainAdmin extends Admin {
 			$return['CONTENT']['ALL']['ID'] = '0';
 			$return['CONTENT']['PAGE'] = '';
 		}
-		debug($return);
+		//debug($return);
 		return $return;
 	}
 
@@ -222,8 +229,47 @@ class MainAdmin extends Admin {
 		return $return;
 	}
 
-	private function caseField(){
+	private function htmlcaseField($type, $value, $varName, $cmsTitle, $cmsDescr){
+		$return = '';
+		switch($type){
+			case 1:
+				$return = $this->htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr);
+				break;
+			case 2:
+				$return = $this->htmlcaseField_NUMBER($value, $varName, $cmsTitle, $cmsDescr);
+				break;
+			case 3:
+				$return = $this->htmlcaseField_TEXT_AREA($value, $varName, $cmsTitle, $cmsDescr);
+				break;
+			case 4:
+				$return = $this->htmlcaseField_NUMBER_BTN($value, $varName, $cmsTitle, $cmsDescr);
+				break;
+			case 5:
+				$return = $this->htmlcaseField_FILE($value, $varName, $cmsTitle, $cmsDescr);
+				break;
+		}
+		return $return;
+	}
 
+	private function htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr){
+		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item text'><input type='text' name='$varName' value='$value'><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
+	}
+
+	private function htmlcaseField_NUMBER($value, $varName, $cmsTitle, $cmsDescr){
+		return '2kek';
+	}
+
+	private function htmlcaseField_TEXT_AREA($value, $varName, $cmsTitle, $cmsDescr){
+		return '3kek';
+	}
+
+	private function htmlcaseField_NUMBER_BTN($value, $varName, $cmsTitle, $cmsDescr){
+		return '4kek';
+	}
+
+	private function htmlcaseField_FILE($value, $varName, $cmsTitle, $cmsDescr){
+
+		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item file'><input type='file' name='$varName' title='$value'><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
 }

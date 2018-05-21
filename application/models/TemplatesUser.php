@@ -26,6 +26,16 @@ class TemplatesUser extends User {
 		$return['CONTENT'] = [];
 		$result = $this->db->row('SELECT * FROM PAGE_FULL_CONTENT WHERE ID_FULL_PAGE = :ID', ['ID' => $ID]);
 		foreach($result as $key => $val){
+			$arrFields = [
+				'INFO_TITLE', 'INFO_DESCR',
+				'PRICE_SUBTITLE', 'PRICE_IMAGE', 'PRICE_COST', 'PRICE_TEXT', 
+				'END_TEXT',
+			];
+			foreach($arrFields as $fieldkey => $fieldval){
+				if(preg_match('#^'.$fieldval.'[0-9]{0,}$#', $val['VAR'])){
+					$val['VAR'] = $fieldval;
+				}
+			}
 			if(!isset($return['CONTENT'][$val['VAR']])){
 				$return['CONTENT'][$val['VAR']] = [];
 			}

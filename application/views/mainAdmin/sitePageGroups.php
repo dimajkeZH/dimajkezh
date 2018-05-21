@@ -9,30 +9,32 @@
 	<div class="main_content_info">
 		<form>
 			<p class="form_title">Общие</p>
-			<?php foreach($CONTENT['ALL'] as $key => $val): ?>
 			<div class="forma_group">
-				<p><?php echo $key; ?></p>
+				<p>Заголовок страницы</p>
 				<div class="forma_group_item text">
-					<input type="text" name="<?php echo $key; ?>" placeholder="" value="<?php echo $val; ?>">
+					<input type="text" name="HTML_TITLE" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_TITLE']; ?>">
 					<p class="forma_group_item_description"></p>
 				</div>
 			</div>
-			<?php endforeach; ?>
+			<div class="forma_group">
+				<p>Мета ключевые слова</p>
+				<div class="forma_group_item text">
+					<input type="text" name="HTML_KEYWORDS" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_KEYWORDS']; ?>">
+					<p class="forma_group_item_description"></p>
+				</div>
+			</div>
+			<div class="forma_group">
+				<p>Мета описание</p>
+				<div class="forma_group_item text">
+					<input type="text" name="HTML_DESCR" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_DESCR']; ?>">
+					<p class="forma_group_item_description"></p>
+				</div>
+			</div>
 		</form>
-		<?php if(isset($CONTENT['PAGE'])): ?>
+		<?php if(isset($CONTENT['PAGE']) && ($CONTENT['PAGE'] != '')): ?>
 		<form action="	">
 			<p class="form_title">Страница</p>
-			<?php foreach($CONTENT['PAGE'] as $key => $val): ?>
-				<?php foreach($val as $subkey => $subval): ?>
-				<div class="forma_group">
-					<p><?php echo $key; ?></p>
-					<div class="forma_group_item text">
-						<input type="text" name="<?php echo $key.'_'.$subkey ?>" placeholder="" value="<?php echo $subval; ?>">
-						<p class="forma_group_item_description"></p>
-					</div>
-				</div>
-				<?php endforeach; ?>
-			<?php endforeach; ?>
+			<?php echo $CONTENT['PAGE']; ?>
 		</form>
 		<?php endif; ?>
 	</div>
