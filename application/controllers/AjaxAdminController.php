@@ -17,10 +17,37 @@ class AjaxAdminController extends AdminController {
 	const MESSAGE__DELETE_GOOD = 'Данные успешно удалены';
 	const MESSAGE__DELETE_BAD = 'Удаление данных не произошло';
 
+	public function saveConfigsAction(){
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verConfigs($post)){
+				if($this->model->saveConfigs($post)){
+					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
+				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
+			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
+		}else{
+			$this->model->message(false, self::MESSAGE__NO_VALUES);
+		}
+	}
+
+	public function saveContentAction(){
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verContent($post)){
+				if($this->model->saveContent($post)){
+					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
+				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
+			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
+		}else{
+			$this->model->message(false, self::MESSAGE__NO_VALUES);
+		}
+	}
+
 	public function saveSettingsAction(){
-		if($_POST){
-			if($this->model->verSettingsAction()){
-				if($this->model->saveSettingsAction()){
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verSettings($post)){
+				if($this->model->saveSettings($post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -29,10 +56,11 @@ class AjaxAdminController extends AdminController {
 		}
 	}
 
-	public function saveSiteContentAction(){	
-		if($_POST){
-			if($this->model->verSiteContent()){
-				if($this->model->saveSiteContent()){
+	public function savePagegrAction(){
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verPageGroups($post)){
+				if($this->model->savePageGroups($post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -41,10 +69,12 @@ class AjaxAdminController extends AdminController {
 		}
 	}
 
-	public function saveSiteSettingsAction(){	
-		if($_POST){
-			if($this->model->verSiteSettings()){
-				if($this->model->saveSiteSettings()){
+	public function savePagesAction(){	
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verSavePages($post)){
+				if($this->model->savePages($post)){
+					//$this->model->updCron();
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -53,52 +83,11 @@ class AjaxAdminController extends AdminController {
 		}
 	}
 
-	public function saveSitePageGroupsAction(){	
-		if($_POST){
-			if($this->model->verSitePageGroups()){
-				if($this->model->saveSitePageGroups()){
-					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
-				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
-			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
-	}
-
-	public function saveSiteCaseGroupsAction(){	
-		if($_POST){
-			if($this->model->verSiteCaseGroups()){
-				if($this->model->saveSiteCaseGroups()){
-					$this->model->updCron();
-					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
-				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
-			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
-	}
-
-	public function saveSiteCasesAction(){	
-		if($_POST && $_FILES){
-			if($this->model->verSiteCases()){
-				if($this->model->saveSiteCases()){
-					$this->model->updCron();
-					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
-				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
-			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
-	}
-
-
-
-
-
-	public function del/*NAME*/Action(){
-		if($_POST){
-			if($this->model->ver/*NAME*/()){
-				if($this->model->del/*NAME*/()){
+	public function delPagesAction(){
+		$post = $this->model->toPost(file_get_contents('php://input'));
+		if($post){
+			if($this->model->verPages_del($post)){
+				if($this->model->delPages($post)){
 					$this->model->message(true, self::MESSAGE__DELETE_GOOD);
 				}$this->model->message(false, self::MESSAGE__DELETE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);

@@ -42,11 +42,12 @@
 						</li>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a class="Go" href="#">Content3</a></li>
-								<li><a class="Go" href="#">Content3</a></li>
-								<li><a class="Go" href="#">Content3</a></li>
-								<li><a class="Go" href="#">Content3</a></li>
-								<li><a class="Go" href="#">Content3</a></li>
+								<li><a class="Go" href="#">Аккаунты</a></li>
+								<li><a class="Go" href="#">Сессии</a></li>
+								<li><a class="Go" href="#">Действия в сессиях</a></li>
+								<li><a class="Go" href="#">Отчёт 1</a></li>
+								<li><a class="Go" href="#">Отчёт 2</a></li>
+								<li><a class="Go" href="#">Отчёт 3</a></li>
 							</ul>
 						</li>
 					</ul>	

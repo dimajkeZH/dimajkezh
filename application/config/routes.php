@@ -132,10 +132,6 @@ return [
 	],
 
 	//main pages (show add[0]/show change[1+])
-	'admin/site/pagegr' => [
-		'controller' => 'MainAdmin',
-		'action' => 'sitePageGroups',
-	],
 	'admin/site/pagegr/[0-9]{1,}' => [
 		'controller' => 'MainAdmin',
 		'action' => 'sitePageGroups',
@@ -148,6 +144,42 @@ return [
 	'admin/site/pages/[0-9]{1,}' => [
 		'controller' => 'MainAdmin',
 		'action' => 'sitePages',
+	],
+	//catalogs
+	'admin/catalog/cities' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogCities',
+	],
+	'admin/catalog/cities/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogCities',
+	],
+
+	'admin/catalog/buses' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogBuses',
+	],
+	'admin/catalog/buses/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogBuses',
+	],
+	
+	'admin/catalog/news' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogNews',
+	],
+	'admin/catalog/news/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogNews',
+	],
+
+	'admin/catalog/vacancies' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogVacancies',
+	],
+	'admin/catalog/vacancies/[0-9]{1,}' => [
+		'controller' => 'MainAdmin',
+		'action' => 'catalogVacancies',
 	],
 	/* ADMIN INNER PAGES END */
 
@@ -176,11 +208,6 @@ return [
 	'admin/save/pages' => [
 		'controller' => 'AjaxAdmin',
 		'action' => 'savePages',
-	],
-	//main pages (do delete[1+])
-	'admin/delete/pagegr' => [
-		'controller' => 'AjaxAdmin',
-		'action' => 'delPagegr',
 	],
 	//child pages (do delete[1+])
 	'admin/delete/pages' => [

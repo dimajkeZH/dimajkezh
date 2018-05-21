@@ -1,6 +1,7 @@
-								<form>
+								<form id="data">
 									<p class="form_title"><?php echo $path; ?></p>
 									<input type="text" name="ID" value="<?php echo $ID; ?>" style="display:none;">
+									<input type="text" name="TYPE" value="EXC1" style="display:none;">
 									<div class="forma_group">
 										<p>Заголовок шапки</p>
 										<div class="forma_group_item text">

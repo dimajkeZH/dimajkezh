@@ -2,13 +2,13 @@
 	<div class="main_content_head">
 		<p class="main_content_head_title">page groups</p>
 		<div class="buttons">
-			<button class="save"><?php echo ((isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)) ? 'Save' : 'Add'); ?></button>
-			<?php if(isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)): ?><button class="remove">Remove</button><?php endif; ?>
+			<button class="save" onclick="Change('save/pagegr')">Save</button>
 		</div>
 	</div>
 	<div class="main_content_info">
-		<form>
+		<form id="data">
 			<p class="form_title">Общие</p>
+			<input type="text" name="ID_PAGE" value="<?php echo $CONTENT['ALL']['ID']; ?>" style="display:none;">
 			<div class="forma_group">
 				<p>Заголовок страницы</p>
 				<div class="forma_group_item text">
@@ -32,7 +32,7 @@
 			</div>
 		</form>
 		<?php if(isset($CONTENT['PAGE']) && ($CONTENT['PAGE'] != '')): ?>
-		<form action="	">
+		<form id="data">
 			<p class="form_title">Страница</p>
 			<?php echo $CONTENT['PAGE']; ?>
 		</form>

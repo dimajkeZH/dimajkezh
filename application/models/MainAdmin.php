@@ -100,7 +100,7 @@ class MainAdmin extends Admin {
 
 	public function sitePageGroupsContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = 'SELECT HTML_TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS WHERE (ID = :ID)';
+			$q = 'SELECT ID, HTML_TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS WHERE (ID = :ID)';
 			$params = [
 				'ID' => $route['param']
 			];
@@ -142,7 +142,53 @@ class MainAdmin extends Admin {
 			$return['CONTENT']['ALL']['ID'] = '0';
 			$return['CONTENT']['PAGE'] = '';
 		}
+		$return['GROUPS'] = $this->db->row('SELECT HTML_TITLE as TITLE, ID as VALUE FROM PAGE_GROUPS WHERE CAN_BE_SUPPLEMENTED = 1');
 		//debug($return);
+		return $return;
+	}
+
+
+	public function catalogCitiesContent($route){
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['PAGE'] = $this->getCity($route['param']);
+		}else{
+			$return['CONTENT']['ID'] = 0;
+			$return['CONTENT']['PAGE'] = $this->listCities();
+		}
+		return $return;
+	}
+
+	public function catalogBusesContent($route){
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['PAGE'] = $this->getBus($route['param']);
+		}else{
+			$return['CONTENT']['ID'] = 0;
+			$return['CONTENT']['PAGE'] = $this->listBuses();
+		}
+		return $return;
+	}
+
+	public function catalogNewsContent($route){
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['PAGE'] = $this->getNews($route['param']);
+		}else{
+			$return['CONTENT']['ID'] = 0;
+			$return['CONTENT']['PAGE'] = $this->listNews();
+		}
+		return $return;
+	}
+
+	public function catalogVacanciesContent($route){
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['PAGE'] = $this->getVacancy($route['param']);
+		}else{
+			$return['CONTENT']['ID'] = 0;
+			$return['CONTENT']['PAGE'] = $this->listVacancies();
+		}
 		return $return;
 	}
 
@@ -154,7 +200,15 @@ class MainAdmin extends Admin {
 			'ID' => $route['param']
 		];
 		if($type == 1){
-			$q = 'SELECT PFC.* FROM PAGE_FULL_CONTENT as PFC INNER JOIN PAGE_FULL as PF ON PFC.ID_FULL_PAGE = PF.ID WHERE PF.ID_PAGE = :ID';
+			$q = '
+			SELECT "0" as ID, "0" as ID_FULL_PAGE, "ID" as VAR, ID_FULL_PAGE as VAL, "" as CMS_TITLE, "" as CMS_DESCR, "" as CMS_TYPE 
+				FROM PAGE_FULL_CONTENT as PFC 
+				INNER JOIN PAGE_FULL as PF ON PFC.ID_FULL_PAGE = PF.ID
+			UNION ALL 
+			SELECT PFC.* 
+				FROM PAGE_FULL_CONTENT as PFC 
+				INNER JOIN PAGE_FULL as PF ON PFC.ID_FULL_PAGE = PF.ID 
+			WHERE PF.ID_PAGE = :ID';
 			$subresult = $this->db->row($q, $params);
 			foreach($subresult as $key => $val){
 				$result[$val['VAR']] = $val['VAL'];
@@ -191,11 +245,13 @@ class MainAdmin extends Admin {
 			case 3:
 				$table_content = ''; //'BLOCK_TABLE';
 				$table_data = ''; //'DATA_TABLE';
+				$id_field = ''; //'ID_TABLE';
 				$path = 'B1';
 				break;
 			case 4:
-				$table_content = 'BLOCK_MULTITABLE';
-				$table_data = 'BLOCK_MULTITABLE_CONTENT';
+				$table_content = ''; //'BLOCK_MULTITABLE';
+				$table_data = ''; //'BLOCK_MULTITABLE_CONTENT';
+				$id_field = ''; //'ID_MULTITABLE';
 				$path = 'B2';
 				break;
 			case 5:
@@ -206,11 +262,13 @@ class MainAdmin extends Admin {
 			case 6:
 				$table_content = 'BLOCK_IMAGES';
 				$table_data = 'BLOCK_IMAGE_CONTENT';
+				$id_field = 'ID_IMAGE';
 				$path = 'B4';
 				break;
 			case 7:
 				$table_content = ''; //'BLOCK_LINKS';
-				$table_data = '';
+				$table_data = ''; //'BLOCK_LINKS_CONTENT';
+				$id_field = ''; //'ID_LINK';
 				$path = 'B5';
 				break;
 		}
@@ -220,6 +278,14 @@ class MainAdmin extends Admin {
 				'ID' => $ID
 			];
 			$result = $this->db->row($q, $params)[0];
+			if($table_data != ''){
+				$q = 'SELECT * FROM '.$table_data.' WHERE '.$id_field.' = :ID';
+				$params = [
+					'ID' => $result['ID']
+				];
+				$subresult['DATA'] = $this->db->row($q, $params);
+				extract($subresult);
+			}
 			extract($result);
 			$tmpl = $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
 			ob_start();
@@ -236,7 +302,7 @@ class MainAdmin extends Admin {
 				$return = $this->htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr);
 				break;
 			case 2:
-				$return = $this->htmlcaseField_NUMBER($value, $varName, $cmsTitle, $cmsDescr);
+				$return = $this->/*htmlcaseField_NUMBER*/htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr);
 				break;
 			case 3:
 				$return = $this->htmlcaseField_TEXT_AREA($value, $varName, $cmsTitle, $cmsDescr);
@@ -264,12 +330,62 @@ class MainAdmin extends Admin {
 	}
 
 	private function htmlcaseField_NUMBER_BTN($value, $varName, $cmsTitle, $cmsDescr){
-		return '4kek';
+		
+		return "<div class='forma_group'><p>$cmdTitle</p><div class='forma_group_item text_btn'><input type='text' name='$varName' placeholder='serial_number' value='$value'><div class='text_btns'><div class='btn_next' onclick='plus(this)'><p>+</p></div><div class='btn_prev' onclick='minus(this)'><p>-</p></div></div><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
 	private function htmlcaseField_FILE($value, $varName, $cmsTitle, $cmsDescr){
 
 		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item file'><input type='file' name='$varName' title='$value'><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
+	}
+
+
+	private function listCities(){
+		$return = '';
+
+		return $return;
+	}
+
+	private function getCity($param){
+		$return = '';
+
+		return $return;
+	}
+
+	private function listBuses(){
+		$return = '';
+
+		return $return;
+	}
+
+	private function getBus($param){
+		$return = '';
+
+		return $return;
+	}
+
+	private function listNews(){
+		$return = '';
+
+		return $return;
+	}
+
+	private function getNews($param){
+		$return = '';
+
+		return $return;
+	}
+
+	private function listVacancies(){
+		$return = '';
+
+		return $return;
+	}
+
+	private function getVacancy($param){
+		$return = '';
+
+		return $return;
 	}
 
 }

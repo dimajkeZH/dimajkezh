@@ -113,12 +113,13 @@ function Ajax(uri, data = {}, callback = ''){
 		url: uri,
 		type: 'POST',
 		data: data,
+		dataType: 'JSON',
 		cache: false,
         contentType: false,
         processData: false,
 		success: function(data){
 			try{
-				data = JSON.parse(data.trim());
+				//data = JSON.parse(data.trim());
 				window[callback](data.message, data.status);
 			}catch{
 				console.log('Error of script. Refresh page!');
@@ -193,15 +194,38 @@ function Change(uri){
 	ShowLoader();
 	uri = '/admin/'+uri;
 	var dataForms = $('form#data');
-	var data = new FormData();
+	//var data = new FormData();
 	var tempForms;
 	console.clear();
+	/*
 	$.each( dataForms, function( key, form){
 		tempForms = new FormData(form);
 		for (var pair of tempForms.entries()) {
 			data.append(pair[0], pair[1]);
 		}
 	});
+	*/
+	//try{
+		parent = {};
+		$.each( dataForms, function( key, form){
+			jsonObject = {};
+			tempForms = new FormData(form);
+			for (var pair of tempForms.entries()) {
+				//jsonObject.put(pair[0], pair[1]);
+				//console.log(pair[0]);
+				//console.log(pair[1]);
+				jsonObject[pair[0]] = pair[1];
+				//console.log('-- --');
+			}
+			//parent.put(key, jsonObject);
+			parent[key] = jsonObject;
+		});	
+
+	//}catch{
+	//	console.log('Error with collected data');
+	//}
+	var data = JSON.stringify(parent);
+	//console.log(parent);
 	Ajax(uri, data, 'showMessage');
 	updTree();
 }
@@ -210,10 +234,13 @@ function Delete(uri){
 	ShowLoader();
 	uri = '/admin/'+uri;
 	var data = new FormData();
-	var dataInput = $('form#data :input[name = "ID"]');
-	data.append(dataInput[0].name, dataInput[0].value);
+	var dataInput = $('form#data :input[name = "ID_PAGE"]');
+	//data.append(dataInput[0].name, dataInput[0].value);
+	data[dataInput[0].name] = dataInput[0].value;
 	if(window.confirm('Действительно хотите удалить эту запись?')){
 		Ajax(uri, data, 'showMessage');
+	}else{
+		HideLoader();
 	}
 	updTree();
 }

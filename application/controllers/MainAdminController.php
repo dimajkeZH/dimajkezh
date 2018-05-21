@@ -93,6 +93,55 @@ class MainAdminController extends AdminController {
 		}
 	}
 
+	public function catalogCitiesAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->catalogCitiesContent($this->route);
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+	public function catalogBusesAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->catalogBusesContent($this->route);
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+	public function catalogNewsAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->catalogNewsContent($this->route);
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+	public function catalogVacanciesAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->catalogVacanciesContent($this->route);
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+
+
+
+
+
 	public function getSiteTreeAction(){
 		$this->model->message(true, $this->model->getSiteTreeHTML());
 	}
