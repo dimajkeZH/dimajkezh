@@ -1,6 +1,3 @@
-<?php if(isset($_SESSION['err'])AND($_SESSION['err']!='')): ?>
-<p><?php echo $_SESSION['err']; ?></p>
-<?php endif; ?>
 <link rel="stylesheet" href="/application/views/mainadmin/css/style.css">
 <div class="login_wrapper">
 		<div class="login">
@@ -11,6 +8,11 @@
 				</div>
 			</div>
 			<div class="login_forma">
+				<?php if(isset($_SESSION['err'])AND($_SESSION['err']!='')): ?>
+				<p><?php echo $_SESSION['err']; ?></p><br>
+				<?php else: ?>
+				<br><br>
+				<?php endif; ?>
 				<form action="/admin/login" method="POST">
 					<div class="login_forma_group">
 						<p>Пользователь</p>

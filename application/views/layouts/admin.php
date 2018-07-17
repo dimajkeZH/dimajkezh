@@ -24,8 +24,8 @@
 					<ul>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a class="Go" href="/admin/site/content">Сайт</a></li>
-								<li><a class="Go" href="/admin/site/pages">Страницы</a></li>
+								<li><a class="Go" href="/admin/site/content">Редактировать общий контент</a></li>
+								<li><a class="Go" href="/admin/site/pages">Добавить страницу</a></li>
 							</ul>
 						</li>
 						<li class="header_nav_content_item">
@@ -45,9 +45,6 @@
 								<li><a class="Go" href="#">Аккаунты</a></li>
 								<li><a class="Go" href="#">Сессии</a></li>
 								<li><a class="Go" href="#">Действия в сессиях</a></li>
-								<li><a class="Go" href="#">Отчёт 1</a></li>
-								<li><a class="Go" href="#">Отчёт 2</a></li>
-								<li><a class="Go" href="#">Отчёт 3</a></li>
 							</ul>
 						</li>
 					</ul>	

@@ -18,11 +18,11 @@
 											<p class="forma_group_item_description"></p>
 										</div>
 									</div>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>INFO_DESCR1</p>
-										<div class="forma_group_item text">
-											<input type="text" name="INFO_DESCR1" value="<?php echo $INFO_DESCR1; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='INFO_DESCR1'><?php echo $INFO_DESCR1; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
 									<div class="forma_group">
@@ -32,11 +32,11 @@
 											<p class="forma_group_item_description"></p>
 										</div>
 									</div>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>INFO_DESCR2</p>
-										<div class="forma_group_item text">
-											<input type="text" name="INFO_DESCR2" value="<?php echo $INFO_DESCR2; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='INFO_DESCR2'><?php echo $INFO_DESCR2; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
 									<div class="forma_group">
@@ -46,11 +46,11 @@
 											<p class="forma_group_item_description"></p>
 										</div>
 									</div>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>INFO_DESCR3</p>
-										<div class="forma_group_item text">
-											<input type="text" name="INFO_DESCR3" value="<?php echo $INFO_DESCR3; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='INFO_DESCR3'><?php echo $INFO_DESCR3; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
 									<?php /* INFO END */ ?>
@@ -212,18 +212,18 @@
 									<?php /* PRICE END */ ?>
 
 									<?php /* INFO */ ?>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>END_TEXT1</p>
-										<div class="forma_group_item text">
-											<input type="text" name="END_TEXT1" value="<?php echo $END_TEXT1; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='END_TEXT1'><?php echo $END_TEXT1; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>END_TEXT2</p>
-										<div class="forma_group_item text">
-											<input type="text" name="END_TEXT2" value="<?php echo $END_TEXT2; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='END_TEXT2'><?php echo $END_TEXT2; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
 									<?php /* INFO END */ ?>

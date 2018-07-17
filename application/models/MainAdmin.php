@@ -302,7 +302,7 @@ class MainAdmin extends Admin {
 				$return = $this->htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr);
 				break;
 			case 2:
-				$return = $this->/*htmlcaseField_NUMBER*/htmlcaseField_TEXT($value, $varName, $cmsTitle, $cmsDescr);
+				$return = $this->htmlcaseField_NUMBER($value, $varName, $cmsTitle, $cmsDescr);
 				break;
 			case 3:
 				$return = $this->htmlcaseField_TEXT_AREA($value, $varName, $cmsTitle, $cmsDescr);
@@ -322,16 +322,15 @@ class MainAdmin extends Admin {
 	}
 
 	private function htmlcaseField_NUMBER($value, $varName, $cmsTitle, $cmsDescr){
-		return '2kek';
+		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item text'><input type='text' name='$varName' value='$value' pattern='[0-9]{1,}'><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
 	private function htmlcaseField_TEXT_AREA($value, $varName, $cmsTitle, $cmsDescr){
-		return '3kek';
+		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item textarea'><textarea name='$varName' placeholder='text_area'>$value</textarea><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
 	private function htmlcaseField_NUMBER_BTN($value, $varName, $cmsTitle, $cmsDescr){
-		
-		return "<div class='forma_group'><p>$cmdTitle</p><div class='forma_group_item text_btn'><input type='text' name='$varName' placeholder='serial_number' value='$value'><div class='text_btns'><div class='btn_next' onclick='plus(this)'><p>+</p></div><div class='btn_prev' onclick='minus(this)'><p>-</p></div></div><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
+		return "<div class='forma_group'><p>$cmdTitle</p><div class='forma_group_item text_btn'><input type='text' name='$varName' placeholder='serial_number' value='$value' pattern='[0-9]{1,}'><div class='text_btns'><div class='btn_next' onclick='plus(this)'><p>+</p></div><div class='btn_prev' onclick='minus(this)'><p>-</p></div></div><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
 	private function htmlcaseField_FILE($value, $varName, $cmsTitle, $cmsDescr){

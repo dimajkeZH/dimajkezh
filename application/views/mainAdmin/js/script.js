@@ -308,6 +308,25 @@ function HideLoader(){
 			Go(history.state.url);
 		}
 	}
+	//check input value in input text btn
+	$('.forma_group_item.text_btn').keydown(function(e){
+		return checkNumber(this, e);
+	});
+	$('.forma_group_item.number').keydown(function(e){
+		return checkNumber(this, e);
+	});
+	function checkNumber(THIS, e){
+		let inputKey = e.originalEvent.key;
+		let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
+		let rgxNumber = /[0-9]{1}/g;
+		let rgxResult = inputKey.match(rgxAll);
+		if((rgxResult != null) && (rgxResult.length == 1)){
+			if(inputKey.match(rgxNumber) != null){
+				$(THIS).find('input')[0].value += inputKey;
+			}
+			return false;
+		}
+	}
 /* EVENTS END */
 
 /* SIMPLE CODE */

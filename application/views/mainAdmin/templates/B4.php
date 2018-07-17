@@ -9,11 +9,11 @@
 											<p class="forma_group_item_description"></p>
 										</div>
 									</div>
-									<div class="forma_group">
+									<div class='forma_group'>
 										<p>Текст</p>
-										<div class="forma_group_item text">
-											<input type="text" name="DESCR" value="<?php echo $DESCR; ?>">
-											<p class="forma_group_item_description"></p>
+										<div class='forma_group_item textarea'>
+											<textarea name='DESCR'><?php echo $DESCR; ?></textarea>
+											<p class='forma_group_item_description'></p>
 										</div>
 									</div>
 									<?php foreach($DATA as $key => $val): ?>

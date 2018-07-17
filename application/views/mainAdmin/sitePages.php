@@ -36,7 +36,7 @@
 			<div class='forma_group'>
 				<p>Порядковый номер в списке</p>
 				<div class='forma_group_item text_btn'>
-					<input type='text' name='LOC_NUMBER' placeholder='serial_number' value='<?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?$CONTENT['ALL']['LOC_NUMBER']:''; ?>'>
+					<input type='text' name='LOC_NUMBER' placeholder='serial_number' value='<?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?$CONTENT['ALL']['LOC_NUMBER']:''; ?>' pattern="[0-9]{1,}">
 					<div class='text_btns'>
 						<div class='btn_next' onclick='plus(this)'><p>+</p></div>
 						<div class='btn_prev' onclick='minus(this)'><p>-</p></div>
