@@ -181,3 +181,10 @@ $(function(){
 window.onload = function(){
 	ResizeWindow();
 };
+/* МОБИЛЬНОЕ МЕНЮ */
+$(document).ready(function(){ 
+	$('.burger').click(function(){ 
+		$(this).toggleClass('active'); 
+		$('.nav').toggleClass('active'); 
+	}); 
+}); 
