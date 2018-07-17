@@ -1,8 +1,41 @@
 <?php if(isset($_SESSION['err'])AND($_SESSION['err']!='')): ?>
 <p><?php echo $_SESSION['err']; ?></p>
 <?php endif; ?>
-<form action="login" method="POST">
-	<input type="name" name="name" placeholder="логин">
-	<input type="password" name="pass" placeholder="пароль">
-	<input type="submit" name="login" value="ENTER">
-</form>
+<link rel="stylesheet" href="/application/views/mainadmin/css/style.css">
+<div class="login_wrapper">
+		<div class="login">
+			<div class="login_logo">
+				<img src="/application/views/mainadmin/img/logo.png" alt="">
+				<div class="logo_text">
+					<p>PerfectCMS <span>0.0.4</span> </p>
+				</div>
+			</div>
+			<div class="login_forma">
+				<form action="/admin/login" method="POST">
+					<div class="login_forma_group">
+						<p>Пользователь</p>
+						<input type="text" placeholder="login" name="name">
+					</div>
+					<div class="login_forma_group">
+						<p>Пароль</p>
+						<input type="password" placeholder="password" name="pass">
+					</div>
+					<div class="login_forma_group checkbox">
+						<label >
+							<input type="checkbox">
+							Запомнить меня
+						</label>
+
+					</div>
+					<div class="login_forma_confirm">
+						<button>Войти</button>
+					</div>
+					<!--
+					<div class="login_forma_forgot">
+						<a href="#">Зыбыли пароль?</a>
+					</div>
+					-->
+				</form>
+			</div>
+		</div>
+	</div>
