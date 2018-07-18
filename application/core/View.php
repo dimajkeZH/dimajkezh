@@ -18,13 +18,14 @@ class View {
 
 	public function render($type, $headers, $vars = [], $views = []){
 		//debug([$type, $headers, $vars, $views]);
+		//debug($views);
 		if(count($views) == 0){
 			$views = $this->path;
 		}
 		$content = '';
 		switch($type){
 			case 1:
-				$content = $this->fullRender($vars, $views);
+				$content = $this->fullRender($vars, $views[0]);
 				break;
 			case 2:
 				$content = $this->tmplRender($vars, $views);

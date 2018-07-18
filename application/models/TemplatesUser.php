@@ -99,15 +99,15 @@ class TemplatesUser extends User {
 	}
 
 	public function getViews($route){
+		$return = [];
 		if($this->pg_type == 1){
-			return $route['action'].'/'.$this->tmpls[0]['PATH'];
+			array_push($return, $route['action'].'/'.$this->tmpls[0]['PATH']);
 		}elseif($this->pg_type == 2){
-			$return = [];
 			foreach($this->tmpls as $tmpl){
 				array_push($return, 'layouts/templates/'.$tmpl['PATH']);
 			}
-			return $return;
 		}
+		return $return;
 	}
 
 	public function setConf($route){
