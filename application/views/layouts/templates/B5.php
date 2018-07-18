@@ -7,7 +7,11 @@
 						<p class="catalog_item_title"><?php echo $val['TITLE'] ? 'Марки автобусов из '.$val['TITLE'] : ''; ?></p>
 						<ul>
 							<?php foreach($val['LIST'] as $listkey => $listval): ?>
-							<li class="catalog_item_link"><a href="/bus/<?php echo $listval['ID'] ? $listval['ID'] : ''; ?>"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></a></li>
+								<?php if($listval['STATE_LINK']): ?>
+								<li class="catalog_item_link"><a href="/bus/<?php echo $listval['ID'] ? $listval['ID'] : ''; ?>"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></a></li>
+								<?php else: ?>
+								<li class="catalog_item_link"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></li>
+								<?php endif; ?>
 							<?php endforeach; ?>
 						</ul>
 					</div>

@@ -86,6 +86,12 @@ class TemplatesUser extends User {
 				foreach($return['CONTENT'] as $key => $val){
 					$q = 'SELECT * FROM DATA_BUSES WHERE ID_COUNTRY = '.$val['ID'].' ORDER BY SERIAL_NUMBER';
 					$return['CONTENT'][$key]['LIST'] = $this->db->row($q);
+					foreach($return['CONTENT'][$key]['LIST'] as $keyBus => $valBus){
+						$return['CONTENT'][$key]['LIST'][$keyBus]['STATE_LINK'] = true;
+						if(($valBus['TECH_DESCR'] == '') || (($valBus['IMAGE_INNER'] == '') && ($valBus['IMAGE_OUTER'] == ''))){
+							$return['CONTENT'][$key]['LIST'][$keyBus]['STATE_LINK'] = false;
+						}
+					}
 				}
 				return $return;
 				break;

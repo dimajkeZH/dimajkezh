@@ -7,7 +7,7 @@
 			</div>
 		</div>
 		<div class="text_wrapper">
-			<p class="text_title">Заказ автобусов - тарификация</p>
+			<p class="text_title"><?php echo $CONTENT['SUBTITLE']; ?></p>
 			<div class="main_line"></div>
 			<div class="text">
 				<?php if(isset($CONTENT['DESCR'])AND(count($CONTENT['DESCR'])>0)): ?>
