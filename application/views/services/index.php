@@ -24,7 +24,7 @@
 					<?php for($i = 0; $i< count($PAGELIST); $i++): ?>
 					<div class="services_list_item">
 						<p><?php echo $PAGELIST[$i]['TITLE']; ?></p>
-						<img src=<?php echo '"/assets/img/services/'.$PAGELIST[$i]['IMAGE'].'"'; ?> alt="">
+						<img src=<?php echo '"/assets/img/services/'.$PAGELIST[$i]['IMAGE'].'.png"'; ?> alt="">
 						<div class="services_list_button">
 							<a href=<?php echo '"'.$PAGELIST[$i]['LINK'].'"'; ?>><p>Подробнее</p></a>
 						</div>

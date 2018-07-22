@@ -31,6 +31,9 @@ abstract class Admin extends Model {
 		6 => true, //login
 		7 => true, //logout
 	];
+
+	const IMAGE_FILE_FORMAT = 'png';
+
 	/* CLASS VARIABLES END */
 
 	/* BOOLEAN PUBLIC FUNCTIONS */
@@ -202,7 +205,7 @@ abstract class Admin extends Model {
 
 	//full clear data
 	public function clear($str) {
-	    $str = trim($str);
+		$str = trim($str);
 	    $str = strip_tags($str);
 	    return $str;
 	}
@@ -228,7 +231,7 @@ abstract class Admin extends Model {
 
 	/* PRIVATE FUNCTIONS */
 	//string generation the specified length
-	private function generateStr($length){
+	public function generateStr($length){
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $str = '';
 	    for ($i = 0; $i < $length; $i++) {

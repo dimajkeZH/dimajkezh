@@ -11,8 +11,12 @@ class AjaxAdmin extends Admin {
 		CronAdmin::updSlicks();
 	}
 
+	const IMAGE_CATALOG_SERVICES_GROUP = 'services/';
+	const IMAGE_CATALOG_BUSES = 'buses/';
+	const IMAGE_CATALOG_MINIVANS = 'minivans/';
+	const IMAGE_CATALOG_EXCURSIONS = 'excursions/';
 
-
+	const IMAGE_HEADER_PAGE_EXCURSIONS = 'excursions/';
 
 
 
@@ -98,36 +102,47 @@ class AjaxAdmin extends Admin {
 		}
 		return false;
 	}
-	public function savePages($post){
+	public function savePages($post, $files){
+		debug($post);
 		$common = array_shift($post);
 
 		$ID = $common['ID_PAGE'];
 		$ID_TYPE = $common['ID_TYPE'];
 
 		$TITLE = $common['TITLE'];
-		$IMAGE = $common['IMAGE'];
+		$IMAGE = $files['IMAGE_0'];
+		if(($IMAGE['size'] > 0) && ($IMAGE['name'] != '')){
+			$IMAGE = $this->loadImage($this->casePath($ID), $IMAGE);
+			if($IMAGE != ''){
+				$IMAGE = '`IMAGE` = "'.$IMAGE.'",';
+			}
+		}else{
+			$IMAGE = '';
+		}
 		$LOC_NUMBER = $common['LOC_NUMBER'];
-
 		$HTML_DESCR = $common['HTML_DESCR'];
 		$HTML_KEYWORDS = $common['HTML_KEYWORDS'];
+		//debug(123);
 		if($ID > 0){
 			$tran = [
 				0 => [
-					'sql' => 'UPDATE PAGES SET 
-					`LOC_NUMBER` = "'.$LOC_NUMBER.'", 
-					`TITLE` = "'.$TITLE.'", 
-					`IMAGE` = "'.$IMAGE.'", 
-					`HTML_DESCR` = "'.$HTML_DESCR.'", 
-					`HTML_KEYWORDS` = "'.$HTML_KEYWORDS.'"
-					WHERE ID = :ID',
+					'sql' => 	'UPDATE PAGES SET 
+									`LOC_NUMBER` = "'.$LOC_NUMBER.'", 
+									`TITLE` = "'.$TITLE.'", 
+									'.$IMAGE.' 
+									`HTML_DESCR` = "'.$HTML_DESCR.'", 
+									`HTML_KEYWORDS` = "'.$HTML_KEYWORDS.'"
+								WHERE ID = :ID',
 					'params' => [
 						'ID' => $ID
 					]
 				]
 			];
 			foreach($post as $key => $val){
-				$tran = array_merge($tran, $this->switchUPDTemplate($val));
+				$tran = array_merge($tran, $this->switchUPDTemplate($val, $files));
 			}
+			debug($tran);
+			//debug(123);
 			return $this->db->transaction($tran);
 		}elseif($ID == 0){
 			//insert
@@ -159,9 +174,12 @@ class AjaxAdmin extends Admin {
 
 
 
-	private function switchUPDTemplate($val){
+	private function switchUPDTemplate($val, $files){
+		debug($val);
 		switch($val['TYPE']){
 			case 'H1': //order
+				$LEFT_IMAGE = $this->loadImage($this->casePath($val['ID']), $files['LEFT_IMAGE_'.$val['ID']]);
+				debug($LEFT_IMAGE);
 				$return[0]['sql'] = 'UPDATE BLOCK_HEADER_ORDER SET `TITLE` = "'.$val['TITLE'].'",'
 				.(($val['LEFT_IMAGE'] != '')?'`LEFT_IMAGE` = "'.$val['LEFT_IMAGE'].'",':'').
 				'`LEFT_IMAGE_SIGN` = "'.$val['LEFT_IMAGE_SIGN'].'",'
@@ -245,12 +263,31 @@ class AjaxAdmin extends Admin {
 		return $return;
 	}
 
+	private function casePath($ID){
+		$q = 'SELECT ID_GROUP FROM PAGES WHERE ID = :ID';
+		$params = [
+			'ID' => $ID
+		];
+		$ID_GROUP = $this->db->row($q, $params)[0]['ID_GROUP'];
+		switch($ID_GROUP){
+			case 2:
+				return self::IMAGE_CATALOG_SERVICES;
+			case 3:
+				return self::IMAGE_CATALOG_BUSES;
+			case 4:
+				return self::IMAGE_CATALOG_MINIVANS;
+			case 5:
+				return self::IMAGE_CATALOG_EXCURSIONS;
+		}
+		return '';
+	}
 
 	private function loadImage($dir, $file){
 		if($file['size'] > 0){
 			$this->imgOptimize($file['tmp_name']);
-			$name = pathinfo($file['name'])['filename'];
-			if(copy($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$dir.basename($file['name']))){
+			$name = $this->generateStr(64);
+			//debug($_SERVER['DOCUMENT_ROOT'].'/assets/img/'.$dir.$name.'.'.self::IMAGE_FILE_FORMAT);
+			if(copy($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/assets/img/'.$dir.$name.'.'.self::IMAGE_FILE_FORMAT)){
 	            return $name;
 	        }
 	   	}
@@ -267,7 +304,10 @@ class AjaxAdmin extends Admin {
 		foreach($prepost as $key => $val){
 			$val = (array)$val;
 			foreach($val as $subkey => $subval){
-				$val[$key] = $this->clear($subval);
+				if(gettype($subval) == 'object'){
+					debug($subval);
+				}
+				$val[$subkey] = $this->clear($subval);
 			}
 			$post[$key] = $val;
 		}

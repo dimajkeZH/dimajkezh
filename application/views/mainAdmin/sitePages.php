@@ -45,8 +45,8 @@
 			</div>
 			<div class="forma_group">
 				<p>Картинка для каталога</p>
-				<div class="forma_group_item text">
-					<input type="text" name="IMAGE" placeholder="" value="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>">
+				<div class="forma_group_item file">
+					<input type="file" name='IMAGE' title="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>" alt="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>">
 					<p class="forma_group_item_description"></p>
 				</div>
 			</div>

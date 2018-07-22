@@ -7,6 +7,8 @@ use application\models\CronAdmin;
 
 class AjaxAdminController extends AdminController {
 
+	private $post;
+	private $files;
 
 	const MESSAGE__NO_VALUES = 'Нет параметров';
 	const MESSAGE__BAD_VALUES = 'Не все параметры заполнены правильно';
@@ -18,10 +20,10 @@ class AjaxAdminController extends AdminController {
 	const MESSAGE__DELETE_BAD = 'Удаление данных не произошло';
 
 	public function saveConfigsAction(){
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verConfigs($post)){
-				if($this->model->saveConfigs($post)){
+		$this->settings();
+		if($this->post){
+			if($this->model->verConfigs($this->post)){
+				if($this->model->saveConfigs($this->post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -31,10 +33,10 @@ class AjaxAdminController extends AdminController {
 	}
 
 	public function saveContentAction(){
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verContent($post)){
-				if($this->model->saveContent($post)){
+		$this->settings();
+		if($this->post){
+			if($this->model->verContent($this->post)){
+				if($this->model->saveContent($this->post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -44,10 +46,10 @@ class AjaxAdminController extends AdminController {
 	}
 
 	public function saveSettingsAction(){
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verSettings($post)){
-				if($this->model->saveSettings($post)){
+		$this->settings();
+		if($this->post){
+			if($this->model->verSettings($this->post)){
+				if($this->model->saveSettings($this->post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -57,10 +59,10 @@ class AjaxAdminController extends AdminController {
 	}
 
 	public function savePagegrAction(){
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verPageGroups($post)){
-				if($this->model->savePageGroups($post)){
+		$this->settings();
+		if($this->post){
+			if($this->model->verPageGroups($this->post)){
+				if($this->model->savePageGroups($this->post)){
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -69,11 +71,11 @@ class AjaxAdminController extends AdminController {
 		}
 	}
 
-	public function savePagesAction(){	
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verSavePages($post)){
-				if($this->model->savePages($post)){
+	public function savePagesAction(){
+		$this->settings();
+		if(isset($this->post)){
+			if($this->model->verSavePages($this->post)){
+				if($this->model->savePages($this->post, $this->files)){
 					//$this->model->updCron();
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
@@ -84,10 +86,10 @@ class AjaxAdminController extends AdminController {
 	}
 
 	public function delPagesAction(){
-		$post = $this->model->toPost(file_get_contents('php://input'));
-		if($post){
-			if($this->model->verPages_del($post)){
-				if($this->model->delPages($post)){
+		$this->settings();
+		if($this->post){
+			if($this->model->verPages_del($this->post)){
+				if($this->model->delPages($this->post)){
 					$this->model->message(true, self::MESSAGE__DELETE_GOOD);
 				}$this->model->message(false, self::MESSAGE__DELETE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
@@ -97,4 +99,9 @@ class AjaxAdminController extends AdminController {
 	}
 
 
+	private function settings(){
+		$this->post = json_decode($_POST['DATA'], true);
+		$this->files = $_FILES;
+		//file_get_contents('php://input')
+	}
 }

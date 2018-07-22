@@ -20,8 +20,9 @@ class View {
 		//debug([$type, $headers, $vars, $views]);
 		//debug($views);
 		if(count($views) == 0){
-			$views = $this->path;
+			$views = [0 => $this->path];
 		}
+		//debug($views);
 		$content = '';
 		switch($type){
 			case 1:

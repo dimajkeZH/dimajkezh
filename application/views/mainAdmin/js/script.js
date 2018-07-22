@@ -114,10 +114,11 @@ function Ajax(uri, data = {}, callback = ''){
 		type: 'POST',
 		data: data,
 		dataType: 'JSON',
-		cache: false,
         contentType: false,
         processData: false,
+        cache: false,
 		success: function(data){
+			console.log(data);
 			try{
 				//data = JSON.parse(data.trim());
 				window[callback](data.message, data.status);
@@ -127,7 +128,8 @@ function Ajax(uri, data = {}, callback = ''){
 				HideLoader();
 			}
 		},
-		error: function(){
+		error: function(e){
+			console.log(e.responseText);
 			console.log('something was wrong. Refresh page!');
 			HideLoader();
 		}
@@ -191,42 +193,31 @@ function Go(uri){
 }
 
 function Change(uri){
+	console.clear();
 	ShowLoader();
 	uri = '/admin/'+uri;
 	var dataForms = $('form#data');
-	//var data = new FormData();
+	var dataFILES = new FormData();
 	var tempForms;
-	console.clear();
-	/*
+	var parent = {};
 	$.each( dataForms, function( key, form){
+		jsonObject = {};
 		tempForms = new FormData(form);
-		for (var pair of tempForms.entries()) {
-			data.append(pair[0], pair[1]);
-		}
-	});
-	*/
-	//try{
-		parent = {};
-		$.each( dataForms, function( key, form){
-			jsonObject = {};
-			tempForms = new FormData(form);
-			for (var pair of tempForms.entries()) {
-				//jsonObject.put(pair[0], pair[1]);
-				//console.log(pair[0]);
-				//console.log(pair[1]);
+		for (let pair of tempForms.entries()) {
+			if(Object.prototype.toString.call(pair[1]) === '[object File]'){
+				dataFILES.append(pair[0]+'_'+key, pair[1]);
+				//console.log('file data: '+(pair[0]+'_'+key)+' --- '+pair[1].name);
+			}else{
 				jsonObject[pair[0]] = pair[1];
-				//console.log('-- --');
+				//console.log('json data: '+pair[0]+' --- '+pair[1]);
 			}
-			//parent.put(key, jsonObject);
-			parent[key] = jsonObject;
-		});	
-
-	//}catch{
-	//	console.log('Error with collected data');
-	//}
-	var data = JSON.stringify(parent);
-	//console.log(parent);
-	Ajax(uri, data, 'showMessage');
+		}
+		parent[key] = jsonObject;
+	});	
+	var dataJSON = JSON.stringify(parent);
+	dataFILES.append('DATA', dataJSON);
+	//console.log(dataFILES);
+	Ajax(uri, dataFILES, 'showMessage');
 	updTree();
 }
 
