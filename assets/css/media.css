@@ -62,7 +62,21 @@
       .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item_text {
         font-size: 22px; }
     .main_wrapper .main_courusel_wrapper {
-      margin-top: 150px; }
+      margin-top: 100px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text {
+        height: 45px; }
+        .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text p {
+          font-size: 20px;
+          line-height: 45px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-slide {
+        width: 500px;
+        padding: 30px 50px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-center {
+        padding: 0px; }
+      .main_wrapper .main_courusel_wrapper .next {
+        right: calc(50% - 280px); }
+      .main_wrapper .main_courusel_wrapper .back {
+        left: calc(50% - 280px); }
       .main_wrapper .main_courusel_wrapper .main_courusel_prises {
         width: 350px;
         height: 55px;
@@ -103,7 +117,138 @@
         height: 60px; }
         .main_wrapper .main_news .main_news_detail p {
           line-height: 60px;
-          font-size: 26px; } }
+          font-size: 26px; }
+    .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
+      top: 10%;
+      left: 100px;
+      padding: 55px 0px 40px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+        font-size: 35px;
+        margin: 0px 70px 0px 60px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+        font-size: 21px;
+        margin: 0px 70px 0px 60px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+      padding-top: 100px;
+      font-size: 35px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+      margin-bottom: 90px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items {
+      padding: 0px 12% 35px 12%; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+        font-size: 24px; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+        font-size: 20px; }
+    .main_wrapper .buses_main .buses_main_head {
+      padding-top: 180px;
+      padding-bottom: 100px; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 36px; }
+    .main_wrapper .text_wrapper {
+      margin: 90px 12% 0px 12%; }
+      .main_wrapper .text_wrapper .text_title {
+        font-size: 36px; }
+      .main_wrapper .text_wrapper .text {
+        margin: 55px 0px 75px 0px; }
+        .main_wrapper .text_wrapper .text h1 {
+          font-size: 26px;
+          font-weight: 600;
+          margin: 20px 0px; }
+        .main_wrapper .text_wrapper .text ul {
+          margin: 20px 30px; }
+        .main_wrapper .text_wrapper .text li {
+          list-style-type: none;
+          font-size: 22px;
+          font-weight: 400; }
+        .main_wrapper .text_wrapper .text p {
+          font-size: 22px;
+          font-weight: 400;
+          margin: 20px 0px; }
+          .main_wrapper .text_wrapper .text p span {
+            color: #0d5899;
+            font-weight: 600; }
+        .main_wrapper .text_wrapper .text h2 {
+          font-size: 22px;
+          font-weight: 500;
+          margin: 20px 0px; }
+        .main_wrapper .text_wrapper .text ol li {
+          font-size: 25px;
+          font-weight: 600; }
+          .main_wrapper .text_wrapper .text ol li span {
+            color: #0d5899; }
+    .main_wrapper .excursions_wrapper {
+      padding: 80px 12% 0px 12%; }
+      .main_wrapper .excursions_wrapper .excursions_head p {
+        font-size: 36px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+        padding: 30px 0px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+          font-size: 30px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+          font-size: 22px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+          height: 50px; }
+          .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+            line-height: 50px; }
+    .main_wrapper .contact_header .contact_info {
+      padding: 120px 12% 200px 12%; }
+      .main_wrapper .contact_header .contact_info .contact_info_title p {
+        font-size: 36px; }
+      .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
+        margin: 20px auto 40px auto; }
+      .main_wrapper .contact_header .contact_info .contact_info_items {
+        padding-top: 70px; }
+        .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+          font-size: 26px; }
+    .main_wrapper .vacancies_wrapper {
+      padding-top: 100px;
+      padding-bottom: 65px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+        font-size: 36px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+        margin: 20px auto 40px auto; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+        margin: 0px 12%; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+          padding: 50px 0px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+            font-size: 24px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+            font-size: 22px; }
+    .main_wrapper .partner_wrapper {
+      padding-top: 100px; }
+      .main_wrapper .partner_wrapper .partner .partner_title p {
+        font-size: 36px; }
+      .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+        margin: 20px auto 40px auto; }
+      .main_wrapper .partner_wrapper .partner .partner_info {
+        margin: 0px 12%; }
+        .main_wrapper .partner_wrapper .partner .partner_info p {
+          font-size: 28px; }
+      .main_wrapper .partner_wrapper .partner .post_message {
+        margin: 0px 12%; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+          font-size: 32px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+          margin: 20px auto 40px auto; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+          height: 55px; }
+    .main_wrapper .services_other_header {
+      padding: 0px 12%; }
+      .main_wrapper .services_other_header .services_other_title {
+        padding-top: 70px; }
+        .main_wrapper .services_other_header .services_other_title p {
+          font-size: 36px; }
+    .main_wrapper .catalog_wrapper {
+      margin: 0px 12%; }
+      .main_wrapper .catalog_wrapper .catalog_title {
+        font-size: 32px; }
+      .main_wrapper .catalog_wrapper .catalog_items {
+        padding-bottom: 60px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+          font-size: 28px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+          font-size: 24px; } }
 
 @media all and (max-width: 1400px) {
   .header_wrapper .phone_number {
@@ -178,7 +323,21 @@
         font-size: 19px;
         margin: 0px 10px; }
     .main_wrapper .main_courusel_wrapper {
-      margin-top: 120px; }
+      margin-top: 90px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text {
+        height: 45px; }
+        .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text p {
+          font-size: 20px;
+          line-height: 45px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-slide {
+        width: 400px;
+        padding: 30px 50px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-center {
+        padding: 0px; }
+      .main_wrapper .main_courusel_wrapper .next {
+        right: calc(50% - 232px); }
+      .main_wrapper .main_courusel_wrapper .back {
+        left: calc(50% - 232px); }
       .main_wrapper .main_courusel_wrapper .main_courusel_prises {
         width: 300px;
         height: 50px;
@@ -231,6 +390,146 @@
         .main_wrapper .main_news .main_news_detail p {
           line-height: 50px;
           font-size: 23px; }
+    .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
+      left: 80px;
+      padding: 40px 0px 25px 0px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+        font-size: 33px;
+        padding-bottom: 40px;
+        margin: 0px 35px 0px 45px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+        font-size: 17px;
+        margin: 0px 35px 0px 45px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+      padding-top: 75px;
+      font-size: 33px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+      margin-bottom: 80px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items {
+      padding: 0px 12% 0px 12%; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+        font-size: 22px; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
+        margin: 30px 10% 80px 10%;
+        height: 50px; }
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+          font-size: 18px;
+          line-height: 50px; }
+    .main_wrapper .buses_main .buses_main_head {
+      padding-top: 160px;
+      padding-bottom: 90px; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 30px; }
+    .main_wrapper .text_wrapper {
+      margin: 60px 10% 0px 10%; }
+      .main_wrapper .text_wrapper .text_title {
+        font-size: 30px; }
+      .main_wrapper .text_wrapper .text {
+        margin: 55px 0px 75px 0px; }
+        .main_wrapper .text_wrapper .text h1 {
+          font-size: 24px;
+          font-weight: 600;
+          margin: 15px 0px; }
+        .main_wrapper .text_wrapper .text ul {
+          margin: 15px 25px; }
+        .main_wrapper .text_wrapper .text li {
+          list-style-type: none;
+          font-size: 20px;
+          font-weight: 400; }
+        .main_wrapper .text_wrapper .text p {
+          font-size: 20px;
+          font-weight: 400;
+          margin: 15px 0px; }
+          .main_wrapper .text_wrapper .text p span {
+            color: #0d5899;
+            font-weight: 600; }
+        .main_wrapper .text_wrapper .text h2 {
+          font-size: 20px;
+          font-weight: 500;
+          margin: 15px 0px; }
+        .main_wrapper .text_wrapper .text ol li {
+          font-size: 22px;
+          font-weight: 600; }
+          .main_wrapper .text_wrapper .text ol li span {
+            color: #0d5899; }
+    .main_wrapper .excursions_wrapper {
+      padding: 60px 12% 0px 12%; }
+      .main_wrapper .excursions_wrapper .excursions_head p {
+        font-size: 32px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+        padding: 25px 0px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+          font-size: 28px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+          font-size: 20px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+          height: 50px; }
+          .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+            line-height: 50px; }
+    .main_wrapper .contact_header .contact_info {
+      padding: 100px 12% 170px 12%; }
+      .main_wrapper .contact_header .contact_info .contact_info_title p {
+        font-size: 32px; }
+      .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .contact_header .contact_info .contact_info_items {
+        padding-top: 60px; }
+        .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+          font-size: 24px; }
+    .main_wrapper .vacancies_wrapper {
+      padding-top: 80px;
+      padding-bottom: 55px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+        font-size: 32px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+        margin: 0px 12%; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+          padding: 35px 0px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+            font-size: 22px;
+            margin: 0px 8% 25px 8%; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+            font-size: 20px;
+            margin: 0px 8% 0px 8%; }
+    .main_wrapper .partner_wrapper {
+      padding-top: 80px;
+      padding-bottom: 80px; }
+      .main_wrapper .partner_wrapper .partner .partner_title p {
+        font-size: 32px; }
+      .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .partner_wrapper .partner .partner_info {
+        margin: 0px 12%; }
+        .main_wrapper .partner_wrapper .partner .partner_info p {
+          font-size: 24px; }
+      .main_wrapper .partner_wrapper .partner .post_message {
+        margin: 0px 12%; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+          font-size: 32px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+          margin: 20px auto 40px auto; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+          height: 55px; }
+    .main_wrapper .services_other_header {
+      padding: 0px 12%; }
+      .main_wrapper .services_other_header .services_other_title {
+        padding-top: 60px; }
+        .main_wrapper .services_other_header .services_other_title p {
+          font-size: 32px; }
+        .main_wrapper .services_other_header .services_other_title .services_other_line {
+          margin: 15px auto 25px auto; }
+    .main_wrapper .catalog_wrapper {
+      margin: 0px 12%; }
+      .main_wrapper .catalog_wrapper .catalog_title {
+        font-size: 30px; }
+      .main_wrapper .catalog_wrapper .catalog_items {
+        padding-bottom: 60px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+          font-size: 26px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+          font-size: 22px; }
   .footer_wrapper .footer {
     height: 80px;
     margin: 0px 12% 0px 12%; }
@@ -483,6 +782,175 @@
         .main_wrapper .main_news .main_news_detail p {
           line-height: 50px;
           font-size: 23px; }
+    .main_wrapper .services_head_wrapper .services_head {
+      padding: 50px 70px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
+        left: 50px;
+        padding: 30px 0px 15px 0px; }
+        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+          font-size: 29px;
+          padding-bottom: 20px;
+          margin: 0px 35px 0px 45px; }
+        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+          font-size: 17px;
+          margin: 0px 35px 0px 45px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+      padding-top: 50px;
+      font-size: 30px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+      margin-bottom: 50px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items {
+      padding: 0px 8% 0px 8%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
+        margin: 0px 10px;
+        width: calc(33.33% - 20px); }
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+          font-size: 20px; }
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
+          margin: 30px 10% 80px 10%;
+          height: 50px; }
+          .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+            font-size: 18px;
+            line-height: 50px; }
+    .main_wrapper .buses_main .buses_main_head {
+      padding-top: 140px;
+      padding-bottom: 80px; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 25px; }
+    .main_wrapper .text_wrapper {
+      margin: 50px 8% 0px 8%; }
+      .main_wrapper .text_wrapper .main_line {
+        margin-top: 15px; }
+      .main_wrapper .text_wrapper .text_title {
+        font-size: 26px; }
+      .main_wrapper .text_wrapper .text {
+        margin: 40px 0px 55px 0px; }
+        .main_wrapper .text_wrapper .text h1 {
+          font-size: 22px;
+          font-weight: 600;
+          margin: 15px 0px; }
+        .main_wrapper .text_wrapper .text ul {
+          margin: 15px 25px; }
+        .main_wrapper .text_wrapper .text li {
+          list-style-type: none;
+          font-size: 18px;
+          font-weight: 400; }
+        .main_wrapper .text_wrapper .text p {
+          font-size: 18px;
+          font-weight: 400;
+          margin: 15px 0px; }
+          .main_wrapper .text_wrapper .text p span {
+            color: #0d5899;
+            font-weight: 600; }
+        .main_wrapper .text_wrapper .text h2 {
+          font-size: 18px;
+          font-weight: 500;
+          margin: 15px 0px; }
+        .main_wrapper .text_wrapper .text ol li {
+          font-size: 18px;
+          font-weight: 600; }
+          .main_wrapper .text_wrapper .text ol li span {
+            color: #0d5899; }
+    .main_wrapper .excursions_wrapper {
+      padding: 60px 8% 0px 8%; }
+      .main_wrapper .excursions_wrapper .excursions_head {
+        padding-bottom: 30px; }
+        .main_wrapper .excursions_wrapper .excursions_head p {
+          font-size: 30px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+        padding: 25px 0px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+          font-size: 26px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+          font-size: 18px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+          height: 40px; }
+          .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+            line-height: 40px;
+            font-size: 20px; }
+    .main_wrapper .contact_header .contact_info {
+      padding: 80px 8% 140px 8%; }
+      .main_wrapper .contact_header .contact_info .contact_info_title p {
+        font-size: 30px; }
+      .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .contact_header .contact_info .contact_info_items {
+        padding-top: 50px; }
+        .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+          font-size: 22px; }
+    .main_wrapper .vacancies_wrapper {
+      padding-top: 80px;
+      padding-bottom: 55px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+        font-size: 30px; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+        padding-top: 30px;
+        margin: 0px 8%; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+          padding: 30px 0px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+            font-size: 20px;
+            margin: 0px 8% 20px 8%; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+            font-size: 18px;
+            margin: 0px 8% 0px 8%; }
+    .main_wrapper .partner_wrapper {
+      padding-top: 80px;
+      padding-bottom: 80px; }
+      .main_wrapper .partner_wrapper .partner .partner_title p {
+        font-size: 30px; }
+      .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+        margin: 15px auto 35px auto; }
+      .main_wrapper .partner_wrapper .partner .partner_info {
+        margin: 0px 8%; }
+        .main_wrapper .partner_wrapper .partner .partner_info p {
+          font-size: 22px; }
+      .main_wrapper .partner_wrapper .partner .post_message {
+        margin: 0px 12%; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+          font-size: 30px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+          margin: 15px auto 35px auto; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+          height: 50px; }
+    .main_wrapper .services_other_header {
+      padding: 0px 8%; }
+      .main_wrapper .services_other_header .services_other_title {
+        padding-top: 50px; }
+        .main_wrapper .services_other_header .services_other_title p {
+          font-size: 30px; }
+        .main_wrapper .services_other_header .services_other_title .services_other_line {
+          margin: 10px auto 20px auto; }
+    .main_wrapper .catalog_wrapper {
+      margin: 0px 12%; }
+      .main_wrapper .catalog_wrapper .catalog_title {
+        font-size: 28px; }
+      .main_wrapper .catalog_wrapper .catalog_items {
+        padding-bottom: 60px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+          font-size: 24px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+          font-size: 22px;
+          padding: 5px 0px 5px 10px; }
+          .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li a {
+            font-size: 22px; }
   .footer_wrapper .footer {
     height: 80px;
     margin: 0px 12% 0px 12%; }
@@ -494,11 +962,25 @@
 
 @media all and (max-width: 900px) {
   .header_wrapper .phone_number {
-    top: 120px;
     margin-right: 0px;
-    margin-top: 10px; }
+    margin-top: 10px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-30%, -50%);
+    -ms-transform: translate(-30%, -50%);
+    transform: translate(-30%, -50%);
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    width: auto;
+    text-align: center; }
     .header_wrapper .phone_number p {
-      font-size: 30px; }
+      font-size: 30px;
+      color: #fff;
+      text-shadow: none;
+      display: inline;
+      text-align: center; }
   .header_wrapper .header {
     margin: 0px 4%; }
     .header_wrapper .header .header_nav .logo {
@@ -549,7 +1031,32 @@
       font-size: 17px;
       margin: 0px 10px; }
   .main_wrapper .main_courusel_wrapper {
-    margin-top: 70px; }
+    margin-top: 60px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text {
+      height: 30px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text p {
+        font-size: 16px;
+        line-height: 30px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-slide {
+      width: 300px;
+      padding: 20px 40px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-center {
+      padding: 0px; }
+    .main_wrapper .main_courusel_wrapper .next, .main_wrapper .main_courusel_wrapper .back {
+      width: 40px; }
+      .main_wrapper .main_courusel_wrapper .next img, .main_wrapper .main_courusel_wrapper .back img {
+        width: 100%; }
+    .main_wrapper .main_courusel_wrapper .next {
+      right: calc(50% - 170px); }
+    .main_wrapper .main_courusel_wrapper .back {
+      left: calc(50% - 170px); }
+    .main_wrapper .main_courusel_wrapper .main_courusel_prises {
+      width: 200px;
+      height: 40px;
+      margin: 40px auto 30px auto; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_prises p {
+        line-height: 40px;
+        font-size: 22px; }
   .main_wrapper .main_tips .main_tips_head .main_tips_head_title {
     font-size: 24px; }
   .main_wrapper .main_tips .main_tips_head .main_tips_head_info {
@@ -611,6 +1118,179 @@
       .main_wrapper .main_news .main_news_detail p {
         line-height: 50px;
         font-size: 23px; }
+  .main_wrapper .services_head_wrapper .services_head {
+    padding: 30px 50px; }
+    .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
+      left: 30px;
+      top: 5%;
+      padding: 15px 0px 10px 0px;
+      width: 55%; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+        font-size: 22px;
+        padding-bottom: 10px;
+        margin: 0px 25px 0px 25px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+        font-size: 16px;
+        margin: 0px 25px 0px 25px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    padding-top: 40px;
+    font-size: 28px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+    margin-top: 20px;
+    margin-bottom: 40px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
+    margin: 0px 20px;
+    width: calc(50% - 40px); }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+      font-size: 18px; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
+      margin: 30px 10% 80px 10%;
+      height: 50px; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+        font-size: 16px;
+        line-height: 50px; }
+  .main_wrapper .buses_main .buses_main_head {
+    padding-top: 140px;
+    padding-bottom: 80px; }
+  .main_wrapper .buses_main .buses_main_head_title {
+    margin-top: 0px;
+    width: 100%;
+    padding: 0px 25px; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 26px; }
+  .main_wrapper .buses_main .buses_main_head_img {
+    width: 0; }
+  .main_wrapper .buses_main img {
+    display: none;
+    width: 0px; }
+  .main_wrapper .text_wrapper {
+    margin: 40px 8% 0px 8%; }
+    .main_wrapper .text_wrapper .main_line {
+      margin-top: 15px; }
+    .main_wrapper .text_wrapper .text_title {
+      font-size: 24px; }
+    .main_wrapper .text_wrapper .text {
+      margin: 40px 0px 55px 0px; }
+      .main_wrapper .text_wrapper .text h1 {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 15px 0px; }
+      .main_wrapper .text_wrapper .text ul {
+        margin: 15px 25px; }
+      .main_wrapper .text_wrapper .text li {
+        list-style-type: none;
+        font-size: 16px;
+        font-weight: 400; }
+      .main_wrapper .text_wrapper .text p {
+        font-size: 16px;
+        font-weight: 400;
+        margin: 15px 0px; }
+        .main_wrapper .text_wrapper .text p span {
+          color: #0d5899;
+          font-weight: 600; }
+      .main_wrapper .text_wrapper .text h2 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 15px 0px; }
+      .main_wrapper .text_wrapper .text ol li {
+        font-size: 16px;
+        font-weight: 600; }
+        .main_wrapper .text_wrapper .text ol li span {
+          color: #0d5899; }
+  .main_wrapper .excursions_wrapper {
+    padding: 50px 8% 0px 8%; }
+    .main_wrapper .excursions_wrapper .excursions_head {
+      padding-bottom: 25px; }
+      .main_wrapper .excursions_wrapper .excursions_head p {
+        font-size: 28px; }
+      .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
+        margin: 10px auto 25px auto; }
+    .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+      padding: 20px 0px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+        font-size: 22px;
+        margin-bottom: 20px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+        font-size: 18px;
+        margin-bottom: 20px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+        height: 40px;
+        width: 250px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+          line-height: 40px;
+          font-size: 18px; }
+  .main_wrapper .contact_header .contact_info {
+    padding: 40px 8% 70px 8%; }
+    .main_wrapper .contact_header .contact_info .contact_info_title p {
+      font-size: 26px; }
+    .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
+      margin: 10px auto 20px auto; }
+    .main_wrapper .contact_header .contact_info .contact_info_items {
+      padding-top: 30px; }
+      .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+        font-size: 18px; }
+  .main_wrapper .vacancies_wrapper {
+    padding-top: 40px;
+    padding-bottom: 10px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      font-size: 26px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+      margin: 10px auto 20px auto; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+      padding-top: 20px;
+      margin: 0px 8%; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+        top: 10%;
+        width: 55%;
+        padding: 20px 0px; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+          font-size: 18px;
+          margin: 0px 8% 15px 8%; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+          font-size: 16px;
+          margin: 0px 8% 0px 8%; }
+  .main_wrapper .partner_wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    .main_wrapper .partner_wrapper .partner .partner_title p {
+      font-size: 26px; }
+    .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+      margin: 10px auto 20px auto; }
+    .main_wrapper .partner_wrapper .partner .partner_info {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .partner_info p {
+        font-size: 18px; }
+    .main_wrapper .partner_wrapper .partner .post_message {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+        font-size: 26px; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+        margin: 10px auto 20px auto; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+        height: 40px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button p {
+          font-size: 22px; }
+  .main_wrapper .services_other_header {
+    padding: 0px 8%; }
+    .main_wrapper .services_other_header .services_other_title {
+      padding-top: 40px; }
+      .main_wrapper .services_other_header .services_other_title p {
+        font-size: 26px; }
+      .main_wrapper .services_other_header .services_other_title .services_other_line {
+        margin: 10px auto 20px auto; }
+  .main_wrapper .catalog_wrapper {
+    margin: 0px 8%; }
+    .main_wrapper .catalog_wrapper .catalog_title {
+      font-size: 25px; }
+    .main_wrapper .catalog_wrapper .catalog_items {
+      padding-bottom: 40px; }
+      .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+        font-size: 22px; }
+      .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+        font-size: 20px;
+        padding: 3px 0px 3px 6px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li a {
+          font-size: 20px; }
   .footer_wrapper .footer {
     height: 80px;
     margin: 0px 12% 0px 12%; }
@@ -640,7 +1320,7 @@
       color: #fff;
       text-shadow: none;
       display: inline;
-      text-align: cente; }
+      text-align: center; }
   .main_wrapper .main_line {
     margin-top: 5px;
     width: 40px;
@@ -693,31 +1373,51 @@
   .main_wrapper .main_services .main_services_title {
     font-size: 18px;
     margin: 0px 8% 0px 8%; }
-  .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items {
-    margin: 0px 8%;
-    padding-top: 20px;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -ms-flex-line-pack: center;
-    align-content: center; }
-    .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item {
-      margin-bottom: 30px;
-      width: 50%; }
-      .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item img {
-        margin: 0px 20% 25px 20%;
-        width: 60%; }
-    .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item_text {
-      font-size: 16px;
-      margin: 0px 10px; }
+  .main_wrapper .main_services .main_cervices_wrapper {
+    background: none; }
+    .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items {
+      margin: 0px 8%;
+      padding-top: 20px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      -ms-flex-line-pack: center;
+      align-content: center; }
+      .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item {
+        margin-bottom: 30px;
+        width: 50%; }
+        .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item img {
+          margin: 0px 20% 25px 20%;
+          width: 60%; }
+      .main_wrapper .main_services .main_cervices_wrapper .main_cervices_items .main_cervices_item_text {
+        font-size: 16px;
+        margin: 0px 10px; }
   .main_wrapper .main_courusel_wrapper {
     margin-top: 40px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text {
+      height: 25px; }
+      .main_wrapper .main_courusel_wrapper .main_courusel_items .main_courusel_item .main_courusel_item_text p {
+        font-size: 12px;
+        line-height: 25px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-slide {
+      width: 200px;
+      padding: 20px 40px; }
+    .main_wrapper .main_courusel_wrapper .main_courusel_items .slick-center {
+      padding: 0px; }
+    .main_wrapper .main_courusel_wrapper .next, .main_wrapper .main_courusel_wrapper .back {
+      width: 40px; }
+      .main_wrapper .main_courusel_wrapper .next img, .main_wrapper .main_courusel_wrapper .back img {
+        width: 100%; }
+    .main_wrapper .main_courusel_wrapper .next {
+      right: calc(50% - 120px); }
+    .main_wrapper .main_courusel_wrapper .back {
+      left: calc(50% - 120px); }
   .main_wrapper .main_tips .main_tips_head .main_tips_head_title {
     font-size: 22px; }
   .main_wrapper .main_tips .main_tips_head .main_tips_head_info {
@@ -797,6 +1497,218 @@
       .main_wrapper .main_news .main_news_detail p {
         line-height: 40px;
         font-size: 21px; }
+  .main_wrapper .services_head_wrapper .services_head {
+    padding: 0px 35px; }
+    .main_wrapper .services_head_wrapper .services_head .services_head_info img {
+      display: none; }
+    .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
+      position: relative;
+      left: 0;
+      top: 0;
+      padding: 15px 0px 10px 0px;
+      width: 100%;
+      background: none; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+        color: #000;
+        font-size: 18px;
+        padding-bottom: 10px;
+        margin: 0px; }
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+        color: #000;
+        font-size: 14px;
+        margin: 0px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    padding-top: 20px;
+    font-size: 22px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 2px;
+    width: 40px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_items {
+    background: none; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
+      margin: 0px 10px;
+      width: calc(50% - 20px); }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+        font-size: 15px;
+        margin-bottom: 14px; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
+        margin: 15px 10% 20px 10%;
+        height: 35px; }
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+          font-size: 14px;
+          line-height: 35px; }
+  .main_wrapper .buses_main .buses_main_head {
+    padding-top: 120px;
+    padding-bottom: 60px; }
+  .main_wrapper .buses_main .buses_main_head_title {
+    margin-top: 0px;
+    width: 100%; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 19px;
+      width: 100%; }
+  .main_wrapper .buses_main img {
+    display: none; }
+  .main_wrapper .text_wrapper {
+    margin: 20px 8% 0px 8%; }
+    .main_wrapper .text_wrapper .main_line {
+      margin-top: 10px; }
+    .main_wrapper .text_wrapper .text_title {
+      font-size: 18px; }
+    .main_wrapper .text_wrapper .text {
+      margin: 20px 0px 20px 0px; }
+      .main_wrapper .text_wrapper .text h1 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 10px 0px; }
+      .main_wrapper .text_wrapper .text ul {
+        margin: 10px 20px; }
+      .main_wrapper .text_wrapper .text li {
+        list-style-type: none;
+        font-size: 14px;
+        font-weight: 400; }
+      .main_wrapper .text_wrapper .text p {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 10px 0px; }
+        .main_wrapper .text_wrapper .text p span {
+          color: #0d5899;
+          font-weight: 600; }
+      .main_wrapper .text_wrapper .text h2 {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 10px 0px; }
+      .main_wrapper .text_wrapper .text ol li {
+        font-size: 14px;
+        font-weight: 600; }
+        .main_wrapper .text_wrapper .text ol li span {
+          color: #0d5899; }
+  .main_wrapper .excursions_wrapper {
+    padding: 40px 8% 0px 8%; }
+    .main_wrapper .excursions_wrapper .excursions_head {
+      padding-bottom: 20px; }
+      .main_wrapper .excursions_wrapper .excursions_head p {
+        font-size: 22px; }
+      .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
+        margin: 10px auto 25px auto; }
+    .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+      padding: 10px 0px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+        font-size: 17px;
+        margin-bottom: 10px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+        font-size: 15px;
+        margin-bottom: 10px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+        height: 30px;
+        width: 150px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+          line-height: 30px;
+          font-size: 16px; }
+  .main_wrapper .contact_header .contact_info {
+    padding: 40px 8% 70px 8%; }
+    .main_wrapper .contact_header .contact_info .contact_info_title p {
+      font-size: 20px; }
+    .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
+      height: 3px;
+      margin: 10px auto 20px auto; }
+    .main_wrapper .contact_header .contact_info .contact_info_items {
+      padding-top: 30px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item {
+        width: 50%; }
+        .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+          font-size: 16px; }
+  .main_wrapper .vacancies_wrapper {
+    padding-top: 30px;
+    padding-bottom: 10px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      font-size: 22px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+      height: 3px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+      padding-top: 20px;
+      margin: 0px 8%; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item {
+        margin-bottom: 20px; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item img {
+          display: none; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+          position: relative;
+          width: 100%;
+          top: 0;
+          left: 0;
+          padding: 20px 0px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+            font-size: 17px;
+            margin: 0px 8% 15px 8%; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+            font-size: 15px;
+            margin: 0px 8% 0px 8%; }
+  .main_wrapper .partner_wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+    .main_wrapper .partner_wrapper .partner .partner_title p {
+      font-size: 22px; }
+    .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+      height: 3px; }
+    .main_wrapper .partner_wrapper .partner .partner_info {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .partner_info p {
+        font-size: 16px; }
+    .main_wrapper .partner_wrapper .partner .post_message {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_title {
+        padding-top: 40px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+          font-size: 20px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+          height: 3px; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_form textarea, .main_wrapper .partner_wrapper .partner .post_message .post_message_form input {
+        font-size: 16px; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+        width: 50%;
+        height: 35px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button p {
+          font-size: 18px; }
+  .main_wrapper .services_other_header {
+    padding: 0px 8%; }
+    .main_wrapper .services_other_header .services_other_title {
+      padding-top: 20px; }
+      .main_wrapper .services_other_header .services_other_title p {
+        font-size: 20px;
+        line-height: 1; }
+      .main_wrapper .services_other_header .services_other_title .services_other_line {
+        height: 3px;
+        margin: 10px auto 20px auto; }
+  .main_wrapper .catalog_wrapper {
+    margin: 0px 8%; }
+    .main_wrapper .catalog_wrapper .catalog_title {
+      font-size: 18px; }
+    .main_wrapper .catalog_wrapper .catalog_items {
+      padding-bottom: 20px; }
+      .main_wrapper .catalog_wrapper .catalog_items .catalog_item {
+        padding: 10px 0px;
+        border-bottom: 3px solid #0d5899; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+          font-size: 17px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+          font-size: 15px;
+          padding: 3px 0px 3px 6px; }
+          .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li a {
+            font-size: 15px; }
   .footer_wrapper .footer {
     height: 80px;
     margin: 0px 4% 0px 4%; }
@@ -881,6 +1793,175 @@
       .main_wrapper .main_news .main_news_detail p {
         line-height: 30px;
         font-size: 17px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    padding-top: 15px;
+    font-size: 18px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    height: 2px;
+    width: 40px; }
+  .main_wrapper .services_list_wrapper .services_list .services_list_items {
+    background: none; }
+    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
+      margin: 0px 5px;
+      width: calc(50% - 10px); }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+        font-size: 13px;
+        margin-bottom: 14px; }
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
+        margin: 15px 10% 20px 10%;
+        height: 35px; }
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
+          font-size: 12px;
+          line-height: 35px; }
+  .main_wrapper .buses_main .buses_main_head {
+    padding-top: 100px;
+    padding-bottom: 40px; }
+  .main_wrapper .buses_main .buses_main_head_title {
+    margin-top: 0px;
+    width: 100%; }
+    .main_wrapper .buses_main .buses_main_head_title p {
+      font-size: 18px;
+      width: 100%; }
+  .main_wrapper .buses_main img {
+    display: none; }
+  .main_wrapper .text_wrapper {
+    margin: 20px 10% 0px 10%; }
+    .main_wrapper .text_wrapper .main_line {
+      margin-top: 10px; }
+    .main_wrapper .text_wrapper .text_title {
+      font-size: 16px; }
+    .main_wrapper .text_wrapper .text {
+      margin: 20px 0px 20px 0px; }
+      .main_wrapper .text_wrapper .text h1 {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 10px 0px; }
+      .main_wrapper .text_wrapper .text ul {
+        margin: 10px 20px; }
+      .main_wrapper .text_wrapper .text li {
+        list-style-type: none;
+        font-size: 14px;
+        font-weight: 400; }
+      .main_wrapper .text_wrapper .text p {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 10px 0px; }
+        .main_wrapper .text_wrapper .text p span {
+          color: #0d5899;
+          font-weight: 600; }
+      .main_wrapper .text_wrapper .text h2 {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 10px 0px; }
+      .main_wrapper .text_wrapper .text ol li {
+        font-size: 14px;
+        font-weight: 600; }
+        .main_wrapper .text_wrapper .text ol li span {
+          color: #0d5899; }
+  .main_wrapper .excursions_wrapper {
+    padding: 20px 10% 0px 10%; }
+    .main_wrapper .excursions_wrapper .excursions_head {
+      padding-bottom: 10px; }
+      .main_wrapper .excursions_wrapper .excursions_head p {
+        font-size: 18px; }
+      .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
+        margin: 10px auto 25px auto; }
+    .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
+      padding: 10px 0px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_title {
+        font-size: 15px;
+        margin-bottom: 10px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_text {
+        font-size: 13px;
+        margin-bottom: 10px; }
+      .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail {
+        height: 30px;
+        width: 150px; }
+        .main_wrapper .excursions_wrapper .excursions_items .excursions_item .excursions_item_detail a {
+          line-height: 30px;
+          font-size: 14px; }
+  .main_wrapper .contact_header .contact_info {
+    padding: 40px 8% 40px 8%; }
+    .main_wrapper .contact_header .contact_info .contact_info_title p {
+      font-size: 17px; }
+    .main_wrapper .contact_header .contact_info .contact_info_items {
+      padding-top: 20px; }
+      .main_wrapper .contact_header .contact_info .contact_info_items .contact_info_item p {
+        font-size: 16px; }
+  .main_wrapper .vacancies_wrapper {
+    padding-top: 20px;
+    padding-bottom: 10px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      font-size: 18px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
+      height: 3px; }
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_info {
+      padding-top: 0px;
+      margin: 0px 8%; }
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item {
+        margin-bottom: 20px; }
+        .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text {
+          position: relative;
+          padding: 15px 0px; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(1) {
+            font-size: 16px;
+            margin: 0px 8% 10px 8%; }
+          .main_wrapper .vacancies_wrapper .vacancies .vacancies_info .vacancies_info_item .vacancies_info_text p:nth-child(2) {
+            font-size: 14px;
+            margin: 0px 8% 0px 8%; }
+  .main_wrapper .partner_wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .main_wrapper .partner_wrapper .partner .partner_title p {
+      font-size: 18px; }
+    .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
+      height: 3px; }
+    .main_wrapper .partner_wrapper .partner .partner_info {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .partner_info p {
+        font-size: 14px; }
+    .main_wrapper .partner_wrapper .partner .post_message {
+      margin: 0px 8%; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_title {
+        padding-top: 20px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title p {
+          font-size: 15px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_title .partner_line {
+          height: 3px; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_form textarea, .main_wrapper .partner_wrapper .partner .post_message .post_message_form input {
+        font-size: 14px; }
+      .main_wrapper .partner_wrapper .partner .post_message .post_message_form button {
+        width: 50%;
+        height: 30px; }
+        .main_wrapper .partner_wrapper .partner .post_message .post_message_form button p {
+          font-size: 14px; }
+  .main_wrapper .services_other_header {
+    padding: 0px 8%; }
+    .main_wrapper .services_other_header .services_other_title {
+      padding-top: 20px; }
+      .main_wrapper .services_other_header .services_other_title p {
+        font-size: 18px; }
+      .main_wrapper .services_other_header .services_other_title .services_other_line {
+        height: 3px;
+        margin: 5px auto 15px auto; }
+  .main_wrapper .catalog_wrapper {
+    margin: 0px 10%; }
+    .main_wrapper .catalog_wrapper .catalog_title {
+      font-size: 16px; }
+    .main_wrapper .catalog_wrapper .catalog_items {
+      padding-bottom: 20px; }
+      .main_wrapper .catalog_wrapper .catalog_items .catalog_item {
+        padding: 10px 0px;
+        border-bottom: 3px solid #0d5899; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text p {
+          font-size: 14px; }
+        .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li {
+          font-size: 12px;
+          padding: 0px 0px 0px 3px; }
+          .main_wrapper .catalog_wrapper .catalog_items .catalog_item .catalog_item_text ul li a {
+            font-size: 12px; }
   .footer_wrapper .footer {
     height: 60px;
     margin: 0px 4% 0px 4%; }
