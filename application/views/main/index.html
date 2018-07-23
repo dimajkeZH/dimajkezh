@@ -4,8 +4,10 @@
 	<meta charset="UTF-8">
 	<title><?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/media.css">
 	<link rel="stylesheet" type="text/css" href="../../../assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="../../../assets/js/slick/slick-theme.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<div class="header_wrapper">
@@ -18,6 +20,9 @@
 					</a>
 				</span>
 				<div class="main_nav">
+					<div class="burger">
+						<span></span>
+					</div>
 					<nav class="nav">
 						<div class="nav_item">
 							<a href="/services" >Услуги</a>
@@ -71,7 +76,7 @@
 	</div>
 	<div class="main_wrapper">
 		<div class="popup">
-			<a href="javascript:PopUpShow()"><div class="popup_button"><p> ЗаказON-LINE</p></div></a>
+			<a href="javascript:PopUpShow()"><div class="popup_button"><p> Заказ ON-LINE</p></div></a>
 			<div class="popup_window">
 				<div class="popup_order_form">
 					<a href="javascript:PopUpHide()"><div class="form_close">&#9421;</div></a>
@@ -380,5 +385,13 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/slick/slick.min.js"></script>
 	<script src="../../../assets/js/script.js"></script>
+	<script>
+		$(document).ready(function(){
+	  $('.burger').click(function(){
+	    $(this).toggleClass('active');
+			$('.nav').toggleClass('active');
+	});
+});
+	</script>
 </body>
 </html>

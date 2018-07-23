@@ -207,7 +207,8 @@
     text-decoration: none;
     margin: 5px	0px;
     display: inline-block;
-    font-weight: bold; }
+    font-weight: bold;
+    cursor: pointer; }
   .main_nav .main_nav_list .main_nav_list_title {
     width: 90%; }
   .main_nav .main_nav_list .main_nav_list_title:hover {
