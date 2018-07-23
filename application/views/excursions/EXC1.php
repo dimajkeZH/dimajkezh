@@ -9,7 +9,7 @@
 		<div class="moscow_info_items">
 			<?php  for($index = 0; $index < $maxindex; $index++): ?>
 			<div class="moscow_info_item">
-				<div class="moscow_info_item_img"><img src="/assets/img/excursions/moscow/m<?php echo ($index + 1); ?>.png" alt=""></div>
+				<div class="moscow_info_item_img"><img src="/assets/img/static/m<?php echo ($index + 1); ?>.png" alt=""></div>
 				<div class="moscow_info_item_text">
 					<p class="moscow_info_item_title"><?php echo $CONTENT['INFO_TITLE'][$index]; ?></p>
 					<p class="moscow_info_item_content"><?php echo $CONTENT['INFO_DESCR'][$index]; ?></p>
@@ -24,7 +24,7 @@
 			<div class="main_line"></div>
 			<div class="moscow_top_info">
 				<div class="moscow_top_img">
-					<img src="/assets/img/excursions/moscow/big_bcg.png" alt="">
+					<img src="/assets/img/static/big_bcg.png" alt="">
 				</div>
 				<div class="moscow_top_info_text one">
 					<p>1.</p>

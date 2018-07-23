@@ -7,7 +7,7 @@
 			<?php endif; ?>
 			<?php if(!empty($CONTENT['LEFT_IMAGE']) || !empty($CONTENT['RIGHT_IMAGE']) || !empty($CONTENT['MIDDLE_IMAGE'])): ?>
 			<div class="bus_img">
-				<img src="../../../assets/img/services/bus_min.png" alt="">
+				<img src="../../../assets/img/static/bus_min.png" alt="">
 			</div>
 			<div class="services_lines">
 				<svg width="100%" height="88px">

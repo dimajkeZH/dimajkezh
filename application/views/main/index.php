@@ -3,7 +3,7 @@
 				<span>Заказ автобуса с водителем в Москве</span>
 			</div>
 			<div class="main_order">
-				<img src="/assets/img/main/bcg_main2.png" alt="">
+				<img src="/assets/img/static/bcg_main2.png" alt="">
 				<div class="main_order_form">
 					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
 					<form>
@@ -35,7 +35,7 @@
 						<button onclick="return order('main_order')"><p>Заказать</p></button>
 					</form>
 					<div class="main_order_form_circle">
-						<img src="/assets/img/main/group_comp.png" alt="">
+						<img src="/assets/img/static/group_comp.png" alt="">
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 			<div class="main_line"></div>
 			<div class="main_about_brand">
 				<p>Известных мировых брендов:</p>
-				<img src="/assets/img/main/brand.png" alt="">
+				<img src="/assets/img/static/brand.png" alt="">
 			</div>
 		</div>
 		<div class="main_services">
@@ -54,49 +54,49 @@
 			<div class="main_cervices_wrapper">
 				<div class="main_cervices_items">
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s1.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s1.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Поездки по согласованному маршруту и по фиксированной стоимости</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s2.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s2.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Подача за МКАД до 10 км бесплатно</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s3.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s3.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Обслуживание свадеб и банкетов</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s4.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s4.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Организация экскурсий и туристических поездок</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s5.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s5.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Воспользовавшись нашим сервисом, вы можете найти ближайший автобус по доступной цене</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s6.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s6.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Встреча в аэропорту с отслеживанием авиарейса</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s7.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s7.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Обеспечение пассажирским транспортом корпоративных мероприятий от 500 человек</p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
-						<img src="/assets/img/main/s8.png" alt="" class="main_cervices_item_img">
+						<img src="/assets/img/static/s8.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
 							<p>Оптимизация маршрутов с предоставлением скидки</p>
 						</div>
@@ -152,17 +152,17 @@
 			</div>
 			<div class="main_contacts_items">
 				<div class="main_contacts_item"><a href="/contacts/#contact">
-					<div class="main_contacts_item_img"><img src="/assets/img/main/c1.png" alt=""></div>
+					<div class="main_contacts_item_img"><img src="/assets/img/static/c1.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Вызов по телефону компании у диспетчера</p></div>
 				</a>
 				</div>
 				<div class="main_contacts_item"><a href="javascript:PopUpShow()">
-					<div class="main_contacts_item_img"><img src="/assets/img/main/c2.png" alt=""></div>
+					<div class="main_contacts_item_img"><img src="/assets/img/static/c2.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Заказ посредством онлайн заявки на сайте</p></div>
 				</a>
 				</div>
 				<div class="main_contacts_item"><a href="/contacts/#partner ">
-					<div class="main_contacts_item_img"><img src="/assets/img/main/c3.png" alt=""></div>
+					<div class="main_contacts_item_img"><img src="/assets/img/static/c3.png" alt=""></div>
 					<div class="main_contacts_item_info"><p>Бронирование автобуса по электронной почте</p></div>
 				</a>
 				</div>

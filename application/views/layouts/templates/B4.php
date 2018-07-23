@@ -18,7 +18,7 @@
 					?>
 					<div class="images_text_item">
 						<?php if($link): ?>
-						<img class="images_text_item_img"  src="/assets/img/block_images/<?php echo $DATA[$x]['IMAGE_LINK']; ?>.png" alt="">
+						<img class="images_text_item_img"  src="/assets/img/templates/block_images/<?php echo $DATA[$x]['IMAGE_LINK']; ?>.png" alt="">
 						<?php endif; ?>
 						<?php if($sign OR $subtitle): ?>
 						<div class="images_text_item_info">

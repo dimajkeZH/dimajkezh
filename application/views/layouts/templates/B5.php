@@ -15,7 +15,7 @@
 							<?php endforeach; ?>
 						</ul>
 					</div>
-					<div class="catalog_item_img"><img src="/assets/img/buses/<?php echo $val['IMAGE'] ? $val['IMAGE'] : ''; ?>.png" alt=""></div>
+					<div class="catalog_item_img"><img src="/assets/img/static/cities/<?php echo $val['IMAGE'] ? $val['IMAGE'] : ''; ?>.png" alt=""></div>
 				</div>
 				<?php endforeach; ?>
 			</div>

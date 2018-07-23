@@ -56,7 +56,7 @@
 				<div class="vacancies_info">
 					<?php for($i = 0; $i < count($VACANCIESLIST); $i++): ?>
 					<div class="vacancies_info_item">
-						<img class="vacancies_info_item_img" src=<?php echo '"/assets/img/contacts/'.$VACANCIESLIST[$i]['IMAGE'].'"'; ?> alt="">
+						<img class="vacancies_info_item_img" src=<?php echo '"/assets/img/vacancies/'.$VACANCIESLIST[$i]['IMAGE'].'"'; ?> alt="">
 						<div class="vacancies_info_text">
 							<p><?php echo $VACANCIESLIST[$i]['TITLE']; ?></p>
 							<p><?php echo $VACANCIESLIST[$i]['DESCR']; ?></p>

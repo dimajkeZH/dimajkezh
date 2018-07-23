@@ -230,7 +230,7 @@ a {
   background-color: #f3f6fa; }
 
 .services_list_items {
-  background-image: url(/services_img/services_info.png);
+  background-image: url(../img/static/services_info.png);
   background-size: cover;
   padding: 0px 18.75% 40px  18.75%;
   font-size: 0; }
@@ -288,7 +288,7 @@ a {
 /*УСЛУГИ КОНЕЦ*/
 /*КОНТАКТЫ*/
 .contact_header {
-  background-image: url(../img/contacts/sity.png);
+  background-image: url(../img/static/sity.png);
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -401,7 +401,7 @@ a {
   text-align: center; }
 
 .vacancies {
-  background-image: url(../img/contacts/vacancies.png);
+  background-image: url(../img/static/vacancies.png);
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -457,7 +457,7 @@ a {
   padding-bottom: 130px; }
 
 .partner {
-  background-image: url(../img/contacts/partners.png);
+  background-image: url(../img/static/partners.png);
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -765,7 +765,7 @@ a {
 /*УСЛУГИ ДРУГОЕ КОНЕЦ*/
 /*ЗАКАЗ АВТОБУСОВ НАЧАЛО*/
 .order_header {
-  background-image: url(../img/bus_order/order_header_bcg.png);
+  background-image: url(../img/static/order_header_bcg.png);
   font-size: 0px;
   position: relative;
   background-size: cover;
@@ -1061,7 +1061,7 @@ form .forma_group:last-of-type input {
 
 .buses_main_head {
   padding-bottom: 125px;
-  background-image: url(../img/buses/bus_head_bcg.png);
+  background-image: url(../img/static/bus_head_bcg.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 275px;
@@ -1099,7 +1099,7 @@ form .forma_group:last-of-type input {
     width: 100%; }
 
 .main_head {
-  background-image: url(../img/main/bcg_main.png);
+  background-image: url(../img/static/bcg_main.png);
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1259,7 +1259,7 @@ form .forma_group:last-of-type input {
 .main_cervices_wrapper {
   width: 100%;
   font-size: 0;
-  background-image: url(../img/main/m-sity.png);
+  background-image: url(../img/static/m-sity.png);
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -1408,7 +1408,7 @@ form .forma_group:last-of-type input {
   height: auto; }
 
 .main_tips_content {
-  background-image: url(../img/main/bcg_tips.png);
+  background-image: url(../img/static/bcg_tips.png);
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 20px;
@@ -1416,7 +1416,7 @@ form .forma_group:last-of-type input {
   padding-top: 80px; }
 
 .main_tips_info {
-  background-image: url(../img/main/lines.png);
+  background-image: url(../img/static/lines.png);
   background-size: 72.91666% 48%;
   background-repeat: no-repeat;
   padding: 0px 18.75% 0px  18.75%;
@@ -1940,7 +1940,7 @@ form .forma_group:last-of-type input {
 
 .moscow_head {
   width: 100%;
-  background-image: url(../img/main/bcg_main.png);
+  background-image: url(../img/static/bcg_main.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 375px;
