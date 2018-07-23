@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick-theme.css">
-	<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png">
+	<link rel="shortcut icon" href="/assets/img/static/favicon.png" type="image/png">
 	<link rel="stylesheet" href="/assets/css/media.css">
 </head>
 <body>
@@ -19,14 +19,15 @@
 			<div class="header_nav">
 				<span class="logo">
 					<a href="/">
-						<img src="/assets/img/logo.png" alt="">
+						<img src="/assets/img/static/logo.png" alt="">
 					</a>
 				</span>
 				<?php include $_SERVER['DOCUMENT_ROOT'].'/application/views/layouts/cache/menu.html'; ?>
 			</div>
 		</div>
 	</div>
-	<div class="popup">
+	<div class="main_wrapper">
+		<div class="popup">
 		<a href="javascript:PopUpShow()"><div class="popup_button"><p> ЗаказON-LINE</p></div></a>
 		<div class="popup_window">
 			<div class="popup_order_form">
@@ -63,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="main_wrapper"><?php echo $content; ?></div>
+		<?php echo $content; ?></div>
 	<div class="footer_wrapper">
 		<div class="footer">
 			<p>© Copyright, 2015 ТК "ТриБас" - Все права защищены.</p><p>При использовании материалов с сайта ссылка на источник обязательна.</p>
