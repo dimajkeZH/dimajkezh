@@ -5,29 +5,111 @@
 	<title></title>
 	<link rel="stylesheet" href="../../../assets/css/style.css">
 	<link rel="shortcut icon" href="../../../assets/img/static/favicon.png" type="image/png">
+	<link rel="stylesheet" href="../../../assets/css/media.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<div class="header_wrapper">
+		<div class="phone_number"><p>8 495 798 90 08</p></div>
 		<div class="header">
 			<div class="header_nav">
 				<span class="logo">
-					<a href="#">
+					<a href="/">
 						<img src="../../../assets/img/static/logo.png" alt="">
 					</a>
 				</span>
 				<div class="main_nav">
+					<div class="burger">
+						<span></span>
+					</div>
 					<nav class="nav">
-						<a href="#" class="nav_item">Услуги</a>
-						<a href="#" class="nav_item">Автобусы</a>
-						<a href="#" class="nav_item">Микроавтобусы</a>
-						<a href="#" class="nav_item">Экскурсии</a>
-						<a href="#" class="nav_item">Контакты</a>
+						<div class="nav_item">
+							<a href="/	services" >Услуги</a>
+							<div class="subnav">
+								<a href="#">Автобус на свадьбу</a>
+								<a href="#">Автобус в аэропорт</a>
+								<a href="#">Автобус межгород</a>
+								<a href="#">Срочный заказ автобуса</a>
+								<a href="#">Поездка до границы Украины и обратно</a>
+								<a href="#">Список документов для заказных автобусов</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/buses" class="">Автобусы</a>
+							<div class="subnav">
+								<a href="#">Заказ автобуса 28 мест</a>
+								<a href="#">Заказ автобуса 30,32 места</a>
+								<a href="#">Заказ автобуса 42-45 мест</a>
+								<a href="#">Заказ автобуса 50 мест</a>
+								<a href="#">Заказ автобуса 54-59 мест</a>
+								<a href="#">Заказ автобуса 74 места</a>
+								<a href="#">Каталог автобусов</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/minivans" class="">Микроавтобусы</a>
+							<div class="subnav">
+								<a href="#">Заказ микроавтобуса 7-8 мест</a>
+								<a href="#">Заказ микроавтобуса 10-12 мест</a>
+								<a href="#">Заказ микроавтобуса 18-20 мест</a>
+								<a href="#">Заказ микроавтобуса 26 мест</a>
+								<a href="#">Минивэн 6 мест</a>
+							</div>
+						</div>
+						<div class="nav_item">	
+							<a href="/excursions" class="">Экскурсии</a>
+							<div class="subnav">
+								<a href="#">Обзорные экскурсии по Москве</a>
+								<a href="#">Индивидуальная экскурсия по ночной Москве</a>
+								<a href="#">Автотур в Санкт-Петербург, Великий Новгород, Тверь</a>
+								<a href="#">Автобусный тур по "Золотому кольцу России"</a>
+							</div>
+						</div>
+						<div class="nav_item">
+							<a href="/contacts" class="">Контакты</a>
+						</div>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="main_wrapper">
+		<div class="popup">
+			<a href="javascript:PopUpShow()"><div class="popup_button"><p> Заказ ON-LINE</p></div></a>
+			<div class="popup_window">
+				<div class="popup_order_form">
+					<a href="javascript:PopUpHide()"><div class="form_close">&#9421;</div></a>
+					<div class="order_form_title"><p>Заказ ОN-LINE</p></div>
+					<form action="" method="POST">
+						<div class="forma_group"><input type="text" placeholder="Дата и время подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name=""></div>
+						<div class="forma_group">
+							<select name="" id="" >
+								<option value="0">---Выбор транспорта---</option>
+								<option value="1">6 Мест</option>
+								<option value="2">7 Мест</option>
+								<option value="3">8 Мест</option>
+								<option value="4">9 Мест</option>
+								<option value="5">10 Мест</option>
+								<option value="6">11 Мест</option>
+								<option value="7">18 Мест</option>
+								<option value="8">20 Мест</option>
+								<option value="9">24 Места</option>
+								<option value="10">28 Мест</option>
+								<option value="11">31 Место</option>
+								<option value="12">42 Мест</option>
+								<option value="13">50 Мест</option>
+								<option value="14">55 Мест</option>
+							</select></div>
+						<div class="forma_group"><input type="text" placeholder="Предложите цену" name=""></div>
+						<div class="forma_group"><input type="text" placeholder="Комментарий" name=""></div>
+						<button type="submit"><p>Заказать</p></button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div class="services_other_header">
 			<div class="services_other_title">
 				<p>Автобус в аэропорт</p>

@@ -963,7 +963,7 @@ form .forma_group:last-of-type input {
 
 .images_text_item_info_content {
   font-size: 24px;
-    font-size-line-height: 1.125; }
+  line-height: 1.125; }
 
 .images_text_item:nth-child(even) .images_text_item_img {
   left: 51.67%; }
