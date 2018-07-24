@@ -81,27 +81,27 @@ return [
 
 
 	'admin' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'main',
 	],
 
 	'admin/main' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'main',
 	],
 
 	'admin/auth' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'auth',
 	],
 
 	'admin/login' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'login',
 	],
 
 	'admin/logout' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'logout',
 	],
 
@@ -109,7 +109,7 @@ return [
 
 	/* ADMIN DATA */
 	'admin/tree' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'getSiteTree',
 	],
 	/* ADMIN DATA END */
@@ -117,68 +117,68 @@ return [
 	/* ADMIN INNER PAGES */
 	//show settings cms
 	'admin/config' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'config',
 	],
 	//show general content
 	'admin/site/content' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'siteContent',
 	],
 	//show general settings
 	'admin/site/settings' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'siteSettings',
 	],
 
 	//main pages (show add[0]/show change[1+])
 	'admin/site/pagegr/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'sitePageGroups',
 	],
 	//child pages (show add[0]/show change[1+])
 	'admin/site/pages' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'sitePages',
 	],
 	'admin/site/pages/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'sitePages',
 	],
 	//catalogs
 	'admin/catalog/cities' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogCities',
 	],
 	'admin/catalog/cities/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogCities',
 	],
 
 	'admin/catalog/buses' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogBuses',
 	],
 	'admin/catalog/buses/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogBuses',
 	],
 	
 	'admin/catalog/news' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogNews',
 	],
 	'admin/catalog/news/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogNews',
 	],
 
 	'admin/catalog/vacancies' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogVacancies',
 	],
 	'admin/catalog/vacancies/[0-9]{1,}' => [
-		'controller' => 'MainAdmin',
+		'controller' => 'mainAdmin',
 		'action' => 'catalogVacancies',
 	],
 	/* ADMIN INNER PAGES END */
