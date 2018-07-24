@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/application/views/mainadmin/css/style.css">
-	<link rel="stylesheet" href="/application/views/mainadmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" href="/application/views/mainAdmin/css/style.css">
+	<link rel="stylesheet" href="/application/views/mainAdmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
 	<title><?php echo isset($title) ? $title : 'NoNe title'; ?></title>
-	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/mainadmin/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/application/views/mainAdmin/img/favicon.png">
 </head>
 <body>
 	<div class="popup__message"></div>
@@ -52,7 +52,7 @@
 			</div>
 			<div class="header_settings">
 				<div class="logo">
-					<img src="/application/views/mainadmin/img/logo.png" alt="">
+					<img src="/application/views/mainAdmin/img/logo.png" alt="">
 					<div class="logo_text">
 						<p><?php echo isset($title) ? $title : 'NoNe cms name'; ?> <span><?php echo isset($ver) ? $ver : 'NoNe version'; ?></span></p>
 					</div>
@@ -91,8 +91,8 @@
 		<div class="footer">
 		</div>
 	</div>
-	<script src="/application/views/mainadmin/js/jquery.min.js"></script>
-	<script src="/application/views/mainadmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
-	<script src="/application/views/mainadmin/js/script.js"></script>
+	<script src="/application/views/mainAdmin/js/jquery.min.js"></script>
+	<script src="/application/views/mainAdmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
+	<script src="/application/views/mainAdmin/js/script.js"></script>
 </body>
 </html>

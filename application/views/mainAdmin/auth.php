@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="/application/views/mainadmin/css/style.css">
+<link rel="stylesheet" href="/application/views/mainAdmin/css/style.css">
 <div class="login_wrapper">
 		<div class="login">
 			<div class="login_logo">
-				<img src="/application/views/mainadmin/img/logo.png" alt="">
+				<img src="/application/views/mainAdmin/img/logo.png" alt="">
 				<div class="logo_text">
 					<p>PerfectCMS <span>0.0.4</span> </p>
 				</div>
