@@ -57,7 +57,7 @@ $(document).ready(function(){
 	  speed: 500,
 	  prevArrow: $('.back'),
 	  nextArrow: $('.next'),
-	  infinite: false,	
+	  infinite: true,	
 	  responsive: [
 	    {
 	      breakpoint: 768,
