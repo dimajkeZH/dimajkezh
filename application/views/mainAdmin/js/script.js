@@ -28,6 +28,29 @@
 })(jQuery);
 /* инициализация табов */
 $('#tabs').tabs();
+/* Открытие модального окна */
+function modalOpen (){ 
+	$(".modal_wnd_inner").fadeIn(400); 
+	$(".modal_wnd_wrapper").fadeIn(400); 
+} 
+function modalClose (){ 
+	$(".modal_wnd_inner").fadeOut(400); 
+	$(".modal_wnd_wrapper").fadeOut(400); 
+}
+/* Скрыть элемент */
+	$('.hide').click(function() {
+		$(this).parent().parent().parent().find('.form_content').toggleClass('hide');
+		return false;
+	})
+/* Смена блоков местами */
+$(function(){ 
+	$('.main_content_info div[value=down]').on('click', function() { 
+		$(this).closest('.block_form').insertAfter($(this).closest('.block_form').next()); 
+	}); 
+	$('.main_content_info div[value=up]').on('click', function() { 
+		$(this).closest('.block_form').insertBefore($(this).closest('.block_form').prev()); 
+	}); 
+});
 //скролл
 function custormScrollContent(){
 	$(".main_content_info").mCustomScrollbar();

@@ -2435,18 +2435,20 @@
       font-size: 15px; }
   .main_wrapper .images_text .images_text_items {
     margin: 0px 8% 0px 8%; }
-    .main_wrapper .images_text .images_text_items .images_text_item img {
-      display: none; }
-    .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info {
-      position: relative;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      padding: 15px 25px; }
-      .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info .images_text_item_info_title {
-        font-size: 18px; }
-      .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info .images_text_item_info_content {
-        font-size: 15px; }
+    .main_wrapper .images_text .images_text_items .images_text_item {
+      margin-bottom: 20px; }
+      .main_wrapper .images_text .images_text_items .images_text_item img {
+        display: none; }
+      .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 15px 25px; }
+        .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info .images_text_item_info_title {
+          font-size: 18px; }
+        .main_wrapper .images_text .images_text_items .images_text_item .images_text_item_info .images_text_item_info_content {
+          font-size: 15px; }
   .main_wrapper .bus_description {
     padding: 15px 8%; }
     .main_wrapper .bus_description .bus_title {
