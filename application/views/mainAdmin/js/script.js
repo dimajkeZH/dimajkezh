@@ -38,7 +38,7 @@ function modalClose (){
 	$(".modal_wnd_wrapper").fadeOut(400); 
 }
 /* Скрыть элемент */
-	$('.hide').click(function() {
+	$('.block_hide').click(function() {
 		$(this).parent().parent().parent().find('.form_content').toggleClass('hide');
 		return false;
 	})

@@ -6,7 +6,7 @@
 												<div class="btn_down" value="down"><p></p></div>
 											</div>
 											<button class="remove">X</button>
-											<button class="add hide">Cвернуть</button>
+											<button class="add block_hide">Cвернуть</button>
 										</div>
 									</div>
 									<p class="form_title"><?php echo $path; ?></p>
