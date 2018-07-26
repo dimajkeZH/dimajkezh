@@ -103,48 +103,6 @@
 					  </div>
 					</div>
 					<div class="main_content">
-					<!-- <div class="case_groups">
-							<div class="main_content_head">
-								<p class="main_content_head_title">Case Groups</p>
-								<div class="buttons">
-									<button class="save">Save</button>
-									<button class="remove">Remove</button>
-								</div>
-							</div>
-							<div class="main_content_info">
-								<form action="	">
-									<div class="forma_group">
-										<p>Тип</p>
-										<div class="forma_group_item select">
-											<select name="type">
-												<option value="1">Значение 1</option>
-												<option value="2">Значение 2</option>
-												<option value="3">Значение 3</option>
-											</select>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Название</p>
-										<div class="forma_group_item text">
-											<input type="text" name="name" placeholder="name">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Номер по порядку</p>
-										<div class="forma_group_item text_btn">
-											<input type="text" name="serial_number" placeholder="serial_number">
-											<div class="text_btns">
-												<div class="btn_next"><p>+</p></div>
-												<div class="btn_prev"><p>-</p></div>
-											</div>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-							</div>
-					</div> -->
 						<div class="add_case">
 							<div class="main_content_head">
 								<p class="main_content_head_title">Add Case</p>
@@ -155,7 +113,16 @@
 								</div>
 							</div>
 							<div class="main_content_info">
-								<form action="	" class="general">
+								<form action="	" class="general block_form">
+									<div class="block_settings">
+										<div class="buttons">
+											<div class="up_down">
+												<div class="btn_up" value="up"><p></p></div>
+												<div class="btn_down" value="down"><p></p></div>
+											</div>
+											<button class="remove">X</button>
+										</div>
+									</div>
 									<p class="form_title">Общие</p>
 									<div class="forma_group">
 										<p>Группа</p>
@@ -194,7 +161,16 @@
 										</div>
 									</div>
 								</form>
-								<form action="	" class="menu">
+								<form action="	" class="menu block_form">
+									<div class="block_settings">
+										<div class="buttons">
+											<div class="up_down">
+												<div class="btn_up "><p></p></div>
+												<div class="btn_down "><p></p></div>
+											</div>
+											<button class="remove">X</button>
+										</div>
+									</div>
 									<p class="form_title">Menu</p>
 									<div class="forma_group">
 										<p>Заголовок</p>
@@ -239,7 +215,16 @@
 										</div>
 									</div>
 								</form>
-								<form action="	" class="page">
+								<form action="	" class="page block_form">
+									<div class="block_settings">
+										<div class="buttons">
+											<div class="up_down">
+												<div class="btn_next "><p></p></div>
+												<div class="btn_prev "><p></p></div>
+											</div>
+											<button class="remove">X</button>
+										</div>
+									</div>
 									<p class="form_title">Page</p>
 									<div class="forma_group">
 										<p>Заголовок главного блока</p>
@@ -377,197 +362,6 @@
 								</div>
 							</div>
 						</div>
-					<!-- <div class="site_content">
-							<div class="main_content_head">
-								<p class="main_content_head_title">Site Content	</p>
-								<div class="buttons">
-									<button class="save">Save</button>
-								</div>
-							</div>
-							<div class="main_content_info">
-								<form action="	">
-									<p class="form_title">Контакты</p>
-									<div class="forma_group">
-										<p>Адрес</p>
-										<div class="forma_group_item text">
-											<input type="text" name="addr" placeholder="addr">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Телефон мобильный</p>
-										<div class="forma_group_item text">
-											<input type="text" name="mob_phone" placeholder="mob_phone">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Телефон городской</p>
-										<div class="forma_group_item text">
-											<input type="text" name="city_phone" placeholder="city_phone">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Телефон справочная (800)</p>
-										<div class="forma_group_item text">
-											<input type="text" name="ref_phone" placeholder="ref_phone">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-								<form action="	">
-									<p class="form_title">Почта</p>
-									<div class="forma_group">
-										<p>Почта для заказов</p>
-										<div class="forma_group_item text">
-											<input type="text" name="send_mail" placeholder="send_mail">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Почта для связи</p>
-										<div class="forma_group_item text">
-											<input type="text" name="info_mail" placeholder="info_mail">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-								<form action="	">
-									<p class="form_title">Банковские реквизиты</p>
-									<div class="forma_group">
-										<p>Банк [TIN/CAT]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_tincat" placeholder="bank_tincat">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [что-то]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_state_number" placeholder="bank_state_number">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [что-то]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_checking_account" placeholder="bank_checking_account">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [Название]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_name" placeholder="bank_name">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [Корреспондентский счёт]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_corr_account" placeholder="bank_corr_account">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [Номер]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_id" placeholder="bank_id">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Банк [Директор(ФИО)]</p>
-										<div class="forma_group_item text">
-											<input type="text" name="bank_seo" placeholder="bank_seo">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-								<form action="">
-									<p class="form_title">Другое</p>
-									<div class="forma_group">
-										<p>Подпись</p>
-										<div class="forma_group_item text">
-											<input type="text" name="footer_sign" placeholder="footer_sign">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-							</div>
-					</div> -->
-					<!-- <div class="site_configs">
-							<div class="main_content_head">
-								<p class="main_content_head_title">Site configs</p>
-							</div>
-							<div class="main_content_info">
-								<form action="	">
-									<div class="forma_group">
-										<p>Открыт</p>
-										<div class="forma_group_item checkbox">
-											<input type="checkbox" name="work" placeholder="work" checked>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-								<form action="	">
-									<p class="form_title">Change pass</p>
-									<div class="forma_group">
-										<p>Старый пароль</p>
-										<div class="forma_group_item text">
-											<input type="text" name="old1" placeholder="old1">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Новый пароль 1</p>
-										<div class="forma_group_item text">
-											<input type="text" name="new1" placeholder="new1">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Новый пароль 2</p>
-										<div class="forma_group_item text">
-											<input type="text" name="new2" placeholder="new2">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Изменить</p>
-										<div class="forma_group_item text">
-											<button name="btn_changePass">Изменить</button>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Сгенерировать пароль</p>
-										<div class="forma_group_item text">
-											<button name="btn_gen">Сгенерировать пароль</button>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-								<form action="	" class="change_email">
-									<p class="form_title">Change email</p>
-									<div class="forma_group">
-										<p>E-mail</p>
-										<div class="forma_group_item text">
-											<input type="text" name="mail" placeholder="mail">
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-									<div class="forma_group">
-										<p>Изменить</p>
-										<div class="forma_group_item text">
-											<button name="btn_changeMail">Изменить</button>
-											<p class="forma_group_item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae cumque nulla explicabo eos, similique consectetur, iste ab adipisci atque.</p>
-										</div>
-									</div>
-								</form>
-							</div>
-					</div> -->
 					</div>
 				</div>
 			</div>

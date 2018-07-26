@@ -278,44 +278,48 @@
     .main_content .main_content_head .main_content_head_title {
       font-size: 20px;
       margin-left: 20px; }
-    .main_content .main_content_head .buttons {
-      background-color: #e8e8e8;
-      height: 100%;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      padding: 0px 20px; }
-      .main_content .main_content_head .buttons button {
-        border: 0px;
-        border-radius: 5px;
-        margin-left: 10px;
-        padding: 5px 10px;
-        cursor: pointer;
-        -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
-        transition: 0.3s;
-        outline: none;
-        color: #fff; }
-      .main_content .main_content_head .buttons .save {
-        background-color: #2ea999; }
-      .main_content .main_content_head .buttons .save:hover {
-        background-color: rgba(46, 169, 153, 0.8); }
-      .main_content .main_content_head .buttons .remove {
-        background-color: #bb3d4e; }
-      .main_content .main_content_head .buttons .remove:hover {
-        background-color: rgba(187, 61, 78, 0.8); }
+  .main_content .buttons {
+    background-color: #e8e8e8;
+    height: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0px 20px; }
+    .main_content .buttons button {
+      border: 0px;
+      border-radius: 5px;
+      margin-left: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      outline: none;
+      color: #fff; }
+    .main_content .buttons .save {
+      background-color: #2ea999; }
+    .main_content .buttons .save:hover {
+      background-color: rgba(46, 169, 153, 0.8); }
+    .main_content .buttons .remove {
+      background-color: #bb3d4e; }
+    .main_content .buttons .remove:hover {
+      background-color: rgba(187, 61, 78, 0.8); }
+    .main_content .buttons .add {
+      background-color: #007bff; }
+    .main_content .buttons .add:hover {
+      background-color: rgba(0, 123, 255, 0.8); }
   .main_content .main_content_info {
     height: 100%;
     padding-top: 50px;
     background-color: #f2f2f2; }
-    .main_content .main_content_info form {
+    .main_content .main_content_info .block_form {
       padding-top: 5px;
       background-color: #fff;
       width: calc(100% - 40px);
@@ -325,11 +329,11 @@
       border-radius: 0px 0px 5px 5px;
       -webkit-box-shadow: 0px 0px 10px #000;
       box-shadow: 0px 0px 10px #000; }
-      .main_content .main_content_info form .form_title {
+      .main_content .main_content_info .block_form .form_title {
         font-size: 18px;
         text-align: center;
         margin: 20px; }
-      .main_content .main_content_info form .forma_group {
+      .main_content .main_content_info .block_form .forma_group {
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
@@ -343,11 +347,11 @@
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        padding: 10px 20px; }
-        .main_content .main_content_info form .forma_group > p {
+        padding: 10px 40px; }
+        .main_content .main_content_info .block_form .forma_group > p {
           font-size: 16px;
           width: 20%; }
-        .main_content .main_content_info form .forma_group .forma_group_item {
+        .main_content .main_content_info .block_form .forma_group .forma_group_item {
           width: 85%;
           display: -webkit-flex;
           display: -moz-flex;
@@ -364,7 +368,7 @@
           align-items: center;
           -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
-          .main_content .main_content_info form .forma_group .forma_group_item select, .main_content .main_content_info form .forma_group .forma_group_item input, .main_content .main_content_info form .forma_group .forma_group_item textarea {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item select, .main_content .main_content_info .block_form .forma_group .forma_group_item input, .main_content .main_content_info .block_form .forma_group .forma_group_item textarea {
             width: 100%;
             height: 30px;
             padding: 2px 7px;
@@ -375,60 +379,61 @@
             background-color: #f2f2f2;
             -webkit-transition: all 0.2s;
             -o-transition: all 0.2s;
-            transition: all 0.2s; }
-          .main_content .main_content_info form .forma_group .forma_group_item textarea {
+            transition: all 0.2s;
+            font-size: 16px; }
+          .main_content .main_content_info .block_form .forma_group .forma_group_item textarea {
             height: 100px;
             resize: none; }
-          .main_content .main_content_info form .forma_group .forma_group_item select option {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item select option {
             background-color: transparent; }
-          .main_content .main_content_info form .forma_group .forma_group_item select:focus, .main_content .main_content_info form .forma_group .forma_group_item input:focus, .main_content .main_content_info form .forma_group .forma_group_item textarea:focus {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item select:focus, .main_content .main_content_info .block_form .forma_group .forma_group_item input:focus, .main_content .main_content_info .block_form .forma_group .forma_group_item textarea:focus {
             border: 2px solid #b5eae0;
             -webkit-box-shadow: 0px 0px 5px 1px #b5eae0;
             box-shadow: 0px 0px 5px 1px #b5eae0; }
-          .main_content .main_content_info form .forma_group .forma_group_item input[type=file] {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item input[type=file] {
             border: 0px; }
-          .main_content .main_content_info form .forma_group .forma_group_item p {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item p {
             font-size: 14px;
             margin-top: 7px;
             color: rgba(0, 0, 0, 0.4); }
-          .main_content .main_content_info form .forma_group .forma_group_item.text_btn input {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn input {
             width: 90%; }
-          .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns {
             width: 10%;
             font-size: 20px;
             display: inline-block;
             padding-left: 10px; }
-            .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_next, .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_prev {
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_next, .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_prev {
               border: 20px solid transparent;
               width: 0;
               height: 0;
               position: relative;
               cursor: pointer; }
-              .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_next p, .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_prev p {
+              .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_next p, .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_prev p {
                 position: absolute;
                 font-size: 20px;
                 width: 40px;
                 text-align: center; }
-            .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_next {
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_next {
               border-bottom: 20px solid #e5e5e5;
               margin-bottom: 5px; }
-              .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_next p {
+              .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_next p {
                 -webkit-transform: translate(-50%, -25%);
                 -ms-transform: translate(-50%, -25%);
                 transform: translate(-50%, -25%); }
-            .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_prev {
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_prev {
               margin-top: 5px;
               border-top: 20px solid #e5e5e5; }
-              .main_content .main_content_info form .forma_group .forma_group_item.text_btn .text_btns .btn_prev p {
+              .main_content .main_content_info .block_form .forma_group .forma_group_item.text_btn .text_btns .btn_prev p {
                 -webkit-transform: translate(-50%, -150%);
                 -ms-transform: translate(-50%, -150%);
                 transform: translate(-50%, -150%); }
-          .main_content .main_content_info form .forma_group .forma_group_item.checkbox {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item.checkbox {
             -ms-flex-wrap: nowrap;
             flex-wrap: nowrap; }
-            .main_content .main_content_info form .forma_group .forma_group_item.checkbox input {
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.checkbox input {
               width: 20%; }
-          .main_content .main_content_info form .forma_group .forma_group_item button {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item button {
             border: 1px solid #007bff;
             border-radius: 5px;
             padding: 5px 10px;
@@ -438,8 +443,119 @@
             -o-transition: 0.3s;
             transition: 0.3s;
             outline: none; }
-          .main_content .main_content_info form .forma_group .forma_group_item button:hover {
+          .main_content .main_content_info .block_form .forma_group .forma_group_item button:hover {
             background-color: #007bff; }
+      .main_content .main_content_info .block_form .block_settings {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end; }
+        .main_content .main_content_info .block_form .block_settings .buttons {
+          background: none; }
+        .main_content .main_content_info .block_form .block_settings .up_down .btn_up, .main_content .main_content_info .block_form .block_settings .up_down .btn_down {
+          border: 20px solid transparent;
+          width: 0;
+          height: 0;
+          position: relative;
+          cursor: pointer; }
+          .main_content .main_content_info .block_form .block_settings .up_down .btn_up p, .main_content .main_content_info .block_form .block_settings .up_down .btn_down p {
+            position: absolute;
+            font-size: 20px;
+            width: 40px;
+            text-align: center; }
+        .main_content .main_content_info .block_form .block_settings .up_down .btn_up {
+          border-bottom: 20px solid #007bff;
+          margin-bottom: 5px; }
+          .main_content .main_content_info .block_form .block_settings .up_down .btn_up p {
+            -webkit-transform: translate(-50%, -25%);
+            -ms-transform: translate(-50%, -25%);
+            transform: translate(-50%, -25%); }
+        .main_content .main_content_info .block_form .block_settings .up_down .btn_down {
+          margin-top: 5px;
+          border-top: 20px solid #007bff; }
+          .main_content .main_content_info .block_form .block_settings .up_down .btn_down p {
+            -webkit-transform: translate(-50%, -150%);
+            -ms-transform: translate(-50%, -150%);
+            transform: translate(-50%, -150%); }
+  .main_content .modal_wnd .modal_wnd_wrapper {
+    background-color: rgba(0, 0, 0, 0.55);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    z-index: 14; }
+  .main_content .modal_wnd .modal_wnd_inner {
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    display: none;
+    z-index: 15;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 0px 15px 2px #fff;
+    box-shadow: 0px 0px 15px 2px #fff;
+    border-radius: 5px;
+    overflow: hidden; }
+    .main_content .modal_wnd .modal_wnd_inner .modal_wnd_head {
+      padding: 10px 20px;
+      background-color: #e5e5e5;
+      width: 100%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+      .main_content .modal_wnd .modal_wnd_inner .modal_wnd_head .buttons {
+        width: 100%;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_form, .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_info {
+        width: 50%;
+        margin: 0px 10px; }
+      .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_form form {
+        width: 100%;
+        height: 100%; }
+        .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_form form select {
+          width: 100%;
+          height: 100%; }
+      .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_info {
+        padding: 10px 0px; }
+        .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_info .modal_wnd_info_title {
+          font-size: 22px;
+          padding-bottom: 15px; }
+        .main_content .modal_wnd .modal_wnd_inner .modal_wnd_content .modal_wnd_info .modal_wnd_info_content {
+          font-size: 16px; }
 
 .footer {
   border-left: 2px solid #e5e5e5;

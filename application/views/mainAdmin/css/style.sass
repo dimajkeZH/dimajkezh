@@ -231,38 +231,42 @@ $blue: #007bff
 		.main_content_head_title
 			font-size: 20px
 			margin-left: 20px	
-		.buttons
-			background-color: #e8e8e8
-			height: 100%
-			display: -webkit-flex
-			display: -moz-flex
-			display: -ms-flex
-			display: -o-flex
-			display: flex	
-			align-items: center
-			padding: 0px 20px	
-			button
-				border: 0px
-				border-radius: 5px
-				margin-left: 10px
-				padding: 5px 10px
-				cursor: pointer
-				transition: 0.3s
-				outline: none
-				color: #fff
-			.save
-				background-color: rgba(46, 169, 153, 1)
-			.save:hover
-				background-color: rgba(46, 169, 153, .8)
-			.remove
-				background-color: rgba(187, 61, 78, 1)
-			.remove:hover
-				background-color: rgba(187, 61, 78, .8)
+	.buttons
+		background-color: #e8e8e8
+		height: 100%
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex	
+		align-items: center
+		padding: 0px 20px	
+		button
+			border: 0px
+			border-radius: 5px
+			margin-left: 10px
+			padding: 5px 10px
+			cursor: pointer
+			transition: 0.3s
+			outline: none
+			color: #fff
+		.save
+			background-color: rgba(46, 169, 153, 1)
+		.save:hover
+			background-color: rgba(46, 169, 153, .8)
+		.remove
+			background-color: rgba(187, 61, 78, 1)
+		.remove:hover
+			background-color: rgba(187, 61, 78, .8)
+		.add 
+			background-color: rgba(0, 123, 255, 1)
+		.add:hover
+			background-color: rgba(0, 123, 255, .8)
 	.main_content_info
 		height: 100%
 		padding-top: 50px	
 		background-color: #f2f2f2
-		form
+		.block_form
 			padding-top: 5px	
 			background-color: #fff
 			width: calc(100% - 40px)	
@@ -283,7 +287,7 @@ $blue: #007bff
 				display: flex	
 				justify-content: space-between	
 				align-items: center	
-				padding: 10px 20px
+				padding: 10px 40px
 				>p
 					font-size: 16px
 					width: 20%
@@ -307,10 +311,10 @@ $blue: #007bff
 						display: inline-block
 						background-color: #f2f2f2
 						transition: all 0.2s
+						font-size: 16px	
 					textarea
 						height: 100px
 						resize: none
-
 					select
 						option
 							background-color: transparent
@@ -366,6 +370,98 @@ $blue: #007bff
 						outline: none
 					button:hover
 						background-color: $blue	
+			.block_settings
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				justify-content: flex-end
+				.buttons
+					background: none
+				.up_down
+					.btn_up, .btn_down
+						border: 20px solid transparent
+						width: 0
+						height: 0
+						position: relative
+						cursor: pointer
+						p
+							position: absolute	
+							font-size: 20px	
+							width: 40px	
+							text-align: center	
+					.btn_up
+						border-bottom: 20px solid $blue
+						margin-bottom: 5px	
+						p
+							transform: translate(-50%, -25%)	
+					.btn_down
+						margin-top: 5px	
+						border-top: 20px solid $blue
+						p
+							transform: translate(-50%, -150%)	
+	.modal_wnd
+		.modal_wnd_wrapper
+			background-color: rgba(0,0,0, .55)
+			position: fixed
+			top: 0
+			left: 0
+			z-index: 10
+			width: 100%
+			height: 100vh
+			display: none
+			z-index: 14 
+		.modal_wnd_inner
+			background-color: #fff  
+			top: 50%
+			left: 50%
+			display: none
+			z-index: 15   
+			position: fixed
+			transform: translate( -50% , -50%)
+			box-shadow: 0px 0px 15px 2px #fff
+			border-radius: 5px
+			overflow: hidden
+			.modal_wnd_head
+				padding: 10px 20px	
+				background-color: $gray
+				width: 100%
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				justify-content: space-between
+				.buttons
+					width: 100%
+					justify-content: space-between
+			.modal_wnd_content
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex	
+				justify-content: space-between	
+				align-items: center	
+				.modal_wnd_form, .modal_wnd_info
+					width: 50%
+					margin: 0px 10px
+				.modal_wnd_form
+					form
+						width: 100%
+						height: 100%	
+						select
+							width: 100%
+							height: 100%
+				.modal_wnd_info
+					padding: 10px 0px
+					.modal_wnd_info_title
+						font-size: 22px
+						padding-bottom: 15px
+					.modal_wnd_info_content
+						font-size: 16px	
+
 
 
 .footer
