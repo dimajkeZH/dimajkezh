@@ -272,7 +272,6 @@ $blue: #007bff
 			width: calc(100% - 40px)	
 			margin: 10px 20px
 			margin-top: 0	
-			padding-bottom: 30px
 			border-radius: 0px 0px 5px 5px
 			box-shadow: 0px 0px 10px #000
 			padding-bottom: 0px
@@ -286,6 +285,8 @@ $blue: #007bff
 				transition: .4s
 				&.hide
 					height: 0px
+			.forma_group:last-child
+				margin-bottom: 20px	
 			.forma_group
 				display: -webkit-flex
 				display: -moz-flex
@@ -527,6 +528,7 @@ $blue: #007bff
 		transform: translate(-50%, -50%)
 		top: 50%
 		left: 50%
+		font-size: 0px
 	&.hide
 		display: none
 	.element_box
