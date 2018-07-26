@@ -162,6 +162,7 @@ function Ajax(uri, data = {}, callback = ''){
 function loadPage(content){
 	$('.'+classContentBox).html(content);
 	custormScrollContent();
+	hideAllBlocks();
 }
 
 function updTree(){
@@ -293,6 +294,12 @@ function HideLoader(){
 		}
 	}, loaderPageHide);
 }
+
+function hideAllBlocks(){
+	$(function(){
+		$('.form_content').toggleClass('hide');
+	});
+}
 /* FUNCTIONS END */
 
 /* EVENTS */
@@ -345,4 +352,5 @@ function HideLoader(){
 
 /* SIMPLE CODE */
 	//showMessage(typeMessage.good, 'test message');
+	hideAllBlocks();
 /* SIMPLE CODE END */

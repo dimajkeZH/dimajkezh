@@ -45,8 +45,20 @@
 		</form>
 		<?php if(isset($CONTENT['PAGE']) && ($CONTENT['PAGE'] != '')): ?>
 		<form id="data" class="block_form">
+			<div class="block_settings">
+				<div class="buttons">
+					<div class="up_down">
+						<div class="btn_up" value="up"><p></p></div>
+						<div class="btn_down" value="down"><p></p></div>
+					</div>
+					<button class="remove">X</button>
+					<button class="add block_hide">Cвернуть</button>
+				</div>
+			</div>
 			<p class="form_title">Страница</p>
-			<?php echo $CONTENT['PAGE']; ?>
+			<div class="form_content">
+				<?php echo $CONTENT['PAGE']; ?>
+			</div>
 		</form>
 		<?php endif; ?>
 	</div>
