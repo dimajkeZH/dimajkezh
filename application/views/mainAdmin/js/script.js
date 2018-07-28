@@ -38,17 +38,34 @@ function modalClose (){
 	$(".modal_wnd_wrapper").fadeOut(400); 
 }
 /* Скрыть элемент */
-	$('.block_hide').click(function() {
-		$(this).parent().parent().parent().find('.form_content').toggleClass('hide');
-		return false;
-	})
+function hideThis(THIS){
+	//$(THIS).parent().parent().parent().find('.form_content').toggleClass('hide');
+	let box = $(THIS).closest('.block_form').find('.form_content');
+	box.toggleClass('hide');
+	if(box.hasClass('hide')){
+		$(THIS).text('Развернуть');
+	}else{
+		$(THIS).text('Свернуть');
+	}
+	return false;
+}
 /* Смена блоков местами */
 $(function(){ 
-	$('.main_content_info div[value=down]').on('click', function() { 
-		$(this).closest('.block_form').insertAfter($(this).closest('.block_form').next()); 
+	$('.main_content_info div[value=down]').on('click', function() {
+		try{
+			let block_form = $(this).closest('.block_form');
+			block_form.insertAfter(block_form.next()); 
+		}catch(e){
+
+		}
 	}); 
-	$('.main_content_info div[value=up]').on('click', function() { 
-		$(this).closest('.block_form').insertBefore($(this).closest('.block_form').prev()); 
+	$('.main_content_info div[value=up]').on('click', function() {
+		try{
+			let block_form = $(this).closest('.block_form');
+			block_form.insertBefore(block_form.prev()); 
+		}catch(e){
+
+		}
 	}); 
 });
 //скролл
@@ -119,7 +136,7 @@ function GetContent(uri, Class, data = {}){
 			try{
 				data = JSON.parse(data.trim());
 				$(Class).html(data.message);
-			}catch{
+			}catch(e){
 				console.log('Error of script. Refresh page!');
 			}finally{
 				
@@ -145,7 +162,7 @@ function Ajax(uri, data = {}, callback = ''){
 			try{
 				//data = JSON.parse(data.trim());
 				window[callback](data.message, data.status);
-			}catch{
+			}catch(e){
 				console.log('Error of script. Refresh page!');
 			}finally{
 				HideLoader();
@@ -298,6 +315,7 @@ function HideLoader(){
 function hideAllBlocks(){
 	$(function(){
 		$('.form_content').toggleClass('hide');
+		$('.block_hide').text('Развернуть');
 	});
 }
 /* FUNCTIONS END */
