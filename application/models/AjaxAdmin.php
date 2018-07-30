@@ -112,12 +112,16 @@ class AjaxAdmin extends Admin {
 	}
 	public function savePages($post, $files){
 		$common = array_shift($post);
-
 		$ID = $common['ID_PAGE'];
 		$ID_TYPE = $common['ID_TYPE'];
 
 		$TITLE = $common['TITLE'];
-		$IMAGE = $files['IMAGE_0'];
+		if(isset($files['IMAGE_0'])){
+			$IMAGE = $files['IMAGE_0'];
+		}else{
+			$IMAGE['name'] = '';
+			$IMAGE['size'] = 0;
+		}
 		$IMAGE_NAME = '';
 		if(($IMAGE['size'] > 0) && ($IMAGE['name'] != '')){
 			$q = 'SELECT IMAGE FROM PAGES WHERE ID = :ID';
@@ -199,7 +203,9 @@ class AjaxAdmin extends Admin {
 				$LEFT_IMAGE = '';
 				$RIGHT_IMAGE = '';
 				//load left image
-				$img = $files['LEFT_IMAGE_'.$val['ID']];
+				if(isset($files['LEFT_IMAGE_'.$val['ID']])){
+					$img = $files['LEFT_IMAGE_'.$val['ID']];
+				}
 				if(isset($img)){
 					if($oldL == ''){
 						$LEFT_IMAGE = $this->loadImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $img);
@@ -211,7 +217,9 @@ class AjaxAdmin extends Admin {
 					}
 				}
 				//load right image
-				$img = $files['RIGHT_IMAGE_'.$val['ID']];
+				if(isset($files['RIGHT_IMAGE_'.$val['ID']])){
+					$img = $files['RIGHT_IMAGE_'.$val['ID']];
+				}
 				if(isset($img)){
 					if($oldR == ''){
 						$RIGHT_IMAGE = $this->loadImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $img);
@@ -235,7 +243,9 @@ class AjaxAdmin extends Admin {
 				break;
 			case 'H2': //images
 				//load left image
-				$img = $files['LEFT_IMAGE_'.$val['ID']];
+				if(isset($files['LEFT_IMAGE_'.$val['ID']])){
+					$img = $files['LEFT_IMAGE_'.$val['ID']];
+				}
 				if(isset($img)){
 					$LEFT_IMAGE = $this->loadImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $img);
 					$LEFT_IMAGE = ($LEFT_IMAGE != '')?'`LEFT_IMAGE` = "'.$LEFT_IMAGE.'", ':'';
@@ -243,7 +253,9 @@ class AjaxAdmin extends Admin {
 					$LEFT_IMAGE = '';
 				}
 				//load right image
-				$img = $files['RIGHT_IMAGE_'.$val['ID']];
+				if(isset($files['RIGHT_IMAGE_'.$val['ID']])){
+					$img = $files['RIGHT_IMAGE_'.$val['ID']];
+				}
 				if(isset($img)){
 					$RIGHT_IMAGE = $this->loadImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $img);
 					$RIGHT_IMAGE = ($RIGHT_IMAGE != '') ? '`RIGHT_IMAGE` = "'.$RIGHT_IMAGE.'", ' : '';
@@ -251,7 +263,9 @@ class AjaxAdmin extends Admin {
 					$RIGHT_IMAGE = '';
 				}
 				//load middle image
-				$img = $files['MIDDLE_IMAGE_'.$val['ID']];
+				if(isset($files['MIDDLE_IMAGE_'.$val['ID']])){
+					$img = $files['MIDDLE_IMAGE_'.$val['ID']];
+				}
 				if(isset($img)){
 					$MIDDLE_IMAGE = $this->loadImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $img);
 					$MIDDLE_IMAGE = ($MIDDLE_IMAGE != '') ? '`MIDDLE_IMAGE` = "'.$MIDDLE_IMAGE.'", ' : '';

@@ -93,6 +93,7 @@
 	</div>
 	<script src="/application/views/mainAdmin/js/jquery.min.js"></script>
 	<script src="/application/views/mainAdmin/js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.js"></jquery>"></script>
+	<script src="/application/views/mainAdmin/js/classes.js"></script>
 	<script src="/application/views/mainAdmin/js/script.js"></script>
 </body>
 </html>
