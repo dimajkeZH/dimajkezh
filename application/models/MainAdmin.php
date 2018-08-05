@@ -148,6 +148,24 @@ class MainAdmin extends Admin {
 	}
 
 
+	public function reportAccounts(){
+		$return['CONTENT'] = $this->db->row('SELECT FULL_NAME, NAME FROM ADMIN_ACCOUNTS ORDER BY ID');
+		return $return;
+	}
+
+	public function reportSessions(){
+		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, `AS`.ID, `AS`.IP, `AS`.BROWSER, `AS`.DT_CREATE, `AS`.DT_DESTROY FROM ADMIN_SESSIONS as `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON AA.ID = `AS`.ID_ADMIN ORDER BY `AS`.DT_CREATE DESC');
+		$return['NOW'] = $this->now();
+		return $return;
+	}
+
+	public function reportActions(){
+		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, AL.ID_SESSION, ALT.NAME as `TYPE_NAME`, AL.CUR_ACTION, AL.DT_INCIDENT FROM ADMIN_LOGS as AL INNER JOIN (ADMIN_SESSIONS AS `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON `AS`.ID_ADMIN = AA.ID) ON `AS`.ID = AL.ID_SESSION INNER JOIN ADMIN_LOG_TYPES as ALT ON AL.ID_TYPE = ALT.ID ORDER BY AL.DT_INCIDENT DESC');
+		return $return;
+	}
+
+
+
 	public function catalogCitiesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
 			$return['CONTENT']['ID'] = $route['param'];

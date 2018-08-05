@@ -2,7 +2,7 @@
 let classContentBox = 'main_content',
 	classSiteTree = 'main_nav';
 let message = new Message(),
-	loader = new Loader();
+	loader = new Loader('.loader_box');
 /******************************* VARS END *******************************/
 
 
@@ -251,6 +251,7 @@ function customRedirect(){
 		$(window).on("load",function(){
 			custormScrollContent();
 			custormScrollTree();
+			loader.hide();
 		});
 	})(jQuery);
 	//check input value in input text btn

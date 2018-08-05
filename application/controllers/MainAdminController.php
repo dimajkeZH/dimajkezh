@@ -93,6 +93,41 @@ class MainAdminController extends AdminController {
 		}
 	}
 
+
+	public function reportAccountsAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->reportAccounts();
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+	public function reportSessionsAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->reportSessions();
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+	public function reportActionsAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->reportActions();
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
+
 	public function catalogCitiesAction(){
 		$this->isAuth();
 		$this->settings();

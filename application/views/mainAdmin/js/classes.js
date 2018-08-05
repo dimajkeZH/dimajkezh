@@ -132,8 +132,8 @@ class Message{
 /******************************* class for show the loader on page  *******************************/
 class Loader{
 
-	constructor(){
-		this.classLoaderPage = '.loader_box';
+	constructor(box){
+		this.classLoaderPage = box;
 		this.loaderPageHide = 10;
 		this.loaderHideWeight = 0.01;
 		this.loader = $(this.classLoaderPage)[0];

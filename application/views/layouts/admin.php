@@ -42,9 +42,9 @@
 						</li>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a class="Go" href="#">Аккаунты</a></li>
-								<li><a class="Go" href="#">Сессии</a></li>
-								<li><a class="Go" href="#">Действия в сессиях</a></li>
+								<li><a class="Go" href="/admin/report/accounts">Аккаунты</a></li>
+								<li><a class="Go" href="/admin/report/sessions">Сессии</a></li>
+								<li><a class="Go" href="/admin/report/actions">Действия в сессиях</a></li>
 							</ul>
 						</li>
 					</ul>	
@@ -68,7 +68,7 @@
 					<?php echo $TREE; ?>
 				</div>
 				<div class="content_box">
-					<div class="loader_box hide">
+					<div class="loader_box">
 					  <div class="loader">
 					  	<div class="element_box"><div class="element"></div></div><!--
 					    --><div class="element_box"><div class="element"></div></div><!--

@@ -145,6 +145,19 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'sitePages',
 	],
+	//reports
+	'admin/report/accounts' => [
+		'controller' => 'mainAdmin',
+		'action' => 'reportAccounts',
+	],
+	'admin/report/sessions' => [
+		'controller' => 'mainAdmin',
+		'action' => 'reportSessions',
+	],
+	'admin/report/actions' => [
+		'controller' => 'mainAdmin',
+		'action' => 'reportActions',
+	],
 	//catalogs
 	'admin/catalog/cities' => [
 		'controller' => 'mainAdmin',
