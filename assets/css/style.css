@@ -767,6 +767,7 @@ a {
 .order_header {
   background-image: url(../img/static/order_header_bcg.png);
   font-size: 0px;
+  background-position: 0px -150px;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1064,6 +1065,7 @@ form .forma_group:last-of-type input {
   background-image: url(../img/static/bus_head_bcg.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 0px -150px;
   padding-top: 275px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1711,6 +1713,29 @@ form .forma_group:last-of-type input {
     font-weight: 600; }
     .text ol li span {
       color: #0d5899; }
+  .text .table_buses {
+    display: table;
+    width: 100%;
+    border-collapse: collapse; }
+    .text .table_buses li {
+      display: table-row; }
+      .text .table_buses li span {
+        display: table-cell;
+        text-align: center;
+        color: #000;
+        padding: 15px 20px; }
+      .text .table_buses li span:nth-child(1) {
+        font-weight: 600;
+        text-align: left; }
+      .text .table_buses li span:nth-child(2) {
+        color: #0d5899;
+        text-align: center; }
+      .text .table_buses li span:nth-child(3) {
+        text-align: right; }
+    .text .table_buses li:nth-child(1) {
+      display: table-header-group; }
+    .text .table_buses li:nth-child(odd) {
+      background-color: #f3f6fa; }
 
 .phone_number {
   position: absolute;

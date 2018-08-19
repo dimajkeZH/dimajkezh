@@ -595,6 +595,7 @@ a
 .order_header 
 	background-image: url(../img/static/order_header_bcg.png)
 	font-size: 0px
+	background-position: 0px -150px
 	position: relative
 	background-size: cover
 	background-repeat: no-repeat
@@ -817,6 +818,7 @@ form .forma_group:last-of-type input
 	background-image: url(../img/static/bus_head_bcg.png)
 	background-repeat: no-repeat
 	background-size: cover
+	background-position: 0px -150px
 	padding-top: 275px	
 	display: flex
 	width: 100%	
@@ -1311,7 +1313,31 @@ form .forma_group:last-of-type input
 			font-weight: $semibold
 			span
 				color: $blue
-
+	.table_buses
+		display: table
+		width: 100%
+		border-collapse: collapse
+		li
+			display: table-row
+			span
+				display: table-cell
+				text-align: center
+				color: #000
+				// border: 1px solid rgba(0,0,0, 0.3)
+				padding: 15px 20px
+				
+			span:nth-child(1)
+				font-weight: $semibold
+				text-align: left
+			span:nth-child(2)
+				color: $blue
+				text-align: center
+			span:nth-child(3)
+				text-align: right
+		li:nth-child(1)
+			display: table-header-group
+		li:nth-child(odd)
+			background-color: $gray
 .phone_number
 	position: absolute
 	margin-right: 40px
