@@ -455,6 +455,80 @@
             outline: none; }
           .main_content .main_content_info .block_form .forma_group .forma_group_item button:hover {
             background-color: #007bff; }
+      .main_content .main_content_info .block_form .table_info {
+        width: 100%;
+        font-size: 16px; }
+        .main_content .main_content_info .block_form .table_info .table_info_btns {
+          width: 20%;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: start;
+          -ms-flex-pack: start;
+          justify-content: flex-start;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          background-color: #fff; }
+          .main_content .main_content_info .block_form .table_info .table_info_btns button {
+            border: 0px;
+            border-radius: 5px;
+            margin-left: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+            outline: none;
+            color: #fff;
+            margin-bottom: 10px; }
+          .main_content .main_content_info .block_form .table_info .table_info_btns .remove {
+            background-color: #bb3d4e; }
+          .main_content .main_content_info .block_form .table_info .table_info_btns .remove:hover {
+            background-color: rgba(187, 61, 78, 0.8); }
+          .main_content .main_content_info .block_form .table_info .table_info_btns .add {
+            background-color: #007bff; }
+          .main_content .main_content_info .block_form .table_info .table_info_btns .add:hover {
+            background-color: rgba(0, 123, 255, 0.8); }
+        .main_content .main_content_info .block_form .table_info table {
+          border-collapse: collapse;
+          width: 100%; }
+          .main_content .main_content_info .block_form .table_info table button.remove {
+            border-color: rgba(187, 61, 78, 0.8);
+            color: #fff;
+            background-color: #bb3d4e; }
+          .main_content .main_content_info .block_form .table_info table button.remove:hover {
+            border-color: rgba(187, 61, 78, 0.8);
+            background-color: rgba(187, 61, 78, 0.8); }
+          .main_content .main_content_info .block_form .table_info table th {
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.4); }
+          .main_content .main_content_info .block_form .table_info table td {
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.4); }
+            .main_content .main_content_info .block_form .table_info table td input {
+              width: 100%;
+              height: 30px;
+              padding: 2px 7px;
+              border-radius: 5px;
+              border: 0;
+              outline: 0;
+              display: inline-block;
+              background-color: #f2f2f2;
+              -webkit-transition: all 0.2s;
+              -o-transition: all 0.2s;
+              transition: all 0.2s;
+              font-size: 14px; }
+            .main_content .main_content_info .block_form .table_info table td input:focus {
+              border: 2px solid #b5eae0;
+              -webkit-box-shadow: 0px 0px 5px 1px #b5eae0;
+              box-shadow: 0px 0px 5px 1px #b5eae0; }
       .main_content .main_content_info .block_form .block_settings {
         display: -webkit-flex;
         display: -moz-flex;
