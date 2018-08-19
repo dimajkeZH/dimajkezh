@@ -379,6 +379,31 @@ $blue: #007bff
 						outline: none
 					button:hover
 						background-color: $blue	
+					&.add_table
+						justify-content: space-around	
+						align-items: flex-end	
+						width: 85%	
+						.add_table_inputs
+							display: -webkit-flex
+							display: -moz-flex
+							display: -ms-flex
+							display: -o-flex
+							display: flex
+							width: 50%	
+							label
+								color: rgba(0, 0, 0, 0.6)
+								display: block	
+								font-size: 16px	
+								margin-right: 10px	
+								input
+									margin-top: 5px	
+						.add_table_btn
+							.add
+								color: #fff
+								background-color: rgba(0, 123, 255, 1)
+							.add:hover
+								background-color: rgba(0, 123, 255, .8)
+
 			.table_info 
 				width: 100%
 				font-size: 16px

@@ -455,6 +455,34 @@
             outline: none; }
           .main_content .main_content_info .block_form .forma_group .forma_group_item button:hover {
             background-color: #007bff; }
+          .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table {
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            width: 85%; }
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table .add_table_inputs {
+              display: -webkit-flex;
+              display: -moz-flex;
+              display: -ms-flex;
+              display: -o-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              width: 50%; }
+              .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table .add_table_inputs label {
+                color: rgba(0, 0, 0, 0.6);
+                display: block;
+                font-size: 16px;
+                margin-right: 10px; }
+                .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table .add_table_inputs label input {
+                  margin-top: 5px; }
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table .add_table_btn .add {
+              color: #fff;
+              background-color: #007bff; }
+            .main_content .main_content_info .block_form .forma_group .forma_group_item.add_table .add_table_btn .add:hover {
+              background-color: rgba(0, 123, 255, 0.8); }
       .main_content .main_content_info .block_form .table_info {
         width: 100%;
         font-size: 16px; }
