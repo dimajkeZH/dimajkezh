@@ -1,14 +1,16 @@
 #ServerSignature Off
 AddDefaultCharset UTF-8
+DirectorySlash off
 
-<ifModule mod_php.c>	
+<ifModule php7_module>	
   php_value	upload_max_filesize	32M
-  php_value	post_max_size		16M
+  php_value	post_max_size		512M
   php_value	default_charset utf-8
   php_value	max_execution_time 60
 </ifModule>
 
-<IfModule mod_gzip.c>
+
+<IfModule mod_gzip.so>
 	mod_gzip_on         Yes
 	mod_gzip_dechunk    Yes
 	mod_gzip_item_include file		\.(html?|txt|css|js|php|pl)$
@@ -17,8 +19,8 @@ AddDefaultCharset UTF-8
 	mod_gzip_item_exclude mime		^image\.*
 	mod_gzip_item_exclude rspheader	^Content-Encoding:.*gzip.*
 </IfModule>
-<IfModule !mod_gzip.c>
-	<ifModule mod_deflate.c>
+<IfModule !mod_gzip.so>
+	<ifModule mod_deflate.so>
 		SetOutputFilter DEFLATE
 		AddOutputFilterByType DEFLATE text/html
 		AddOutputFilterByType DEFLATE text/plain 
@@ -33,7 +35,8 @@ AddDefaultCharset UTF-8
 	</ifModule>
 </IfModule>
 
-<ifModule mod_headers.c>
+
+<ifModule headers_module>
 	#кэшировать html и htm файлы на один день
 	<FilesMatch "\.(html|htm)$">
 		Header set Cache-Control "max-age=43200"
@@ -51,8 +54,8 @@ AddDefaultCharset UTF-8
 		Header unset Cache-Control
 	</FilesMatch>
 </IfModule>
-<ifModule !mod_headers.c>
-	<ifModule mod_expires.c>
+<ifModule !headers_module>
+	<ifModule expires_module>
 		ExpiresActive On
 		#по умолчанию кеш в 5 секунд
 		ExpiresDefault "access plus 5 seconds"
@@ -100,7 +103,7 @@ AddDefaultCharset UTF-8
 # Gateway Timeout
 #ErrorDocument 504 /504.html
 
-<ifModule mod_rewrite.c>
+<ifModule rewrite_module>
 	RewriteEngine On  
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d  
