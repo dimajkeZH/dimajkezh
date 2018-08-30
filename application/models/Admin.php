@@ -8,7 +8,7 @@ abstract class Admin extends Model {
 
 	/* CLASS VARIABLES */
 	public $title = 'perfectCMS';
-	public $ver = '0.0.4';
+	public $ver = '0.0.5';
 
 	protected $lifetime_hash = 1800;
 
@@ -39,17 +39,15 @@ abstract class Admin extends Model {
 	/* BOOLEAN PUBLIC FUNCTIONS */
 	//IS AUTH
 	public function isAuth(){
-		if(isset($_SESSION['admintype']) && isset($_COOKIE['admintype']) && isset($_SESSION['hash']) && isset($_COOKIE['hash'])){
-			if(($_SESSION['admintype'] === $_COOKIE['admintype'])&&(!empty($_SESSION['hash']))&&(!empty($_COOKIE['hash']))){
-				$q = 'SELECT COUNT(*) FROM ADMIN_SESSIONS WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C) AND (DT_DESTROY > NOW())';
-				$params = [
-					'HASH_S' => $_SESSION['hash'],
-					'HASH_C' => $_COOKIE['hash']
-				];
-				$result = $this->db->column($q, $params);
-				if($result == 1){
-					return true;
-				}
+		if(isset($_SESSION['hash']) && isset($_COOKIE['hash']) && !empty($_SESSION['hash']) && !empty($_COOKIE['hash'])){
+			$q = 'SELECT COUNT(*) FROM ADMIN_SESSIONS WHERE (HASH_S = :HASH_S) AND (HASH_C = :HASH_C) AND (DT_DESTROY > NOW())';
+			$params = [
+				'HASH_S' => $_SESSION['hash'],
+				'HASH_C' => $_COOKIE['hash']
+			];
+			$result = $this->db->column($q, $params);
+			if($result == 1){
+				return true;
 			}
 		}
 		$this->sessionDestroy();
@@ -164,7 +162,10 @@ abstract class Admin extends Model {
 	}
 
 	//create new record in the db
-	public function sessionCreate($id_admin){
+	public function sessionCreate($id_admin, $remember = false){
+		if($remember){
+			$this->lifetime_hash *= 1500;
+		}
 		if($this->dif_hash){
 			$hash_s = $this->generateStr(128);
 			$hash_c = $this->generateStr(128);

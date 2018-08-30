@@ -1,8 +1,8 @@
 /******************************* VARS *******************************/
-let classContentBox = 'main_content',
-	classSiteTree = 'main_nav';
+let classSiteTree = 'main_nav';
 let message = new Message(),
-	loader = new Loader('.loader_box');
+	loader = new Loader('.loader_box'),
+	redirect = new Redirect('Go');
 /******************************* VARS END *******************************/
 
 
@@ -109,7 +109,8 @@ function custormScrollTree(){
 	//включаем скролл
 	$(".main_nav").mCustomScrollbar();
 	//включаем кастомный редирект
-	customRedirect();
+	//customRedirect();
+	redirect = new Redirect('Go');
 }
 
 function showMessage(msg, status = null){
@@ -119,18 +120,8 @@ function showMessage(msg, status = null){
 	}
 }
 
-function Go(uri){
-	loader.show();
-	new api('api').send(uri, {}, 'loadPage');
-}
-function loadPage(content){
-	$('.'+classContentBox).html(content);
-	custormScrollContent();
-	hideAllBlocks();
-}
-
 function updTree(){
-	new api('api').send('/admin/tree', {}, 'loadTree');
+	new api('api').send('/admin/tree', {}, loadTree);
 }
 function loadTree(content){
 	$('.'+classSiteTree).html(content);
@@ -162,7 +153,7 @@ function Change(uri){
 	var dataJSON = JSON.stringify(parent);
 	dataFILES.append('DATA', dataJSON);
 	//console.log(dataFILES);
-	new api('api').send(uri, dataFILES, 'showMessage');
+	new api('api').send(uri, dataFILES, showMessage);
 }
 
 function Delete(uri){
@@ -173,7 +164,7 @@ function Delete(uri){
 	//data.append(dataInput[0].name, dataInput[0].value);
 	data[dataInput[0].name] = dataInput[0].value;
 	if(window.confirm('Действительно хотите удалить эту запись?')){
-		new api('api').send(uri, data, 'showMessage');
+		new api('api').send(uri, data, showMessage);
 	}else{
 		loader.hide();
 	}
@@ -205,44 +196,18 @@ function hideAllBlocks(){
 }
 
 function checkNumber(THIS, e){
-		let inputKey = e.originalEvent.key;
-		let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
-		let rgxNumber = /[0-9]{1}/g;
-		let rgxResult = inputKey.match(rgxAll);
-		if((rgxResult != null) && (rgxResult.length == 1)){
-			if(inputKey.match(rgxNumber) != null){
-				$(THIS).find('input')[0].value += inputKey;
-			}
-			return false;
+	let inputKey = e.originalEvent.key;
+	let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
+	let rgxNumber = /[0-9]{1}/g;
+	let rgxResult = inputKey.match(rgxAll);
+	if((rgxResult != null) && (rgxResult.length == 1)){
+		if(inputKey.match(rgxNumber) != null){
+			$(THIS).find('input')[0].value += inputKey;
 		}
-	}
-
-function handlerAnchors() {
-	let state = {
-		url: this.getAttribute( "href", 2 )
-	}
-	// заносим ссылку в историю
-	history.pushState( state, state.title, state.url );
-	//подгрузка данных
-	Go(state.url);
-	// не даем выполнить действие по умолчанию
-	return false;
-}
-
-function customRedirect(){
-	//Все ссылки для редиректа
-	let anchors = document.getElementsByClassName('Go');
-	// вешаем события на все ссылки в нашем документе
-	for(let i = 0; i < anchors.length; i++ ) {
-		anchors[ i ].onclick = handlerAnchors;
-	}
-	// вешаем событие на popstate которое срабатывает при нажатии back/forward в браузере
-	window.onpopstate = function( e ) {
-		// просто сообщение
-		//console.log('Вы вернулись на страницу '+ history.location+' URI:'+JSON.stringify( history.state ));
-		Go(history.state.url);
+		return false;
 	}
 }
+
 /******************************* FUNCTIONS END *******************************/
 
 /******************************* EVENTS *******************************/

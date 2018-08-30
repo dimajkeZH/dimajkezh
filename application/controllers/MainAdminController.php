@@ -119,7 +119,7 @@ class MainAdminController extends AdminController {
 	public function reportActionsAction(){
 		$this->isAuth();
 		$this->settings();
-		$content = $this->model->reportActions();
+		$content = $this->model->reportActions($this->route);
 		if($this->model->isAjax()){
 			$this->ajax($content);
 		}else{

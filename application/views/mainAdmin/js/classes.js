@@ -47,9 +47,8 @@ class api{
 	        processData: false,
 	        cache: false,
 			success: function(data){
-				window[callback](data.message, data.status);
 				try{
-					//window[callback](data.message, data.status);
+					callback(data.message, data.status);
 				}catch(e){
 					console.log('Error of api script. Refresh page!');
 				}finally{
@@ -172,4 +171,49 @@ class Loader{
 			}
 		}, timehide);
 	}
+}
+
+
+/******************************* class for redirect (static and global)  *******************************/
+class Redirect{
+
+	constructor(Class){
+		this.anchors = document.getElementsByClassName(Class);
+		for(let i = 0; i < this.anchors.length; i++ ) {
+			this.anchors[i].onclick = Redirect.handler;
+		}
+		window.onpopstate = function( e ) {
+			Redirect.go(history.state.url);
+		}
+	}
+
+	static go(uri){
+		loader.show();
+		new api('api').send(uri, {}, Redirect.loadPage);
+	}
+
+	static loadPage(content, status){
+		$('.main_content').html(content);
+		custormScrollContent();
+		hideAllBlocks();
+	}
+
+	static handler(url = null, title = null){
+		let curTitle, curUrl;
+		if(typeof this === 'object'){
+			curTitle = this.innerText || this.textContent;
+			curUrl = this.getAttribute( "href", 2 );
+		}else if(typeof this === 'function'){
+			curTitle = title;
+			curUrl = url;
+		}
+		let state = {
+			title: curTitle,
+			url: curUrl
+		}
+		history.pushState(state, state.title, state.url);
+		Redirect.go(state.url);
+		return false;
+	}
+
 }

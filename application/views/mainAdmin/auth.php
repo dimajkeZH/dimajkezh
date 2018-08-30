@@ -24,7 +24,7 @@
 					</div>
 					<div class="login_forma_group checkbox">
 						<label >
-							<input type="checkbox">
+							<input type="checkbox" name="remember">
 							Запомнить меня
 						</label>
 

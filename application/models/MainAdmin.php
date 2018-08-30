@@ -6,6 +6,8 @@ use application\models\Admin;
 
 class MainAdmin extends Admin {
 
+	private $reportMaxCountSessions = 50;
+
 	//LOGIN
 	public function logIn(){
 		if(isset($_POST)){
@@ -13,19 +15,18 @@ class MainAdmin extends Admin {
 				//debug([$_POST['pass'], $this->clear($_POST['pass'])]);
 				$name = $this->clear($_POST['name']);
 				$pass = $this->shaPSWD($this->clear($_POST['pass']));
+				$name1 = 'kekus';
 				$pass1 ='$2y$10$2zEARs61ZP8haAeqoumKX.cqDWzHXy8dvt1nszgljVn8tWXALOuZq';
-				
-				if(($name=='kekus')&&(password_verify($pass, $pass1))){
+				if(isset($_POST['remember']) && $_POST['remember'] == 'on'){
+					$rmmbr = true;
+				}else{
+					$rmmbr = false;
+				}
+				if(($name===$name1)&&(password_verify($pass, $pass1))){
 					unset($_SESSION['err']);
 
 					$this->loger_session = $this->loger_action = false;
-
-					$admintype = 'admin';
 					$_SESSION['username'] = 'kekus';
-
-					$_SESSION['admintype'] = $admintype;
-					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
-
 					$this->sessionCreate(0);
 					return true;
 				}
@@ -33,14 +34,8 @@ class MainAdmin extends Admin {
 				$ID = $this->verifyPSWD($name, $pass);
 				if(!is_null($ID)){
 					unset($_SESSION['err']);
-
-					$admintype = 'admin';
 					$_SESSION['username'] = 'headadmin';
-
-					$_SESSION['admintype'] = $admintype;
-					setcookie('admintype', $admintype, time()+$this->lifetime_hash);
-
-					$this->sessionCreate($ID);
+					$this->sessionCreate($ID, $rmmbr);
 					return true;
 				}
 
@@ -154,13 +149,24 @@ class MainAdmin extends Admin {
 	}
 
 	public function reportSessions(){
-		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, `AS`.ID, `AS`.IP, `AS`.BROWSER, `AS`.DT_CREATE, `AS`.DT_DESTROY FROM ADMIN_SESSIONS as `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON AA.ID = `AS`.ID_ADMIN ORDER BY `AS`.DT_CREATE DESC');
+		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, `AS`.ID, `AS`.IP, `AS`.BROWSER, `AS`.DT_CREATE, `AS`.DT_DESTROY FROM ADMIN_SESSIONS as `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON AA.ID = `AS`.ID_ADMIN ORDER BY `AS`.DT_CREATE DESC LIMIT '.$this->reportMaxCountSessions);
 		$return['NOW'] = $this->now();
 		return $return;
 	}
 
-	public function reportActions(){
-		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, AL.ID_SESSION, ALT.NAME as `TYPE_NAME`, AL.CUR_ACTION, AL.DT_INCIDENT FROM ADMIN_LOGS as AL INNER JOIN (ADMIN_SESSIONS AS `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON `AS`.ID_ADMIN = AA.ID) ON `AS`.ID = AL.ID_SESSION INNER JOIN ADMIN_LOG_TYPES as ALT ON AL.ID_TYPE = ALT.ID ORDER BY AL.DT_INCIDENT DESC');
+	public function reportActions($route){
+		$q1 = 'SELECT AA.NAME, AL.ID_SESSION, ALT.NAME as `TYPE_NAME`, AL.CUR_ACTION, AL.DT_INCIDENT FROM ADMIN_LOGS as AL INNER JOIN (ADMIN_SESSIONS AS `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON `AS`.ID_ADMIN = AA.ID) ON `AS`.ID = AL.ID_SESSION INNER JOIN ADMIN_LOG_TYPES as ALT ON AL.ID_TYPE = ALT.ID';
+		$q2 = ' ORDER BY AL.DT_INCIDENT DESC';
+		if(isset($route['GET'])){
+			$params = [
+				'ID' => $route['GET']['s']
+			];
+			$q = ' WHERE `AS`.ID = :ID';
+			$result = $this->db->row($q1.$q.$q2, $params);
+		}else{
+			$result = $this->db->row($q1.$q2);
+		}
+		$return['CONTENT'] = $result;
 		return $return;
 	}
 

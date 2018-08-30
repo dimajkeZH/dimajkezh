@@ -1,6 +1,6 @@
 <div class="add_case">
 	<div class="main_content_head">
-		<p class="main_content_head_title">Действия админов [Отчёт]</p>s
+		<p class="main_content_head_title">Действия админов [Отчёт]<?php echo (isset($_GET['s']))?' [Сессия №'.$_GET['s'].']':''; ?></p>s
 	</div>
 	<div class="main_content_info">
 		<div class="block_table">

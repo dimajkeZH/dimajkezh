@@ -26,7 +26,11 @@ class Router {
     }
 
     public function match() {
-        $url = trim($_SERVER['REQUEST_URI'], '/');
+        if(!stripos($_SERVER['REQUEST_URI'], "?")){
+            $url = trim($_SERVER['REQUEST_URI'], '/');
+        }else{
+            list($url, $get) = explode("?", trim($_SERVER['REQUEST_URI'], '/'));
+        }
         foreach ($this->routes as $route => $params) {
             //echo $route.'<br>'.$url.'<br>'.preg_match($route, $url, $matches).'<br><br>';
             if (preg_match($route, $url, $matches)) {
@@ -42,7 +46,11 @@ class Router {
                         $this->params['param'] = $this->selectParam($url, self::STRING_PARAM);
                     }
                 }
-                //debug($this->params);
+                if(isset($_GET)){
+                    foreach($_GET as $key => $val){
+                        $this->params['GET'][$key] = $val;
+                    }
+                }
                 return true;
             }
         }
