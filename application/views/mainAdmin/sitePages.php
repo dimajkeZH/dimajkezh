@@ -2,6 +2,7 @@
 	<div class="main_content_head">
 		<p class="main_content_head_title">pages</p>
 		<div class="buttons">
+			<button class="add" onclick="modalOpen()">Add</button>
 			<button class="save" onclick="Change('save/pages')"><?php echo ((isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)) ? 'Save' : 'Add'); ?></button>
 			<?php if(isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)): ?><button class="remove">Remove</button><?php endif; ?>
 		</div>

@@ -33,6 +33,7 @@ class View {
 				break;
 		}
 		extract($headers);
+		unset($headers);
 		$layout = self::VIEW_DIR."layouts/$this->layout.php";
 		if(file_exists($layout)){
 			require $layout;
@@ -45,12 +46,14 @@ class View {
 		//debug([$path, file_exists($path)]);
 		if(file_exists($path)) {
 			extract($vars);
+			unset($vars);
 			ob_start();
 			require $path;
 			$content = ob_get_clean();
 			$layout = self::VIEW_DIR."layouts/$this->layout.php";
 			if(file_exists($layout)){
 				extract($headers);
+				unset($headers);
 				require $layout;
 			}
 		}
@@ -60,6 +63,7 @@ class View {
 		$path = self::VIEW_DIR."$views.php";
 		if(file_exists($path)) {
 			extract($vars);
+			unset($vars);
 			if(isset($CONTENT[0])AND(count($CONTENT) == 1)){
 				$CONTENT = $CONTENT[0];
 			}
@@ -82,6 +86,7 @@ class View {
 		$path = self::VIEW_DIR."/$this->admpath.php";
 		if(file_exists($path)) {
 			extract($vars);
+			unset($vars);
 			ob_start();
 			require $path;
 			$content = ob_get_clean();

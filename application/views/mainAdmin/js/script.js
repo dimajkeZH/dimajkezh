@@ -190,8 +190,10 @@ function minus(This){
 
 function hideAllBlocks(){
 	$(function(){
-		$('.form_content').toggleClass('hide');
-		$('.block_hide').text('Развернуть');
+		if($('.form_content').length > 2){
+			$('.form_content').toggleClass('hide');
+			$('.block_hide').text('Развернуть');
+		}
 	});
 }
 

@@ -108,7 +108,7 @@ class MainAdminController extends AdminController {
 	public function reportSessionsAction(){
 		$this->isAuth();
 		$this->settings();
-		$content = $this->model->reportSessions();
+		$content = $this->model->reportSessions($this->route);
 		if($this->model->isAjax()){
 			$this->ajax($content);
 		}else{

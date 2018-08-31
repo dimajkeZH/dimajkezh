@@ -148,8 +148,19 @@ class MainAdmin extends Admin {
 		return $return;
 	}
 
-	public function reportSessions(){
-		$return['CONTENT'] = $this->db->row('SELECT AA.NAME, `AS`.ID, `AS`.IP, `AS`.BROWSER, `AS`.DT_CREATE, `AS`.DT_DESTROY FROM ADMIN_SESSIONS as `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON AA.ID = `AS`.ID_ADMIN ORDER BY `AS`.DT_CREATE DESC LIMIT '.$this->reportMaxCountSessions);
+	public function reportSessions($route){
+		$q1 = 'SELECT AA.NAME, `AS`.ID, `AS`.IP, `AS`.BROWSER, `AS`.DT_CREATE, `AS`.DT_DESTROY FROM ADMIN_SESSIONS as `AS` INNER JOIN ADMIN_ACCOUNTS as AA ON AA.ID = `AS`.ID_ADMIN';
+		$q2 = ' ORDER BY `AS`.DT_CREATE DESC LIMIT '.$this->reportMaxCountSessions;
+		if(isset($route['GET'])){
+			$params = [
+				'NAME' => $route['GET']['n']
+			];
+			$q = ' WHERE AA.NAME = :NAME';
+			$result = $this->db->row($q1.$q.$q2, $params);
+		}else{
+			$result = $this->db->row($q1.$q2);
+		}
+		$return['CONTENT'] = $result;
 		$return['NOW'] = $this->now();
 		return $return;
 	}
@@ -255,32 +266,32 @@ class MainAdmin extends Admin {
 
 	private function getBlockContent($ID, $ID_TEMPLATE){
 		$return = '';
+		$result = [];
 		switch($ID_TEMPLATE){
 			case 1:
 				$table_content = 'BLOCK_HEADER_ORDER';
-				$table_data = '';
 				$path = 'H1';
 				break;
 			case 2:
 				$table_content = 'BLOCK_HEADER_IMAGES';
-				$table_data = '';
 				$path = 'H2';
 				break;
 			case 3:
-				$table_content = ''; //'BLOCK_TABLE';
-				$table_data = ''; //'DATA_TABLE';
-				$id_field = ''; //'ID_TABLE';
+				$table_content = 'BLOCK_TABLE';
+				$table_data = 'DATA_TABLE';
+				$id_field = 'ID_TABLE';
 				$path = 'B1';
 				break;
 			case 4:
-				$table_content = ''; //'BLOCK_MULTITABLE';
-				$table_data = ''; //'BLOCK_MULTITABLE_CONTENT';
-				$id_field = ''; //'ID_MULTITABLE';
+				$table_content = 'BLOCK_MULTITABLE';
+				$table_list = 'BLOCK_MULTITABLE_CONTENT';
+				$id_list = 'ID_MULTITABLE';
+				$table_data = 'DATA_MULTITABLE';
+				$id_field = 'ID_MULTITABLE_CONTENT';
 				$path = 'B2';
 				break;
 			case 5:
 				$table_content = 'BLOCK_TEXT';
-				$table_data = '';
 				$path = 'B3';
 				break;
 			case 6:
@@ -296,27 +307,103 @@ class MainAdmin extends Admin {
 				$path = 'B5';
 				break;
 		}
+		if(!isset($table_list) && !isset($id_list)){
+			if(!isset($table_data) && !isset($id_field)){
+				$result = $this->getSimpleBlockContent($ID, $table_content);
+			}else{
+				$result = $this->getTableContent($ID, $table_content, $table_data, $id_field);
+			}
+		}else{
+			$result = $this->getMultiTableContent($ID, $table_content, $table_list, $id_list, $table_data, $id_field);
+		}
+		$select_path = 'B2';
+		if($path == $select_path){
+			//debug($result);
+		}
+		$return = $this->buildingBlockContent($result, $path);
+		if($path == $select_path){
+			//debug($subresult);
+		}
+		return $return;
+	}
+
+	private function getSimpleBlockContent($ID, $table_content){
+		$return = [];
 		if($table_content != ''){
 			$q = 'SELECT * FROM '.$table_content.' WHERE ID_PAGE_TEMPLATE = :ID';
 			$params = [
 				'ID' => $ID
 			];
-			$result = $this->db->row($q, $params)[0];
+			$return = $this->db->row($q, $params)[0];
+		}
+		//debug($return);
+		return $return;
+	}
+
+	private function getTableContent($ID, $table_content, $table_data, $id_field){
+		$return = [];
+		if($table_content != ''){
+			$q = 'SELECT * FROM '.$table_content.' WHERE ID_PAGE_TEMPLATE = :ID';
+			$params = [
+				'ID' => $ID
+			];
+			$return = $this->db->row($q, $params)[0];
 			if($table_data != ''){
 				$q = 'SELECT * FROM '.$table_data.' WHERE '.$id_field.' = :ID';
 				$params = [
-					'ID' => $result['ID']
+					'ID' => $return['ID']
 				];
-				$subresult['DATA'] = $this->db->row($q, $params);
-				extract($subresult);
+				$return['DATA'] = $this->db->row($q, $params);
+				$return['DATA'] = $this->SimpleArrayToTableArray($return['DATA']);
 			}
-			extract($result);
-			$tmpl = $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
-			ob_start();
-			require $tmpl;
-			$return = ob_get_clean();
 		}
+		//debug($return);
 		return $return;
+	}
+
+	private function getMultiTableContent($ID, $table_content, $table_list, $id_list, $table_data, $id_field){
+		$return = [];
+		if($table_content != ''){
+			$q = 'SELECT * FROM '.$table_content.' WHERE ID_PAGE_TEMPLATE = :ID';
+			$params = [
+				'ID' => $ID
+			];
+			$return = $this->db->row($q, $params)[0];
+			if($table_data != ''){
+				$q = 'SELECT * FROM '.$table_list.' WHERE '.$id_list.' = :ID';
+				$params = [
+					'ID' => $return['ID']
+				];
+				$return['TABLE_LIST'] = $this->db->row($q, $params);
+				foreach($return['TABLE_LIST'] as $key => $val){
+					$q = 'SELECT * FROM '.$table_data.' WHERE '.$id_field.' = :ID';
+					$params = [
+						'ID' => $val['ID']
+					];
+					$return['TABLE_LIST'][$key]['DATA'] = $this->db->row($q, $params);
+					$return['TABLE_LIST'][$key]['DATA'] = $this->SimpleArrayToTableArray($return['TABLE_LIST'][$key]['DATA']);
+				}
+			}
+		}
+		//debug($return);
+		return $return;
+	}
+
+	private function SimpleArrayToTableArray($arr){
+		$data = [];
+		foreach($arr as $key => $val){
+			$data[$val['ROW']][$val['COL']] = $val['VAL'];
+		}
+		return $data;
+	}
+
+	private function buildingBlockContent($result, $path){
+		extract($result);
+		unset($result);
+		$tmpl = $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
+		ob_start();
+		require $tmpl;
+		return ob_get_clean();
 	}
 
 	private function htmlcaseField($type, $value, $varName, $cmsTitle, $cmsDescr){
