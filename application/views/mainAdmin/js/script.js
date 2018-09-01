@@ -132,10 +132,10 @@ function Change(uri){
 	console.clear();
 	loader.show();
 	uri = '/admin/'+uri;
-	var dataForms = $('form#data');
-	var dataFILES = new FormData();
-	var tempForms;
-	var parent = {};
+	let dataForms = $('form#data');
+	let dataFILES = new FormData();
+	let tempForms, jsonObject;
+	let parent = {};
 	$.each( dataForms, function( key, form){
 		jsonObject = {};
 		tempForms = new FormData(form);

@@ -84,6 +84,41 @@
 					</div>
 					<div class="main_content">
 						<?php echo $content; ?>
+						<div class="modal_wnd">
+							<div class="modal_wnd_wrapper" id="wrap" onclick="modalClose()"></div>
+							<div class="modal_wnd_inner" id="window">
+								<div class="modal_wnd_head">
+									<div class="buttons">
+										<button onclick="modalClose()" class="remove">Отмена</button>
+										<button form="" class="save">Добавить</button>
+									</div>
+								</div>
+								<div class="modal_wnd_content">
+									<div class="modal_wnd_form">
+										<form action="	">
+											<select name="block" id="" size="6">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+											</select>
+										</form>
+									</div>
+									<div class="modal_wnd_info">
+										<p class="modal_wnd_info_title">Заголовок</p>
+										<p class="modal_wnd_info_content">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deleniti facilis quia eum impedit sapiente eaque, eligendi, modi, ab assumenda, aliquam. Sed voluptatem error voluptates? Eligendi mollitia ipsam illo, dolorem aliquam neque excepturi, quasi numquam dicta sed a ducimus, sunt! Labore nisi quibusdam in at, illo voluptas doloremque ea quos?</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

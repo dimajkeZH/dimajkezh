@@ -1,5 +1,5 @@
 <?php //BLOCK MULTITABLE ?>
-<form id="data" class="block_form">
+<form id="data" class="block_form table">
 	<div class="block_settings">
 		<div class="buttons">
 			<div class="up_down">
@@ -13,12 +13,14 @@
 	<p class="form_title">Блок с мультитаблицей</p>
 	<div class="form_content">
 		<input type="text" name="ID" value="<?php echo $ID; ?>" style="display:none;">
+		<input type="text" name="TYPE" value="B2" style="display:none;">
 		<div class='forma_group'><p>Заголовок</p><div class='forma_group_item text'><input type='text' name='TITLE' value='<?php echo $TITLE; ?>'><p class='forma_group_item_description'></p></div></div>
 		<div class='forma_group'><p>Подзаголовок описания</p><div class='forma_group_item text'><input type='text' name='SUBTITLE' value='<?php echo $SUBTITLE; ?>'><p class='forma_group_item_description'></p></div></div>
 		<div class='forma_group'><p>Описание</p><div class='forma_group_item textarea'><textarea name='DESCR' placeholder='text_area'><?php echo $DESCR; ?></textarea><p class='forma_group_item_description'></p></div></div>
 		<?php foreach($TABLE_LIST as $tablekey => $tableval): ?>
 		<hr>
-		<div class='forma_group'><p>Заголовок мультитаблицы</p><div class='forma_group_item text'><input type='text' name='TABLETITLE' value='<?php echo $tableval['SUBTITLE']; ?>'><p class='forma_group_item_description'></p></div></div>
+		<input type="text" name="ID_TABLE<?php echo $tablekey; ?>" value="<?php echo $tableval['ID']; ?>" style="display:none;">
+		<div class='forma_group'><p>Заголовок мультитаблицы</p><div class='forma_group_item text'><input type='text' name='TITLE_TABLE<?php echo $tablekey; ?>' value='<?php echo $tableval['SUBTITLE']; ?>'><p class='forma_group_item_description'></p></div></div>
 		<div class="table_info forma_group">
 			<div class="table_info_btns">
 				<button class="add" onclick="tableRow_Add(this)">Добавить Строку</button>
@@ -35,7 +37,7 @@
 				<tr>
 					<td><button class="remove" onclick="tableRow_Delete(this)">X</button></td>
 					<?php foreach($val as $subkey => $subval): ?>
-					<td><input type="text" row="<?php echo $key; ?>" col="<?php echo $subkey; ?>" value="<?php echo $subval; ?>"></td>
+					<td><input autocomplete="off" name="CELL_TABLE<?php echo $tablekey; ?>_<?php echo $key; ?>_<?php echo $subkey; ?>" type="text" row="<?php echo $key; ?>" col="<?php echo $subkey; ?>" value="<?php echo $subval; ?>"></td>
 					<?php endforeach; ?>
 				</tr>
 				<?php endforeach; ?>

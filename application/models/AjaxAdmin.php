@@ -111,6 +111,7 @@ class AjaxAdmin extends Admin {
 		 */
 	}
 	public function savePages($post, $files){
+		//debug($post);
 		$common = array_shift($post);
 		$ID = $common['ID_PAGE'];
 		$ID_TYPE = $common['ID_TYPE'];
@@ -158,7 +159,6 @@ class AjaxAdmin extends Admin {
 			foreach($post as $key => $val){
 				$tran = array_merge($tran, $this->switchUPDTemplate($val, $files));
 			}
-			//debug($tran);
 			return $this->db->transaction($tran);
 		}elseif($ID == 0){
 			//insert
@@ -286,25 +286,94 @@ class AjaxAdmin extends Admin {
 				$return[0]['params'] = ['ID' => $val['ID']];
 				break;
 			case 'B1': //table
-				//$return[0]['sql'] = 'UPDATE BLOCK_TABLE SET WHERE ID = :ID;';
-				//$return[0]['params'] = ['ID' => $val['ID']];
-				/*
-				foreach(){
-					//DATA_TABLE WHERE COL, ROW, ID_TABLE
-				}
-				*/
-				break;
-			case 'B2': //multitable
-				//$return[0]['sql'] = 'UPDATE BLOCK_MULTITABLE SET WHERE ID = :ID;';
-				//$return[0]['params'] = ['ID' => $val['ID']];
-				/*
-				foreach(){
-					//BLOCK_MULTITABLE_CONTENT WHERE ID+MULTITABLE
-					foreach(){
-						//DATA_MULTITABLE WHERE ID_MULTITABLE_CONTENT, ROW, COL
+				$return[0]['sql'] = 'UPDATE BLOCK_TABLE SET TITLE = :TITLE, SUBTITLE = :SUBTITLE, DESCR = :DESCR WHERE (ID = :ID);';
+				$return[0]['params'] = [
+					'ID' => $val['ID'],
+					'TITLE' => $val['TITLE'],
+					'SUBTITLE' => $val['SUBTITLE'],
+					'DESCR' => $val['DESCR']
+				];
+				$return[1]['sql'] = 'DELETE FROM DATA_TABLE WHERE (ID_TABLE = :ID);';
+				$return[1]['params'] = [
+					'ID' => $val['ID']
+				];
+				$TABLE_DATA = [];
+				foreach($val as $index => $value){
+					if(preg_match('#^CELL_TABLE[0-9]{0,}_[0-9]{1,}_[0-9]{1,}$#', $index)){
+						$c = explode('CELL_TABLE', $index)[1];
+						list($cell_index, $cell_row, $cell_col) = explode('_', $c);
+						$CELL['VAL'] = $value;
+						$CELL['ROW'] = $cell_row;
+						$CELL['COL'] = $cell_col;
+						if(isset($TABLE_DATA)){
+							array_push($TABLE_DATA, $CELL);
+						}else{
+							$TABLE_DATA[0] = $CELL;
+						}
 					}
 				}
-				*/
+				$index = count($return);
+				foreach($TABLE_DATA as $subkey => $subval){
+					$return[$index]['sql'] = 'INSERT INTO DATA_TABLE (ID_TABLE, ROW, COL, VAL) VALUES (:ID, :ROW, :COL, :VAL);';
+					$return[$index++]['params'] = [
+						'ID' => $val['ID'],
+						'ROW' => $subval['ROW'],
+						'COL' => $subval['COL'],
+						'VAL' => $subval['VAL']
+					];
+				}
+				//debug($return);
+				break;
+			case 'B2': //multitable
+				$return[0]['sql'] = 'UPDATE BLOCK_MULTITABLE SET TITLE = :TITLE, SUBTITLE = :SUBTITLE, DESCR = :DESCR WHERE (ID = :ID);';
+				$return[0]['params'] = [
+					'ID' => $val['ID'],
+					'TITLE' => $val['TITLE'],
+					'SUBTITLE' => $val['SUBTITLE'],
+					'DESCR' => $val['DESCR']
+				];
+				$TABLE_DATA = [];
+				foreach($val as $index => $value){
+					if(preg_match('#^ID_TABLE[0-9]{0,}$#', $index)){
+						$TABLE_DATA[explode('ID_TABLE', $index)[1]]['ID'] = $value;
+					}elseif(preg_match('#^TITLE_TABLE[0-9]{0,}$#', $index)){
+						$TABLE_DATA[explode('TITLE_TABLE', $index)[1]]['TITLE'] = $value;
+					}elseif(preg_match('#^CELL_TABLE[0-9]{0,}_[0-9]{1,}_[0-9]{1,}$#', $index)){
+						$c = explode('CELL_TABLE', $index)[1];
+						list($cell_index, $cell_row, $cell_col) = explode('_', $c);
+						$CELL['VAL'] = $value;
+						$CELL['ROW'] = $cell_row;
+						$CELL['COL'] = $cell_col;
+						if(isset($TABLE_DATA[$cell_index]['CELLS'])){
+							array_push($TABLE_DATA[$cell_index]['CELLS'], $CELL);
+						}else{
+							$TABLE_DATA[$cell_index]['CELLS'][0] = $CELL;
+						}
+					}
+				}
+				$index = count($return);
+				foreach($TABLE_DATA as $subkey => $subval){
+					$return[$index]['sql'] = 'UPDATE BLOCK_MULTITABLE_CONTENT SET SUBTITLE = :ST, SERIAL_NUMBER = :SN WHERE (ID = :ID);';
+					$return[$index++]['params'] = [
+						'ID' => $subval['ID'],
+						'ST' => $subval['TITLE'],
+						'SN' => strval($subkey)
+					];
+					$return[$index]['sql'] = 'DELETE FROM DATA_MULTITABLE WHERE (ID_MULTITABLE_CONTENT = :ID);';
+					$return[$index++]['params'] = [
+						'ID' => $subval['ID']
+					];
+					foreach($subval['CELLS'] as $cellkey => $cellval){
+						$return[$index]['sql'] = 'INSERT INTO DATA_MULTITABLE (ID_MULTITABLE_CONTENT, ROW, COL, VAL) VALUES (:ID, :ROW, :COL, :VAL);';
+						$return[$index++]['params'] = [
+							'ID' => $subval['ID'],
+							'ROW' => $cellval['ROW'],
+							'COL' => $cellval['COL'],
+							'VAL' => $cellval['VAL']
+						];
+					}
+				}
+				//debug($return);
 				break;
 			case 'B3': //text
 				//set sql string
