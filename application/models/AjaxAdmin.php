@@ -421,7 +421,7 @@ class AjaxAdmin extends Admin {
 				$LEFT_IMAGE = '';
 				$RIGHT_IMAGE = '';
 				//load left image
-				if(isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != ''){
+				if(isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0){
 					$img = $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE];
 					if($oldL != ''){
 						$LEFT_IMAGE = $this->replaceImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $oldL, $img);
@@ -435,7 +435,7 @@ class AjaxAdmin extends Admin {
 				}
 
 				//load right image
-				if(isset($files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE] != ''){
+				if(isset($files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0){
 					$img = $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE];
 					if($oldR != ''){
 						$RIGHT_IMAGE = $this->replaceImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $oldR, $img);
@@ -458,7 +458,7 @@ class AjaxAdmin extends Admin {
 					.'"'.$val['RIGHT_IMAGE_SIGN'].'");';
 				break;
 			case 'H2': //images
-				//debug([$files, isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != '']);
+				//debug([$files, isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0]);
 				$oldImages = $this->db->row('SELECT LEFT_IMAGE, MIDDLE_IMAGE, RIGHT_IMAGE FROM BLOCK_HEADER_IMAGES WHERE ID = :ID', ['ID'=>$val['ID']])[0];
 
 				$oldL = isset($oldImages['LEFT_IMAGE']) ? $oldImages['LEFT_IMAGE'] : '';
@@ -469,7 +469,7 @@ class AjaxAdmin extends Admin {
 				$MIDDLE_IMAGE = '';
 				$RIGHT_IMAGE = '';
 				//load left image
-				if(isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != ''){
+				if(isset($files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0){
 					$img = $files['LEFT_IMAGE_'.$NUMERIC_PART_IMAGE];
 					if($oldL != ''){
 						$LEFT_IMAGE = $this->replaceImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $oldL, $img);
@@ -482,7 +482,7 @@ class AjaxAdmin extends Admin {
 					}
 				}
 				//load middle image
-				if(isset($files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE] != ''){
+				if(isset($files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0){
 					$img = $files['MIDDLE_IMAGE_'.$NUMERIC_PART_IMAGE];
 					if($oldM != ''){
 						$MIDDLE_IMAGE = $this->replaceImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $oldM, $img);
@@ -495,7 +495,7 @@ class AjaxAdmin extends Admin {
 					}
 				}
 				//load right image
-				if(isset($files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE] != ''){
+				if(isset($files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]) && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE] != '' && $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE]['size'] > 0){
 					$img = $files['RIGHT_IMAGE_'.$NUMERIC_PART_IMAGE];
 					if($oldR != ''){
 						$RIGHT_IMAGE = $this->replaceImage(self::IMAGE_TEMPLATE_HEADER_PAGE, $oldR, $img);
