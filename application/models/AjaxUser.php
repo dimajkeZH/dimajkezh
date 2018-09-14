@@ -19,14 +19,14 @@ class AjaxUser extends User {
 	}
 
 	public function orderSend($post){
-			$to_date = $this->clean($_POST['to_date']);
-			$addr_from = $this->clean($_POST['addr_from']);
-			$addr_to = $this->clean($_POST['addr_to']);
-			$email_phone = $this->clean($_POST['email_phone']);
-			$user_choice = $this->clean($_POST['user_choice']);
-			$cost = $this->clean($_POST['cost']);
+			$to_date = $this->clear($_POST['to_date']);
+			$addr_from = $this->clear($_POST['addr_from']);
+			$addr_to = $this->clear($_POST['addr_to']);
+			$email_phone = $this->clear($_POST['email_phone']);
+			$user_choice = $this->clear($_POST['user_choice']);
+			$cost = $this->clear($_POST['cost']);
 			if(isset($_POST['message'])AND($_POST['message'] != '')){
-				$message = $this->clean($_POST['message']);
+				$message = $this->clear($_POST['message']);
 			}else{
 				$message = "";
 			}
@@ -102,9 +102,9 @@ class AjaxUser extends User {
 	}
 
 	public function feedbackSend($post){
-			$name = $this->clean($_POST['name']);
-			$email = $this->clean($_POST['email']);
-			$message = $this->clean($_POST['message']);
+			$name = $this->clear($_POST['name']);
+			$email = $this->clear($_POST['email']);
+			$message = $this->clear($_POST['message']);
 			$response = $_POST['captcha'];
 			/* post to ReCaptcha validation */
 			$url = 'https://www.google.com/recaptcha/api/siteverify';

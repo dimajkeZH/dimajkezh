@@ -126,7 +126,7 @@ class MainAdmin extends Admin {
 
 	public function sitePagesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = 'SELECT ID, ID_TYPE, URI, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
+			$q = 'SELECT ID, ID_TYPE, URI, LOC_NUMBER, TITLE, DESCR, IMAGE, IMAGE_SIGN, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
 			$params = [
 				'ID' => $route['param']
 			];

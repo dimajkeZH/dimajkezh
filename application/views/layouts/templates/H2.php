@@ -18,7 +18,7 @@
 				<div class="services_other_item">
 					<?php if(isset($CONTENT['LEFT_IMAGE'])AND($CONTENT['LEFT_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"/assets/img/services/'.$CONTENT['LEFT_IMAGE'].'.png"'; ?> alt="">
+						<img src=<?php echo '"/assets/img/templates/header_page/'.$CONTENT['LEFT_IMAGE'].'.png"'; ?> alt="">
 					</div>
 					<?php endif; ?>
 					<?php if(isset($CONTENT['LEFT_IMAGE_SIGN'])AND($CONTENT['LEFT_IMAGE_SIGN'])): ?>
@@ -30,7 +30,7 @@
 				<div class="services_other_item">
 					<?php if(isset($CONTENT['MIDDLE_IMAGE'])AND($CONTENT['MIDDLE_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"/assets/img/services/'.$CONTENT['MIDDLE_IMAGE'].'.png"'; ?> alt="">
+						<img src=<?php echo '"/assets/img/templates/header_page/'.$CONTENT['MIDDLE_IMAGE'].'.png"'; ?> alt="">
 					</div>
 					<?php endif; ?>
 					<?php if(isset($CONTENT['MIDDLE_IMAGE_SIGN'])AND($CONTENT['MIDDLE_IMAGE_SIGN'])): ?>
@@ -42,7 +42,7 @@
 				<div class="services_other_item">
 					<?php if(isset($CONTENT['RIGHT_IMAGE'])AND($CONTENT['RIGHT_IMAGE'])): ?>
 					<div class="services_other_item_img">
-						<img src=<?php echo '"/assets/img/services/'.$CONTENT['RIGHT_IMAGE'].'.png"'; ?> alt="">
+						<img src=<?php echo '"/assets/img/templates/header_page/'.$CONTENT['RIGHT_IMAGE'].'.png"'; ?> alt="">
 					</div>
 					<?php endif; ?>
 					<?php if(isset($CONTENT['RIGHT_IMAGE_SIGN'])AND($CONTENT['RIGHT_IMAGE_SIGN'])): ?>

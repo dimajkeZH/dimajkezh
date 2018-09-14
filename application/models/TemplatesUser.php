@@ -19,6 +19,7 @@ class TemplatesUser extends User {
 				array_push($content, $vars);
 			}
 		}
+		//debug($content);
 		return $content;
 	}
 

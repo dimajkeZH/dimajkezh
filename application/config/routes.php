@@ -2,96 +2,6 @@
 
 return [
 
-	'' => [
-		'controller' => 'MainUser',
-		'action' => 'main',
-	],
-
-
-
-	'uslugi' => [
-		'controller' => 'MainUser',
-		'action' => 'services',
-	],
-
-		'uslugi/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
-			'action' => 'services',
-		],
-
-	'avtobusy' => [
-		'controller' => 'MainUser',
-		'action' => 'buses',
-	],
-
-		'avtobusy/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
-			'action' => 'buses',
-		],
-
-	'mikroavtobusy' => [
-		'controller' => 'MainUser',
-		'action' => 'minivans',
-	],
-
-		'mikroavtobusy/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
-			'action' => 'minivans',
-		],
-
-	'avtobusnyie_ekskursii' => [
-		'controller' => 'MainUser',
-		'action' => 'excursions',
-	],
-
-		'avtobusnyie_ekskursii/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
-			'action' => 'excursions',
-		],
-
-	'contacts' => [
-		'controller' => 'MainUser',
-		'action' => 'contacts',
-	],
-
-	'news/[0-9A-Za-z_]{1,}' => [
-		'controller' => 'MainUser',
-		'action' => 'news',
-	],
-	
-
-	'[0-9A-Za-z_]{1,}' => [
-		'controller' => 'MainUser',
-		'action' => 'bus',
-	],
-
-
-	'ajax/order' => [
-		'controller' => 'AjaxUser',
-		'action' => 'order',
-	],
-
-	'ajax/feedback' => [
-		'controller' => 'AjaxUser',
-		'action' => 'feedback',
-	],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	'admin' => [
 		'controller' => 'mainAdmin',
 		'action' => 'main',
@@ -250,4 +160,83 @@ return [
 	/* ADMIN AJAX END */
 
 	
+
+
+
+
+
+
+		'' => [
+		'controller' => 'MainUser',
+		'action' => 'main',
+	],
+
+
+
+	'uslugi' => [
+		'controller' => 'MainUser',
+		'action' => 'services',
+	],
+
+		'uslugi/[0-9A-Za-z_]{1,}' => [
+			'controller' => 'TemplatesUser',
+			'action' => 'services',
+		],
+
+	'avtobusy' => [
+		'controller' => 'MainUser',
+		'action' => 'buses',
+	],
+
+		'avtobusy/[0-9A-Za-z_]{1,}' => [
+			'controller' => 'TemplatesUser',
+			'action' => 'buses',
+		],
+
+	'mikroavtobusy' => [
+		'controller' => 'MainUser',
+		'action' => 'minivans',
+	],
+
+		'mikroavtobusy/[0-9A-Za-z_]{1,}' => [
+			'controller' => 'TemplatesUser',
+			'action' => 'minivans',
+		],
+
+	'avtobusnyie_ekskursii' => [
+		'controller' => 'MainUser',
+		'action' => 'excursions',
+	],
+
+		'avtobusnyie_ekskursii/[0-9A-Za-z_]{1,}' => [
+			'controller' => 'TemplatesUser',
+			'action' => 'excursions',
+		],
+
+	'contacts' => [
+		'controller' => 'MainUser',
+		'action' => 'contacts',
+	],
+
+	'news/[0-9A-Za-z_]{1,}' => [
+		'controller' => 'MainUser',
+		'action' => 'news',
+	],
+	
+
+	'[0-9A-Za-z_]{1,}' => [
+		'controller' => 'MainUser',
+		'action' => 'bus',
+	],
+
+
+	'ajax/order' => [
+		'controller' => 'AjaxUser',
+		'action' => 'order',
+	],
+
+	'ajax/feedback' => [
+		'controller' => 'AjaxUser',
+		'action' => 'feedback',
+	],
 ];

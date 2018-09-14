@@ -20,7 +20,12 @@ class View {
 		//debug([$type, $headers, $vars, $views]);
 		//debug($views);
 		if(count($views) == 0){
-			$views = [0 => $this->path];
+			if($type == 1){
+				$views = [0 => $this->path];
+			}else{
+				$views = [0 => 'main/empty'];
+				$vars = [0 => []];
+			}	
 		}
 		//debug($views);
 		$content = '';
@@ -60,6 +65,7 @@ class View {
 	}
 
 	private function fullRender($vars, $views){
+
 		$path = self::VIEW_DIR."$views.php";
 		if(file_exists($path)) {
 			extract($vars);

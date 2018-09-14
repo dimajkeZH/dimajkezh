@@ -79,7 +79,7 @@ class AjaxAdminController extends AdminController {
 		if(isset($this->post)){
 			if($this->model->verSavePages($this->post)){
 				if($this->model->savePages($this->post, $this->files)){
-					//$this->model->updCron();
+					$this->model->updCron();
 					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);

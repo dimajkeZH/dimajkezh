@@ -4,7 +4,16 @@ namespace application\models;
 
 use application\models\Admin;
 
-class Admin extends Admin {
+class CronAdmin extends Admin {
+
+	const CRON_DIR = '/application/views/layouts/cache/';
+
+	const MENU_PATH = '';
+	const MAIN_SLICK_PATH = '';
+	const BUS_SLICK_PATH = '';
+	const MINIVAN_SLICK_PATH = '';
+
+	const CATALOG_SLICKS = '/assets/img/slick';
 
 	static function updMenu(){
 		/*
@@ -17,20 +26,41 @@ class Admin extends Admin {
 	}
 
 	static function updSlicks(){
-		self::slickFull();
-		self::slickBuses();
-		self::slickMinivans();
+		$SRV_DOCKS = $_SERVER['DOCUMENT_ROOT'];
+
+		self::slickFull($SRV_DOCKS.self::CRON_DIR.self::MAIN_SLICK_PATH);
+		self::slickBuses($SRV_DOCKS.self::CRON_DIR.self::BUS_SLICK_PATH);
+		self::slickMinivans($SRV_DOCKS.self::CRON_DIR.self::MINIVAN_SLICK_PATH);
 	}
 
-	private static function slickFull(){
+	private static function slickFull($file){
+		$q = 'SELECT IMAGE FROM PAGES WHERE ID_LOCATION IN (:LOC1, :LOC2)';
+		$params = [
+			'LOC1' => 5,
+			'LOC2' => 7
+		];
+		//$result = self::db->row($q, $params);
+		//debug();
 
 	}
 
-	private static function slickBuses(){
+	private static function slickBuses($file){
+		$q = 'SELECT IMAGE, IMAGE_SIGN FROM PAGES WHERE ID_LOCATION IN (:LOC1) ORDER BY LOC_NUMBER';
+		$params = [
+			'LOC1' => 5
+		];
+		//$result = self::db->row($q, $params);
+
 
 	}
 
-	private static function slickMinivans(){
+	private static function slickMinivans($file){
+		$q = 'SELECT IMAGE FROM PAGES WHERE ID_LOCATION IN (:LOC2)';
+		$params = [
+			'LOC2' => 7
+		];
+		//$result = self::db->row($q, $params);
+
 
 	}
 

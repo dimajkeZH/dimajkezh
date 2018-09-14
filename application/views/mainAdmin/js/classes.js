@@ -47,8 +47,9 @@ class api{
 	        processData: false,
 	        cache: false,
 			success: function(data){
+				//console.log(data);
 				try{
-					callback(data.message, data.status);
+					callback(data.message, data.status, data.data);
 				}catch(e){
 					console.log('Error of api script. Refresh page!');
 				}finally{

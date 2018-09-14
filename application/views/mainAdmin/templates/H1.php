@@ -17,35 +17,35 @@
 										<div class="forma_group">
 											<p>Заголовок</p>
 											<div class="forma_group_item text">
-												<input type="text" name="TITLE" value='<?php echo (isset($TITLE))?$TITLE:''; ?>'>
+												<input autocomplete="off" type="text" name="TITLE" value='<?php echo (isset($TITLE))?$TITLE:''; ?>'>
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
 										<div class="forma_group">
 											<p>Левая картинка</p>
 											<div class="forma_group_item file">
-												<input type="file" name="LEFT_IMAGE">
+												<input autocomplete="off" type="file" name="LEFT_IMAGE">
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
 										<div class="forma_group">
 											<p>Подпись левой картинки</p>
 											<div class="forma_group_item text">
-												<input type="text" name="LEFT_IMAGE_SIGN" value="<?php echo (isset($LEFT_IMAGE_SIGN))?$LEFT_IMAGE_SIGN:''; ?>">
+												<input autocomplete="off" type="text" name="LEFT_IMAGE_SIGN" value="<?php echo (isset($LEFT_IMAGE_SIGN))?$LEFT_IMAGE_SIGN:''; ?>">
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
 										<div class="forma_group">
 											<p>Правая картинка</p>
 											<div class="forma_group_item file">
-												<input type="file" name="RIGHT_IMAGE">
+												<input autocomplete="off" type="file" name="RIGHT_IMAGE">
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
 										<div class="forma_group">
 											<p>Подпись правой картинки</p>
 											<div class="forma_group_item text">
-												<input type="text" name="RIGHT_IMAGE_SIGN" value="<?php echo (isset($RIGHT_IMAGE_SIGN))?$RIGHT_IMAGE_SIGN:''; ?>">
+												<input autocomplete="off" type="text" name="RIGHT_IMAGE_SIGN" value="<?php echo (isset($RIGHT_IMAGE_SIGN))?$RIGHT_IMAGE_SIGN:''; ?>">
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>

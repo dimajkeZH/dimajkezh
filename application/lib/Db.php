@@ -20,7 +20,7 @@ class Db {
 				$stmt->bindValue(':'.$key, $val);
 			}
 		}
-		$stmt->execute(); 
+		$stmt->execute();
 		return $stmt;
 	}
 
@@ -54,6 +54,11 @@ class Db {
 	public function column($sql, $params = []) {
 		$result = $this->query($sql, $params);
 		return $result->fetchColumn();
+	}
+
+	public function return($sql, $params = []){
+		$result = $this->query($sql, $params);
+		return $this->db->lastInsertId();
 	}
 
 	public function bool($sql, $params = []){

@@ -43,7 +43,7 @@
 				<div class='forma_group'>
 					<p>URI</p>
 					<div class='forma_group_item text'>
-						<input autocomplete="off" type='text' name='URI' placeholder='URI' onchange="checkURI(this)" value='<?php echo (isset($CONTENT['ALL']['URI']))?$CONTENT['ALL']['URI']:''; ?>' pattern="[0-9A-Za-z]{1,}">
+						<input autocomplete="off" type='text' name='URI' placeholder='URI' onchange="checkURI(this)" value='<?php echo (isset($CONTENT['ALL']['URI']))?$CONTENT['ALL']['URI']:''; ?>' pattern="[0-9A-Za-z_]{1,}">
 						<p class='forma_group_item_description'></p>
 					</div>
 				</div>
@@ -54,16 +54,26 @@
 						<div class='text_btns'>
 							<div class='btn_next' onclick='plus(this)'><p>+</p></div>
 							<div class='btn_prev' onclick='minus(this)'><p>-</p></div>
-						</div><p class='forma_group_item_description'></p>
+						</div><p class='forma_group_item_description'><?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?'':'Не указывайте порядковый номер, если страница должна добавиться в конец списка'; ?></p>
 					</div>
 				</div>
 				<div class="forma_group">
 					<p>Картинка для каталога</p>
 					<div class="forma_group_item file">
-						<input type="file" name='IMAGE' title="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>" alt="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>">
+						<input autocomplete="off" type="file" name='IMAGE' title="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>" alt="<?php echo (isset($CONTENT['ALL']['IMAGE']))?$CONTENT['ALL']['IMAGE']:''; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
+
+				<div class="forma_group">
+					<p>Подпись для картинки каталога</p>
+					<div class="forma_group_item text">
+						<input autocomplete="off" type="text" name='IMAGE_SIGN' placeholder='IMAGE_SIGN' value="<?php echo (isset($CONTENT['ALL']['IMAGE_SIGN']))?$CONTENT['ALL']['IMAGE_SIGN']:''; ?>" pattern="[0-9A-Za-z ]{1,}">
+						<p class="forma_group_item_description"></p>
+					</div>
+				</div>
+
+
 				<div class="forma_group">
 					<p>Мета ключевые слова</p>
 					<div class="forma_group_item text">

@@ -390,7 +390,11 @@ function Change(uri){
 	var dataJSON = JSON.stringify(parent);
 	dataFILES.append('DATA', dataJSON);
 	//console.log(dataFILES);
-	new api('api').send(uri, dataFILES, showMessage);
+	new api('api').send(uri, dataFILES, afterChange);
+}
+
+function afterChange(){
+	Redirect.go(window.location.pathname);
 }
 
 function Delete(uri){
