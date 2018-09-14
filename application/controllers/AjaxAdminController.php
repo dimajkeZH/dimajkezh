@@ -19,6 +19,9 @@ class AjaxAdminController extends AdminController {
 	const MESSAGE__DELETE_GOOD = 'Данные успешно удалены';
 	const MESSAGE__DELETE_BAD = 'Удаление данных не произошло';
 
+	const URI_CHECK_GOOD = 'Ссылка свободна для использования';
+	const URI_CHECK_BAD = 'Ссылка уже используется';
+
 	public function saveConfigsAction(){
 		$this->settings();
 		if($this->post){
@@ -93,6 +96,30 @@ class AjaxAdminController extends AdminController {
 					$this->model->message(true, self::MESSAGE__DELETE_GOOD);
 				}$this->model->message(false, self::MESSAGE__DELETE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
+		}else{
+			$this->model->message(false, self::MESSAGE__NO_VALUES);
+		}
+	}
+
+
+
+	public function getBlockAction(){
+		$this->settings();
+		if($this->post){
+			$this->model->message(true, $this->model->getBlockHTML($this->post));
+		}else{
+			$this->model->message(false, self::MESSAGE__NO_VALUES);
+		}
+	}
+
+	public function checkURIAction(){
+		$this->settings();
+		if($this->post){
+			if($this->model->checkURI($this->post)){
+				$this->model->message(true, self::URI_CHECK_GOOD);
+			}else{
+				$this->model->message(false, self::URI_CHECK_BAD);
+			}
 		}else{
 			$this->model->message(false, self::MESSAGE__NO_VALUES);
 		}

@@ -11,7 +11,6 @@
 		<form id="data"  class="block_form">
 			<div class="block_settings">
 				<div class="buttons">
-					<button class="remove">X</button>
 					<button class="add block_hide" onclick="return hideThis(this)">Cвернуть</button>
 				</div>
 			</div>
@@ -37,14 +36,21 @@
 				<div class="forma_group">
 					<p>Заголовок страницы</p>
 					<div class="forma_group_item text">
-						<input type="text" name="TITLE" placeholder="" value='<?php echo (isset($CONTENT['ALL']['TITLE']))?$CONTENT['ALL']['TITLE']:''; ?>'>
+						<input autocomplete="off" type="text" name="TITLE" placeholder="" value='<?php echo (isset($CONTENT['ALL']['TITLE']))?$CONTENT['ALL']['TITLE']:''; ?>'>
 						<p class="forma_group_item_description"></p>
+					</div>
+				</div>
+				<div class='forma_group'>
+					<p>URI</p>
+					<div class='forma_group_item text'>
+						<input autocomplete="off" type='text' name='URI' placeholder='URI' onchange="checkURI(this)" value='<?php echo (isset($CONTENT['ALL']['URI']))?$CONTENT['ALL']['URI']:''; ?>' pattern="[0-9A-Za-z]{1,}">
+						<p class='forma_group_item_description'></p>
 					</div>
 				</div>
 				<div class='forma_group'>
 					<p>Порядковый номер в списке</p>
 					<div class='forma_group_item text_btn'>
-						<input type='text' name='LOC_NUMBER' placeholder='serial_number' value='<?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?$CONTENT['ALL']['LOC_NUMBER']:''; ?>' pattern="[0-9]{1,}">
+						<input autocomplete="off" type='text' name='LOC_NUMBER' placeholder='serial_number' value='<?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?$CONTENT['ALL']['LOC_NUMBER']:''; ?>' pattern="[0-9]{1,}">
 						<div class='text_btns'>
 							<div class='btn_next' onclick='plus(this)'><p>+</p></div>
 							<div class='btn_prev' onclick='minus(this)'><p>-</p></div>
@@ -61,14 +67,14 @@
 				<div class="forma_group">
 					<p>Мета ключевые слова</p>
 					<div class="forma_group_item text">
-						<input type="text" name="HTML_KEYWORDS" placeholder="" value="<?php echo (isset($CONTENT['ALL']['HTML_KEYWORDS']))?$CONTENT['ALL']['HTML_KEYWORDS']:''; ?>">
+						<input autocomplete="off" type="text" name="HTML_KEYWORDS" placeholder="" value="<?php echo (isset($CONTENT['ALL']['HTML_KEYWORDS']))?$CONTENT['ALL']['HTML_KEYWORDS']:''; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
 				<div class="forma_group">
 					<p>Мета описание</p>
 					<div class="forma_group_item text">
-						<input type="text" name="HTML_DESCR" placeholder="" value="<?php echo (isset($CONTENT['ALL']['HTML_DESCR']))?$CONTENT['ALL']['HTML_DESCR']:''; ?>">
+						<input autocomplete="off" type="text" name="HTML_DESCR" placeholder="" value="<?php echo (isset($CONTENT['ALL']['HTML_DESCR']))?$CONTENT['ALL']['HTML_DESCR']:''; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>

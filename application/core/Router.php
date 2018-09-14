@@ -38,7 +38,7 @@ class Router {
                 $pos = stripos($route, '[');
                 if($pos){
                     $match_type = '#^'.substr($route, $pos);
-                    if(preg_match($match_type, 'aA1')){
+                    if(preg_match($match_type, 'aA1_')){
                         $this->params['param'] = $this->selectParam($url, self::MULTI_PARAM);
                     }elseif(preg_match($match_type, 1)){
                         $this->params['param'] = $this->selectParam($url, self::NUMERIC_PARAM);
@@ -58,7 +58,7 @@ class Router {
     }
 
     public function selectParam($url, $type){
-        $param = substr($url,strripos($url,'/')+1);
+        $param = stripos($url, '/') ? substr($url, strripos($url,'/')+1) : $url;
         switch($type){
             case self::MULTI_PARAM:
                 //

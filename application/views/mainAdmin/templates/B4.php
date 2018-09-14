@@ -5,29 +5,31 @@
 												<div class="btn_up" value="up"><p></p></div>
 												<div class="btn_down" value="down"><p></p></div>
 											</div>
-											<button class="remove">X</button>
+											<button class="remove" onclick="return removeThis(this)">X</button>
 											<button class="add block_hide" onclick="return hideThis(this)">Cвернуть</button>
 										</div>
 									</div>
 									<p class="form_title">Блок с картинками</p>
 									<div class="form_content">
 										<input type="text" name="ID" value="<?php echo $ID; ?>" style="display:none;">
+										<input type="text" name="ID_PAGE_TEMPLATE" value="<?php echo $ID_PAGE_TEMPLATE; ?>" style="display:none;">
 										<input type="text" name="TYPE" value="B4" style="display:none;">
 										<div class="forma_group">
 											<p>Заголовок</p>
 											<div class="forma_group_item text">
-												<input type="text" name="TITLE" value="<?php echo $TITLE; ?>">
+												<input type="text" name="TITLE" value="<?php echo (isset($TITLE))?$TITLE:''; ?>">
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
 										<div class='forma_group'>
 											<p>Текст</p>
 											<div class='forma_group_item textarea'>
-												<textarea name='DESCR'><?php echo $DESCR; ?></textarea>
+												<textarea name='DESCR'><?php echo (isset($DESCR))?$DESCR:''; ?></textarea>
 												<p class='forma_group_item_description'></p>
 											</div>
 										</div>
-										<?php foreach($DATA as $key => $val): ?>
+										<?php if(isset($DATA) && count($DATA) > 0):
+										foreach($DATA as $key => $val): ?>
 										<hr>
 										<input type="text" name="ID_IMAGE_CONTENT<?php echo $key; ?>" value="<?php echo $val['ID']; ?>" style="display:none;">
 										<div class="forma_group">
@@ -62,6 +64,22 @@
 												<p class="forma_group_item_description"></p>
 											</div>
 										</div>
-										<?php endforeach; ?>
+										<?php endforeach; 
+										endif; ?>
+										<hr>
+										<div class="forma_group">
+											<p>Добавление Картинки</p>
+											<div class="forma_group_item add_table">
+												<div class="add_table_inputs">
+													<label for="">
+														Количество:
+														<input name="imgCount" type="text" value="1">
+													</label>
+												</div>
+												<div class="add_table_btn">
+													<button class="add" onclick="return addImage(this)">Добавить</button>
+												</div>
+											</div>
+										</div>
 									</div>
 								</form>

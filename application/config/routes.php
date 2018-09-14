@@ -9,47 +9,42 @@ return [
 
 
 
-	'services' => [
+	'uslugi' => [
 		'controller' => 'MainUser',
 		'action' => 'services',
 	],
 
-		'services/page/[0-9]{1,}' => [
+		'uslugi/[0-9A-Za-z_]{1,}' => [
 			'controller' => 'TemplatesUser',
 			'action' => 'services',
 		],
 
-	'buses' => [
+	'avtobusy' => [
 		'controller' => 'MainUser',
 		'action' => 'buses',
 	],
 
-		'buses/page/[0-9]{1,}' => [
+		'avtobusy/[0-9A-Za-z_]{1,}' => [
 			'controller' => 'TemplatesUser',
 			'action' => 'buses',
 		],
 
-	'bus/[0-9]{1,}' => [
-		'controller' => 'MainUser',
-		'action' => 'bus',
-	],
-
-	'minivans' => [
+	'mikroavtobusy' => [
 		'controller' => 'MainUser',
 		'action' => 'minivans',
 	],
 
-		'minivans/page/[0-9]{1,}' => [
+		'mikroavtobusy/[0-9A-Za-z_]{1,}' => [
 			'controller' => 'TemplatesUser',
 			'action' => 'minivans',
 		],
 
-	'excursions' => [
+	'avtobusnyie_ekskursii' => [
 		'controller' => 'MainUser',
 		'action' => 'excursions',
 	],
 
-		'excursions/page/[0-9]{1,}' => [
+		'avtobusnyie_ekskursii/[0-9A-Za-z_]{1,}' => [
 			'controller' => 'TemplatesUser',
 			'action' => 'excursions',
 		],
@@ -59,12 +54,16 @@ return [
 		'action' => 'contacts',
 	],
 
-	'news/[0-9]{1,}' => [
+	'news/[0-9A-Za-z_]{1,}' => [
 		'controller' => 'MainUser',
 		'action' => 'news',
 	],
 	
 
+	'[0-9A-Za-z_]{1,}' => [
+		'controller' => 'MainUser',
+		'action' => 'bus',
+	],
 
 
 	'ajax/order' => [
@@ -76,6 +75,19 @@ return [
 		'controller' => 'AjaxUser',
 		'action' => 'feedback',
 	],
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -111,6 +123,14 @@ return [
 	'admin/tree' => [
 		'controller' => 'mainAdmin',
 		'action' => 'getSiteTree',
+	],
+	'admin/block' => [
+		'controller' => 'ajaxAdmin',
+		'action' => 'getBlock',
+	],
+	'admin/uri' => [
+		'controller' => 'ajaxAdmin',
+		'action' => 'checkURI',
 	],
 	/* ADMIN DATA END */
 

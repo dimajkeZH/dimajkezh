@@ -81,6 +81,243 @@ function hideThis(THIS){
 	}
 	return false;
 }
+/*удалить элемент*/
+function removeThis(THIS){
+	let box = $(THIS).parent().parent().parent()[0];
+	let boxName = $(box).find('p.form_title')[0].innerText;
+	if(confirm('Вы действительно хотите удалить блок "'+boxName+'"?\r\n\r\n(Блок удалится ТОЛЬКО после нажатия на кнопку "Сохранить")')){
+		$(box).hide(500, function(){ $(box).remove(); });
+	}
+	return false;
+}
+
+
+//
+function tableCol_Delete(THIS, id = null){
+	
+	if(!window.confirm('Действительно хотите удалить этот столбец?')){
+		return false;
+	}
+
+	let table = tableSearch(THIS);
+	let index = -1;
+	let th = $(THIS).closest('th')[0];
+	let thList = $(table).find('th');
+	for(let thIndex = 0; thIndex < thList.length; thIndex++){
+		if(thList[thIndex] == th){
+			index = thIndex;
+			break;
+		}
+	}
+	for(let trIndex = 0; trIndex < $(table).find('tr').length; trIndex++){
+		table.rows[trIndex].deleteCell(index);
+	}
+	tableCellNameChange(table, id);
+	return false;
+}
+//
+function tableRow_Delete(THIS, id = null){
+
+	if(!window.confirm('Действительно хотите удалить этот строку?')){
+		return false;
+	}
+	let table = tableSearch(THIS);
+	$(THIS).closest('tr').remove();
+	tableCellNameChange(table, id);
+	return false;
+}
+//
+function tableCol_Add(THIS, id = null){
+	let table = tableSearch(THIS);
+	let trList = $(table).find('tr');
+	let tdCount = $(trList[0]).find('th').length;
+
+	$(trList[0]).append('<th><button class="remove" onclick="return tableCol_Delete(this'+((id != null)?(', '+id):'')+')">X</button></th>');
+	for(let trIndex = 1; trIndex < trList.length; trIndex++){
+		$(trList[trIndex]).append('<td><input autocomplete="off" name="CELL_TABLE'+((id != null)?id:'')+'_'+trIndex+'_'+tdCount+'" value="" type="text"></td>');
+	}
+	return false;
+}
+//
+function tableRow_Add(THIS, id = null){
+	let table = tableSearch(THIS);
+	let tr = $(table).find('tr');
+	let trCount = tr.length;
+	tr = tr[0];
+	let tdCount = $(tr).find('th').length;
+
+	let newtr 	= '<tr><td><button class="remove" onclick="return tableRow_Delete(this'+((id != null)?(', '+id):'')+')">X</button></td>';
+	for(let i = 1; i < tdCount; i++){
+		newtr += '<td><input autocomplete="off" name="CELL_TABLE'+((id != null)?id:'')+'_'+trCount+'_'+i+'" value="" type="text"></td>';
+	}
+	newtr += '</tr>';
+	$(table).find('tbody:last-child').append(newtr);
+	return false;
+}
+//
+function tableSearch(THIS){
+	let parent = $(THIS).closest('.table_info');
+	let table = parent.find('table');
+	return table[0];
+}
+//
+function tableCellNameChange(table, id = null){
+	console.log(table);
+	console.log(id);
+	let trList = $(table).find('tr');
+	for(let trIndex = 0; trIndex < trList.length; trIndex++){
+		let tdList = $(trList[trIndex]).find('td');
+		for(let tdIndex = 0; tdIndex < tdList.length; tdIndex++){
+			let input = $(tdList[tdIndex]).find('input')[0];
+			if(input != undefined){
+				if(id != null){
+					input.name = 'CELL_TABLE'+id+'_'+trIndex+'_'+tdIndex;
+				}else{
+					input.name = 'CELL_TABLE_'+trIndex+'_'+tdIndex;
+				}
+				
+			}
+		}
+	}
+}
+
+//
+function addMultiTable(THIS){
+	let box = $(THIS).closest('.form_content')[0];
+	let lastTable = $(box).find('.table_info.forma_group');
+	lastTable = lastTable[lastTable.length - 1];
+	let multitableCount = $(box).find('input[name^=ID_TABLE]').length;
+	let rowCount = $(THIS).parent().parent().find('input[name=rowCount]')[0].value;
+	let colCount = $(THIS).parent().parent().find('input[name=colCount]')[0].value;
+
+	console.log(lastTable);
+	console.log(multitableCount);
+
+	let newTable = '<hr><input name="ID_TABLE'+multitableCount+'" value="-1" style="display:none;" type="text"><div class="forma_group"><p>Заголовок мультитаблицы</p><div class="forma_group_item text"><input name="TITLE_TABLE'+multitableCount+'" value="" type="text"><p class="forma_group_item_description"></p></div></div>';
+	newTable += '<div class="table_info forma_group"><div class="table_info_btns"><button class="add" onclick="return tableRow_Add(this, '+multitableCount+')">Добавить Строку</button><button class="add" onclick="return tableCol_Add(this, '+multitableCount+')">Добавить Столбец</button></div><table class="forma_group_item"><tbody>';
+	
+	newTable += '<tr class="table_info_head"><th></th>';
+
+	for(let thIndex = 1; thIndex <= colCount; thIndex++){
+		newTable += '<th><button class="remove" onclick="return tableCol_Delete(this, '+multitableCount+')">X</button></th>';
+	}
+
+	newTable += '</tr>';
+	for(let trIndex = 1; trIndex <= rowCount; trIndex++){
+		newTable += '<tr><td><button class="remove" onclick="return tableRow_Delete(this, '+multitableCount+')">X</button></td>';
+		for(let tdIndex = 1; tdIndex <= colCount; tdIndex++){
+			newTable += '<td><input autocomplete="off" name="CELL_TABLE'+multitableCount+'_'+trIndex+'_'+tdIndex+'" value="" type="text"></td>';
+		}
+		newTable += '</tr>';
+	}
+
+	newTable += '</tbody></table></div>';
+
+	$(lastTable).after(newTable);
+
+	return false;
+}
+//
+function addTable(THIS){
+	let box = $(THIS).closest('.form_content')[0];
+	let parent = $(THIS).closest('.forma_group')[0];
+
+	let rowCount = $(THIS).parent().parent().find('input[name=rowCount]')[0].value;
+	let colCount = $(THIS).parent().parent().find('input[name=colCount]')[0].value;
+
+	console.log(box);
+	console.log(parent);
+
+	let newTable = '<input name="ID_TABLE" value="-1" style="display:none;" type="text"><div class="forma_group"><p>Заголовок мультитаблицы</p><div class="forma_group_item text"><input name="TITLE_TABLE" value="" type="text"><p class="forma_group_item_description"></p></div></div>';
+	newTable += '<div class="table_info forma_group"><div class="table_info_btns"><button class="add" onclick="return tableRow_Add(this)">Добавить Строку</button><button class="add" onclick="return tableCol_Add(this)">Добавить Столбец</button></div><table class="forma_group_item"><tbody>';
+	
+	newTable += '<tr class="table_info_head"><th></th>';
+
+	for(let thIndex = 1; thIndex <= colCount; thIndex++){
+		newTable += '<th><button class="remove" onclick="return tableCol_Delete(this)">X</button></th>';
+	}
+
+	newTable += '</tr>';
+	for(let trIndex = 1; trIndex <= rowCount; trIndex++){
+		newTable += '<tr><td><button class="remove" onclick="return tableRow_Delete(this)">X</button></td>';
+		for(let tdIndex = 1; tdIndex <= colCount; tdIndex++){
+			newTable += '<td><input autocomplete="off" name="CELL_TABLE_'+trIndex+'_'+tdIndex+'" value="" type="text"></td>';
+		}
+		newTable += '</tr>';
+	}
+
+	newTable += '</tbody></table></div>';
+
+	$(parent).remove();
+	$(box).append(newTable);
+
+	return false;
+}
+
+//
+function checkURI(THIS){
+	let uri = THIS.value;
+	let parent = $(THIS).closest('.form_content')[0];
+	let input_ID = $(parent).find('input[name=ID_PAGE]')[0];
+	let input_TYPE = $(parent).find('input[name=ID_TYPE]')[0];
+	let ID = input_ID.value;
+	let TYPE = input_TYPE.value;
+
+	let uri_data = new FormData();
+	uri_data.append('DATA', JSON.stringify({
+		'ID_PAGE': ID,
+		'ID_TYPE': TYPE,
+		'URI': uri
+	}));
+
+	new api('api').send('/admin/uri', uri_data, checkURIafter);
+}
+//
+function checkURIafter(msg, status = null){
+	message.show(msg, status);
+}
+
+//
+function addImage(THIS){
+	let box = $(THIS).parent().parent().parent()[0];
+
+	let imgCount = $(THIS).parent().parent().find('input[name=imgCount]')[0].value;
+
+	console.log(box);
+	console.log(imgCount);
+
+	//let child = $(box).find('');
+	
+	return false;
+}
+
+
+//
+function addBlock(){
+	let block_value = document.getElementById('selectedBlock').value;
+	if(block_value == '-1'){
+		alert('Нужно выбрать блок');
+		return false;
+	}
+	//let id_page = $('.form_content').find('input[name=ID_PAGE]')[0].value;
+
+	let block_data = new FormData();
+	block_data.append('DATA', JSON.stringify({
+		'BLOCK': block_value,
+	}));
+	loader.show();
+	hideAllBlocks(false);
+	new api('api').send('/admin/block', block_data, loadBlock);
+	modalClose();
+	return false;
+}
+
+function loadBlock(content){
+	let box = $('.main_content_info').find('.mCSB_container')[0];
+	$(box).append(content);
+}
+
+
 //скролл контента
 function custormScrollContent(){
 	$(".main_content_info").mCustomScrollbar();
@@ -188,10 +425,20 @@ function minus(This){
 	});
 }
 
-function hideAllBlocks(){
+function hideAllBlocks($hide = true){
 	$(function(){
-		if($('.form_content').length > 2){
-			$('.form_content').toggleClass('hide');
+		if($hide){
+			if($('.form_content').length > 2){
+				$('.form_content').toggleClass('hide');
+				$('.block_hide').text('Развернуть');
+			}
+		}else{
+			let boxes = $('.form_content');
+			boxes.each(function(key, box){
+				if(!box.classList.contains('hide')){
+					$(box).addClass('hide');
+				}
+			});
 			$('.block_hide').text('Развернуть');
 		}
 	});

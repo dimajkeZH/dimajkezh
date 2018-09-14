@@ -113,25 +113,27 @@ class TemplatesUser extends User {
 	public function setConf($route){
 		if($route['controller'] && $route['action'] && $route['param']){
 			$params = [
-				'COL_NUMBER' => $route['param'],
+				'URI' => $route['param'],
 				'CONTROLLER' => $route['controller'],
 				'ACTION' => $route['action']
 			];
 
-			$q = 'SELECT ID_TYPE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+			$q = 'SELECT ID_TYPE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID WHERE (P.URI LIKE :URI) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$type = $this->db->row($q, $params);
-			if($type){
+			if(isset($type)){
 				$this->pg_type = $type[0]['ID_TYPE'];
 
 				$table = '';
+				$order = '';
 				if($this->pg_type == '1'){
 					$table = 'PAGE_FULL';
 				}elseif($this->pg_type == '2'){
 					$table = 'PAGE_TEMPLATES';
+					$order = ' ORDER BY SERIAL_NUMBER ASC';
 				}
-				$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM '.$table.' AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+				$q = 'SELECT PT.ID AS ID, LT.ID AS TMPL_NUMBER, LT.PATH FROM '.$table.' AS PT INNER JOIN (PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID) ON P.ID = PT.ID_PAGE INNER JOIN LIB_TEMPLATES AS LT ON LT.ID = PT.ID_TEMPLATE WHERE (P.URI = :URI) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)'.$order.';';
 				$tmpls = $this->db->row($q, $params);
-				if($tmpls){
+				if(isset($tmpls)){
 					$this->tmpls = $tmpls;
 					return true;
 				}
@@ -141,9 +143,9 @@ class TemplatesUser extends User {
 	}
 
 	public function getTitle($route){
-		$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = P.ID_LOCATION WHERE (P.LOC_NUMBER = :COL_NUMBER) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
+		$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = P.ID_LOCATION WHERE (P.URI = :URI) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 		$params = [
-			'COL_NUMBER' => $route['param'],
+			'URI' => $route['param'],
 			'CONTROLLER' => $route['controller'],
 			'ACTION' => $route['action']
 		];

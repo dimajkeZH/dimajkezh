@@ -51,9 +51,9 @@ class MainUser extends User {
 		return $result;
 	}
 
-	public function getBus($router){
-		$q = 'SELECT * FROM DATA_BUSES WHERE ID = :ID';
-		$params = ['ID' => $router['param']];
+	public function getBus($route){
+		$q = 'SELECT * FROM DATA_BUSES WHERE URI LIKE :URI';
+		$params = ['URI' => $route['param']];
 		$return['CONTENT'] = $this->db->row($q, $params);
 		return $return;
 	}

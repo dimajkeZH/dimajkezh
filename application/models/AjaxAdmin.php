@@ -25,6 +25,8 @@ class AjaxAdmin extends Admin {
 	const IMAGE_TEMPLATE_HEADER_PAGE = 'templates/header_page/';
 	const IMAGE_TEMPLATE_BLOCK_IMAGES = 'templates/block_images/';
 
+	const TEMPLATES_DIR = '/application/views/mainAdmin/templates/';
+
 	public function verConfigs($post){
 		return true;
 	}
@@ -139,16 +141,17 @@ class AjaxAdmin extends Admin {
 				$this->replaceImage($this->casePathCatalog($ID), $oldFile, $IMAGE);
 			}			
 		}
+		$URI = $common['URI'];
 		$LOC_NUMBER = $common['LOC_NUMBER'];
 		$HTML_DESCR = $common['HTML_DESCR'];
 		$HTML_KEYWORDS = $common['HTML_KEYWORDS'];
-		//debug(123);
 		if($ID > 0){
 			$tran = [
 				0 => [
-					'sql' => 	'UPDATE PAGES SET `LOC_NUMBER` = :LOC_NUMBER, `TITLE` = :TITLE, '.$IMAGE_NAME.'`HTML_DESCR` = :HTML_DESCR, `HTML_KEYWORDS` = :HTML_KEYWORDS WHERE ID = :ID;',
+					'sql' => 	'UPDATE PAGES SET `URI` = :URI, `LOC_NUMBER` = :LOC_NUMBER, `TITLE` = :TITLE, '.$IMAGE_NAME.'`HTML_DESCR` = :HTML_DESCR, `HTML_KEYWORDS` = :HTML_KEYWORDS WHERE ID = :ID;',
 					'params' => [
 						'ID' => $ID,
+						'URI' => $URI,
 						'LOC_NUMBER' => $LOC_NUMBER,
 						'TITLE' => $TITLE,
 						'HTML_DESCR' => $HTML_DESCR,
@@ -157,7 +160,7 @@ class AjaxAdmin extends Admin {
 				]
 			];
 			foreach($post as $key => $val){
-				$tran = array_merge($tran, $this->switchUPDTemplate($val, $files));
+				$tran = array_merge($tran, $this->switchUPDTemplate($val, $files, $key+1));
 			}
 			return $this->db->transaction($tran);
 		}elseif($ID == 0){
@@ -182,6 +185,32 @@ class AjaxAdmin extends Admin {
 
 
 
+	public function getBlockHTML($post){
+		$block = $post['BLOCK'];
+		$block_path = $_SERVER['DOCUMENT_ROOT'].self::TEMPLATES_DIR.$block.'.php';
+		if(file_exists($block_path)){
+			ob_start();
+			$ID_PAGE_TEMPLATE = $ID = -1;
+			require $block_path;
+			return ob_get_clean();
+		}
+	}
+
+	public function checkURI($post){
+		$ID_PAGE = $post['ID_PAGE'];
+		$URI = $post['URI'];
+
+		$q = 'SELECT count(*) as `COUNT` FROM PAGES WHERE (ID NOT IN (:ID)) AND (URI LIKE :URI)';
+		$params = [
+			'ID' => $ID_PAGE, 
+			'URI' => $URI
+		];
+		$count = $this->db->column($q, $params);
+		if($count == 0){
+			return true;
+		}
+		return false;
+	}
 
 
 
@@ -189,8 +218,8 @@ class AjaxAdmin extends Admin {
 
 
 
+	private function switchUPDTemplate($val, $files, $SN){
 
-	private function switchUPDTemplate($val, $files){
 		switch($val['TYPE']){
 			case 'H1': //order
 				$params = [
@@ -352,6 +381,8 @@ class AjaxAdmin extends Admin {
 					}
 				}
 				$index = count($return);
+				//debug($val);
+				//debug($TABLE_DATA);
 				foreach($TABLE_DATA as $subkey => $subval){
 					$return[$index]['sql'] = 'UPDATE BLOCK_MULTITABLE_CONTENT SET SUBTITLE = :ST, SERIAL_NUMBER = :SN WHERE (ID = :ID);';
 					$return[$index++]['params'] = [
@@ -436,6 +467,12 @@ class AjaxAdmin extends Admin {
 				}
 				break;
 		}
+		$index = count($return);
+		$return[$index]['sql'] = "UPDATE PAGE_TEMPLATES SET SERIAL_NUMBER = :SN WHERE ID = :ID_PAGE_TEMPLATE";
+		$return[$index]['params'] = [
+			'ID_PAGE_TEMPLATE' => $val['ID_PAGE_TEMPLATE'],
+			'SN' => strval($SN)
+		];
 		return $return;
 	}
 

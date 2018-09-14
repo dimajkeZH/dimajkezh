@@ -59,7 +59,6 @@ class MainAdmin extends Admin {
 		return $result;
 	}
 
-
 	//GET CONTENT
 	public function getContent(){
 		return [];
@@ -127,7 +126,7 @@ class MainAdmin extends Admin {
 
 	public function sitePagesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = 'SELECT ID, ID_TYPE, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
+			$q = 'SELECT ID, ID_TYPE, URI, LOC_NUMBER, TITLE, DESCR, IMAGE, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
 			$params = [
 				'ID' => $route['param']
 			];
@@ -255,7 +254,7 @@ class MainAdmin extends Admin {
 			require $_SERVER['DOCUMENT_ROOT'].'/application/views/mainAdmin/templates/'.$path.'.php';
 			$return = ob_get_clean();
 		}elseif($type == 2){
-			$q = 'SELECT ID, ID_TEMPLATE FROM PAGE_TEMPLATES WHERE ID_PAGE = :ID';
+			$q = 'SELECT ID, ID_TEMPLATE FROM PAGE_TEMPLATES WHERE ID_PAGE = :ID ORDER BY SERIAL_NUMBER ASC';
 			$subresult = $this->db->row($q, $params);
 			foreach($subresult as $key => $val){
 				$return .= $this->getBlockContent($val['ID'], $val['ID_TEMPLATE']);
@@ -267,6 +266,7 @@ class MainAdmin extends Admin {
 	private function getBlockContent($ID, $ID_TEMPLATE){
 		$return = '';
 		$result = [];
+		$nottotable = false;
 		switch($ID_TEMPLATE){
 			case 1:
 				$table_content = 'BLOCK_HEADER_ORDER';
@@ -299,6 +299,7 @@ class MainAdmin extends Admin {
 				$table_data = 'BLOCK_IMAGE_CONTENT';
 				$id_field = 'ID_IMAGE';
 				$path = 'B4';
+				$nottotable = true;
 				break;
 			case 7:
 				$table_content = ''; //'BLOCK_LINKS';
@@ -311,12 +312,12 @@ class MainAdmin extends Admin {
 			if(!isset($table_data) && !isset($id_field)){
 				$result = $this->getSimpleBlockContent($ID, $table_content);
 			}else{
-				$result = $this->getTableContent($ID, $table_content, $table_data, $id_field);
+				$result = $this->getTableContent($ID, $table_content, $table_data, $id_field, $nottotable);
 			}
 		}else{
 			$result = $this->getMultiTableContent($ID, $table_content, $table_list, $id_list, $table_data, $id_field);
 		}
-		$select_path = 'B2';
+		$select_path = 'B4';
 		if($path == $select_path){
 			//debug($result);
 		}
@@ -340,7 +341,7 @@ class MainAdmin extends Admin {
 		return $return;
 	}
 
-	private function getTableContent($ID, $table_content, $table_data, $id_field){
+	private function getTableContent($ID, $table_content, $table_data, $id_field, $nottotable = false){
 		$return = [];
 		if($table_content != ''){
 			$q = 'SELECT * FROM '.$table_content.' WHERE ID_PAGE_TEMPLATE = :ID';
@@ -354,7 +355,9 @@ class MainAdmin extends Admin {
 					'ID' => $return['ID']
 				];
 				$return['DATA'] = $this->db->row($q, $params);
-				$return['DATA'] = $this->SimpleArrayToTableArray($return['DATA']);
+				if(!$nottotable){
+					$return['DATA'] = $this->SimpleArrayToTableArray($return['DATA']);
+				}
 			}
 		}
 		//debug($return);

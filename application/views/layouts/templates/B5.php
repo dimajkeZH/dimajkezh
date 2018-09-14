@@ -8,7 +8,7 @@
 						<ul>
 							<?php foreach($val['LIST'] as $listkey => $listval): ?>
 								<?php if($listval['STATE_LINK']): ?>
-								<li class="catalog_item_link"><a href="/bus/<?php echo $listval['ID'] ? $listval['ID'] : ''; ?>"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></a></li>
+								<li class="catalog_item_link"><a href="/<?php echo $listval['URI'] ? $listval['URI'] : ''; ?>"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></a></li>
 								<?php else: ?>
 								<li class="catalog_item_link"><?php echo $listval['TITLE'] ? $listval['TITLE'] : ''; ?></li>
 								<?php endif; ?>

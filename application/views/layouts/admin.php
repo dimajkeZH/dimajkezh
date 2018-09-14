@@ -90,32 +90,79 @@
 								<div class="modal_wnd_head">
 									<div class="buttons">
 										<button onclick="modalClose()" class="remove">Отмена</button>
-										<button form="" class="save">Добавить</button>
+										<button onclick="return addBlock(this)" class="save">Добавить</button>
 									</div>
 								</div>
 								<div class="modal_wnd_content">
 									<div class="modal_wnd_form">
-										<form action="	">
-											<select name="block" id="" size="6">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="11">11</option>
-												<option value="12">12</option>
+										<form>
+											<select name="block" id="selectedBlock" size="5" onchange="changeDescr(this)">
+												<option selected value="-1">- - - - - Выберите блок для добавления - - - - -</option>
+												<option value="H1">H1</option>
+												<option value="H2">H2</option>
+												<option value="B1">B1</option>
+												<option value="B2">B2</option>
+												<option value="B3">B3</option>
+												<option value="B4">B4</option>
+												<option value="B5">B5</option>
+												<option value="EXC1">EXC1</option>
 											</select>
 										</form>
 									</div>
 									<div class="modal_wnd_info">
-										<p class="modal_wnd_info_title">Заголовок</p>
-										<p class="modal_wnd_info_content">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deleniti facilis quia eum impedit sapiente eaque, eligendi, modi, ab assumenda, aliquam. Sed voluptatem error voluptates? Eligendi mollitia ipsam illo, dolorem aliquam neque excepturi, quasi numquam dicta sed a ducimus, sunt! Labore nisi quibusdam in at, illo voluptas doloremque ea quos?</p>
+										<p class="modal_wnd_info_title">--</p>
+										<p class="modal_wnd_info_content">--</p>
 									</div>
+									<script>
+										function changeDescr(THIS){
+											let box_title = $('.modal_wnd_info_title');
+											let box_descr = $('.modal_wnd_info_content');
+											let box_type = $('#selectedBlock').val();
+
+											switch(box_type){
+												case '-1':
+													box_title.text('');
+													box_descr.text('');
+													break;
+												case 'H1':
+													box_title.text('Заголовок с формой заявки');
+													box_descr.text('Самый верхний блок на странице (хидер)');
+													break;
+												case 'H2':
+													box_title.text('Заголовок с картинками');
+													box_descr.text('Самый верхний блок на странице (хидер)');
+													break;
+												case 'B1':
+													box_title.text('Блок с таблицей');
+													box_descr.text('Таблица с заголовком и текстом');
+													break;
+												case 'B2':
+													box_title.text('Блок с мультитаблицей');
+													box_descr.text('Таблица с кнопками переключения между вкладками');
+													break;
+												case 'B3':
+													box_title.text('Текстовый блок');
+													box_descr.text('Блок с текстом и подзаголовокм');
+													break;
+												case 'B4':
+													box_title.text('Блок с картинками');
+													box_descr.text('Набор картинок с описанием');
+													break;
+												case 'B5':
+													box_title.text('Блок с ссылками');
+													box_descr.text('(Пока что не доступен)');
+													break;
+												case 'EXC1':
+													box_title.text('Уникальный блок для страниц Экскурсии');
+													box_descr.text('Заменяет все блоки и используется один для всей страницы');
+													break;
+												default:
+													box_title.text('---');
+													box_descr.text('---');
+													break;
+											}
+										}
+									</script>
 								</div>
 							</div>
 						</div>

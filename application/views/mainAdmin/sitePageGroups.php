@@ -9,7 +9,6 @@
 		<form id="data" class="block_form">
 			<div class="block_settings">
 				<div class="buttons">
-					<button class="remove">X</button>
 					<button class="add block_hide" onclick="return hideThis(this)">Cвернуть</button>
 				</div>
 			</div>
@@ -19,21 +18,21 @@
 				<div class="forma_group">
 					<p>Заголовок страницы</p>
 					<div class="forma_group_item text">
-						<input type="text" name="HTML_TITLE" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_TITLE']; ?>">
+						<input autocomplete="off" type="text" name="HTML_TITLE" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_TITLE']; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
 				<div class="forma_group">
 					<p>Мета ключевые слова</p>
 					<div class="forma_group_item text">
-						<input type="text" name="HTML_KEYWORDS" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_KEYWORDS']; ?>">
+						<input autocomplete="off" type="text" name="HTML_KEYWORDS" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_KEYWORDS']; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
 				<div class="forma_group">
 					<p>Мета описание</p>
 					<div class="forma_group_item text">
-						<input type="text" name="HTML_DESCR" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_DESCR']; ?>">
+						<input autocomplete="off" type="text" name="HTML_DESCR" placeholder="" value="<?php echo $CONTENT['ALL']['HTML_DESCR']; ?>">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
@@ -43,11 +42,6 @@
 		<form id="data" class="block_form">
 			<div class="block_settings">
 				<div class="buttons">
-					<div class="up_down">
-						<div class="btn_up" value="up"><p></p></div>
-						<div class="btn_down" value="down"><p></p></div>
-					</div>
-					<button class="remove">X</button>
 					<button class="add block_hide" onclick="return hideThis(this)">Cвернуть</button>
 				</div>
 			</div>
