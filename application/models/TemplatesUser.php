@@ -19,7 +19,6 @@ class TemplatesUser extends User {
 				array_push($content, $vars);
 			}
 		}
-		//debug($content);
 		return $content;
 	}
 
@@ -55,6 +54,7 @@ class TemplatesUser extends User {
 		switch($TMPL){
 			case 1:
 				$return['CONTENT'] = $this->db->row('SELECT * FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID', ['ID' => $ID]);
+				$return['USER_CHOICE'] = $this->choice_list();
 				return $return;
 				break;
 			case 2:

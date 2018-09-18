@@ -26,7 +26,7 @@
 						<p><?php echo $PAGELIST[$i]['TITLE']; ?></p>
 						<img src=<?php echo '"/assets/img/services/'.$PAGELIST[$i]['IMAGE'].'.png"'; ?> alt="">
 						<div class="services_list_button">
-							<a href=<?php echo '"'.$PAGELIST[$i]['LINK'].'"'; ?>><p>Подробнее</p></a>
+							<a href=<?php echo '"uslugi/'.$PAGELIST[$i]['LINK'].'"'; ?>><p>Подробнее</p></a>
 						</div>
 					</div>
 					<?php endfor; ?>

@@ -9,18 +9,28 @@ class MainUser extends User {
 	const ControlTemplatesName = 'TemplatesUser';
 
 	public function getTitle($route){
-		$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS AS PG INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = PG.ID_LOCATION WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
+		$q = 'SELECT HTML_TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGE_GROUPS AS PG INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = PG.ID_LOCATION WHERE (LL.CONTROLLER LIKE :CONTROLLER) AND (LL.ACTION LIKE :ACTION)';
 		$params = [
 			'CONTROLLER' => $route['controller'],
 			'ACTION' => $route['action']
 		];
 		$title = $this->db->row($q, $params);
+		if(count($title) == 0){
+			$q = 'SELECT TITLE, HTML_DESCR, HTML_KEYWORDS FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON LL.ID = P.ID_LOCATION WHERE (LL.CONTROLLER LIKE :CONTROLLER) AND (LL.ACTION LIKE :ACTION)';
+			$params = [
+				'CONTROLLER' => $route['controller'],
+				'ACTION' => $route['action']
+			];
+			$title = $this->db->row($q, $params);
+		}
+		$title[0]['USER_CHOICE'] = $this->choice_list();
 		return (count($title) > 0) ? $title[0] : [];
 	}
 
 	public function getContent($route){
 		$result['PAGELIST'] = $this->pagelist($route);
 		$result['CONTENT'] = $this->content($route);
+		$result['USER_CHOICE'] = $this->choice_list();
 		return $result;
 	}
 
@@ -59,7 +69,7 @@ class MainUser extends User {
 	}
 
 	private function pagelist($route){
-		$q = 'SELECT P.TITLE, P.DESCR, CONCAT(SUBSTR(LL.NAME, 1, INSTR(LL.NAME, "[0-9]{1,}")-1), P.LOC_NUMBER) as LINK, P.IMAGE  FROM PAGES as P INNER JOIN LIB_LOCATIONS as LL ON LL.ID = P.ID_LOCATION WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
+		$q = 'SELECT P.TITLE, P.DESCR, P.URI/*CONCAT(SUBSTR(LL.NAME, 1, INSTR(LL.NAME, "[0-9]{1,}")-1), P.LOC_NUMBER)*/ as LINK, P.IMAGE  FROM PAGES as P INNER JOIN LIB_LOCATIONS as LL ON LL.ID = P.ID_LOCATION WHERE (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION)';
 		$params = [
 			'CONTROLLER' => self::ControlTemplatesName,
 			'ACTION' => $route['action']

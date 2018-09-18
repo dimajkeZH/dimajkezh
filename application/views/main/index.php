@@ -1,6 +1,6 @@
 		<div class="main_head">
 			<div class="main_head_title">
-				<span>Заказ автобуса с водителем в Москве</span>
+				<span><?php echo $CONTENT['TITLE']; ?></span>
 			</div>
 			<div class="main_order">
 				<img src="/assets/img/static/bcg_main2.png" alt="">
@@ -11,25 +11,7 @@
 						<div class="forma_group"><input type="text" placeholder="Адрес подачи" name="addr_from"></div>
 						<div class="forma_group"><input type="text" placeholder="Адрес назначения" name="addr_to"></div>
 						<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name="email_phone"></div>
-						<div class="forma_group">
-							<select name="user_choice">
-								<option value="0">---Выбор транспорта---</option>
-								<option value="1">6 Мест</option>
-								<option value="2">7 Мест</option>
-								<option value="3">8 Мест</option>
-								<option value="4">9 Мест</option>
-								<option value="5">10 Мест</option>
-								<option value="6">11 Мест</option>
-								<option value="7">18 Мест</option>
-								<option value="8">20 Мест</option>
-								<option value="9">24 Места</option>
-								<option value="10">28 Мест</option>
-								<option value="11">31 Место</option>
-								<option value="12">42 Мест</option>
-								<option value="13">50 Мест</option>
-								<option value="14">55 Мест</option>
-							</select>
-						</div>
+						<div class="forma_group"><select name="user_choice"><?php echo $USER_CHOICE; ?></select></div>
 						<div class="forma_group"><input type="text" placeholder="Предложите цену" name="cost"></div>
 						<div class="forma_group"><input type="text" placeholder="Комментарий" name="message"></div>
 						<button onclick="return order('main_order')"><p>Заказать</p></button>
@@ -41,64 +23,64 @@
 			</div>
 		</div>
 		<div class="main_about">
-			<p class="main_about_title">"ТриБас-М" обладает большим парком туристических автобусов и микроавтобусов от 6 до 63 мест</p>
+			<p class="main_about_title"><?php echo $CONTENT['ABOUT_TITLE']; ?></p>
 			<div class="main_line"></div>
 			<div class="main_about_brand">
-				<p>Известных мировых брендов:</p>
+				<p><?php echo $CONTENT['ABOUT_SUBTITLE']; ?></p>
 				<img src="/assets/img/static/brand.png" alt="">
 			</div>
 		</div>
 		<div class="main_services">
-			<p class="main_services_title">ТриБас-М - многофункциональный сервис заказа автобусов</p>
+			<p class="main_services_title"><?php echo $CONTENT['SERVICE_TITLE']; ?></p>
 			<div class="main_line"></div>
 			<div class="main_cervices_wrapper">
 				<div class="main_cervices_items">
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s1.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Поездки по согласованному маршруту и по фиксированной стоимости</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM1']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s2.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Подача за МКАД до 10 км бесплатно</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM2']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s3.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Обслуживание свадеб и банкетов</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM3']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s4.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Организация экскурсий и туристических поездок</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM4']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s5.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Воспользовавшись нашим сервисом, вы можете найти ближайший автобус по доступной цене</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM5']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s6.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Встреча в аэропорту с отслеживанием авиарейса</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM6']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s7.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Обеспечение пассажирским транспортом корпоративных мероприятий от 500 человек</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM7']; ?></p>
 						</div>
 					</div>
 					<div class="main_cervices_item">
 						<img src="/assets/img/static/s8.png" alt="" class="main_cervices_item_img">
 						<div class="main_cervices_item_text">
-							<p>Оптимизация маршрутов с предоставлением скидки</p>
+							<p><?php echo $CONTENT['SERVICE_ITEM8']; ?></p>
 						</div>
 					</div>
 				</div>
@@ -109,34 +91,34 @@
 		<!-- SLICK END -->
 		<div class="main_tips">
 			<div class="main_tips_head">
-				<p class="main_tips_head_title">Как заказать автобус?</p>
+				<p class="main_tips_head_title"><?php echo $CONTENT['TIPS_TITLE']; ?></p>
 				<div class="main_line"></div>
-				<p class="main_tips_head_info">Примите во внимание наши практические советы, они помогут вам избежать распространенных ошибок и, возможно, сэкономят ваши финансы.</p>
+				<p class="main_tips_head_info"><?php echo $CONTENT['TIPS_INFO']; ?></p>
 			</div>
 			<div class="main_tips_content">
 				<div class="main_tips_info">
 					<div class="main_tips_block_left">
 						<div class="main_tips_item">
 							<p>1.</p>
-							<p>Обязательно предупреждайте перевозчика о транспортировки детских групп.</p>
-							<p>Организованная перевозка детей числом от 8 человек должна проходить с предварительном уведомлением ГИБДД. Перевозка смешанных семейных групп из расчета один взрослый на двух несовершеннолетних пассажиров не требует уведомления органов надзора.</p>
+							<p><?php echo $CONTENT['TIPS_ITEM_TITLE1']; ?></p>
+							<p><?php echo $CONTENT['TIPS_ITEM_DESCR1']; ?></p>
 						</div>
 						<div class="main_tips_item">
 							<p>2.</p>
-							<p>Делайте заказ заранее, а на праздники и выходные минимум за одну, две недели.</p>
-							<p>Решение арендовать автобус с водителем обычно принимается не второпях, а обдумывается заранее. Попытка заказ автобуса за два часа до времени отправления может не принести результата, так как машины такого класса не слоняются по всему городу без дела. Свободные единицы стоят на немногочисленных стоянках и потребуется время для их подачи. В выходные и праздничные дни количество заказов резко возрастает и свободных машин может просто не быть, причем почти во всех автопарках Москвы.</p>
+							<p><?php echo $CONTENT['TIPS_ITEM_TITLE2']; ?></p>
+							<p><?php echo $CONTENT['TIPS_ITEM_DESCR2']; ?></p>
 						</div>
 					</div>
 					<div class="main_tips_block_right">
 						<div class="main_tips_item">
 							<p>3.</p>
-							<p>До подачи автобуса, обдумайте место его стоянки и возможность проезда.</p>
-							<p>Обратите внимание на то обстоятельство, что большой автобус чувствует себя на улицах города совсем не так уверенно как легковое авто. Не все улочки могут оказаться проходимыми для него и не каждая обочина способна приютить на парковке такого великана. Заезд во двор жилого дома скорее всего просто будет невозможен.</p>
+							<p><?php echo $CONTENT['TIPS_ITEM_TITLE3']; ?></p>
+							<p><?php echo $CONTENT['TIPS_ITEM_DESCR3']; ?></p>
 						</div>
 						<div class="main_tips_item">
 							<p>4.</p>
-							<p>Заказывая микроавтобус оговорите с диспетчером размещение багажа.</p>
-							<p>Если вам потребовалось отправить в аэропорт группу из 20 человек и вы решили заказать микроавтобус на 20 мест. Имейте ввиду, что все машины до 28 мест, не имеют багажного отделения и чемоданы в большом количестве просто не поместятся в салоне. Автобусы на 30-35 пассажиров имеют сравнительно не большое багажное отделение на 20 средних чемоданов. Для поездки в аэропорт или на вокзал для групп более 26 человек, мы рекомендуем бронировать автобусы от 40-50 мест.</p>
+							<p><?php echo $CONTENT['TIPS_ITEM_TITLE4']; ?></p>
+							<p><?php echo $CONTENT['TIPS_ITEM_DESCR4']; ?></p>
 						</div>
 					</div>
 				</div>

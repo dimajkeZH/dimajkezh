@@ -76,5 +76,15 @@ abstract class User extends Model {
 			return $return;
 		}
 	}
+
+	public function choice_list(){
+		$return = '<option value="0">---Выбор транспорта---</option>';
+		$q = 'SELECT P.ID as VAL, P.CHOICE_TITLE as TITLE FROM PAGES as P INNER JOIN LIB_LOCATIONS as LL ON P.ID_LOCATION = LL.ID WHERE (LL.ID IN (7, 5)) AND (P.CHOICE_TITLE NOT LIKE "") ORDER BY P.ID_LOCATION DESC, P.LOC_NUMBER ASC;';
+		$result = $this->db->row($q);
+		foreach($result as $key => $val){
+			$return .= '<option value="'.$val['VAL'].'">'.$val['TITLE'].'</option>';
+		}
+		return $return;
+	}
 	
 }

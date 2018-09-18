@@ -14,7 +14,7 @@
 			<div class="excursions_item">
 				<p class="excursions_item_title"><?php echo $PAGELIST[$i]['TITLE']; ?></p>
 				<p class="excursions_item_text"><?php echo $PAGELIST[$i]['DESCR']; ?></p>
-				<div class="excursions_item_detail"><a href=<?php echo '"'.$PAGELIST[$i]['LINK'].'"'; ?>>Подробнее</a></div>
+				<div class="excursions_item_detail"><a href=<?php echo '"avtobusnyie_ekskursii/'.$PAGELIST[$i]['LINK'].'"'; ?>>Подробнее</a></div>
 			</div>
 			<?php endfor; ?>
 		</div>

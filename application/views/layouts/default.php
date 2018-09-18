@@ -39,24 +39,7 @@
 					<div class="forma_group"><input type="text" placeholder="Адрес подачи" name="addr_from"></div>
 					<div class="forma_group"><input type="text" placeholder="Адрес назначения" name="addr_to"></div>
 					<div class="forma_group"><input type="text" placeholder="Ваш телефон или email" name="email_phone"></div>
-					<div class="forma_group">
-						<select name="user_choice">
-							<option value="0">---Выбор транспорта---</option>
-							<option value="1">6 Мест</option>
-							<option value="2">7 Мест</option>
-							<option value="3">8 Мест</option>
-							<option value="4">9 Мест</option>
-							<option value="5">10 Мест</option>
-							<option value="6">11 Мест</option>
-							<option value="7">18 Мест</option>
-							<option value="8">20 Мест</option>
-							<option value="9">24 Места</option>
-							<option value="10">28 Мест</option>
-							<option value="11">31 Место</option>
-							<option value="12">42 Мест</option>
-							<option value="13">50 Мест</option>
-							<option value="14">55 Мест</option>
-						</select>
+					<div class="forma_group"><select name="user_choice"><?php echo $USER_CHOICE; ?></select>
 					</div>
 					<div class="forma_group"><input type="text" placeholder="Предложите цену" name="cost"></div>
 					<div class="forma_group"><input type="text" placeholder="Комментарий" name="message"></div>
