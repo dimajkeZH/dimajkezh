@@ -7,8 +7,9 @@ use application\models\Admin;
 class AjaxAdmin extends Admin {
 
 	public function updCron(){
-		CronAdmin::updMenu();
-		CronAdmin::updSlicks();
+		$c = new CronAdmin();
+		$c->updMenu();
+		$c->updSlicks();
 	}
 
 	const IMAGE_NAME_LEN = 64;
