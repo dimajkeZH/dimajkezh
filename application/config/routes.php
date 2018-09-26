@@ -107,6 +107,15 @@ return [
 		'action' => 'catalogBuses',
 	],
 	
+	'admin/catalog/minivans' => [
+		'controller' => 'mainAdmin',
+		'action' => 'catalogMinivans',
+	],
+	'admin/catalog/minivans/[0-9]{1,}' => [
+		'controller' => 'mainAdmin',
+		'action' => 'catalogMinivans',
+	],
+
 	'admin/catalog/news' => [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogNews',
@@ -153,7 +162,7 @@ return [
 		'action' => 'savePages',
 	],
 	//child pages (do delete[1+])
-	'admin/delete/pages' => [
+	'admin/delete/pages/[0-9]{1,}' => [
 		'controller' => 'AjaxAdmin',
 		'action' => 'delPages',
 	],

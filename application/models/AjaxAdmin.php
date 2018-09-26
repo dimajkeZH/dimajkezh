@@ -114,8 +114,11 @@ class AjaxAdmin extends Admin {
 		 */
 	}
 	public function savePages($post, $files){
+		#debug($post);
 		$common = array_shift($post);
+		#debug($common);
 		$ID = $common['ID_PAGE'];
+		#debug($ID);
 		$ID_GROUP = ($ID == 0) ? strval($common['group']) : 0;
 		$ID_TYPE = $common['ID_TYPE'];
 
@@ -145,6 +148,7 @@ class AjaxAdmin extends Admin {
 				$this->replaceImage($pathCatalog, $oldFile, $IMAGE);
 			}			
 		}
+		$CHOICE_TITLE = $common['CHOICE_TITLE'];
 		$IMAGE_SIGN = $common['IMAGE_SIGN'];
 		$URI = $common['URI'];
 		$LOC_NUMBER = $common['LOC_NUMBER'];
@@ -154,9 +158,10 @@ class AjaxAdmin extends Admin {
 		if($ID != 0){ //update and clear
 			$tran = [
 				0 => [
-					'sql' => 	'UPDATE PAGES SET `URI` = :URI, `LOC_NUMBER` = :LOC_NUMBER, `TITLE` = :TITLE, '.$IMAGE_NAME_UDP.'`IMAGE_SIGN` = :IMAGE_SIGN, `HTML_DESCR` = :HTML_DESCR, `HTML_KEYWORDS` = :HTML_KEYWORDS WHERE ID = :ID;',
+					'sql' => 'UPDATE PAGES SET `URI` = :URI, `LOC_NUMBER` = :LOC_NUMBER, `TITLE` = :TITLE, '.$IMAGE_NAME_UDP.'`CHOICE_TITLE` = :CHOICE_TITLE, `IMAGE_SIGN` = :IMAGE_SIGN, `HTML_DESCR` = :HTML_DESCR, `HTML_KEYWORDS` = :HTML_KEYWORDS WHERE ID = :ID;',
 					'params' => [
 						'ID' => $ID,
+						'CHOICE_TITLE' => $CHOICE_TITLE,
 						'IMAGE_SIGN' => $IMAGE_SIGN,
 						'URI' => $URI,
 						'LOC_NUMBER' => $LOC_NUMBER,
@@ -222,10 +227,11 @@ class AjaxAdmin extends Admin {
 		}else{ //insert
 			$tran = [];
 
-			$q = 'INSERT INTO PAGES (`ID_LOCATION`, `ID_GROUP`, `ID_TYPE`, `URI`, `LOC_NUMBER`, `TITLE`, `IMAGE`, `IMAGE_SIGN`, `HTML_DESCR`, `HTML_KEYWORDS`) VALUES ((SELECT (ID_LOCATION + 1) FROM PAGE_GROUPS WHERE ID = :ID_GROUP), :ID_GROUP, :ID_TYPE, :URI, (SELECT MAX(P.LOC_NUMBER) + 1 FROM PAGES as P WHERE P.ID_GROUP = :ID_GROUP), :TITLE, :IMAGE, :IMAGE_SIGN, :HTML_DESCR, :HTML_KEYWORDS);';
+			$q = 'INSERT INTO PAGES (`ID_LOCATION`, `ID_GROUP`, `ID_TYPE`, `CHOICE_TITLE`, `URI`, `LOC_NUMBER`, `TITLE`, `IMAGE`, `IMAGE_SIGN`, `HTML_DESCR`, `HTML_KEYWORDS`) VALUES ((SELECT (ID_LOCATION + 1) FROM PAGE_GROUPS WHERE ID = :ID_GROUP), :ID_GROUP, :ID_TYPE, :CHOICE_TITLE, :URI, (SELECT MAX(P.LOC_NUMBER) + 1 FROM PAGES as P WHERE P.ID_GROUP = :ID_GROUP), :TITLE, :IMAGE, :IMAGE_SIGN, :HTML_DESCR, :HTML_KEYWORDS);';
 			$params = [
 				'ID_GROUP' => $ID_GROUP,
 				'ID_TYPE' => $ID_TYPE,
+				'CHOICE_TITLE' => $CHOICE_TITLE,
 				'URI' => $URI,
 				'TITLE' => $TITLE,
 				'IMAGE' => $IMAGE_NAME_INS,
@@ -233,26 +239,34 @@ class AjaxAdmin extends Admin {
 				'HTML_DESCR' => $HTML_DESCR,
 				'HTML_KEYWORDS' => $HTML_KEYWORDS
 			];
-			//debug([$q, $params]);
 			$ID = $this->db->return($q, $params);
-			//debug($ID);
 		}
 		//debug($tran);
 		foreach($post as $key => $val){
 			$tran = array_merge($tran, $this->switchUPDTemplate($val, $files, (string)($key+1), $ID));
 		}
-		//debug($tran);
 		//debug($this->db->transaction($tran));
-		return $this->db->transaction($tran);
+		if($this->db->transaction($tran)){
+			return $ID;
+		}else{
+			return false;
+		}
 	}
-	public function verPages_del($post){
+
+	public function verPages_del($route){
 		if(TRUE){
 			return true;
 		}
 		return false;
 	}
-	public function delPages($post){
-
+	
+	public function delPages($route){
+		$ID = $route['param'];
+		$q = 'DELETE FROM PAGES WHERE ID = :ID';
+		$params = [
+			'ID' => $ID
+		];
+		return $this->db->bool($q, $params);
 	}
 	/************************************************************* PAGES END *************************************************************/
 
@@ -301,63 +315,83 @@ class AjaxAdmin extends Admin {
 
 
 	private function switchDELTemplate($TMPL_TYPE, $ID_PAGE_TEMPLATE){
-		$return = [
-			0 => [
-				'sql' => '',
-				'params' => [
-					'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
-				]
-			]
+		$params = [
+			'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
 		];
 		switch($TMPL_TYPE){
 			case 'H1':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
+				$return = [
+					0 => [
+						'sql' => 'DELETE FROM BLOCK_HEADER_ORDER WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					]
+				];
 				break;
 			case 'H2':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_HEADER_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
+				$return = [
+					0 => [
+						'sql' => 'DELETE FROM BLOCK_HEADER_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					]
+				];
 				break;
 			case 'B1':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_TABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
-				$return[1] = [
-					'sql' => 'DELETE FROM DATA_TABLE WHERE ID_TABLE IN (SELECT ID FROM BLOCK_TABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
-					'params' => [
-						'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
+				$return = [
+					1 => [
+						'sql' => 'DELETE FROM BLOCK_TABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					],
+					0 => [
+						'sql' => 'DELETE FROM DATA_TABLE WHERE ID_TABLE IN (SELECT ID FROM BLOCK_TABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
+						'params' => $params
 					]
 				];
 				break;
 			case 'B2':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
-				$return[1] = [
-					'sql' => 'DELETE FROM BLOCK_MULTITABLE_CONTENT WHERE ID_MULTITABLE IN (SELECT ID FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
-					'params' => [
-						'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
-					]
-				];
-				$return[2] = [
-					'sql' => 'DELETE FROM DATA_MULTITABLE WHERE ID_MULTITABLE_CONTENT IN (SELECT ID FROM BLOCK_MULTITABLE_CONTENT WHERE ID_MULTITABLE IN (SELECT ID FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE))',
-					'params' => [
-						'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
+				$return = [
+					2 => [
+						'sql' => 'DELETE FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					],
+					1 => [
+						'sql' => 'DELETE FROM BLOCK_MULTITABLE_CONTENT WHERE ID_MULTITABLE IN (SELECT ID FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
+						'params' => $params
+					],
+					0 => [
+						'sql' => 'DELETE FROM DATA_MULTITABLE WHERE ID_MULTITABLE_CONTENT IN (SELECT ID FROM BLOCK_MULTITABLE_CONTENT WHERE ID_MULTITABLE IN (SELECT ID FROM BLOCK_MULTITABLE WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE))',
+						'params' => $params
 					]
 				];
 				break;
 			case 'B3':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_TEXT WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
+				$return = [
+					0 => [
+						'sql' => 'DELETE FROM BLOCK_TEXT WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					]
+				];
 				break;
 			case 'B4':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
-				$return[1] = [
-					'sql' => 'DELETE FROM BLOCK_IMAGE_CONTENT WHERE ID_IMAGE IN (SELECT ID FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
-					'params' => [
-						'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
+				$return = [
+					1 => [
+						'sql' => 'DELETE FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					],
+					0 => [
+						'sql' => 'DELETE FROM BLOCK_IMAGE_CONTENT WHERE ID_IMAGE IN (SELECT ID FROM BLOCK_IMAGES WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
+						'params' => $params
 					]
 				];
 				break;
 			case 'B5':
-				$return[0]['sql'] = 'DELETE FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE';
-				$return[1] = [
-					'sql' => 'DELETE FROM BLOCK_LINKS_CONTENT WHERE ID_LINK IN (SELECT ID FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
-					'params' => [
-						'ID_PAGE_TEMPLATE' => $ID_PAGE_TEMPLATE
+				$return = [
+					1 => [
+						'sql' => 'DELETE FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
+						'params' => $params
+					],
+					0 => [
+						'sql' => 'DELETE FROM BLOCK_LINKS_CONTENT WHERE ID_LINK IN (SELECT ID FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
+						'params' => $params
 					]
 				];
 				break;
@@ -604,40 +638,60 @@ class AjaxAdmin extends Admin {
 					'TEXT' => $val['TEXT']
 				];
 				break;
-			case 'B4': //image
-				/*
-				
-				LOAD IMAGES
-
-				 */
+			case 'B4': //image list
+				/* LOAD IMAGES */
 				$return[$index]['sql'] = 'INSERT INTO BLOCK_IMAGES (ID_PAGE_TEMPLATE, TITLE, DESCR) VALUES ((SELECT MAX(ID) FROM PAGE_TEMPLATES), :TITLE, :DESCR);';
 				$return[$index++]['params'] = [
 					'TITLE' => $val['TITLE'],
 					'DESCR' => $val['DESCR']
 				];
-				/*
-				$images = [];
-				$arrFields = ['ID_IMAGE_CONTENT', 'SUBTITLE', 'IMAGE_LINK', 'IMAGE_SIGN', 'SERIAL_NUMBER'];
-				foreach($val as $subkey => $subval){
-					foreach($arrFields as $arrKey => $arrVal){
-						if(preg_match('#^'.$arrVal.'[0-9]{0,}$#', $subkey)){
-							if(!isset($images[$arrVal])){
-								$images[$arrVal] = [];
-							}
-							array_push($images[$arrVal], $subval);
+
+				$NUMERIC_PART_IMAGE = $SN;
+				$IMAGE_DATA = [];
+				foreach($val as $key => $value){
+					if(preg_match('#^ID_IMAGE_CONTENT[0-9]{1,}$#', $key)){
+						$IMAGE_DATA[explode('ID_IMAGE_CONTENT', $key)[1]]['ID'] = $value;
+					}elseif(preg_match('#^SUBTITLE[0-9]{1,}$#', $key)){
+						$IMAGE_DATA[explode('SUBTITLE', $key)[1]]['SUBTITLE'] = $value;
+					}elseif(preg_match('#^IMAGE_SIGN[0-9]{1,}$#', $key)){
+						$IMAGE_DATA[explode('IMAGE_SIGN', $key)[1]]['IMAGE_SIGN'] = $value;
+					}elseif(preg_match('#^SERIAL_NUMBER[0-9]{1,}$#', $key)){
+						$IMAGE_DATA[explode('SERIAL_NUMBER', $key)[1]]['SERIAL_NUMBER'] = $value;
+					}
+				}
+				for($i = 0; $i < count($IMAGE_DATA); $i++){
+
+					$local_index = 'IMAGE_LINK'.$i.'_'.$NUMERIC_PART_IMAGE;
+
+					$ID_IMAGE_CONTENT = $IMAGE_DATA[$i]['ID'];
+					
+					$q = 'SELECT IMAGE_LINK FROM BLOCK_IMAGE_CONTENT WHERE ID = :ID';
+					$params = [
+						'ID' => $ID_IMAGE_CONTENT
+					];
+					$old = $this->db->column($q, $params);
+
+					if(isset($files[$local_index]) && $files[$local_index] != '' && $files[$local_index]['size'] > 0){
+						$img = $files[$local_index];
+						if($old != '' && $old != null){
+							$new_img = $this->replaceImage(self::IMAGE_TEMPLATE_BLOCK_IMAGES, $old, $img);
+						}else{
+							$new_img = $this->loadImage(self::IMAGE_TEMPLATE_BLOCK_IMAGES, $img);
 						}
+					}else{
+						$new_img = $old;
 					}
+					$IMAGE_DATA[$i]['IMAGE'] = $new_img;
 				}
-				foreach($images as $key => $val){
-					foreach($val as $subkey => $subval){
-						$newimages[$subkey][$key] = $subval;
-					}
+				foreach($IMAGE_DATA as $key => $val){
+					$return[$index]['sql'] = 'INSERT INTO BLOCK_IMAGE_CONTENT (ID_IMAGE, IMAGE_LINK, SUBTITLE, IMAGE_SIGN, SERIAL_NUMBER) VALUES ((SELECT MAX(ID) FROM BLOCK_IMAGES), :IMAGE, :SUBTITLE, :SIGN, :SN);';
+					$return[$index++]['params'] = [
+						'IMAGE' => $val['IMAGE'],
+						'SUBTITLE' => $val['SUBTITLE'],
+						'SIGN' => $val['IMAGE_SIGN'],
+						'SN' => $val['SERIAL_NUMBER']
+					];
 				}
-				foreach($newimages as $subkey => $subval){
-					$return[$subkey+1]['sql'] = 'UPDATE BLOCK_IMAGE_CONTENT SET `SUBTITLE` = "'.$subval['SUBTITLE'].'", `IMAGE_LINK` = "'.$subval['IMAGE_LINK'].'", `IMAGE_SIGN` = "'.$subval['IMAGE_SIGN'].'", `SERIAL_NUMBER` = "'.$subval['SERIAL_NUMBER'].'" WHERE ID = :ID;';
-					$return[$subkey+1]['params'] = ['ID' => $subval['ID_IMAGE_CONTENT']];
-				}
-				*/
 				break;
 			case 'B5': //links
 				//$return[0]['sql'] = 'UPDATE  SET () WHERE ID = :ID;';
@@ -702,14 +756,16 @@ class AjaxAdmin extends Admin {
 	}
 
 	private function replaceImage($dir, $oldFile, $newfile){
+		#debug([$dir, $oldFile, $newfile]);
 		if($newfile['size'] > 0){
+			$oldName = $oldFile;
 			$oldFile = $_SERVER['DOCUMENT_ROOT'].self::IMAGE_DIR.$dir.$oldFile.'.'.self::IMAGE_FILE_FORMAT;
 			$this->imgOptimize($newfile['tmp_name']);
 			if(copy($newfile['tmp_name'], $oldFile)){
-	            return true;
+	            return $oldName;
 	        }
 	   	}
-	   	return false;
+	   	return '';
 	}
 
 	private function imgOptimize($image){

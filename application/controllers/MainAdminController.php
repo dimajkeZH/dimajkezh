@@ -150,6 +150,17 @@ class MainAdminController extends AdminController {
 		}
 	}
 
+	public function catalogMinivansAction(){
+		$this->isAuth();
+		$this->settings();
+		$content = $this->model->catalogMinivansContent($this->route);
+		if($this->model->isAjax()){
+			$this->ajax($content);
+		}else{
+			$this->render($content);
+		}
+	}
+
 	public function catalogNewsAction(){
 		$this->isAuth();
 		$this->settings();

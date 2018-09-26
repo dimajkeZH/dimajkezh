@@ -4,7 +4,7 @@
 		<div class="buttons">
 			<button class="add" onclick="modalOpen()">Add</button>
 			<button class="save" onclick="Change('save/pages')"><?php echo ((isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)) ? 'Save' : 'Add'); ?></button>
-			<?php if(isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)): ?><button class="remove">Remove</button><?php endif; ?>
+			<?php if(isset($CONTENT['ALL']['ID'])&&($CONTENT['ALL']['ID'] > 0)): ?><button class="remove" onclick="Delete('delete/pages/<?php echo $CONTENT['ALL']['ID']; ?>')">Remove</button><?php endif; ?>
 		</div>
 	</div>
 	<div class="main_content_info">
@@ -57,6 +57,14 @@
 						</div><p class='forma_group_item_description'><?php echo (isset($CONTENT['ALL']['LOC_NUMBER']))?'':'Не указывайте порядковый номер, если страница должна добавиться в конец списка'; ?></p>
 					</div>
 				</div>
+
+				<div class="forma_group">
+					<p>Заголовок для каталога</p>
+					<div class="forma_group_item text">
+						<input autocomplete="off" type="text" name='CHOICE_TITLE' placeholder='' value="<?php echo (isset($CONTENT['ALL']['CHOICE_TITLE']))?$CONTENT['ALL']['CHOICE_TITLE']:''; ?>" pattern="[0-9A-Za-z ]{0,}">
+						<p class="forma_group_item_description"></p>
+					</div>
+				</div>
 				<div class="forma_group">
 					<p>Картинка для каталога</p>
 					<div class="forma_group_item file">
@@ -64,11 +72,10 @@
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>
-
 				<div class="forma_group">
 					<p>Подпись для картинки каталога</p>
 					<div class="forma_group_item text">
-						<input autocomplete="off" type="text" name='IMAGE_SIGN' placeholder='IMAGE_SIGN' value="<?php echo (isset($CONTENT['ALL']['IMAGE_SIGN']))?$CONTENT['ALL']['IMAGE_SIGN']:''; ?>" pattern="[0-9A-Za-z ]{1,}">
+						<input autocomplete="off" type="text" name='IMAGE_SIGN' placeholder='' value="<?php echo (isset($CONTENT['ALL']['IMAGE_SIGN']))?$CONTENT['ALL']['IMAGE_SIGN']:''; ?>" pattern="[0-9A-Za-z ]{0,}">
 						<p class="forma_group_item_description"></p>
 					</div>
 				</div>

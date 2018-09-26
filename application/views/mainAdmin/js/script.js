@@ -393,7 +393,12 @@ function Change(uri){
 	new api('api').send(uri, dataFILES, afterChange);
 }
 
-function afterChange(){
+function afterChange(message, status, data){
+	showMessage(message, status);
+	if(window.location.pathname == '/admin/site/pages' && status){
+		window.location.pathname += '/' + data.ID
+	}
+	console.log(window.location.pathname);
 	Redirect.go(window.location.pathname);
 }
 
@@ -405,10 +410,16 @@ function Delete(uri){
 	//data.append(dataInput[0].name, dataInput[0].value);
 	data[dataInput[0].name] = dataInput[0].value;
 	if(window.confirm('Действительно хотите удалить эту запись?')){
-		new api('api').send(uri, data, showMessage);
+		new api('api').send(uri, data, afterDelete);
 	}else{
 		loader.hide();
 	}
+}
+
+function afterDelete(message, status, data){
+	showMessage(message, status);
+	window.location.pathname = '/admin/site/pages';
+	Redirect.go(window.location.pathname);
 }
 
 function plus(This){

@@ -126,7 +126,7 @@ class MainAdmin extends Admin {
 
 	public function sitePagesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
-			$q = 'SELECT ID, ID_TYPE, URI, LOC_NUMBER, TITLE, DESCR, IMAGE, IMAGE_SIGN, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
+			$q = 'SELECT ID, ID_TYPE, URI, LOC_NUMBER, TITLE, DESCR, CHOICE_TITLE, IMAGE, IMAGE_SIGN, HTML_DESCR, HTML_KEYWORDS  FROM PAGES WHERE ID = :ID';
 			$params = [
 				'ID' => $route['param']
 			];
@@ -200,6 +200,17 @@ class MainAdmin extends Admin {
 		}else{
 			$return['CONTENT']['ID'] = 0;
 			$return['CONTENT']['PAGE'] = $this->listBuses();
+		}
+		return $return;
+	}
+
+	public function catalogMinivansContent($route){
+		if(isset($route['param']) && ($route['param'] > 0)){
+			$return['CONTENT']['ID'] = $route['param'];
+			$return['CONTENT']['PAGE'] = $this->getMinivan($route['param']);
+		}else{
+			$return['CONTENT']['ID'] = 0;
+			$return['CONTENT']['PAGE'] = $this->listMinivans();
 		}
 		return $return;
 	}
@@ -302,9 +313,7 @@ class MainAdmin extends Admin {
 				$nottotable = true;
 				break;
 			case 7:
-				$table_content = ''; //'BLOCK_LINKS';
-				$table_data = ''; //'BLOCK_LINKS_CONTENT';
-				$id_field = ''; //'ID_LINK';
+				$table_content = 'BLOCK_LINKS';
 				$path = 'B5';
 				break;
 		}
@@ -317,13 +326,13 @@ class MainAdmin extends Admin {
 		}else{
 			$result = $this->getMultiTableContent($ID, $table_content, $table_list, $id_list, $table_data, $id_field);
 		}
-		$select_path = 'B4';
+		$select_path = 'B5';
 		if($path == $select_path){
-			//debug($result);
+			#debug($result);
 		}
 		$return = $this->buildingBlockContent($result, $path);
 		if($path == $select_path){
-			//debug($subresult);
+			#debug($subresult);
 		}
 		return $return;
 	}
@@ -472,6 +481,18 @@ class MainAdmin extends Admin {
 	}
 
 	private function getBus($param){
+		$return = '';
+
+		return $return;
+	}
+
+	private function listMinivans(){
+		$return = '';
+
+		return $return;
+	}
+
+	private function getMinivan($param){
 		$return = '';
 
 		return $return;

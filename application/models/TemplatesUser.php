@@ -82,18 +82,54 @@ class TemplatesUser extends User {
 				return $return;
 				break;
 			case 7:
-				$q = 'SELECT ID, TITLE, IMAGE FROM DATA_BUSES_COUNTRIES ORDER BY SERIAL_NUMBER';
-				$return['CONTENT'] = $this->db->row($q);
-				foreach($return['CONTENT'] as $key => $val){
-					$q = 'SELECT * FROM DATA_BUSES WHERE ID_COUNTRY = '.$val['ID'].' ORDER BY SERIAL_NUMBER';
-					$return['CONTENT'][$key]['LIST'] = $this->db->row($q);
-					foreach($return['CONTENT'][$key]['LIST'] as $keyBus => $valBus){
-						$return['CONTENT'][$key]['LIST'][$keyBus]['STATE_LINK'] = true;
-						if(($valBus['TECH_DESCR'] == '') || (($valBus['IMAGE_INNER'] == '') && ($valBus['IMAGE_OUTER'] == ''))){
-							$return['CONTENT'][$key]['LIST'][$keyBus]['STATE_LINK'] = false;
+				$q = 'SELECT TITLE, IS_BUSES, IS_MINIVANS FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID';
+				$params = [
+					'ID' => $ID
+				];
+				$return['CONTENT'] = $result = $this->db->row($q, $params)[0];
+				$is_buses = $result['IS_BUSES'];
+				$is_minivans = $result['IS_MINIVANS'];
+				$buses = [];
+				$minivans = [];
+				if($is_buses && !$is_minivans){
+					$q = 'SELECT ID, TITLE, IMAGE FROM DATA_COUNTRIES ORDER BY SERIAL_NUMBER';
+					$buses = $this->db->row($q);
+					foreach($buses as $key => $val){
+						$q = 'SELECT * FROM DATA_BUSES WHERE ID_COUNTRY = '.$val['ID'].' ORDER BY SERIAL_NUMBER';
+						$buses[$key]['LIST'] = $this->db->row($q);
+						foreach($buses[$key]['LIST'] as $keyBus => $valBus){
+							$buses[$key]['LIST'][$keyBus]['STATE_LINK'] = true;
+							if(($valBus['TECH_DESCR'] == '') || (($valBus['IMAGE_INNER'] == '') && ($valBus['IMAGE_OUTER'] == ''))){
+								$buses[$key]['LIST'][$keyBus]['STATE_LINK'] = false;
+							}
 						}
 					}
 				}
+
+				if(!$is_buses && $is_minivans){
+					$q = 'SELECT ID, TITLE, IMAGE FROM DATA_COUNTRIES ORDER BY SERIAL_NUMBER';
+					$minivans = $this->db->row($q);
+					foreach($minivans as $key => $val){
+						$q = 'SELECT * FROM DATA_MINIVANS WHERE ID_COUNTRY = '.$val['ID'].' ORDER BY SERIAL_NUMBER';
+						$minivans[$key]['LIST'] = $this->db->row($q);
+						foreach($minivans[$key]['LIST'] as $keyBus => $valBus){
+							$minivans[$key]['LIST'][$keyBus]['STATE_LINK'] = true;
+							if(($valBus['TECH_DESCR'] == '') || (($valBus['IMAGE_INNER'] == '') && ($valBus['IMAGE_OUTER'] == ''))){
+								$minivans[$key]['LIST'][$keyBus]['STATE_LINK'] = false;
+							}
+						}
+					}
+				}
+				$return['DATA'] = [];
+				if(count($buses) > 0 && count($minivans) > 0){
+					$return['DATA'] = array_merge($buses, $minivans);
+				}elseif(count($buses) <= 0 && count($minivans) > 0){
+					$return['DATA'] = $minivans;
+				}elseif(count($buses) > 0 && count($minivans) <= 0){
+					$return['DATA'] = $buses;
+				}
+
+				#debug($return);
 				return $return;
 				break;
 		}

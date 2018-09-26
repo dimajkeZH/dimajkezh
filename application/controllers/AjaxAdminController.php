@@ -78,9 +78,10 @@ class AjaxAdminController extends AdminController {
 		$this->settings();
 		if(isset($this->post)){
 			if($this->model->verSavePages($this->post)){
-				if($this->model->savePages($this->post, $this->files)){
+				$ID = $this->model->savePages($this->post, $this->files);
+				if($ID){
 					$this->model->updCron();
-					$this->model->message(true, self::MESSAGE__CHANGE_GOOD);
+					$this->model->message(true, self::MESSAGE__CHANGE_GOOD, ['ID' => $ID]);
 				}$this->model->message(false, self::MESSAGE__CHANGE_BAD);
 			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
 		}else{
@@ -90,15 +91,12 @@ class AjaxAdminController extends AdminController {
 
 	public function delPagesAction(){
 		$this->settings();
-		if($this->post){
-			if($this->model->verPages_del($this->post)){
-				if($this->model->delPages($this->post)){
-					$this->model->message(true, self::MESSAGE__DELETE_GOOD);
-				}$this->model->message(false, self::MESSAGE__DELETE_BAD);
-			}$this->model->message(false, self::MESSAGE__BAD_VALUES);
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
+		if($this->model->verPages_del($this->route)){
+			if($this->model->delPages($this->route)){
+				$this->model->updCron();
+				$this->model->message(true, self::MESSAGE__DELETE_GOOD);
+			}$this->model->message(false, self::MESSAGE__DELETE_BAD);
+		}$this->model->message(false, self::MESSAGE__BAD_VALUES);
 	}
 
 
@@ -127,7 +125,9 @@ class AjaxAdminController extends AdminController {
 
 
 	private function settings(){
-		$this->post = json_decode($_POST['DATA'], true);
+		if(isset($_POST['DATA'])){
+			$this->post = json_decode($_POST['DATA'], true);
+		}
 		$this->files = $_FILES;
 		//file_get_contents('php://input')
 	}
