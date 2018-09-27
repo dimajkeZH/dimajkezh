@@ -47,7 +47,7 @@ class api{
 	        processData: false,
 	        cache: false,
 			success: function(data){
-				//console.log(data);
+				console.log(data);
 				try{
 					callback(data.message, data.status, data.data);
 				}catch(e){

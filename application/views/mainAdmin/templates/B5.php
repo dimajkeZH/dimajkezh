@@ -18,18 +18,28 @@
 		<div class="forma_group">
 			<p>Заголовок</p>
 			<div class="forma_group_item text">
-				<input type="text" name="TITLE" value="<?php echo (isset($TITLE))?$TITLE:''; ?>">
+				<input autocomplete="off" type="text" name="TITLE" value="<?php echo (isset($TITLE))?$TITLE:''; ?>">
 				<p class="forma_group_item_description"></p>
 			</div>
 		</div>
 		<div class='forma_group'>
 			<p>Использовать список автобусов</p>
-			<div class='forma_group_item'>	
+			<div class="forma_group_item select">
+				<select autocomplete="off" name="IS_BUSES" >
+					<option value="1" <?php echo ($IS_BUSES)?'selected="selected"':'';?>> Да </option>
+					<option value="0" <?php echo (!$IS_BUSES)?'selected="selected"':'';?>> Нет </option>
+				</select>
+				<p class="forma_group_item_description"></p>
 			</div>
 		</div>
 		<div class='forma_group'>
 			<p>Использовать список микроавтобусов</p>
-			<div class='forma_group_item'>	
+			<div class="forma_group_item select">
+				<select autocomplete="off" name="IS_MINIVANS" >
+					<option value="1" <?php echo ($IS_MINIVANS)?'selected="selected"':'';?>> Да </option>
+					<option value="0"<?php echo (!$IS_MINIVANS)?'selected="selected"':'';?>> Нет </option>
+				</select>
+				<p class="forma_group_item_description"></p>
 			</div>
 		</div>
 	</div>

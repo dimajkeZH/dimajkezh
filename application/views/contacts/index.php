@@ -1,9 +1,14 @@
-<div id="contact" class="contact_header">
+		<div id="contact" class="contact_header">
 			<div class="contact_info">
 				<div class="contact_info_title">
 					<p><?php echo $CONTENT['CONTACT_TITLE']; ?></p>
 					<div class="contact_line"></div>
 				</div>
+				<?php if(isset($CONTENT['FIRST_TEXT']) && $CONTENT['FIRST_TEXT'] != ''): ?>
+				<div class="text_wrapper">
+					<div class="text"><?php echo $CONTENT['FIRST_TEXT']; ?></div>
+				</div>
+				<?php endif; ?>
 				<div class="contact_info_items">
 					<div class="contact_info_item">
 						<a href="">

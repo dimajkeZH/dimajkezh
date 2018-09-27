@@ -385,12 +385,8 @@ class AjaxAdmin extends Admin {
 				break;
 			case 'B5':
 				$return = [
-					1 => [
-						'sql' => 'DELETE FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
-						'params' => $params
-					],
 					0 => [
-						'sql' => 'DELETE FROM BLOCK_LINKS_CONTENT WHERE ID_LINK IN (SELECT ID FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE)',
+						'sql' => 'DELETE FROM BLOCK_LINKS WHERE ID_PAGE_TEMPLATE = :ID_PAGE_TEMPLATE',
 						'params' => $params
 					]
 				];
@@ -694,8 +690,13 @@ class AjaxAdmin extends Admin {
 				}
 				break;
 			case 'B5': //links
-				//$return[0]['sql'] = 'UPDATE  SET () WHERE ID = :ID;';
-				//$return[0]['params'] = ['ID' => $val['ID']];
+			#debug($val);
+				$return[$index]['sql'] = 'INSERT INTO BLOCK_LINKS (ID_PAGE_TEMPLATE, TITLE, IS_BUSES, IS_MINIVANS) VALUES ((SELECT MAX(ID) FROM PAGE_TEMPLATES), :TITLE, :IS_BUSES, :IS_MINIVANS);';
+				$return[$index++]['params'] = [
+					'TITLE' => $val['TITLE'],
+					'IS_BUSES' => $val['IS_BUSES'],
+					'IS_MINIVANS' => $val['IS_MINIVANS']
+				];
 				break;
 			case 'EXC1': //excursion 1
 				/*

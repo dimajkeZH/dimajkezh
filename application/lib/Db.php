@@ -35,6 +35,7 @@ class Db {
 					}
 				}
 				if(!$stmt->execute()){
+					#debug($stmt);
 					return false;
 				}
 			}
