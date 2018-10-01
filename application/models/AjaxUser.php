@@ -6,6 +6,10 @@ use application\models\User;
 
 class AjaxUser extends User {
 
+	const EOL = "\r\n";
+	const order_title = 'Новый заказ';
+	const feedback_title = 'Новое сообщение';
+
 	public function __construct(){
 		parent::__construct();
 		include $_SERVER['DOCUMENT_ROOT'].'/application/config/const.php';
@@ -19,17 +23,35 @@ class AjaxUser extends User {
 	}
 
 	public function orderSend($post){
-			$to_date = $this->clear($_POST['to_date']);
-			$addr_from = $this->clear($_POST['addr_from']);
-			$addr_to = $this->clear($_POST['addr_to']);
-			$email_phone = $this->clear($_POST['email_phone']);
-			$user_choice = $this->clear($_POST['user_choice']);
-			$cost = $this->clear($_POST['cost']);
+			$this->order_mail = '19jenia96@mail.ru';
+
+			$to_date = $this->wrapData($_POST['to_date']);
+			$addr_from = $this->wrapData($_POST['addr_from']);
+			$addr_to = $this->wrapData($_POST['addr_to']);
+			$email_phone = $this->wrapData($_POST['email_phone']);
+			$user_choice = $this->wrapData($_POST['user_choice']);
+			$user_choice = $this->db->column('SELECT CHOICE_TITLE FROM PAGES WHERE ID = :ID', ['ID' => $user_choice]);
+			$cost = $this->wrapData($_POST['cost']);
+			$comments = $this->wrapData($_POST['message']);
+			
+			/*
 			if(isset($_POST['message'])AND($_POST['message'] != '')){
-				$message = $this->clear($_POST['message']);
+				$message = '';
 			}else{
 				$message = "";
 			}
+			*/
+		
+			$message = '';
+			$message .= 'Дата и время подачи: '.$to_date.self::EOL;
+			$message .= 'Адрес подачи: '.$addr_from.self::EOL;
+			$message .= 'Адрес назначения: '.$addr_to.self::EOL;
+			$message .= 'Выбор: '.$user_choice.self::EOL.self::EOL;
+			$message .= 'Почта/телефон: '.$email_phone.self::EOL;
+			$message .= 'Предполагаемая стоимость: '.$cost.self::EOL.self::EOL;
+			$message .= 'Комментарии: '.$comments.self::EOL;
+			#debug($message);
+			#
 			/*
 			if(isset($_POST['captcha'])AND($_POST['captcha'] != '')){
 				$response = $_POST['captcha'];
@@ -79,7 +101,7 @@ class AjaxUser extends User {
 			/* try to send message */
 			$message = wordwrap($message, 70, "\r\n");
 			try{
-				$status = mail(ORDER_MAIL, 'Test Subject', $message);
+				$status = mail($this->order_mail, self::order_title, $message);
 			}catch(Exception $e){
 				$status = false;
 			}finally{
@@ -102,6 +124,8 @@ class AjaxUser extends User {
 	}
 
 	public function feedbackSend($post){
+			$this->feedback_mail = '19jenia96@mail.ru';
+
 			$name = $this->clear($_POST['name']);
 			$email = $this->clear($_POST['email']);
 			$message = $this->clear($_POST['message']);
@@ -142,7 +166,7 @@ class AjaxUser extends User {
 				/* try to send message */
 				$message = wordwrap($message, 70, "\r\n");
 				try{
-					$status = mail(POST_MAIL, 'Test Subject', $message);
+					$status = mail($this->feedback_mail, self::feedback_title, $message);
 				}catch(Exception $e){
 					$status = false;
 				}finally{
@@ -155,5 +179,9 @@ class AjaxUser extends User {
 				}
 			}
 		return false;
+	}
+
+	public function wrapData($str){
+		return wordwrap($this->clear($str), 70, "\r\n");
 	}
 }

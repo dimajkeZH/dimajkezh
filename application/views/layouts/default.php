@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo isset($HTML_TITLE) ? 'ТриБас-М: '.$HTML_TITLE : 'ТриБас-М'; ?></title>
+	<link rel="shortcut icon" href="/assets/img/static/favicon.png" type="image/png">
 	<meta name="Description" content="<?php echo $HTML_DESCR; ?>">
 	<meta name="Keywords" content="<?php echo $HTML_KEYWORDS; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="/assets/js/slick/slick-theme.css">
-	<link rel="shortcut icon" href="/assets/img/static/favicon.png" type="image/png">
 	<link rel="stylesheet" href="/assets/css/media.css">
 </head>
 <body>
