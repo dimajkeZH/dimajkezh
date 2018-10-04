@@ -154,17 +154,17 @@ a
 	background-image: $gradient
 	color: #fff
 	padding: 70px 0 50px 0
-.services_head_text p 
+.services_head_text h1
 	margin-left: 100px
 	margin-right: 90px
-.services_head_text p:nth-child(1)
+.services_head_text h1
 	font-size: 40px
 	font-weight: $semibold
 	line-height: 0.675
-	padding-bottom: 60px
-.services_head_text p:nth-child(2)
+	padding-bottom: 30px
+.services_head_text p
 	font-size: 24px
-.services_list_title > p
+.services_list_title > p, h2
 	font-size: 40px
 	font-weight: $semibold
 	padding-top: 130px 
@@ -189,7 +189,7 @@ a
 	display: inline-block
 	margin-right: 75px
 	width: calc(33.33% - 50px)
-.services_list_item > p 
+.services_list_item > h3 
 	font-size: 28px
 	font-weight: $semibold
 	text-align: center
@@ -230,7 +230,7 @@ a
 	background-repeat: no-repeat
 .contact_info 
 	padding: 145px 18.75% 300px  18.75%
-.contact_info_title p
+.contact_info_title h1
 	font-size: 40px
 	font-weight: $semibold
 	text-align: center
@@ -309,7 +309,7 @@ a
 	background-color: $gray
 	padding-top: 130px
 	padding-bottom: 80px
-.vacancies_title > p
+.vacancies_title > p,h2
 	font-size: 40px
 	font-weight: $semibold
 	text-align: center
@@ -360,7 +360,7 @@ a
 	background-image: url(../img/static/partners.png)
 	background-size: cover
 	background-repeat: no-repeat
-.partner_title > p
+.partner_title > p, h2
 	font-size: 40px
 	font-weight: $semibold
 	text-align: center
@@ -438,7 +438,7 @@ a
 	position: relative
 .services_other_title 
 	padding-top: 70px
-.services_other_title p 
+.services_other_title p, h1
 	text-align: center
 	font-size: 40px
 	font-weight: $semibold
@@ -504,10 +504,13 @@ a
 .table_info  .table_info_title
 	font-size: 40px
 	font-weight: $semibold
+	text-align: left
+	line-height: 1.5
 .table_info  .table_info_title_type_two
 	font-size: 24px
 	font-weight: $medium
 	margin-bottom: 50px
+	line-height: 1.5	
 .table_info  .table_info_main_text
 	font-size: 24px
 	font-weight: $regular
@@ -700,6 +703,7 @@ form .forma_group:last-of-type input
 	margin: 0px 18.75% 80px  18.75%
 .images_text_title
 	font-size: 40px
+	text-align: left
 	font-weight: $semibold
 .images_text_info_content
 	font-size: 24px
@@ -732,6 +736,7 @@ form .forma_group:last-of-type input
 	top: 120px
 .images_text_item_info_title
 	font-weight: $semibold
+	text-align: left
 	font-size: 28px
 .images_text_item_info_content 
 	font-size: 24px
@@ -822,10 +827,11 @@ form .forma_group:last-of-type input
 	align-items: flex-start	
 .buses_main_head_title
 	text-align: center
+	width: 40%
+	margin-top: 100px
+.buses_main_head_title p, h1
 	font-size: 40px
 	font-weight: $semibold
-	width: 40%
-	margin-top: 100px	
 .buses_main_head_line
 	width: 55px
 	height: 4px
@@ -905,14 +911,9 @@ form .forma_group:last-of-type input
 	position: absolute
 	top: -7.14%
 	left: -14.28%
-.main_head_title span:nth-child(1)
+.main_head_title h1
 	font-size: 40px
 	font-weight: $semibold
-.main_head_title span:nth-child(2)
-	font-size: 60px
-	font-weight: $semibold
-	color: $blue
-	margin-left: 80px
 .main_head_title
 	text-align: center
 	margin-bottom: 10px
@@ -1060,6 +1061,7 @@ form .forma_group:last-of-type input
 	font-size: 0
 .main_tips_head 
 	margin: 200px 18.75% 0px  18.75%
+	text-align: center
 .main_tips_head_title
 	font-size: 40px
 	font-weight: $semibold
@@ -1260,6 +1262,7 @@ form .forma_group:last-of-type input
 	font-size: 28px
 	font-weight: $medium
 	margin-bottom: 20px
+	text-align: left
 .catalog_item_link
 	font-size: 24px
 	list-style-type: none
@@ -1277,7 +1280,8 @@ form .forma_group:last-of-type input
 		margin-right: 0	
 		margin-left: 0
 .text_title
-	font-size: 40px	
+	font-size: 40px
+	text-align: left
 	font-weight: $semibold
 .text 
 	margin-top: 70px
@@ -1524,10 +1528,12 @@ form .forma_group:last-of-type input
 	width: 20%
 	text-align: center
 .moscow_info_item_text
+	text-align: left
 	width: 80%
 	color:  #fff
 .moscow_info_item_title
 	font-size: 28px
+	text-align: left
 	font-weight: $medium
 	margin-bottom: 30px
 .moscow_info_item_content
@@ -1683,6 +1689,7 @@ button:hover
 			max-height: 350px
 			max-width: 100%
 		.item_text_title
+			text-align: left
 			font-size: 30px
 			font-weight: $semibold
 			color: $blue

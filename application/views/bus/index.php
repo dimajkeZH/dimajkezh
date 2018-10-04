@@ -1,12 +1,12 @@
 <?php //debug($CONTENT); ?>
 		<div class="bus_description">
-			<p class="bus_title"><?php echo isset($CONTENT['TITLE']) ? $CONTENT['TITLE'] : ''; ?></p>
+			<h1 class="bus_title"><?php echo isset($CONTENT['TITLE']) ? $CONTENT['TITLE'] : ''; ?></h1>
 			<div class="main_line"></div>
 			<div class="bus_items">
 				<div class="bus_item item_img"><img src="/assets/img/buses/bus_catalog/<?php echo isset($CONTENT['IMAGE_OUTER']) ? $CONTENT['IMAGE_OUTER'] : ''; ?>.png" alt=""></div>
 				<div class="bus_item item_img"><img src="/assets/img/buses/bus_catalog/<?php echo isset($CONTENT['IMAGE_INNER']) ? $CONTENT['IMAGE_INNER'] : ''; ?>.png" alt=""></div>
 				<div class="bus_item item_text">
-					<p class="item_text_title"><?php echo isset($CONTENT['TECH_TITLE']) ? $CONTENT['TECH_TITLE'] : ''; ?></p>
+					<h2 class="item_text_title"><?php echo isset($CONTENT['TECH_TITLE']) ? $CONTENT['TECH_TITLE'] : ''; ?></h2>
 					<div class="item_text_info">
 						<ul><?php echo isset($CONTENT['TECH_DESCR']) ? $CONTENT['TECH_DESCR'] : ''; ?></ul>
 					</div>

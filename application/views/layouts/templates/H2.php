@@ -1,7 +1,7 @@
 		<div class="services_other_header">
 			<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE'])): ?>
 			<div class="services_other_title">
-				<p><?php echo $CONTENT['TITLE']; ?></p>
+				<h1><?php echo $CONTENT['TITLE']; ?></h1>
 				<div class="services_other_line"></div>
 			</div>
 			<?php endif; ?>

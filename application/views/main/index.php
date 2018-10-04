@@ -1,6 +1,6 @@
 		<div class="main_head">
 			<div class="main_head_title">
-				<span><?php echo $CONTENT['TITLE']; ?></span>
+				<h1><?php echo $CONTENT['TITLE']; ?></h1>
 			</div>
 			<div class="main_order">
 				<img src="/assets/img/static/bcg_main2.png" alt="">
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="main_about">
-			<p class="main_about_title"><?php echo $CONTENT['ABOUT_TITLE']; ?></p>
+			<h2 class="main_about_title"><?php echo $CONTENT['ABOUT_TITLE']; ?></h2>
 			<div class="main_line"></div>
 			<div class="main_about_brand">
 				<p><?php echo $CONTENT['ABOUT_SUBTITLE']; ?></p>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="main_services">
-			<p class="main_services_title"><?php echo $CONTENT['SERVICE_TITLE']; ?></p>
+			<h2 class="main_services_title"><?php echo $CONTENT['SERVICE_TITLE']; ?></h2>
 			<div class="main_line"></div>
 			<div class="main_cervices_wrapper">
 				<div class="main_cervices_items">
@@ -91,7 +91,7 @@
 		<!-- SLICK END -->
 		<div class="main_tips">
 			<div class="main_tips_head">
-				<p class="main_tips_head_title"><?php echo $CONTENT['TIPS_TITLE']; ?></p>
+				<h2h2 class="main_tips_head_title"><?php echo $CONTENT['TIPS_TITLE']; ?></h2h2>
 				<div class="main_line"></div>
 				<p class="main_tips_head_info"><?php echo $CONTENT['TIPS_INFO']; ?></p>
 			</div>
@@ -125,7 +125,7 @@
 			</div>
 		</div>
 		<div class="main_contacts">
-			<p class="main_contacts_title">Выбирайте самый удобный способ связи!</p>
+			<h2 class="main_contacts_title">Выбирайте самый удобный способ связи!</h2>
 			<div class="main_line"></div>
 			<div class="main_contacts_lines">
 				<svg width="100%" height="88px">
@@ -151,14 +151,14 @@
 			</div>
 		</div>
 		<div class="main_news">
-			<p class="main_news_title">Новости</p>
+			<h2 class="main_news_title">Новости</h2>
 			<div class="main_line"></div>
 			<div class="main_news_items">
 				<div class="main_news_item">
 					<img src="/assets/img/news/n1.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">23.08.2016</p>
-						<p class="main_news_item_title">Правила перевозки групп детей</p>
+						<h3 class="main_news_item_title">Правила перевозки групп детей</h3>
 						<p class="main_news_item_content">В ночное время суток (с 23:00 до 6:00) пассажирские перевозки групп детей допускаются лишь к железнодорожным вокзалам и аэропортам а так же в обратном направлении. В случае задержки в пути по причине поломки или пробок на дорогах разрешается перевозка детей до конечного пункта или пункта ночлега. Длинна маршрута после 23:00 не должно быть более 100 километров. При организованной междугородней перевозке длящейся более 3 часов необходимо сопровождения детей медицинским работником.</p>
 					</div>
 				</div>
@@ -166,7 +166,7 @@
 					<img src="/assets/img/news/n2.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">14.07.2016</p>
-						<p class="main_news_item_title">Схема маршрута</p>
+						<h3 class="main_news_item_title">Схема маршрута</h3>
 						<p class="main_news_item_content">По правилам транспортировки пассажиров водитель должен иметь схему маршрута проезда с указанием мест остановок. Заказчик может подготовит схему сам, проложив маршрут в Яндекс картах и распечатать затем его на бумажном носителе. На схеме маршрута должна стоять дата и подпись руководителя группы. Отсутствие схемы маршрута влечет наложение штрафа на перевозчика и задержки транспорта.</p>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 					<img src="/assets/img/news/n3.png" alt="">
 					<div class="main_news_item_info">
 						<p class="main_news_item_date">11.06.2016</p>
-						<p class="main_news_item_title">Список пассажиров автобуса</p>
+						<h3 class="main_news_item_title">Список пассажиров автобуса</h3>
 						<p class="main_news_item_content">Заказчик обязан составить поименный список пассажиров, желательно с номерами телефонов для предоставления его водителю автобуса. Список пассажиров составляется в трех экземплярах. В случае проверки автобуса транспортной инспекцией, водитель обязан предоставить список пассажиров. Отсутствие списка влечет наложение внушительного штрафа на владельца транспорта.</p>
 					</div>
 				</div>

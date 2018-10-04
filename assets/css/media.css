@@ -122,27 +122,27 @@
       top: 10%;
       left: 100px;
       padding: 55px 0px 40px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text h1 {
         font-size: 35px;
         margin: 0px 70px 0px 60px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p {
         font-size: 21px;
         margin: 0px 70px 0px 60px; }
-    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
       padding-top: 100px;
       font-size: 35px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
       margin-bottom: 90px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_items {
       padding: 0px 12% 35px 12%; }
-      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
         font-size: 24px; }
       .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button p {
         font-size: 20px; }
     .main_wrapper .buses_main .buses_main_head {
       padding-top: 180px;
       padding-bottom: 100px; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 36px; }
     .main_wrapper .text_wrapper {
       margin: 90px 12% 0px 12%; }
@@ -178,7 +178,7 @@
             color: #0d5899; }
     .main_wrapper .excursions_wrapper {
       padding: 80px 12% 0px 12%; }
-      .main_wrapper .excursions_wrapper .excursions_head p {
+      .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
         font-size: 36px; }
       .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
         padding: 30px 0px; }
@@ -192,7 +192,7 @@
             line-height: 50px; }
     .main_wrapper .contact_header .contact_info {
       padding: 120px 12% 200px 12%; }
-      .main_wrapper .contact_header .contact_info .contact_info_title p {
+      .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
         font-size: 36px; }
       .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
         margin: 20px auto 40px auto; }
@@ -203,7 +203,7 @@
     .main_wrapper .vacancies_wrapper {
       padding-top: 100px;
       padding-bottom: 65px; }
-      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
         font-size: 36px; }
       .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
         margin: 20px auto 40px auto; }
@@ -217,7 +217,7 @@
             font-size: 22px; }
     .main_wrapper .partner_wrapper {
       padding-top: 100px; }
-      .main_wrapper .partner_wrapper .partner .partner_title p {
+      .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
         font-size: 36px; }
       .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
         margin: 20px auto 40px auto; }
@@ -237,7 +237,7 @@
       padding: 0px 12%; }
       .main_wrapper .services_other_header .services_other_title {
         padding-top: 70px; }
-        .main_wrapper .services_other_header .services_other_title p {
+        .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
           font-size: 36px; }
     .main_wrapper .catalog_wrapper {
       margin: 0px 12%; }
@@ -341,7 +341,7 @@
         font-size: 30px; }
     .main_wrapper .moscow_prices {
       padding-top: 100px; }
-      .main_wrapper .moscow_prices .moscow_price_head p {
+      .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
         font-size: 36px; }
       .main_wrapper .moscow_prices .moscow_prices_items {
         padding: 100px 0px 20px 0px; }
@@ -388,7 +388,7 @@
     .main_wrapper .popup .popup_window .popup_order_form select {
       font-size: 18px;
       padding-top: 0px; }
-    .main_wrapper .main_head .main_head_title span {
+    .main_wrapper .main_head .main_head_title h1 {
       font-size: 34px; }
     .main_wrapper .main_head .main_order_form {
       width: 24%; }
@@ -497,21 +497,21 @@
     .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
       left: 80px;
       padding: 40px 0px 25px 0px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text h1 {
         font-size: 33px;
         padding-bottom: 40px;
         margin: 0px 35px 0px 45px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p {
         font-size: 17px;
         margin: 0px 35px 0px 45px; }
-    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
       padding-top: 75px;
       font-size: 33px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
       margin-bottom: 80px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_items {
       padding: 0px 12% 0px 12%; }
-      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
         font-size: 22px; }
       .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
         margin: 30px 10% 80px 10%;
@@ -522,7 +522,7 @@
     .main_wrapper .buses_main .buses_main_head {
       padding-top: 160px;
       padding-bottom: 90px; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 30px; }
     .main_wrapper .text_wrapper {
       margin: 60px 10% 0px 10%; }
@@ -558,7 +558,7 @@
             color: #0d5899; }
     .main_wrapper .excursions_wrapper {
       padding: 60px 12% 0px 12%; }
-      .main_wrapper .excursions_wrapper .excursions_head p {
+      .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
         font-size: 32px; }
       .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
         padding: 25px 0px; }
@@ -572,7 +572,7 @@
             line-height: 50px; }
     .main_wrapper .contact_header .contact_info {
       padding: 100px 12% 170px 12%; }
-      .main_wrapper .contact_header .contact_info .contact_info_title p {
+      .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
         font-size: 32px; }
       .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
         margin: 15px auto 35px auto; }
@@ -583,7 +583,7 @@
     .main_wrapper .vacancies_wrapper {
       padding-top: 80px;
       padding-bottom: 55px; }
-      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
         font-size: 32px; }
       .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
         margin: 15px auto 35px auto; }
@@ -600,7 +600,7 @@
     .main_wrapper .partner_wrapper {
       padding-top: 80px;
       padding-bottom: 80px; }
-      .main_wrapper .partner_wrapper .partner .partner_title p {
+      .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
         font-size: 32px; }
       .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
         margin: 15px auto 35px auto; }
@@ -620,7 +620,7 @@
       padding: 0px 12%; }
       .main_wrapper .services_other_header .services_other_title {
         padding-top: 60px; }
-        .main_wrapper .services_other_header .services_other_title p {
+        .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
           font-size: 32px; }
         .main_wrapper .services_other_header .services_other_title .services_other_line {
           margin: 15px auto 25px auto; }
@@ -764,7 +764,7 @@
         font-size: 22px; }
     .main_wrapper .moscow_prices {
       padding-top: 60px; }
-      .main_wrapper .moscow_prices .moscow_price_head p {
+      .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
         font-size: 32px; }
       .main_wrapper .moscow_prices .moscow_prices_items {
         padding: 50px 0px 20px 0px; }
@@ -918,7 +918,7 @@
     .main_wrapper .popup .popup_window .popup_order_form select {
       font-size: 15px;
       padding-top: 0px; }
-    .main_wrapper .main_head .main_head_title span {
+    .main_wrapper .main_head .main_head_title h1 {
       font-size: 30px; }
     .main_wrapper .main_head .main_order_form {
       width: 24%; }
@@ -1034,14 +1034,14 @@
       .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text {
         left: 50px;
         padding: 30px 0px 15px 0px; }
-        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text h1 {
           font-size: 29px;
           padding-bottom: 20px;
           margin: 0px 35px 0px 45px; }
-        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+        .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p {
           font-size: 17px;
           margin: 0px 35px 0px 45px; }
-    .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+    .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
       padding-top: 50px;
       font-size: 30px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
@@ -1066,7 +1066,7 @@
       .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
         margin: 0px 10px;
         width: calc(33.33% - 20px); }
-        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+        .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
           font-size: 20px; }
         .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
           margin: 30px 10% 80px 10%;
@@ -1077,7 +1077,7 @@
     .main_wrapper .buses_main .buses_main_head {
       padding-top: 140px;
       padding-bottom: 80px; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 25px; }
     .main_wrapper .text_wrapper {
       margin: 50px 8% 0px 8%; }
@@ -1117,7 +1117,7 @@
       padding: 60px 8% 0px 8%; }
       .main_wrapper .excursions_wrapper .excursions_head {
         padding-bottom: 30px; }
-        .main_wrapper .excursions_wrapper .excursions_head p {
+        .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
           font-size: 30px; }
       .main_wrapper .excursions_wrapper .excursions_items .excursions_item {
         padding: 25px 0px; }
@@ -1132,7 +1132,7 @@
             font-size: 20px; }
     .main_wrapper .contact_header .contact_info {
       padding: 80px 8% 140px 8%; }
-      .main_wrapper .contact_header .contact_info .contact_info_title p {
+      .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
         font-size: 30px; }
       .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
         margin: 15px auto 35px auto; }
@@ -1143,7 +1143,7 @@
     .main_wrapper .vacancies_wrapper {
       padding-top: 80px;
       padding-bottom: 55px; }
-      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+      .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
         font-size: 30px; }
       .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
         margin: 15px auto 35px auto; }
@@ -1161,7 +1161,7 @@
     .main_wrapper .partner_wrapper {
       padding-top: 80px;
       padding-bottom: 80px; }
-      .main_wrapper .partner_wrapper .partner .partner_title p {
+      .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
         font-size: 30px; }
       .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
         margin: 15px auto 35px auto; }
@@ -1181,7 +1181,7 @@
       padding: 0px 8%; }
       .main_wrapper .services_other_header .services_other_title {
         padding-top: 50px; }
-        .main_wrapper .services_other_header .services_other_title p {
+        .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
           font-size: 30px; }
         .main_wrapper .services_other_header .services_other_title .services_other_line {
           margin: 10px auto 20px auto; }
@@ -1337,7 +1337,7 @@
         font-size: 18px; }
     .main_wrapper .moscow_prices {
       padding-top: 40px; }
-      .main_wrapper .moscow_prices .moscow_price_head p {
+      .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
         font-size: 28px; }
       .main_wrapper .moscow_prices .moscow_prices_items {
         padding: 40px 0px 15px 0px; }
@@ -1399,7 +1399,7 @@
     .main_wrapper .popup .popup_window .popup_order_form select {
       font-size: 15px;
       padding-top: 0px; }
-  .main_wrapper .main_head .main_head_title span {
+  .main_wrapper .main_head .main_head_title h1 {
     font-size: 28px; }
   .main_wrapper .main_head .main_order img {
     display: none; }
@@ -1539,14 +1539,14 @@
       top: 5%;
       padding: 15px 0px 10px 0px;
       width: 55%; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text h1 {
         font-size: 22px;
         padding-bottom: 10px;
         margin: 0px 25px 0px 25px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p {
         font-size: 16px;
         margin: 0px 25px 0px 25px; }
-  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
     padding-top: 40px;
     font-size: 28px; }
   .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
@@ -1555,7 +1555,7 @@
   .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
     margin: 0px 20px;
     width: calc(50% - 40px); }
-    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+    .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
       font-size: 18px; }
     .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
       margin: 30px 10% 80px 10%;
@@ -1570,7 +1570,7 @@
     margin-top: 0px;
     width: 100%;
     padding: 0px 25px; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 26px; }
   .main_wrapper .buses_main .buses_main_head_img {
     width: 0; }
@@ -1615,7 +1615,7 @@
     padding: 50px 8% 0px 8%; }
     .main_wrapper .excursions_wrapper .excursions_head {
       padding-bottom: 25px; }
-      .main_wrapper .excursions_wrapper .excursions_head p {
+      .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
         font-size: 28px; }
       .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
         margin: 10px auto 25px auto; }
@@ -1635,7 +1635,7 @@
           font-size: 18px; }
   .main_wrapper .contact_header .contact_info {
     padding: 40px 8% 70px 8%; }
-    .main_wrapper .contact_header .contact_info .contact_info_title p {
+    .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
       font-size: 26px; }
     .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
       margin: 10px auto 20px auto; }
@@ -1646,7 +1646,7 @@
   .main_wrapper .vacancies_wrapper {
     padding-top: 40px;
     padding-bottom: 10px; }
-    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
       font-size: 26px; }
     .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
       margin: 10px auto 20px auto; }
@@ -1666,7 +1666,7 @@
   .main_wrapper .partner_wrapper {
     padding-top: 40px;
     padding-bottom: 40px; }
-    .main_wrapper .partner_wrapper .partner .partner_title p {
+    .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
       font-size: 26px; }
     .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
       margin: 10px auto 20px auto; }
@@ -1688,7 +1688,7 @@
     padding: 0px 8%; }
     .main_wrapper .services_other_header .services_other_title {
       padding-top: 40px; }
-      .main_wrapper .services_other_header .services_other_title p {
+      .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
         font-size: 26px; }
       .main_wrapper .services_other_header .services_other_title .services_other_line {
         margin: 10px auto 20px auto; }
@@ -1869,7 +1869,7 @@
       font-size: 14px; }
   .main_wrapper .moscow_prices {
     padding-top: 20px; }
-    .main_wrapper .moscow_prices .moscow_price_head p {
+    .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
       font-size: 24px; }
     .main_wrapper .moscow_prices .moscow_prices_items {
       padding: 30px 0px 15px 0px; }
@@ -1940,7 +1940,7 @@
   .main_wrapper .main_head {
     padding-top: 10px;
     height: auto; }
-    .main_wrapper .main_head .main_head_title span {
+    .main_wrapper .main_head .main_head_title h1 {
       font-size: 22px; }
     .main_wrapper .main_head .main_order {
       position: relative; }
@@ -2114,16 +2114,16 @@
       padding: 15px 0px 10px 0px;
       width: 100%;
       background: none; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(1) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text h1 {
         color: #000;
         font-size: 18px;
         padding-bottom: 10px;
         margin: 0px; }
-      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p:nth-child(2) {
+      .main_wrapper .services_head_wrapper .services_head .services_head_info .services_head_text p {
         color: #000;
         font-size: 14px;
         margin: 0px; }
-  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
     padding-top: 20px;
     font-size: 22px; }
   .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
@@ -2136,7 +2136,7 @@
     .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
       margin: 0px 10px;
       width: calc(50% - 20px); }
-      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
         font-size: 15px;
         margin-bottom: 14px; }
       .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
@@ -2151,7 +2151,7 @@
   .main_wrapper .buses_main .buses_main_head_title {
     margin-top: 0px;
     width: 100%; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 19px;
       width: 100%; }
   .main_wrapper .buses_main img {
@@ -2194,7 +2194,7 @@
     padding: 40px 8% 0px 8%; }
     .main_wrapper .excursions_wrapper .excursions_head {
       padding-bottom: 20px; }
-      .main_wrapper .excursions_wrapper .excursions_head p {
+      .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
         font-size: 22px; }
       .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
         margin: 10px auto 25px auto; }
@@ -2214,7 +2214,7 @@
           font-size: 16px; }
   .main_wrapper .contact_header .contact_info {
     padding: 40px 8% 70px 8%; }
-    .main_wrapper .contact_header .contact_info .contact_info_title p {
+    .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
       font-size: 20px; }
     .main_wrapper .contact_header .contact_info .contact_info_title .contact_line {
       height: 3px;
@@ -2240,7 +2240,7 @@
   .main_wrapper .vacancies_wrapper {
     padding-top: 30px;
     padding-bottom: 10px; }
-    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
       font-size: 22px; }
     .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
       height: 3px; }
@@ -2266,7 +2266,7 @@
   .main_wrapper .partner_wrapper {
     padding-top: 20px;
     padding-bottom: 20px; }
-    .main_wrapper .partner_wrapper .partner .partner_title p {
+    .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
       font-size: 22px; }
     .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
       height: 3px; }
@@ -2293,7 +2293,7 @@
     padding: 0px 8%; }
     .main_wrapper .services_other_header .services_other_title {
       padding-top: 20px; }
-      .main_wrapper .services_other_header .services_other_title p {
+      .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
         font-size: 20px;
         line-height: 1; }
       .main_wrapper .services_other_header .services_other_title .services_other_line {
@@ -2545,7 +2545,7 @@
     padding-top: 20px; }
     .main_wrapper .moscow_prices .moscow_price_head {
       padding: 0px 8%; }
-      .main_wrapper .moscow_prices .moscow_price_head p {
+      .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
         font-size: 16px; }
     .main_wrapper .moscow_prices .moscow_prices_items {
       padding: 30px 0px 15px 0px; }
@@ -2580,7 +2580,7 @@
     font-size: 13px; } }
 
 @media all and (max-width: 360px) {
-  .main_wrapper .main_head .main_head_title span {
+  .main_wrapper .main_head .main_head_title h1 {
     font-size: 17px; }
   .main_wrapper .main_about .main_about_title {
     font-size: 15.5px; }
@@ -2650,7 +2650,7 @@
       .main_wrapper .main_news .main_news_detail p {
         line-height: 30px;
         font-size: 17px; }
-  .main_wrapper .services_list_wrapper .services_list .services_list_title p {
+  .main_wrapper .services_list_wrapper .services_list .services_list_title p, .main_wrapper .services_list_wrapper .services_list .services_list_title h2 {
     padding-top: 15px;
     font-size: 18px; }
   .main_wrapper .services_list_wrapper .services_list .services_list_title .services_line {
@@ -2663,7 +2663,7 @@
     .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item {
       margin: 0px 5px;
       width: calc(50% - 10px); }
-      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p {
+      .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item p, .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item h3 {
         font-size: 13px;
         margin-bottom: 14px; }
       .main_wrapper .services_list_wrapper .services_list .services_list_items .services_list_item .services_list_button {
@@ -2678,7 +2678,7 @@
   .main_wrapper .buses_main .buses_main_head_title {
     margin-top: 0px;
     width: 100%; }
-    .main_wrapper .buses_main .buses_main_head_title p {
+    .main_wrapper .buses_main .buses_main_head_title h1 {
       font-size: 18px;
       width: 100%; }
   .main_wrapper .buses_main img {
@@ -2721,7 +2721,7 @@
     padding: 20px 10% 0px 10%; }
     .main_wrapper .excursions_wrapper .excursions_head {
       padding-bottom: 10px; }
-      .main_wrapper .excursions_wrapper .excursions_head p {
+      .main_wrapper .excursions_wrapper .excursions_head p, .main_wrapper .excursions_wrapper .excursions_head h1 {
         font-size: 18px; }
       .main_wrapper .excursions_wrapper .excursions_head .excursions_head_line {
         margin: 10px auto 25px auto; }
@@ -2741,7 +2741,7 @@
           font-size: 14px; }
   .main_wrapper .contact_header .contact_info {
     padding: 40px 8% 40px 8%; }
-    .main_wrapper .contact_header .contact_info .contact_info_title p {
+    .main_wrapper .contact_header .contact_info .contact_info_title p, .main_wrapper .contact_header .contact_info .contact_info_title h1 {
       font-size: 17px; }
     .main_wrapper .contact_header .contact_info .contact_info_items {
       padding-top: 20px; }
@@ -2750,7 +2750,7 @@
   .main_wrapper .vacancies_wrapper {
     padding-top: 20px;
     padding-bottom: 10px; }
-    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p {
+    .main_wrapper .vacancies_wrapper .vacancies .vacancies_title p, .main_wrapper .vacancies_wrapper .vacancies .vacancies_title h2 {
       font-size: 18px; }
     .main_wrapper .vacancies_wrapper .vacancies .vacancies_title .contact_line {
       height: 3px; }
@@ -2771,7 +2771,7 @@
   .main_wrapper .partner_wrapper {
     padding-top: 10px;
     padding-bottom: 10px; }
-    .main_wrapper .partner_wrapper .partner .partner_title p {
+    .main_wrapper .partner_wrapper .partner .partner_title p, .main_wrapper .partner_wrapper .partner .partner_title h2 {
       font-size: 18px; }
     .main_wrapper .partner_wrapper .partner .partner_title .partner_line {
       height: 3px; }
@@ -2798,7 +2798,7 @@
     padding: 0px 8%; }
     .main_wrapper .services_other_header .services_other_title {
       padding-top: 20px; }
-      .main_wrapper .services_other_header .services_other_title p {
+      .main_wrapper .services_other_header .services_other_title p, .main_wrapper .services_other_header .services_other_title h1 {
         font-size: 18px; }
       .main_wrapper .services_other_header .services_other_title .services_other_line {
         height: 3px;
@@ -2996,7 +2996,7 @@
     padding-top: 20px; }
     .main_wrapper .moscow_prices .moscow_price_head {
       padding: 0px 10%; }
-      .main_wrapper .moscow_prices .moscow_price_head p {
+      .main_wrapper .moscow_prices .moscow_price_head p, .main_wrapper .moscow_prices .moscow_price_head h2 {
         font-size: 15.5px; }
     .main_wrapper .moscow_prices .moscow_prices_items {
       padding: 20px 0px 10px 0px; }

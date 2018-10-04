@@ -1,7 +1,7 @@
 <div class="table_type_two">
 	<div class="table_info">
 		<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
-		<p class="table_info_title"><?php echo $CONTENT['TITLE']; ?></p>
+		<h2 class="table_info_title"><?php echo $CONTENT['TITLE']; ?></h2>
 		<div class="table_line"></div>
 		<?php endif; ?>
 		<?php if(isset($CONTENT['SUBTITLE'])AND($CONTENT['SUBTITLE']!='')): ?>

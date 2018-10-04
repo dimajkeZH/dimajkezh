@@ -1,6 +1,6 @@
 		<?php if($CONTENT['TITLE']): ?>
 		<div class="moscow_head">
-			<p class="moscow_head_title"><?php echo $CONTENT['TITLE']; ?></p>
+			<h1 class="moscow_head_title"><?php echo $CONTENT['TITLE']; ?></h1>
 			<div class="main_line"></div>
 		</div>
 		<?php endif; ?>
@@ -11,7 +11,7 @@
 			<div class="moscow_info_item">
 				<div class="moscow_info_item_img"><img src="/assets/img/static/m<?php echo ($index + 1); ?>.png" alt=""></div>
 				<div class="moscow_info_item_text">
-					<p class="moscow_info_item_title"><?php echo $CONTENT['INFO_TITLE'][$index]; ?></p>
+					<h3 class="moscow_info_item_title"><?php echo $CONTENT['INFO_TITLE'][$index]; ?></h3>
 					<p class="moscow_info_item_content"><?php echo $CONTENT['INFO_DESCR'][$index]; ?></p>
 				</div>
 			</div>
@@ -20,7 +20,7 @@
 		<?php endif; ?>
 
 		<div class="moscow_top">
-			<p class="moscow_top_title"><?php echo $CONTENT['PLACE_TITLE']; ?></p>
+			<h2 class="moscow_top_title"><?php echo $CONTENT['PLACE_TITLE']; ?></h2>
 			<div class="main_line"></div>
 			<div class="moscow_top_info">
 				<div class="moscow_top_img">
@@ -60,7 +60,7 @@
 		<div class="moscow_prices">
 			<?php if($CONTENT['PRICE_TITLE']): ?>
 			<div class="moscow_price_head">
-				<p class="moscow_price_head_title"><?php echo $CONTENT['PRICE_TITLE']; ?></p>
+				<h2 class="moscow_price_head_title"><?php echo $CONTENT['PRICE_TITLE']; ?></h2>
 				<div class="main_line"></div>
 			</div>
 			<?php endif; ?>

@@ -1,7 +1,7 @@
 			<div class="order_header">
 				<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
 				<div class="order_header_info">	
-					<p class="order_header_info_title"><?php echo $CONTENT['TITLE']; ?></p><div class="order_header_line"></div>
+					<h1 class="order_header_info_title"><?php echo $CONTENT['TITLE']; ?></h1><div class="order_header_line"></div>
 				</div>
 				<?php endif; ?>
 				<div class="order_header_img_one">

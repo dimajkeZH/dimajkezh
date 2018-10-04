@@ -1,10 +1,10 @@
 <div class="catalog_wrapper">
-	<p class="catalog_title"><?php echo $CONTENT['TITLE']; ?></p>
+	<h2 class="catalog_title"><?php echo $CONTENT['TITLE']; ?></h2>
 	<div class="catalog_items">
 		<?php foreach($DATA as $key => $val): ?>
 		<div class="catalog_item">
 			<div class="catalog_item_text">
-				<p class="catalog_item_title"><?php echo $val['TITLE'] ? 'Марки автобусов из '.$val['TITLE'] : ''; ?></p>
+				<h3 class="catalog_item_title"><?php echo $val['TITLE'] ? 'Марки автобусов из '.$val['TITLE'] : ''; ?></h3>
 				<ul>
 					<?php foreach($val['LIST'] as $listkey => $listval): ?>
 						<?php if($listval['STATE_LINK']): ?>

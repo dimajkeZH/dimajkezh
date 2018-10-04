@@ -1,7 +1,7 @@
 		<div id="contact" class="contact_header">
 			<div class="contact_info">
 				<div class="contact_info_title">
-					<p><?php echo $CONTENT['CONTACT_TITLE']; ?></p>
+					<h1><?php echo $CONTENT['CONTACT_TITLE']; ?></h1>
 					<div class="contact_line"></div>
 				</div>
 				<?php if(isset($CONTENT['FIRST_TEXT']) && $CONTENT['FIRST_TEXT'] != ''): ?>
@@ -55,7 +55,7 @@
 		<div class="vacancies_wrapper">
 			<div class="vacancies">
 				<div class="vacancies_title">
-					<p><?php echo $CONTENT['VACANCIES_TITLE']; ?></p>
+					<h2><?php echo $CONTENT['VACANCIES_TITLE']; ?></h2>
 					<div class="contact_line"></div>
 				</div>
 				<div class="vacancies_info">
@@ -76,7 +76,7 @@
 		<div id="partner" class="partner_wrapper">
 			<div class="partner">
 				<div class="partner_title">
-					<p><?php echo $CONTENT['PARTNERSHIP_TITLE']; ?></p>
+					<h2><?php echo $CONTENT['PARTNERSHIP_TITLE']; ?></h2>
 					<div class="partner_line"></div>
 				</div>
 				<div class="partner_info">

@@ -1,7 +1,7 @@
 <div class="images_text">
 	<div class="images_text_info">
 		<?php if(isset($CONTENT['TITLE'])AND($CONTENT['TITLE']!='')): ?>
-		<p class="images_text_title"><?php echo $CONTENT['TITLE']; ?></p>
+		<h2 class="images_text_title"><?php echo $CONTENT['TITLE']; ?></h2>
 		<div class="images_line"></div>
 		<?php endif; ?>
 		<?php if(isset($CONTENT['DESCR'])AND($CONTENT['DESCR']!='')): ?>
@@ -23,7 +23,7 @@
 			<?php if($sign OR $subtitle): ?>
 			<div class="images_text_item_info">
 				<?php if($subtitle): ?>
-				<p class="images_text_item_info_title"><?php echo $DATA[$x]['SUBTITLE']; ?></p>
+				<h3 class="images_text_item_info_title"><?php echo $DATA[$x]['SUBTITLE']; ?></h3>
 				<?php endif; ?>
 				<?php if($sign): ?>
 				<p class="images_text_item_info_content"><?php echo $DATA[$x]['IMAGE_SIGN']; ?></p>

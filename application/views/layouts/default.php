@@ -29,7 +29,7 @@
 	</div>
 	<div class="main_wrapper">
 		<div class="popup">
-		<a href="javascript:PopUpShow()"><div class="popup_button"><p> ЗаказON-LINE</p></div></a>
+		<a href="javascript:PopUpShow()"><div class="popup_button"><p>Заказ ON-LINE</p></div></a>
 		<div class="popup_window">
 			<div class="popup_order_form">
 				<a href="javascript:PopUpHide()"><div class="form_close">&#9421;</div></a>
