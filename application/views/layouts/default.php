@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><?php echo isset($HTML_TITLE) ? 'ТриБас-М: '.$HTML_TITLE : 'ТриБас-М'; ?></title>
+	<title><?php echo isset($HTML_TITLE) ? $HTML_TITLE : 'ТриБас-М'; ?></title>
 	<link rel="shortcut icon" href="/assets/img/static/favicon.png" type="image/png">
 	<meta name="Description" content="<?php echo $HTML_DESCR; ?>">
 	<meta name="Keywords" content="<?php echo $HTML_KEYWORDS; ?>">
