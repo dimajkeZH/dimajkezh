@@ -14,7 +14,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 
@@ -22,7 +22,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 
@@ -30,7 +30,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));	
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 
@@ -38,7 +38,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}	
 	}
 
@@ -46,7 +46,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));	
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 
@@ -54,7 +54,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));	
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 	
@@ -62,7 +62,7 @@ class TemplatesUserController extends UserController {
 		if($this->model->setConf($this->route)){
 			$this->render($this->model->getContent($this->route));	
 		}else{
-			$this->view::errorCode(404);
+			$this->notFound();
 		}
 	}
 }

@@ -65,6 +65,9 @@ class MainUser extends User {
 		$q = 'SELECT * FROM DATA_BUSES WHERE URI LIKE :URI';
 		$params = ['URI' => $route['param']];
 		$return['CONTENT'] = $this->db->row($q, $params);
+		if(count($return['CONTENT']) == 0){
+			return false;
+		}
 		return $return;
 	}
 

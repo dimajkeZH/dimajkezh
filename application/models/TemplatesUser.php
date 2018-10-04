@@ -157,7 +157,7 @@ class TemplatesUser extends User {
 
 			$q = 'SELECT ID_TYPE FROM PAGES AS P INNER JOIN LIB_LOCATIONS AS LL ON P.ID_LOCATION = LL.ID WHERE (P.URI LIKE :URI) AND (LL.CONTROLLER = :CONTROLLER) AND (LL.ACTION = :ACTION);';
 			$type = $this->db->row($q, $params);
-			if(isset($type)){
+			if(isset($type) && count($type) > 0){
 				$this->pg_type = $type[0]['ID_TYPE'];
 
 				$table = '';

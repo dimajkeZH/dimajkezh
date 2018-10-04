@@ -39,7 +39,13 @@ class MainUserController extends UserController {
 	}
 
 	public function busAction() {
-		$this->render($this->model->getBus($this->route));
+		$bus = $this->model->getBus($this->route);
+		if($bus){
+			$this->render($bus);
+		}else{
+			$this->notFound();
+		}
+		
 	}
 
 }
