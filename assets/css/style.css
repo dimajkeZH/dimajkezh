@@ -1685,7 +1685,7 @@ form .forma_group:last-of-type input {
 .text {
   margin-top: 70px;
   margin-bottom: 90px; }
-  .text h1 {
+  .text h3 {
     font-size: 28px;
     font-weight: 600;
     margin: 20px 0px; }
@@ -1702,7 +1702,7 @@ form .forma_group:last-of-type input {
     .text p span {
       color: #0d5899;
       font-weight: 600; }
-  .text h2 {
+  .text h4 {
     font-size: 24px;
     font-weight: 500;
     margin: 20px 0px; }
@@ -1733,7 +1733,7 @@ form .forma_group:last-of-type input {
     .text .table_buses li:nth-child(1) {
       display: table-header-group; }
     .text .table_buses li:nth-child(odd) {
-      background-color: #f3f6fa; }
+      background-color: rgba(153, 153, 153, 0.2); }
 
 .phone_number {
   position: absolute;

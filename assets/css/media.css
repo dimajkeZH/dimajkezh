@@ -150,7 +150,7 @@
         font-size: 36px; }
       .main_wrapper .text_wrapper .text {
         margin: 55px 0px 75px 0px; }
-        .main_wrapper .text_wrapper .text h1 {
+        .main_wrapper .text_wrapper .text h3 {
           font-size: 26px;
           font-weight: 600;
           margin: 20px 0px; }
@@ -167,7 +167,7 @@
           .main_wrapper .text_wrapper .text p span {
             color: #0d5899;
             font-weight: 600; }
-        .main_wrapper .text_wrapper .text h2 {
+        .main_wrapper .text_wrapper .text h4 {
           font-size: 22px;
           font-weight: 500;
           margin: 20px 0px; }
@@ -530,7 +530,7 @@
         font-size: 30px; }
       .main_wrapper .text_wrapper .text {
         margin: 55px 0px 75px 0px; }
-        .main_wrapper .text_wrapper .text h1 {
+        .main_wrapper .text_wrapper .text h3 {
           font-size: 24px;
           font-weight: 600;
           margin: 15px 0px; }
@@ -547,7 +547,7 @@
           .main_wrapper .text_wrapper .text p span {
             color: #0d5899;
             font-weight: 600; }
-        .main_wrapper .text_wrapper .text h2 {
+        .main_wrapper .text_wrapper .text h4 {
           font-size: 20px;
           font-weight: 500;
           margin: 15px 0px; }
@@ -1087,7 +1087,7 @@
         font-size: 26px; }
       .main_wrapper .text_wrapper .text {
         margin: 40px 0px 55px 0px; }
-        .main_wrapper .text_wrapper .text h1 {
+        .main_wrapper .text_wrapper .text h3 {
           font-size: 22px;
           font-weight: 600;
           margin: 15px 0px; }
@@ -1104,7 +1104,7 @@
           .main_wrapper .text_wrapper .text p span {
             color: #0d5899;
             font-weight: 600; }
-        .main_wrapper .text_wrapper .text h2 {
+        .main_wrapper .text_wrapper .text h4 {
           font-size: 18px;
           font-weight: 500;
           margin: 15px 0px; }
@@ -1585,7 +1585,7 @@
       font-size: 24px; }
     .main_wrapper .text_wrapper .text {
       margin: 40px 0px 55px 0px; }
-      .main_wrapper .text_wrapper .text h1 {
+      .main_wrapper .text_wrapper .text h3 {
         font-size: 20px;
         font-weight: 600;
         margin: 15px 0px; }
@@ -1602,7 +1602,7 @@
         .main_wrapper .text_wrapper .text p span {
           color: #0d5899;
           font-weight: 600; }
-      .main_wrapper .text_wrapper .text h2 {
+      .main_wrapper .text_wrapper .text h4 {
         font-size: 16px;
         font-weight: 500;
         margin: 15px 0px; }
@@ -2164,7 +2164,7 @@
       font-size: 18px; }
     .main_wrapper .text_wrapper .text {
       margin: 20px 0px 20px 0px; }
-      .main_wrapper .text_wrapper .text h1 {
+      .main_wrapper .text_wrapper .text h3 {
         font-size: 18px;
         font-weight: 600;
         margin: 10px 0px; }
@@ -2181,7 +2181,7 @@
         .main_wrapper .text_wrapper .text p span {
           color: #0d5899;
           font-weight: 600; }
-      .main_wrapper .text_wrapper .text h2 {
+      .main_wrapper .text_wrapper .text h4 {
         font-size: 14px;
         font-weight: 500;
         margin: 10px 0px; }
@@ -2691,7 +2691,7 @@
       font-size: 16px; }
     .main_wrapper .text_wrapper .text {
       margin: 20px 0px 20px 0px; }
-      .main_wrapper .text_wrapper .text h1 {
+      .main_wrapper .text_wrapper .text h3 {
         font-size: 15px;
         font-weight: 600;
         margin: 10px 0px; }
@@ -2708,7 +2708,7 @@
         .main_wrapper .text_wrapper .text p span {
           color: #0d5899;
           font-weight: 600; }
-      .main_wrapper .text_wrapper .text h2 {
+      .main_wrapper .text_wrapper .text h4 {
         font-size: 14px;
         font-weight: 500;
         margin: 10px 0px; }
