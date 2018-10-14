@@ -208,9 +208,10 @@ a {
   padding-bottom: 30px; }
 
 .services_head_text p {
-  font-size: 24px; }
+  font-size: 24px;
+  margin: 0px 40px; }
 
-.services_list_title > p, h2 {
+.services_list_title p, .services_list_title h2 {
   font-size: 40px;
   font-weight: 600;
   padding-top: 130px;

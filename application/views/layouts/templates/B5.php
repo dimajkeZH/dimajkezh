@@ -4,7 +4,7 @@
 		<?php foreach($DATA as $key => $val): ?>
 		<div class="catalog_item">
 			<div class="catalog_item_text">
-				<h3 class="catalog_item_title"><?php echo $val['TITLE'] ? 'Марки автобусов из '.$val['TITLE'] : ''; ?></h3>
+				<h3 class="catalog_item_title"><?php echo $val['TITLE'] ? 'Модели из '.$val['TITLE'] : ''; ?></h3>
 				<ul>
 					<?php foreach($val['LIST'] as $listkey => $listval): ?>
 						<?php if($listval['STATE_LINK']): ?>

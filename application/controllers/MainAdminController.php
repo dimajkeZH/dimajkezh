@@ -126,18 +126,7 @@ class MainAdminController extends AdminController {
 			$this->render($content);
 		}
 	}
-
-
-	public function catalogCitiesAction(){
-		$this->isAuth();
-		$this->settings();
-		$content = $this->model->catalogCitiesContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
-		}else{
-			$this->render($content);
-		}
-	}
+	
 
 	public function catalogBusesAction(){
 		$this->isAuth();

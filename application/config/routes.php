@@ -89,14 +89,6 @@ return [
 		'action' => 'reportActions',
 	],
 	//catalogs
-	'admin/catalog/cities' => [
-		'controller' => 'mainAdmin',
-		'action' => 'catalogCities',
-	],
-	'admin/catalog/cities/[0-9]{1,}' => [
-		'controller' => 'mainAdmin',
-		'action' => 'catalogCities',
-	],
 
 	'admin/catalog/buses' => [
 		'controller' => 'mainAdmin',

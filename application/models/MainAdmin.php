@@ -182,17 +182,6 @@ class MainAdmin extends Admin {
 
 
 
-	public function catalogCitiesContent($route){
-		if(isset($route['param']) && ($route['param'] > 0)){
-			$return['CONTENT']['ID'] = $route['param'];
-			$return['CONTENT']['PAGE'] = $this->getCity($route['param']);
-		}else{
-			$return['CONTENT']['ID'] = 0;
-			$return['CONTENT']['PAGE'] = $this->listCities();
-		}
-		return $return;
-	}
-
 	public function catalogBusesContent($route){
 		if(isset($route['param']) && ($route['param'] > 0)){
 			$return['CONTENT']['ID'] = $route['param'];
@@ -462,21 +451,8 @@ class MainAdmin extends Admin {
 		return "<div class='forma_group'><p>$cmsTitle</p><div class='forma_group_item file'><input autocomplete='off' type='file' name='$varName' title='$value'><p class='forma_group_item_description'>$cmsDescr</p></div></div>";
 	}
 
-
-	private function listCities(){
-		$return = '';
-
-		return $return;
-	}
-
-	private function getCity($param){
-		$return = '';
-
-		return $return;
-	}
-
 	private function listBuses(){
-		$return = '';
+		$return = $this->db->row('SELECT DC.NAME as COUNTRY, DC.IMAGE as COUNTRY_IMAGE, DB.TITLE as MARK, DB.IMAGE_OUTER, DB.IMAGE_INNER FROM DATA_BUSES as DB INNER JOIN DATA_COUNTRIES as DC ON DC.ID = DB.ID_COUNTRY ORDER BY DC.SERIAL_NUMBER ASC, DB.SERIAL_NUMBER ASC');
 
 		return $return;
 	}
@@ -488,7 +464,7 @@ class MainAdmin extends Admin {
 	}
 
 	private function listMinivans(){
-		$return = '';
+		$return = $this->db->row('SELECT DC.NAME as COUNTRY, DC.IMAGE as COUNTRY_IMAGE, DM.TITLE as MARK, DM.IMAGE_OUTER, DM.IMAGE_INNER FROM DATA_MINIVANS as DM INNER JOIN DATA_COUNTRIES as DC ON DC.ID = DM.ID_COUNTRY ORDER BY DC.SERIAL_NUMBER ASC, DM.SERIAL_NUMBER ASC');
 
 		return $return;
 	}
@@ -500,7 +476,7 @@ class MainAdmin extends Admin {
 	}
 
 	private function listNews(){
-		$return = '';
+		$return = $this->db->row('SELECT TITLE, CONCAT(DATE_ADD, " ", TIME_ADD) as DATE, ON_INDEX FROM DATA_NEWS ORDER BY DATE_ADD DESC, TIME_ADD DESC');
 
 		return $return;
 	}
@@ -512,7 +488,7 @@ class MainAdmin extends Admin {
 	}
 
 	private function listVacancies(){
-		$return = '';
+		$return = $this->db->row('SELECT * FROM DATA_VACANCIES');
 
 		return $return;
 	}

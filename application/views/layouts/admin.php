@@ -30,7 +30,6 @@
 						</li>
 						<li class="header_nav_content_item">
 							<ul>
-								<li><a class="Go" href="/admin/catalog/cities">Города</a></li>
 								<li><a class="Go" href="/admin/catalog/buses">Автобусы</a></li>
 								<li><a class="Go" href="/admin/catalog/minivans">Микроавтобусы</a></li>
 								<li><a class="Go" href="/admin/catalog/news">Новости</a></li>
