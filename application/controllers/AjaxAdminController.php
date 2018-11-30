@@ -21,9 +21,6 @@ class AjaxAdminController extends AdminController {
 	const MESSAGE__DELETE_GOOD = 'Данные успешно удалены';
 	const MESSAGE__DELETE_BAD = 'Удаление данных не произошло';
 
-	const URI_CHECK_GOOD = 'Ссылка свободна для использования';
-	const URI_CHECK_BAD = 'Ссылка уже используется';
-
 	public function saveConfigsAction(){
 		$this->settings();
 		if($this->post){

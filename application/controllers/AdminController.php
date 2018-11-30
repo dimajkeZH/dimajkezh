@@ -35,6 +35,11 @@ abstract class AdminController extends Controller {
 		if(!$this->isSupportedMethod){
 			$this->model->message(false, self::NOT_SUPPORTED_METHOD);
 		}
+
+		if(isset($_POST['DATA'])){
+			$this->post = json_decode($_POST['DATA'], true);
+		}
+		$this->files = $_FILES;
 	}
 
 	public function render($iscontent = false){

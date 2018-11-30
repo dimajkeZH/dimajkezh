@@ -70,36 +70,8 @@ $(function(){
 		}
 	}); 
 });
-/* Открытие модального окна */
-function modalOpen (){ 
-	$(".modal_wnd_inner").fadeIn(400); 
-	$(".modal_wnd_wrapper").fadeIn(400); 
-} 
-function modalClose (){ 
-	$(".modal_wnd_inner").fadeOut(400); 
-	$(".modal_wnd_wrapper").fadeOut(400); 
-}
-/* Скрыть элемент */
-function hideThis(THIS){
-	//$(THIS).parent().parent().parent().find('.form_content').toggleClass('hide');
-	let box = $(THIS).closest('.block_form').find('.form_content');
-	box.toggleClass('hide');
-	if(box.hasClass('hide')){
-		$(THIS).text('Развернуть');
-	}else{
-		$(THIS).text('Свернуть');
-	}
-	return false;
-}
-/*удалить элемент*/
-function removeThis(THIS){
-	let box = $(THIS).parent().parent().parent()[0];
-	let boxName = $(box).find('p.form_title')[0].innerText;
-	if(confirm('Вы действительно хотите удалить блок "'+boxName+'"?\r\n\r\n(Блок удалится ТОЛЬКО после нажатия на кнопку "Сохранить")')){
-		$(box).hide(500, function(){ $(box).remove(); });
-	}
-	return false;
-}
+
+
 
 
 //
@@ -264,28 +236,7 @@ function addTable(THIS){
 	return false;
 }
 
-//
-function checkURI(THIS){
-	let uri = THIS.value;
-	let parent = $(THIS).closest('.form_content')[0];
-	let input_ID = $(parent).find('input[name=ID_PAGE]')[0];
-	let input_TYPE = $(parent).find('input[name=ID_TYPE]')[0];
-	let ID = input_ID.value;
-	let TYPE = input_TYPE.value;
 
-	let uri_data = new FormData();
-	uri_data.append('DATA', JSON.stringify({
-		'ID_PAGE': ID,
-		'ID_TYPE': TYPE,
-		'URI': uri
-	}));
-
-	new api('api').send('/admin/api/uri', uri_data, checkURIafter);
-}
-//
-function checkURIafter(msg, status = null){
-	message.show(msg, status);
-}
 
 //
 function addImage(THIS){
@@ -302,47 +253,12 @@ function addImage(THIS){
 }
 
 
-//
-function addBlock(){
-	let block_value = document.getElementById('selectedBlock').value;
-	if(block_value == '-1'){
-		alert('Нужно выбрать блок');
-		return false;
-	}
-	//let id_page = $('.form_content').find('input[name=ID_PAGE]')[0].value;
-
-	let block_data = new FormData();
-	block_data.append('DATA', JSON.stringify({
-		'BLOCK': block_value,
-	}));
-	loader.show();
-	hideAllBlocks(false);
-	new api('api').send('/admin/block', block_data, loadBlock);
-	modalClose();
-	return false;
-}
-
-function loadBlock(content){
-	let box = $('.main_content_info').find('.mCSB_container')[0];
-	$(box).append(content);
-}
 
 
 
-function showMessage(msg, status = null){
-	message.show(msg, status);
-	if(status != false){
-		updTree();
-	}
-}
 
-function updTree(){
-	new api('api').send('/admin/tree', {}, loadTree);
-}
-function loadTree(content){
-	$('.'+classSiteTree).html(content);
-	custormScrollTree();
-}
+
+
 
 function Change(uri){
 	console.clear();
@@ -371,7 +287,6 @@ function Change(uri){
 	//console.log(dataFILES);
 	new api('api').send(uri, dataFILES, afterChange);
 }
-
 function afterChange(message, status, data){
 	showMessage(message, status);
 	if(window.location.pathname == '/admin/site/pages' && status){
@@ -380,6 +295,8 @@ function afterChange(message, status, data){
 	console.log(window.location.pathname);
 	Redirect.go(window.location.pathname);
 }
+
+
 
 function Delete(uri){
 	loader.show();
@@ -394,12 +311,49 @@ function Delete(uri){
 		loader.hide();
 	}
 }
-
 function afterDelete(message, status, data){
 	showMessage(message, status);
 	window.location.pathname = '/admin/site/pages';
 	Redirect.go(window.location.pathname);
 }
+
+
+
+function addBus(id = 0){
+	new api('api').send('admin/catalog/buses/' + id, {}, afterAddBus);
+}
+function afterAddBus(message, status, data){
+	modalOpen();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function plus(This){
 	$(This).parent().parent().find("input").each(function(){
@@ -419,117 +373,98 @@ function minus(This){
 	});
 }
 
-function hideAllBlocks($hide = true){
-	$(function(){
-		if($hide){
-			if($('.form_content').length > 2){
-				$('.form_content').toggleClass('hide');
-				$('.block_hide').text('Развернуть');
-			}
-		}else{
-			let boxes = $('.form_content');
-			boxes.each(function(key, box){
-				if(!box.classList.contains('hide')){
-					$(box).addClass('hide');
-				}
-			});
-			$('.block_hide').text('Развернуть');
-		}
-	});
+
+
+//
+function checkURI(THIS){
+	let uri = THIS.value;
+	let parent = $(THIS).closest('.form_content')[0];
+	let input_ID = $(parent).find('input[name=ID]')[0];
+	let ID = input_ID.value;
+
+	let uri_data = new FormData();
+	uri_data.append('DATA', JSON.stringify({
+		'ID': ID,
+		'URI': uri
+	}));
+
+	new api('api').send('/admin/api/uri', uri_data, checkURIafter);
 }
+//
+function checkURIafter(data){
+	cms.show_message(data.message, data.status);
+}
+
 
 function checkNumber(THIS, e){
-	e.preventDefault();
-	console.log(THIS);
-	console.log(e);
 	let inputKey = e.key || e.originalEvent.key;
-	console.log(inputKey);
+	if((inputKey != 'Backspace') || (e.keyCode != 8)){
+		e.preventDefault();
 
-	let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
-	let rgxNumber = /[0-9]{1}/g;
-	let rgxResult = inputKey.match(rgxAll);
-	console.log(rgxResult);
+		let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
+		let rgxNumber = /[0-9]{1}/g;
+		let rgxResult = inputKey.match(rgxAll);
 
-	if((rgxResult != null) && (rgxResult.length == 1)){
-		if(inputKey.match(rgxNumber) != null){
-			$(THIS).find('input')[0].value += inputKey;
+		if((rgxResult != null) && (rgxResult.length == 1)){
+			if(inputKey.match(rgxNumber) != null){
+				$(THIS).find('input')[0].value += inputKey;
+			}
+			return false;
 		}
-		return false;
 	}
 }
 
-function addBus(id = 0){
-	new api('api').send('admin/catalog/buses/' + id, {}, afterAddBus);
+/* Открытие модального окна */
+function modalOpen (){ 
+	$(".modal_wnd_inner").fadeIn(400); 
+	$(".modal_wnd_wrapper").fadeIn(400); 
+} 
+function modalClose (){ 
+	$(".modal_wnd_inner").fadeOut(400); 
+	$(".modal_wnd_wrapper").fadeOut(400); 
 }
-
-function afterAddBus(message, status, data){
-	modalOpen();
-}
-
-function changeDescr(THIS){
-	let box_title = $('.modal_wnd_info_title');
-	let box_descr = $('.modal_wnd_info_content');
-	let box_type = $('#selectedBlock').val();
-
-	switch(box_type){
-		case '-1':
-			box_title.text('');
-			box_descr.text('');
-			break;
-		case 'H1':
-			box_title.text('Заголовок с формой заявки');
-			box_descr.text('Самый верхний блок на странице (хидер)');
-			break;
-		case 'H2':
-			box_title.text('Заголовок с картинками');
-			box_descr.text('Самый верхний блок на странице (хидер)');
-			break;
-		case 'B1':
-			box_title.text('Блок с таблицей');
-			box_descr.text('Таблица с заголовком и текстом');
-			break;
-		case 'B2':
-			box_title.text('Блок с мультитаблицей');
-			box_descr.text('Таблица с кнопками переключения между вкладками');
-			break;
-		case 'B3':
-			box_title.text('Текстовый блок');
-			box_descr.text('Блок с текстом и подзаголовокм');
-			break;
-		case 'B4':
-			box_title.text('Блок с картинками');
-			box_descr.text('Набор картинок с описанием');
-			break;
-		case 'B5':
-			box_title.text('Блок с ссылками');
-			box_descr.text('(Пока что не доступен)');
-			break;
-		case 'EXC1':
-			box_title.text('Уникальный блок для страниц Экскурсии');
-			box_descr.text('Заменяет все блоки и используется один для всей страницы');
-			break;
-		default:
-			box_title.text('---');
-			box_descr.text('---');
-			break;
+/* Скрыть элемент */
+function hideThis(THIS){
+	//$(THIS).parent().parent().parent().find('.form_content').toggleClass('hide');
+	let box = $(THIS).closest('.block_form').find('.form_content');
+	box.toggleClass('hide');
+	if(box.hasClass('hide')){
+		$(THIS).text('Развернуть');
+	}else{
+		$(THIS).text('Свернуть');
 	}
+	return false;
 }
 
-
-
-
-
-function getJSON(url, success = function(data){}) {
-	
-}
 
 
 function onLoadCMS(){
 	redirect = new Redirect('Go');
+
+	document.querySelectorAll('.forma_group_item.text_btn').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
+	});
+	document.querySelectorAll('.forma_group_item.number').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
+	});
 }
 
 function onRefreshCMS(){
 	redirect = new Redirect('Go');
+	document.querySelectorAll('.forma_group_item.text_btn').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
+	});
+	document.querySelectorAll('.forma_group_item.number').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
+	});
 }
 
 function now(step = 0){
@@ -549,16 +484,7 @@ function now(step = 0){
 	});
 	//check input value in input text btn
 	//console.log(document.getElementsByClassName('forma_group_item text_btn'));
-	document.querySelectorAll('.forma_group_item.text_btn').forEach(function(item, index){
-		item.addEventListener('keydown', function(e){
-			return checkNumber(this, e);
-		});
-	});
-	document.querySelectorAll('.forma_group_item.number').forEach(function(item, index){
-		item.addEventListener('keydown', function(e){
-			return checkNumber(this, e);
-		});
-	});
+
 /******************************* EVENTS END *******************************/
 
 

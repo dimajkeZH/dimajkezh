@@ -8,6 +8,9 @@ class ApiAdminController extends AdminController {
 
 	protected $SUPPORTED_METHODS = ['POST'];
 
+	const URI_CHECK_GOOD = 'Ссылка свободна для использования';
+	const URI_CHECK_BAD = 'Ссылка уже используется';
+
 
 	public function SiteTreeAction(){
 		if($this->model->isAuth()){
@@ -19,15 +22,15 @@ class ApiAdminController extends AdminController {
 	}
 
 	public function CheckURIAction(){
-		$this->settings();
-		if($this->post){
+		if($this->model->isAuth()){
+			$this->init();
 			if($this->model->checkURI($this->post)){
 				$this->model->message(true, self::URI_CHECK_GOOD);
 			}else{
 				$this->model->message(false, self::URI_CHECK_BAD);
 			}
 		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
+			$this->model->message(false, self::NOT_AUTH);
 		}
 	}
 

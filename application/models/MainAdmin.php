@@ -146,17 +146,18 @@ class MainAdmin extends Admin {
 					'CMS_TITLE'=> 'Раздел',
 					'DISABLED' => $result['MAY_HAVE_THE_PARENT'] ? False : True,
 				]),
+				/*
 				$this->get_page_content_struct([
 					'VAR'=>'CAN_BE_SUPPLEMENTED',
 					'VAL'=>$result['CAN_BE_SUPPLEMENTED'],
 					'CMS_TYPE'=> 'CB',
-					'CMS_TITLE'=> '',
+					'CMS_TITLE'=> 'Может быть родителем',
 				]),
-
+				*/
 				$this->get_page_content_struct([
 					'VAR'=>'LOC_NUMBER',
 					'VAL'=>$result['LOC_NUMBER'],
-					'CMS_TYPE'=> 'TEXT',
+					'CMS_TYPE'=> 'NUMBER_BTN',
 					'CMS_TITLE'=> 'Порядковый номер в списке',
 				]),
 

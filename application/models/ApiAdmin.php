@@ -65,7 +65,7 @@ class ApiAdmin extends Admin {
 	}
 
 	public function checkURI($post){
-		$ID_PAGE = $post['ID_PAGE'];
+		$ID_PAGE = $post['ID'];
 		$URI = $post['URI'];
 
 		$q = 'SELECT count(*) as `COUNT` FROM PAGES WHERE (ID NOT IN (:ID)) AND (URI LIKE :URI)';

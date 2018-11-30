@@ -52,7 +52,6 @@ class api{
 				success_callback(data);
 			},
 			error: function(e){
-				//console.log(e);
 				error_callback(e.responseText);
 			}
 		});
@@ -425,6 +424,8 @@ class EASY_CMS extends CMS_CORE{
 
 		document.title = this.cms_title;
 		this._init_tabs();
+
+		this.environment_loaded = true;
 	}
 
 	_init_tabs(){
@@ -462,8 +463,17 @@ class EASY_CMS extends CMS_CORE{
 		this._refresh_content(window.location.pathname + window.location.search);
 	}
 
-
 	load(){
+		let THIS = this;
+		let id = setInterval(function(){
+			if(THIS.content_loaded && THIS.tree_loaded){
+				clearInterval(id);
+				THIS.onload();
+			}
+		}, 5);
+	}
+
+	onload(){
 		this.cms_load = true;
 		this.content_loader = new Loader(this.loader_box_id);
 		this.content_loader.hide();
@@ -471,13 +481,22 @@ class EASY_CMS extends CMS_CORE{
 		this.onload_func();
 	}
 
+	
+
 
 	redirect(uri){
 		this._refresh_content(uri);
-		this.onrefresh_func();
+		let THIS = this;
+		let id = setInterval(function(){
+			if(THIS.content_loaded){
+				clearInterval(id);
+				THIS.onrefresh_func();
+			}
+		}, 5);
 	}
 
 	_refresh_tree(){
+		this.tree_loaded = false;
 		let THIS = this;
 		EASY_CMS.getJSON('/admin/api/site_tree', 'site tree', function callback(data){
 			if(data){
@@ -486,6 +505,7 @@ class EASY_CMS extends CMS_CORE{
 				tree_parent.innerHTML = '';
 				tree_parent.innerHTML = Components.get_tree(data, THIS.LINK_SITE_PAGE);
 				THIS._refresh_tree_scroll();
+				THIS.tree_loaded = true;
 			}
 		});
 	}
@@ -518,6 +538,7 @@ class EASY_CMS extends CMS_CORE{
 
 
 	_refresh_content(url = ''){
+		this.content_loaded = false;
 		let THIS = this;
 		EASY_CMS.getJSON(url, 'content', function callback(data){
 			if(data){
@@ -529,6 +550,7 @@ class EASY_CMS extends CMS_CORE{
 					THIS.show_message('error load content data', false);
 				}
 			}
+			THIS.content_loaded = true;
 		});
 	}
 
@@ -873,9 +895,17 @@ class Components{
 			variable = item.VAR,
 			cmsTitle = item.CMS_TITLE,
 			cmsDescr = item.CMS_DESCR,
-			cmsParent = type == FIELD_TYPES.CMB() ? parent : null;
+			cmsParent = type == FIELD_TYPES.CMB() ? parent : null,
+			events = item.EVENTS.length != 0 ? item.EVENTS : null;
 		let startBox = "<div class='forma_group'><p>" + cmsTitle + "</p>",
 			endBox = "<p class='forma_group_item_description'>" + cmsDescr + "</p></div></div>";
+
+		let events_str = '';
+		if(events != null){
+			Object.keys(events).forEach(function(key){
+				events_str += " " + key + "='" + events[key] + "'";
+			});
+		}
 
 		if(type == null){
 			console.log(item);
@@ -883,17 +913,17 @@ class Components{
 
 		switch(type){
 			case FIELD_TYPES.TEXT():
-				return startBox + Components._get_html_field__text(value, variable, disabled) + endBox;
+				return startBox + Components._get_html_field__text(value, variable, disabled, events_str) + endBox;
 			case FIELD_TYPES.NUMBER():
-				return startBox + Components._get_html_field__number(value, variable, disabled) + endBox;
+				return startBox + Components._get_html_field__number(value, variable, disabled, events_str) + endBox;
 			case FIELD_TYPES.TEXT_AREA():
-				return startBox + Components._get_html_field__text_area(value, variable, disabled) + endBox;
+				return startBox + Components._get_html_field__text_area(value, variable, disabled, events_str) + endBox;
 			case FIELD_TYPES.NUMBER_BTN():
-				return startBox + Components._get_html_field__number_btn(value, variable, disabled) + endBox;
+				return startBox + Components._get_html_field__number_btn(value, variable, disabled, events_str) + endBox;
 			case FIELD_TYPES.FILE():
-				return startBox + Components._get_html_field__file(value, variable, disabled) + endBox;
+				return startBox + Components._get_html_field__file(value, variable, disabled, events_str) + endBox;
 			case FIELD_TYPES.CMB():
-				return startBox + Components._get_html_field__cmb(value, variable, disabled, cmsParent) + endBox;
+				return startBox + Components._get_html_field__cmb(value, variable, disabled, events_str, cmsParent) + endBox;
 			case FIELD_TYPES.CB():
 				return startBox + Components._get_html_field__cb() + endBox;
 			case null:
@@ -901,27 +931,27 @@ class Components{
 		}
 	}
 
-	static _get_html_field__text(value, varName, disabled){
-		return "<div class='forma_group_item text'><input " + (disabled ? 'disabled ': '') + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "'>";
+	static _get_html_field__text(value, varName, disabled, events){
+		return "<div class='forma_group_item text'><input " + (disabled ? 'disabled ': '') + events + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "'>";
 	}
 
-	static _get_html_field__number(value, varName, disabled){
-		return "<div class='forma_group_item text'><input " + (disabled ? 'disabled ': '') + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "' pattern='[0-9]{1,}'>";
+	static _get_html_field__number(value, varName, disabled, events){
+		return "<div class='forma_group_item text'><input " + (disabled ? 'disabled ': '') + events + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "' pattern='[0-9]{1,}'>";
 	}
 
-	static _get_html_field__text_area(value, varName, disabled){
-		return "<div class='forma_group_item textarea'><textarea " + (disabled ? 'disabled ': '') + "autocomplete='off' name='" + (!disabled ? varName : '') + "'>" + (value != '' ? value : '<p></p>') + "</textarea>";
+	static _get_html_field__text_area(value, varName, disabled, events){
+		return "<div class='forma_group_item textarea'><textarea " + (disabled ? 'disabled ': '') + events + "autocomplete='off' name='" + (!disabled ? varName : '') + "'>" + (value != '' ? value : '<p></p>') + "</textarea>";
 	}
 
-	static _get_html_field__number_btn(value, varName, disabled){
-		return "<div class='forma_group_item text_btn'><input " + (disabled ? 'disabled ': '') + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "' pattern='[0-9]{1,}'><div class='text_btns'><div class='btn_next' onclick='plus(this)'><p>+</p></div><div class='btn_prev' onclick='minus(this)'><p>-</p></div></div>";
+	static _get_html_field__number_btn(value, varName, disabled, events){
+		return "<div class='forma_group_item text_btn'><input " + (disabled ? 'disabled ': '') + events + "autocomplete='off' type='text' name='" + (!disabled ? varName : '') + "' value='" + value + "' pattern='[0-9]{1,}'><div class='text_btns'><div class='btn_next' onclick='plus(this)'><p>+</p></div><div class='btn_prev' onclick='minus(this)'><p>-</p></div></div>";
 	}
 
-	static _get_html_field__file(value, varName, disabled){
-		return "<div class='forma_group_item file'><input " + (disabled ? 'disabled ': '') + "autocomplete='off' type='file' name='" + (!disabled ? varName : '') + "' title='" + value + "'>";
+	static _get_html_field__file(value, varName, disabled, events){
+		return "<div class='forma_group_item file'><input " + (disabled ? 'disabled ': '') + events + "autocomplete='off' type='file' name='" + (!disabled ? varName : '') + "' title='" + value + "'>";
 	}
 
-	static _get_html_field__cmb(value, varName, disabled, parent){
+	static _get_html_field__cmb(value, varName, disabled, events, parent){
 		let selected = ' selected',
 			curselected = '';
 		if(parent != null){
@@ -937,7 +967,7 @@ class Components{
 		}else{
 			parent = '';
 		}
-		return "<div class='forma_group_item select'><select " + (disabled ? 'disabled ': '') + "name='" + (!disabled ? varName : '') + "'>" + parent + "</select>";
+		return "<div class='forma_group_item select'><select " + (disabled ? 'disabled ': '') + events + "name='" + (!disabled ? varName : '') + "'>" + parent + "</select>";
 	}
 
 	static _get_html_field__cb(){
