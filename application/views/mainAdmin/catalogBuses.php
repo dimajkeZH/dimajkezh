@@ -2,7 +2,7 @@
 	<div class="main_content_head">
 		<p class="main_content_head_title">Автобусы</p>
 		<div class="buttons">
-			<button class="add">Добавить запись</button>
+			<button class="add" onclick="addBus(this)">Добавить запись</button>
 		</div>
 	</div>
 	<div class="main_content_info">

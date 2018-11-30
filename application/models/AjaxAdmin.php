@@ -276,42 +276,6 @@ class AjaxAdmin extends Admin {
 
 
 
-	public function getBlockHTML($post){
-		$block = $post['BLOCK'];
-		$block_path = $_SERVER['DOCUMENT_ROOT'].self::TEMPLATES_DIR.$block.'.php';
-		if(file_exists($block_path)){
-			ob_start();
-			$ID_PAGE_TEMPLATE = $ID = -1;
-			require $block_path;
-			return ob_get_clean();
-		}
-	}
-
-	public function checkURI($post){
-		$ID_PAGE = $post['ID_PAGE'];
-		$URI = $post['URI'];
-
-		$q = 'SELECT count(*) as `COUNT` FROM PAGES WHERE (ID NOT IN (:ID)) AND (URI LIKE :URI)';
-		$params = [
-			'ID' => $ID_PAGE, 
-			'URI' => $URI
-		];
-		$count = $this->db->column($q, $params);
-		if($count == 0){
-			return true;
-		}
-		return false;
-	}
-
-
-
-
-
-
-
-
-
-
 
 
 	private function switchDELTemplate($TMPL_TYPE, $ID_PAGE_TEMPLATE){

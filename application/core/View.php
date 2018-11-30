@@ -11,63 +11,21 @@ class View {
 	const VIEW_DIR = 'application/views/';
 
 	public function __construct($route) {
-		$this->route = $route;
-		$this->path = $route['action'].'/index';
+		$this->route = $route;	
 		$this->admpath = $route['controller'].'/'.$route['action'];
 	}
 
-	public function render($type, $headers, $vars = [], $views = []){
-		//debug([$type, $headers, $vars, $views]);
-		//debug($views);
-		if(count($views) == 0){
-			if($type == 1){
-				$views = [0 => $this->path];
-			}else{
-				$views = [0 => 'main/empty'];
-				$vars = [0 => []];
-			}	
-		}
-		//debug($views);
-		$content = '';
-		switch($type){
-			case 1:
-				$content = $this->fullRender($vars, $views[0]);
-				break;
-			case 2:
-				$content = $this->tmplRender($vars, $views);
-				break;
-		}
-		extract($headers);
-		unset($headers);
-		$layout = self::VIEW_DIR."layouts/$this->layout.php";
-		if(file_exists($layout)){
-			require $layout;
-		}
-		exit;
-	}
-
-	public function renderAdmin($headers, $vars = []){
-		$path = self::VIEW_DIR."$this->admpath.php";
-		//debug([$path, file_exists($path)]);
+	public function render($headers = [], $vars = [], $views = ''){
+		#debug([$this->route, $headers, $vars, $views]);
+		$this->path = 
+			($views != '') ? 
+			($this->route['controller'] . '/' . $views) : 
+			($this->route['controller'] . '/' . $this->route['action']);
+		$path = self::VIEW_DIR . $this->route['controller'] . "/$views.php";
+		#debug([$vars, $views, $path, file_exists($path)]);
 		if(file_exists($path)) {
-			extract($vars);
-			unset($vars);
-			ob_start();
-			require $path;
-			$content = ob_get_clean();
-			$layout = self::VIEW_DIR."layouts/$this->layout.php";
-			if(file_exists($layout)){
-				extract($headers);
-				unset($headers);
-				require $layout;
-			}
-		}
-	}
-
-	private function fullRender($vars, $views){
-
-		$path = self::VIEW_DIR."$views.php";
-		if(file_exists($path)) {
+			extract($headers);
+			unset($headers);
 			extract($vars);
 			unset($vars);
 			if(isset($CONTENT[0])AND(count($CONTENT) == 1)){
@@ -75,30 +33,35 @@ class View {
 			}
 			ob_start();
 			require $path;
-			return ob_get_clean();
-		}
-	}
-
-	private function tmplRender($vars, $views){
-		$content = '';
-		for($i = 0; $i < max(count($views), count($vars)); $i++){
-			$content .= $this->fullRender($vars[$i], $views[$i]);
-		}
-		return $content;
-	}
-
-	public function outputAjax($headers = [], $vars = []){
-		$content = '';
-		$path = self::VIEW_DIR."/$this->admpath.php";
-		if(file_exists($path)) {
-			extract($vars);
-			unset($vars);
-			ob_start();
-			require $path;
 			$content = ob_get_clean();
+		}else{
+			$content = '';
 		}
-		return $content;
+		$layout = self::VIEW_DIR."layouts/$this->layout.php";
+		if(file_exists($layout)){
+			require $layout;
+		}
+		exit;
 	}
+
+	public function renderAdmin($iscontent){
+		$content = '';
+		if($iscontent){
+			$path = self::VIEW_DIR . $this->route['controller'] . '/' . $this->route['action'] . '.php';
+			#debug([$path, file_exists($path)]);
+			if(file_exists($path)){
+				ob_start();
+				require $path;
+				$content = ob_get_clean();
+			}
+		}
+		$layout = self::VIEW_DIR."layouts/$this->layout.php";
+		if(file_exists($layout)){
+			require $layout;
+		}
+	}
+
+
 
 	public function redirect($url) {
 		header('location: '.$url);
@@ -114,6 +77,8 @@ class View {
 			$content = ob_get_clean();
 			$title = 'Страница не существует.';
 			require self::VIEW_DIR.'layouts/default.php';
+		}else{
+			echo "<h1><center>error: $code</center></h1>";
 		}
 		exit;
 	}

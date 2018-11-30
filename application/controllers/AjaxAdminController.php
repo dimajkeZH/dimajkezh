@@ -7,6 +7,8 @@ use application\models\CronAdmin;
 
 class AjaxAdminController extends AdminController {
 
+	protected $SUPPORTED_METHODS = ['POST'];
+
 	private $post;
 	private $files;
 
@@ -100,28 +102,6 @@ class AjaxAdminController extends AdminController {
 	}
 
 
-
-	public function getBlockAction(){
-		$this->settings();
-		if($this->post){
-			$this->model->message(true, $this->model->getBlockHTML($this->post));
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
-	}
-
-	public function checkURIAction(){
-		$this->settings();
-		if($this->post){
-			if($this->model->checkURI($this->post)){
-				$this->model->message(true, self::URI_CHECK_GOOD);
-			}else{
-				$this->model->message(false, self::URI_CHECK_BAD);
-			}
-		}else{
-			$this->model->message(false, self::MESSAGE__NO_VALUES);
-		}
-	}
 
 
 	private function settings(){

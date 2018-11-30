@@ -1,9 +1,17 @@
 /******************************* VARS *******************************/
-let classSiteTree = 'main_nav';
-let message = new Message(),
-	loader = new Loader('.loader_box'),
-	redirect = new Redirect('Go');
+let cms, redirect;
 /******************************* VARS END *******************************/
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13,6 +21,7 @@ let message = new Message(),
 /* табы */
 (function($){
 	$.fn.tabs = function(){
+		/*
 		var nav = $(this).find('.header_nav_list'),
 			navLis = $(this).find('.header_nav_list_item'),
 			content = $(this).find('.header_nav_content'),
@@ -35,6 +44,7 @@ let message = new Message(),
 			contentLi.addClass('active');
 			$(this).addClass('active');
 		});
+		*/
 	}
 })(jQuery);
 /* Смена блоков местами */
@@ -270,7 +280,7 @@ function checkURI(THIS){
 		'URI': uri
 	}));
 
-	new api('api').send('/admin/uri', uri_data, checkURIafter);
+	new api('api').send('/admin/api/uri', uri_data, checkURIafter);
 }
 //
 function checkURIafter(msg, status = null){
@@ -318,37 +328,6 @@ function loadBlock(content){
 }
 
 
-//скролл контента
-function custormScrollContent(){
-	$(".main_content_info").mCustomScrollbar();
-}
-//скролл дерева
-function custormScrollTree(){
-	//очищаем список классов
-	$(".main_nav").attr('class', 'main_nav');
-	//включаем развёртывание подразделов
-	$('.main_nav_list_title').on('click', function () {
-		let content = $(this).next();
-		let parent = $(this).parent();
-		if (parent.hasClass('active')) {
-			parent.removeClass('active');
-			content.stop().slideUp(400);
-		} else {
-			$('.main_nav_list.active')
-				.removeClass('active')
-				.find('.main_nav_list_item')
-				.stop()
-				.slideUp(400);
-			parent.addClass('active');
-			content.stop().slideDown(400);
-		}
-	});
-	//включаем скролл
-	$(".main_nav").mCustomScrollbar();
-	//включаем кастомный редирект
-	//customRedirect();
-	redirect = new Redirect('Go');
-}
 
 function showMessage(msg, status = null){
 	message.show(msg, status);
@@ -460,10 +439,17 @@ function hideAllBlocks($hide = true){
 }
 
 function checkNumber(THIS, e){
-	let inputKey = e.originalEvent.key;
+	e.preventDefault();
+	console.log(THIS);
+	console.log(e);
+	let inputKey = e.key || e.originalEvent.key;
+	console.log(inputKey);
+
 	let rgxAll = /[0-9A-Za-zА-Я-а-я\W]{1}/g;
 	let rgxNumber = /[0-9]{1}/g;
 	let rgxResult = inputKey.match(rgxAll);
+	console.log(rgxResult);
+
 	if((rgxResult != null) && (rgxResult.length == 1)){
 		if(inputKey.match(rgxNumber) != null){
 			$(THIS).find('input')[0].value += inputKey;
@@ -472,29 +458,113 @@ function checkNumber(THIS, e){
 	}
 }
 
+function addBus(id = 0){
+	new api('api').send('admin/catalog/buses/' + id, {}, afterAddBus);
+}
+
+function afterAddBus(message, status, data){
+	modalOpen();
+}
+
+function changeDescr(THIS){
+	let box_title = $('.modal_wnd_info_title');
+	let box_descr = $('.modal_wnd_info_content');
+	let box_type = $('#selectedBlock').val();
+
+	switch(box_type){
+		case '-1':
+			box_title.text('');
+			box_descr.text('');
+			break;
+		case 'H1':
+			box_title.text('Заголовок с формой заявки');
+			box_descr.text('Самый верхний блок на странице (хидер)');
+			break;
+		case 'H2':
+			box_title.text('Заголовок с картинками');
+			box_descr.text('Самый верхний блок на странице (хидер)');
+			break;
+		case 'B1':
+			box_title.text('Блок с таблицей');
+			box_descr.text('Таблица с заголовком и текстом');
+			break;
+		case 'B2':
+			box_title.text('Блок с мультитаблицей');
+			box_descr.text('Таблица с кнопками переключения между вкладками');
+			break;
+		case 'B3':
+			box_title.text('Текстовый блок');
+			box_descr.text('Блок с текстом и подзаголовокм');
+			break;
+		case 'B4':
+			box_title.text('Блок с картинками');
+			box_descr.text('Набор картинок с описанием');
+			break;
+		case 'B5':
+			box_title.text('Блок с ссылками');
+			box_descr.text('(Пока что не доступен)');
+			break;
+		case 'EXC1':
+			box_title.text('Уникальный блок для страниц Экскурсии');
+			box_descr.text('Заменяет все блоки и используется один для всей страницы');
+			break;
+		default:
+			box_title.text('---');
+			box_descr.text('---');
+			break;
+	}
+}
+
+
+
+
+
+function getJSON(url, success = function(data){}) {
+	
+}
+
+
+function onLoadCMS(){
+	redirect = new Redirect('Go');
+}
+
+function onRefreshCMS(){
+	redirect = new Redirect('Go');
+}
+
+function now(step = 0){
+	return new Date().getTime() + step * 1000;
+}
 /******************************* FUNCTIONS END *******************************/
 
+
+
+
 /******************************* EVENTS *******************************/
+
 	//после полной загрузки страницы
-	(function($){
-		$(window).on("load",function(){
-			custormScrollContent();
-			custormScrollTree();
-			loader.hide();
-		});
-	})(jQuery);
-	//check input value in input text btn
-	$('.forma_group_item.text_btn').keydown(function(e){
-		return checkNumber(this, e);
+	document.addEventListener('DOMContentLoaded', function(){
+		cms = new EASY_CMS('main_cms', onLoadCMS, onRefreshCMS);
+		cms.run();
 	});
-	$('.forma_group_item.number').keydown(function(e){
-		return checkNumber(this, e);
+	//check input value in input text btn
+	//console.log(document.getElementsByClassName('forma_group_item text_btn'));
+	document.querySelectorAll('.forma_group_item.text_btn').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
+	});
+	document.querySelectorAll('.forma_group_item.number').forEach(function(item, index){
+		item.addEventListener('keydown', function(e){
+			return checkNumber(this, e);
+		});
 	});
 /******************************* EVENTS END *******************************/
 
+
+
 /******************************* SIMPLE CODE *******************************/
 	//свернуть все развёрнутые блоки после загрузки
-	hideAllBlocks();
+	//hideAllBlocks();
 	/* инициализация табов */
-	$('#tabs').tabs();
 /******************************* SIMPLE CODE END *******************************/

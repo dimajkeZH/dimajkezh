@@ -6,46 +6,101 @@ use application\controllers\UserController;
 
 class MainUserController extends UserController {
 
-	private function render($content){
-		$this->view->render(1, $this->model->getTitle($this->route), $content);
-	}
-
 	public function mainAction() {
-		$this->render($this->model->getContent($this->route));
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::USER_CHOICE,
+				$this->model::PAGELIST,
+			]
+		);
+		if($content){
+			$this->render($content);
+		}else{
+			$this->notFormed();
+		}
 	}
 
 	public function servicesAction() {
-		$this->render($this->model->getContent($this->route));
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::USER_CHOICE,
+				$this->model::PAGELIST,
+			]
+		);
+		if($content){
+			$this->render($content);
+		}else{
+			$this->notFormed();
+		}
 	}
 
 	public function busesAction() {
-		$this->render($this->model->getContent($this->route));
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::USER_CHOICE,
+				$this->model::PAGELIST,
+				$this->model::LOCATION,
+			]
+		);
+		if($content){
+			$this->render($content);
+		}else{
+			$this->notFormed();
+		}
 	}
 
 	public function minivansAction() {
-		$this->render($this->model->getContent($this->route));
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::USER_CHOICE,
+				$this->model::PAGELIST,
+				$this->model::LOCATION,
+			]
+		);
+		if($content){
+			$this->render($content);
+		}else{
+			$this->notFormed();
+		}
 	}
 
 	public function excursionsAction() {
-		$this->render($this->model->getContent($this->route));
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::USER_CHOICE,
+				$this->model::PAGELIST,
+			]
+		);
+		if($content){
+			$this->render($content);
+		}else{
+			$this->notFormed();
+		}
 	}
 
 	public function contactsAction() {
-		$this->render($this->model->getVacancies($this->route));
-	}
-
-	public function newsAction() {
-		$this->render($this->model->getNews($this->route));
-	}
-
-	public function busAction() {
-		$bus = $this->model->getBus($this->route);
-		if($bus){
-			$this->render($bus);
+		$content = $this->model->getContent(
+			$this->route,
+			[
+				$this->model::CONTENT,
+				$this->model::VACANCIESLIST,
+			]
+		);
+		if($content){
+			$this->render($content);
 		}else{
-			$this->notFound();
+			$this->notFormed();
 		}
-		
 	}
 
 }

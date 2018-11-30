@@ -29,20 +29,6 @@ return [
 
 
 
-	/* ADMIN DATA */
-	'admin/tree' => [
-		'controller' => 'mainAdmin',
-		'action' => 'getSiteTree',
-	],
-	'admin/block' => [
-		'controller' => 'ajaxAdmin',
-		'action' => 'getBlock',
-	],
-	'admin/uri' => [
-		'controller' => 'ajaxAdmin',
-		'action' => 'checkURI',
-	],
-	/* ADMIN DATA END */
 
 	/* ADMIN INNER PAGES */
 	//show settings cms
@@ -61,11 +47,7 @@ return [
 		'action' => 'siteSettings',
 	],
 
-	//main pages (show add[0]/show change[1+])
-	'admin/site/pagegr/[0-9]{1,}' => [
-		'controller' => 'mainAdmin',
-		'action' => 'sitePageGroups',
-	],
+
 	//child pages (show add[0]/show change[1+])
 	'admin/site/pages' => [
 		'controller' => 'mainAdmin',
@@ -75,6 +57,7 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'sitePages',
 	],
+
 	//reports
 	'admin/report/accounts' => [
 		'controller' => 'mainAdmin',
@@ -88,8 +71,8 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'reportActions',
 	],
-	//catalogs
 
+	// catalogs
 	'admin/catalog/buses' => [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogBuses',
@@ -98,7 +81,6 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogBuses',
 	],
-	
 	'admin/catalog/minivans' => [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogMinivans',
@@ -107,7 +89,6 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogMinivans',
 	],
-
 	'admin/catalog/news' => [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogNews',
@@ -116,7 +97,6 @@ return [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogNews',
 	],
-
 	'admin/catalog/vacancies' => [
 		'controller' => 'mainAdmin',
 		'action' => 'catalogVacancies',
@@ -126,6 +106,10 @@ return [
 		'action' => 'catalogVacancies',
 	],
 	/* ADMIN INNER PAGES END */
+
+
+
+
 
 	/* ADMIN AJAX */
 	//save config cms
@@ -160,19 +144,30 @@ return [
 	],
 	/* ADMIN AJAX END */
 
-	
+
+
+
+
+	/* ADMIN API */
+	'admin/api/site_tree' => [
+		'controller' => 'ApiAdmin',
+		'action' => 'SiteTree',
+	],
+	'admin/api/uri' => [
+		'controller' => 'ApiAdmin',
+		'action' => 'CheckURI',
+	],
+	/* ADMIN API END */
 
 
 
 
 
-
-		'' => [
+	/* USER */
+	'' => [
 		'controller' => 'MainUser',
 		'action' => 'main',
 	],
-
-
 
 	'uslugi' => [
 		'controller' => 'MainUser',
@@ -180,7 +175,7 @@ return [
 	],
 
 		'uslugi/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
+			'controller' => 'SecondUser',
 			'action' => 'services',
 		],
 
@@ -190,7 +185,7 @@ return [
 	],
 
 		'avtobusy/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
+			'controller' => 'SecondUser',
 			'action' => 'buses',
 		],
 
@@ -200,7 +195,7 @@ return [
 	],
 
 		'mikroavtobusy/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
+			'controller' => 'SecondUser',
 			'action' => 'minivans',
 		],
 
@@ -210,7 +205,7 @@ return [
 	],
 
 		'avtobusnyie_ekskursii/[0-9A-Za-z_]{1,}' => [
-			'controller' => 'TemplatesUser',
+			'controller' => 'SecondUser',
 			'action' => 'excursions',
 		],
 
@@ -220,17 +215,21 @@ return [
 	],
 
 	'news/[0-9A-Za-z_]{1,}' => [
-		'controller' => 'MainUser',
+		'controller' => 'OtherUser',
 		'action' => 'news',
 	],
-	
 
 	'[0-9A-Za-z_]{1,}' => [
-		'controller' => 'MainUser',
+		'controller' => 'OtherUser',
 		'action' => 'bus',
 	],
+	/* USER END */
 
 
+
+
+
+	/* USER AJAX */
 	'ajax/order' => [
 		'controller' => 'AjaxUser',
 		'action' => 'order',
@@ -240,4 +239,5 @@ return [
 		'controller' => 'AjaxUser',
 		'action' => 'feedback',
 	],
+	/* USER AJAX END */
 ];

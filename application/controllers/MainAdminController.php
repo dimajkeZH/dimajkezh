@@ -6,16 +6,36 @@ use application\controllers\AdminController;
 
 class MainAdminController extends AdminController {
 
+	protected $SUPPORTED_METHODS = ['GET', 'POST'];
+
+
 	public function mainAction(){	
 		$this->isAuth();
-		$this->settings();
-		$this->render($this->model->getContent());
+		$this->init();
+		if($this->isAjax){
+			$this->model->message(true, '', []);
+		}else{
+			$this->render();
+		}
 	}
+
+	public function configAction(){	
+		$this->isAuth();
+		$this->init();
+		if($this->isAjax){
+			$content = $this->model->configContent();
+			$this->model->message(true, '', $content);
+		}else{
+			$this->render();
+		}
+	}
+
+
 
 	public function authAction(){
 		if(!$this->model->isAuth()){
-			$this->settings('adminEmpty');
-			$this->render();
+			$this->init('adminEmpty');
+			$this->render(true);
 		}else{
 			$this->view->redirect('/admin/main');
 		}
@@ -38,165 +58,124 @@ class MainAdminController extends AdminController {
 
 
 
-	public function configAction(){	
-		$this->isAuth();
-		$this->settings();
-		$content = $this->model->configContent();
-		if($this->model->isAjax()){
-			$this->ajax($content);
-		}else{
-			$this->render($content);
-		}
-	}
-
 	public function siteContentAction(){	
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->siteContent();
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		if($this->isAjax){
+			$content = $this->model->siteContent();
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
-		}
-	}
-
-	public function siteSettingsAction(){	
-		$this->isAuth();
-		$this->settings();
-		$content = $this->model->siteSettingsContent();
-		if($this->model->isAjax()){
-			$this->ajax($content);
-		}else{
-			$this->render($content);
-		}
-	}
-
-	public function sitePageGroupsAction(){	
-		$this->isAuth();
-		$this->settings();
-		$content = $this->model->sitePageGroupsContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
-		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
 
 	public function sitePagesAction(){	
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->sitePagesContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['PAGE'], $this->model->sitePagesContent($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
+
+	public function siteSettingsAction(){	
+		$this->isAuth();
+		$this->init();
+		if($this->isAjax){
+			$content = $this->model->siteSettingsContent();
+			$this->model->message(true, '', $content);
+		}else{
+			$this->render();
+		}
+	}
+
+
+
 
 
 	public function reportAccountsAction(){
+		#debug($this->model->reportAccounts());
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->reportAccounts();
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['REPORT'], $this->model->reportAccounts());
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
-
 	public function reportSessionsAction(){
+		#debug($this->model->reportSessions($this->route));
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->reportSessions($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['REPORT'], $this->model->reportSessions($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
-
 	public function reportActionsAction(){
+		#debug($this->model->reportActions($this->route));
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->reportActions($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['REPORT'], $this->model->reportActions($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
 	
+
+
+
 
 	public function catalogBusesAction(){
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->catalogBusesContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		#debug($this->model->catalogBusesContent($this->route));
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['CATALOG'], $this->model->catalogBusesContent($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
-
 	public function catalogMinivansAction(){
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->catalogMinivansContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		#debug($this->model->catalogMinivansContent($this->route));
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['CATALOG'], $this->model->catalogMinivansContent($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
-
 	public function catalogNewsAction(){
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->catalogNewsContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		#debug($this->model->catalogNewsContent($this->route));
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['CATALOG'], $this->model->catalogNewsContent($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
 	}
-
 	public function catalogVacanciesAction(){
 		$this->isAuth();
-		$this->settings();
-		$content = $this->model->catalogVacanciesContent($this->route);
-		if($this->model->isAjax()){
-			$this->ajax($content);
+		$this->init();
+		#debug($this->model->catalogVacanciesContent($this->route));
+		if($this->isAjax){
+			$content = $this->outer_struct(self::PAGE_TYPES['CATALOG'], $this->model->catalogVacanciesContent($this->route));
+			$this->model->message(true, '', $content);
 		}else{
-			$this->render($content);
+			$this->render();
 		}
-	}
-
-
-
-
-
-
-	public function getSiteTreeAction(){
-		$this->model->message(true, $this->model->getSiteTreeHTML());
-	}
-
-
-
-	
-
-
-	private function settings($layout = 'admin'){
-		$this->view->layout = $layout;
-	}
-
-	private function render($content = []){
-		$this->view->renderAdmin($this->model->getHeaders(), $content);
-	}
-
-	private function ajax($content = []){
-		$out = $this->view->outputAjax($this->model->getHeaders(), $content);
-		$this->model->message(true, $out);
 	}
 
 }
